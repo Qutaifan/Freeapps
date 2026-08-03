@@ -1,0 +1,7 @@
+# Temporary CI test scaffolding
+
+This directory exists only inside the disposable `ci/temp-pr-branch`
+branch, used to open a throwaway PR that exercises the new
+`content-quality` and `compliance` GitHub Actions checks. It is never
+intended to be merged and will be deleted along with the branch once
+verification is complete.
