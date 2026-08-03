@@ -3,6 +3,7 @@ name: Deploy to Cloudflare Pages
 on:
   push:
     branches: [main]
+  pull_request: {}
 
 jobs:
   deploy:
@@ -10,6 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Deploy to Cloudflare Pages
+        # Only ever runs on an actual push to main. On a pull_request event
+        # this step (and the one below) are skipped, not failed, so the
+        # "deploy" check can report a real, honest result on PRs without
+        # ever touching production -- required_status_checks can require
+        # "deploy" on PRs without permanently locking out merges, since a
+        # required check that only ever runs on push:main can never report
+        # on a pull_request event at all.
+        if: github.event_name == 'push'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -17,7 +26,7 @@ jobs:
           command: pages deploy . --project-name=qutaifan-website --commit-dirty=true
 
       - name: Notify IndexNow (Bing / Yandex)
-        if: success()
+        if: github.event_name == 'push' && success()
         run: |
           KEY=f04b2b2b0e4ad248b406267e36386c55
           HOST=www.qutaifan.com
