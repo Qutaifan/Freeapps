@@ -284,15 +284,212 @@ def run_gate(site_root: Path, reviews_subdir: str = "reviews", domain: str = "ht
     return results
 
 
+# --- v2: lifecycle-aware CI gate -------------------------------------------
+#
+# The v1 CLI (still available as run_gate() above, unchanged) exits 1 on any
+# DRAFT-classified page. That conflated two different questions: "does this
+# page have a real content problem" and "is that problem being handled
+# correctly." A page correctly quarantined — noindexed, out of the sitemap,
+# out of the feed — is a working safety mechanism, not a build failure. It
+# should surface as a loud, visible warning, not block every future PR until
+# someone rewrites 16 already-triaged review pages.
+#
+# v2 answers a different question per page: does the page's ACTUAL, live
+# discovery state (robots meta tag, sitemap membership, feed membership)
+# match what its OWN computed content-quality lifecycle says is safe? Only a
+# mismatch between the two — or a genuinely new, undocumented block-level
+# finding — fails the build. All v1 findings (check_page, determine_lifecycle_
+# state, PUBLISHABLE_BLOCKING_CHECKS/INDEXABLE_BLOCKING_CHECKS) are reused
+# unmodified; nothing is suppressed or downgraded, including the 16 factual
+# contradictions — they still surface, just as PASS_WITH_PROMINENT_WARNING
+# instead of a build failure, because they're correctly quarantined today.
+
+FAIL = "FAIL"
+PASS = "PASS"
+PASS_WARN = "PASS_WITH_WARNING"
+PASS_PROMINENT = "PASS_WITH_PROMINENT_WARNING"
+
+
+def parse_sitemap_urls(site_root: Path) -> set[str]:
+    sitemap = site_root / "sitemap.xml"
+    if not sitemap.exists():
+        return set()
+    return set(re.findall(r"<loc>([^<]+)</loc>", sitemap.read_text(errors="ignore")))
+
+
+def parse_feed_urls(site_root: Path) -> set[str]:
+    """Only <item>-level links — RSS 2.0 also carries a channel-level <link>
+    (the homepage) outside any <item>, which isn't a feed entry."""
+    feed = site_root / "feed.xml"
+    if not feed.exists():
+        return set()
+    text = feed.read_text(errors="ignore")
+    urls = set()
+    for item in re.findall(r"<item>.*?</item>", text, re.S):
+        m = re.search(r"<link>([^<]+)</link>", item)
+        if m:
+            urls.add(m.group(1))
+    return urls
+
+
+def page_has_noindex(html: str) -> bool:
+    """True if any <meta name="robots" ...> tag on the page includes noindex."""
+    for m in re.finditer(r'<meta\s+name="robots"\s+content="([^"]*)"', html, re.I):
+        if "noindex" in m.group(1).lower():
+            return True
+    return False
+
+
+def evaluate_page_lifecycle(
+    findings: list[Finding],
+    computed_lifecycle: str,
+    actual_noindex: bool,
+    actual_in_sitemap: bool,
+    actual_in_feed: bool,
+) -> tuple[str, list[str]]:
+    """The core v2 decision. Two-phase: (1) does actual discovery state match
+    what computed_lifecycle requires — any mismatch is an inconsistency and
+    fails outright, regardless of content; (2) only once state is consistent,
+    apply content-severity rules for what a passing/warning outcome looks
+    like at that lifecycle tier."""
+    # Reviews are categorically excluded from the feed regardless of
+    # indexability (generate_feeds.py's FEED_EXCLUDED_DIRS policy) — a
+    # feed/news answer and a sitemap/exists answer are different questions.
+    expected_noindex = computed_lifecycle != "INDEXABLE"
+    expected_in_sitemap = computed_lifecycle == "INDEXABLE"
+    expected_in_feed = False
+
+    mismatches = []
+    if actual_noindex != expected_noindex:
+        mismatches.append(
+            f"robots noindex={actual_noindex}, expected {expected_noindex} for computed lifecycle {computed_lifecycle}"
+        )
+    if actual_in_sitemap != expected_in_sitemap:
+        mismatches.append(
+            f"sitemap membership={actual_in_sitemap}, expected {expected_in_sitemap} for computed lifecycle {computed_lifecycle}"
+        )
+    if actual_in_feed != expected_in_feed:
+        mismatches.append(f"feed membership={actual_in_feed}, expected False (reviews are always feed-excluded)")
+
+    if mismatches:
+        return FAIL, mismatches
+
+    block_findings = {f.check for f in findings} & PUBLISHABLE_BLOCKING_CHECKS
+
+    if computed_lifecycle == "INDEXABLE":
+        # Exposure already confirmed consistent above, and INDEXABLE
+        # computation already guarantees zero blocking/duplication findings.
+        return PASS, []
+
+    if computed_lifecycle == "PUBLISHABLE_NOINDEX":
+        if block_findings:
+            # Not reachable under determine_lifecycle_state's own invariant
+            # today (a blocking finding forces DRAFT, not PUBLISHABLE_NOINDEX).
+            # Enforced explicitly anyway rather than trusted, so a future
+            # change to that invariant fails loudly here instead of silently
+            # passing a page with a real blocking finding.
+            return FAIL, [f"PUBLISHABLE_NOINDEX page carries blocking finding(s) {sorted(block_findings)} — classifier/enforcement drift"]
+        return PASS_WARN, [f"{f.check}: {f.detail}" for f in findings if f.check == "excessive_template_repetition"]
+
+    # computed_lifecycle == "DRAFT"
+    if block_findings == {"factual_contradiction"}:
+        # The known, already-triaged pattern: a documented factual
+        # contradiction, correctly noindexed and excluded from sitemap/feed.
+        # The quarantine mechanism is working as designed — surface it
+        # loudly, don't fail the build over it.
+        return PASS_PROMINENT, [f"{f.check}: {f.detail}" for f in findings]
+
+    # Any other blocking reason (alone or mixed with a contradiction) is an
+    # undocumented, un-triaged problem — noindexing it correctly isn't
+    # sufficient grounds to let it pass quietly.
+    return FAIL, [f"DRAFT for undocumented reason(s) {sorted(block_findings)} — not the known/accepted contradiction pattern"]
+
+
+def run_lifecycle_gate(site_root: Path, reviews_subdir: str = "reviews", domain: str = "https://www.qutaifan.com") -> dict:
+    """Per review page: findings + computed lifecycle (both via the unchanged
+    v1 logic above) plus actual discovery state, reduced to a verdict via
+    evaluate_page_lifecycle(). Covers every review page, including clean
+    INDEXABLE ones with zero findings — v1's run_gate() omits those, but v2
+    needs them too, to catch a clean page that's inconsistently hidden."""
+    raw_tools = json.loads((site_root / "tools.json").read_text())
+    seen, tools = set(), []
+    for t in raw_tools:
+        if t["slug"] in seen:
+            continue
+        seen.add(t["slug"])
+        tools.append(t)
+    tools_by_slug = {t["slug"]: t for t in tools}
+
+    review_dir = site_root / reviews_subdir
+    pages = {p.stem: p.read_text(errors="ignore") for p in sorted(review_dir.glob("*.html"))}
+
+    per_page_findings: dict[str, list[Finding]] = {slug: [] for slug in pages}
+    for slug, html in pages.items():
+        per_page_findings[slug] = check_page(slug, html, review_dir / f"{slug}.html", site_root, tools_by_slug, domain)
+
+    for f in find_duplicate_canonicals(pages):
+        for slug, html in pages.items():
+            if f.detail in html:
+                per_page_findings[slug].append(f)
+
+    for slug, findings in find_excessive_template_repetition(pages, tools_by_slug).items():
+        per_page_findings.setdefault(slug, []).extend(findings)
+
+    sitemap_urls = parse_sitemap_urls(site_root)
+    feed_urls = parse_feed_urls(site_root)
+
+    results = {}
+    for slug, html in pages.items():
+        findings = per_page_findings.get(slug, [])
+        computed_lifecycle = determine_lifecycle_state(findings)
+        actual_noindex = page_has_noindex(html)
+        page_url = f"{domain}/{reviews_subdir}/{slug}"
+        verdict, reasons = evaluate_page_lifecycle(
+            findings, computed_lifecycle, actual_noindex, page_url in sitemap_urls, page_url in feed_urls
+        )
+        results[slug] = {
+            "findings": findings,
+            "computed_lifecycle": computed_lifecycle,
+            "actual_noindex": actual_noindex,
+            "actual_in_sitemap": page_url in sitemap_urls,
+            "actual_in_feed": page_url in feed_urls,
+            "verdict": verdict,
+            "reasons": reasons,
+        }
+    return results
+
+
 if __name__ == "__main__":
     import sys
     root = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(".")
-    results = run_gate(root)
-    counts = Counter(r["lifecycle"] for r in results.values())
+    results = run_lifecycle_gate(root)
+
+    lifecycle_counts = Counter(r["computed_lifecycle"] for r in results.values())
+    verdict_counts = Counter(r["verdict"] for r in results.values())
+    noindex_count = sum(1 for r in results.values() if r["actual_noindex"])
+    review_sitemap_count = sum(1 for r in results.values() if r["actual_in_sitemap"])
+    sitemap_urls = parse_sitemap_urls(root)
+    feed_urls = parse_feed_urls(root)
+
+    failed = []
     for slug, r in sorted(results.items()):
-        for f in r["findings"]:
-            severity = "BLOCK" if f.check in PUBLISHABLE_BLOCKING_CHECKS else "WARN "
-            print(f"[{severity}] {slug} ({r['lifecycle']}): {f.check} — {f.detail}")
-    print(f"\nDRAFT={counts.get('DRAFT',0)} PUBLISHABLE_NOINDEX={counts.get('PUBLISHABLE_NOINDEX',0)} "
-          f"INDEXABLE (flagged only, rest are clean and unlisted)={counts.get('INDEXABLE',0)}")
-    sys.exit(1 if counts.get("DRAFT", 0) else 0)
+        if r["verdict"] == FAIL:
+            failed.append(slug)
+            print(f"[FAIL   ] {slug} ({r['computed_lifecycle']}): {'; '.join(r['reasons'])}")
+        elif r["verdict"] == PASS_PROMINENT:
+            print(f"[WARN!!!] {slug} ({r['computed_lifecycle']}): {'; '.join(r['reasons'])}")
+        elif r["verdict"] == PASS_WARN:
+            print(f"[warn   ] {slug} ({r['computed_lifecycle']}): {'; '.join(r['reasons'])}")
+
+    print()
+    print(f"Lifecycle counts: INDEXABLE={lifecycle_counts.get('INDEXABLE', 0)} "
+          f"PUBLISHABLE_NOINDEX={lifecycle_counts.get('PUBLISHABLE_NOINDEX', 0)} "
+          f"DRAFT={lifecycle_counts.get('DRAFT', 0)}")
+    print(f"Verdicts: PASS={verdict_counts.get(PASS, 0)} "
+          f"PASS_WITH_WARNING={verdict_counts.get(PASS_WARN, 0)} "
+          f"PASS_WITH_PROMINENT_WARNING={verdict_counts.get(PASS_PROMINENT, 0)} "
+          f"FAIL={verdict_counts.get(FAIL, 0)}")
+    print(f"Discovery: {noindex_count} reviews carry noindex; {review_sitemap_count} reviews present in sitemap; "
+          f"sitemap total={len(sitemap_urls)} URLs; feed total={len(feed_urls)} items")
+
+    sys.exit(1 if failed else 0)

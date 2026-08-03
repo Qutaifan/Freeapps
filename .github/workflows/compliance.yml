@@ -12,5 +12,5 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Run AdSense head compliance check
-        run: python3 .github/scripts/check_adsense.py .
+      - name: Run compliance checks
+        run: python3 .github/scripts/compliance.py .
