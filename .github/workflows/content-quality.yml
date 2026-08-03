@@ -1,0 +1,16 @@
+name: Content Quality
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  content-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run content quality gate
+        run: python3 .github/scripts/content_quality.py .
