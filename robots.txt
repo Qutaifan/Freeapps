@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /reviews/chatgpt
 
 Sitemap: https://www.qutaifan.com/sitemap.xml
