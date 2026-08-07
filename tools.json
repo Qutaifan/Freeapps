@@ -1,0 +1,2287 @@
+[
+  {
+    "name": "ChatGPT",
+    "slug": "chatgpt",
+    "by": "OpenAI",
+    "blurb": "A widely used AI assistant.",
+    "category": "chatbots",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier",
+      "GPT-4o"
+    ],
+    "url": "https://chat.openai.com",
+    "review": "/reviews/chatgpt",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Claude",
+    "slug": "claude",
+    "by": "Anthropic",
+    "blurb": "Exceptional at long documents, coding, and nuanced reasoning.",
+    "category": "chatbots",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier",
+      "Claude Sonnet 4"
+    ],
+    "url": "https://claude.ai",
+    "review": "/reviews/claude",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Gemini",
+    "slug": "gemini",
+    "by": "Google",
+    "blurb": "Google's flagship AI — free with a Google account.",
+    "category": "chatbots",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Google Login"
+    ],
+    "url": "https://gemini.google.com",
+    "review": "/reviews/gemini",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Perplexity AI",
+    "slug": "perplexity-ai",
+    "by": "Perplexity",
+    "blurb": "AI-powered search engine that gives cited, sourced answers.",
+    "category": "chatbots",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "No Signup"
+    ],
+    "url": "https://perplexity.ai",
+    "review": "/reviews/perplexity-ai",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Mistral Le Chat",
+    "slug": "mistral-le-chat",
+    "by": "Mistral AI",
+    "blurb": "Europe's leading open AI lab.",
+    "category": "chatbots",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Open Weights"
+    ],
+    "url": "https://chat.mistral.ai",
+    "review": "/reviews/mistral-le-chat",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Groq",
+    "slug": "groq",
+    "by": "Groq",
+    "blurb": "Insanely fast inference on open-source models.",
+    "category": "chatbots",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free API",
+      "API"
+    ],
+    "url": "https://groq.com",
+    "review": "/reviews/groq",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "HuggingChat",
+    "slug": "huggingchat",
+    "by": "Hugging Face",
+    "blurb": "Open-source ChatGPT alternative running the best open models.",
+    "category": "chatbots",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Free",
+      "Open Source"
+    ],
+    "url": "https://huggingface.co/chat",
+    "review": "/reviews/huggingchat",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Ollama",
+    "slug": "ollama",
+    "by": "Ollama",
+    "blurb": "Run any open-source model locally.",
+    "category": "chatbots",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "100% Free",
+      "Open Source"
+    ],
+    "url": "https://ollama.ai",
+    "review": "/reviews/ollama",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "LM Studio",
+    "slug": "lm-studio",
+    "by": "LM Studio",
+    "blurb": "Beautiful desktop app to discover, download, and run open-source LLMs locally.",
+    "category": "chatbots",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Local"
+    ],
+    "url": "https://lmstudio.ai",
+    "review": "/reviews/lm-studio",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Jan.ai",
+    "slug": "jan-ai",
+    "by": "Jan",
+    "blurb": "Open-source, local-first AI assistant.",
+    "category": "chatbots",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Free",
+      "Open Source"
+    ],
+    "url": "https://jan.ai",
+    "review": "/reviews/jan-ai",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "DeepSeek Chat",
+    "slug": "deepseek-chat",
+    "by": "DeepSeek",
+    "blurb": "China's most powerful open-source AI.",
+    "category": "chatbots",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Free",
+      "Open Source"
+    ],
+    "url": "https://chat.deepseek.com",
+    "review": "/reviews/deepseek-chat",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "You.com",
+    "slug": "you-com",
+    "by": "You.com",
+    "blurb": "AI search engine with free access to multiple models.",
+    "category": "chatbots",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "No Signup"
+    ],
+    "url": "https://you.com",
+    "review": "/reviews/you-com",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Stable Diffusion",
+    "slug": "stable-diffusion",
+    "by": "Stability AI",
+    "blurb": "The original open-source image generation model.",
+    "category": "image",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "100% Free",
+      "Open Source"
+    ],
+    "url": "https://stability.ai/stable-diffusion",
+    "review": "/reviews/stable-diffusion",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Flux.1",
+    "slug": "flux-1",
+    "by": "Black Forest Labs",
+    "blurb": "The new state-of-the-art open-source image model.",
+    "category": "image",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Free",
+      "Open Source"
+    ],
+    "url": "https://blackforestlabs.ai",
+    "review": "/reviews/flux-1",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "ComfyUI",
+    "slug": "comfyui",
+    "by": "Community",
+    "blurb": "The most powerful local image generation interface.",
+    "category": "image",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "100% Free",
+      "Open Source"
+    ],
+    "url": "https://github.com/comfyanonymous/ComfyUI",
+    "review": "/reviews/comfyui",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Bing Image Creator",
+    "slug": "bing-image-creator",
+    "by": "Microsoft",
+    "blurb": "Free DALL-E 3 powered image generation from Microsoft.",
+    "category": "image",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "MS Login"
+    ],
+    "url": "https://www.bing.com/images/create",
+    "review": "/reviews/bing-image-creator",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Adobe Firefly",
+    "slug": "adobe-firefly",
+    "by": "Adobe",
+    "blurb": "Adobe's AI image generator trained on licensed content — safe for commercial use.",
+    "category": "image",
+    "tags": [],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier",
+      "Commercial Safe"
+    ],
+    "url": "https://firefly.adobe.com",
+    "review": "/reviews/adobe-firefly",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Ideogram",
+    "slug": "ideogram",
+    "by": "Ideogram AI",
+    "blurb": "Best-in-class at rendering readable text in images.",
+    "category": "image",
+    "tags": [],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier",
+      "Best Text AI"
+    ],
+    "url": "https://ideogram.ai",
+    "review": "/reviews/ideogram",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Playground AI",
+    "slug": "playground-ai",
+    "by": "Playground",
+    "blurb": "100 free images per day with no watermarks.",
+    "category": "image",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "100/day Free",
+      "Easy Start"
+    ],
+    "url": "https://playground.com",
+    "review": "/reviews/playground-ai",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Automatic1111",
+    "slug": "automatic1111",
+    "by": "Community",
+    "blurb": "The classic local Stable Diffusion web UI.",
+    "category": "image",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "100% Free",
+      "Open Source"
+    ],
+    "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
+    "review": "/reviews/automatic1111",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Craiyon",
+    "slug": "craiyon",
+    "by": "Craiyon",
+    "blurb": "Formerly DALL-E Mini.",
+    "category": "image",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Unlimited Free",
+      "No Signup"
+    ],
+    "url": "https://www.craiyon.com",
+    "review": "/reviews/craiyon",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Kling AI",
+    "slug": "kling-ai",
+    "by": "Kuaishou",
+    "blurb": "One of the best free text-to-video generators in 2026.",
+    "category": "video",
+    "tags": [],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier",
+      "Top Rated"
+    ],
+    "url": "https://klingai.com",
+    "review": "/reviews/kling-ai",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Luma Dream Machine",
+    "slug": "luma-dream-machine",
+    "by": "Luma AI",
+    "blurb": "Stunning video generation from text or image.",
+    "category": "video",
+    "tags": [],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier"
+    ],
+    "url": "https://lumalabs.ai/dream-machine",
+    "review": "/reviews/luma-dream-machine",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Hailuo AI",
+    "slug": "hailuo-ai",
+    "by": "MiniMax",
+    "blurb": "Free video generation from text and images.",
+    "category": "video",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "2025"
+    ],
+    "url": "https://hailuoai.com",
+    "review": "/reviews/hailuo-ai",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "PixVerse",
+    "slug": "pixverse",
+    "by": "PixVerse",
+    "blurb": "Text-to-video and image-to-video with a generous free plan.",
+    "category": "video",
+    "tags": [],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier"
+    ],
+    "url": "https://pixverse.ai",
+    "review": "/reviews/pixverse",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Runway",
+    "slug": "runway",
+    "by": "Runway",
+    "blurb": "Runway is a widely known creative video platform.",
+    "category": "video",
+    "tags": [],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier",
+      "Gen-3"
+    ],
+    "url": "https://runwayml.com",
+    "review": "/reviews/runway",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Pika",
+    "slug": "pika",
+    "by": "Pika Labs",
+    "blurb": "Simple text-to-video with a clean interface.",
+    "category": "video",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free Credits"
+    ],
+    "url": "https://pika.art",
+    "review": "/reviews/pika",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Suno",
+    "slug": "suno",
+    "by": "Suno AI",
+    "blurb": "Generate full songs — vocals, instruments, lyrics — from a text prompt.",
+    "category": "audio",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "free",
+    "badges": [
+      "50 songs/day",
+      "Best Music AI"
+    ],
+    "url": "https://suno.com",
+    "review": "/reviews/suno",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Udio",
+    "slug": "udio",
+    "by": "Udio",
+    "blurb": "Suno's main rival.",
+    "category": "audio",
+    "tags": [],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier"
+    ],
+    "url": "https://udio.com",
+    "review": "/reviews/udio",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Whisper",
+    "slug": "whisper",
+    "by": "OpenAI",
+    "blurb": "Open-source speech recognition that runs locally.",
+    "category": "audio",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "100% Free",
+      "Open Source"
+    ],
+    "url": "https://github.com/openai/whisper",
+    "review": "/reviews/whisper",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "AudioCraft",
+    "slug": "audiocraft",
+    "by": "Meta",
+    "blurb": "Meta's open-source audio AI suite.",
+    "category": "audio",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Free",
+      "Open Source"
+    ],
+    "url": "https://github.com/facebookresearch/audiocraft",
+    "review": "/reviews/audiocraft",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Coqui TTS",
+    "slug": "coqui-tts",
+    "by": "Coqui",
+    "blurb": "Open-source text-to-speech with voice cloning.",
+    "category": "audio",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "100% Free",
+      "Open Source"
+    ],
+    "url": "https://github.com/coqui-ai/TTS",
+    "review": "/reviews/coqui-tts",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "ElevenLabs",
+    "slug": "elevenlabs",
+    "by": "ElevenLabs",
+    "blurb": "The most realistic AI voice synthesis available.",
+    "category": "audio",
+    "tags": [],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier",
+      "Most Realistic"
+    ],
+    "url": "https://elevenlabs.io",
+    "review": "/reviews/elevenlabs",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "GitHub Copilot",
+    "slug": "github-copilot",
+    "by": "GitHub / Microsoft",
+    "blurb": "A mainstream AI coding assistant with a useful free tier: 2,000 completions/month and 50 chat messages.",
+    "category": "code",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier",
+      "2024"
+    ],
+    "url": "https://github.com/features/copilot",
+    "review": "/reviews/github-copilot",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Cursor",
+    "slug": "cursor",
+    "by": "Cursor",
+    "blurb": "AI-first code editor built on VS Code.",
+    "category": "code",
+    "tags": [],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier",
+      "Best AI Editor"
+    ],
+    "url": "https://cursor.sh",
+    "review": "/reviews/cursor",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Codeium",
+    "slug": "codeium",
+    "by": "Codeium",
+    "blurb": "Truly unlimited free AI code completions.",
+    "category": "code",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Unlimited Free",
+      "No Limits"
+    ],
+    "url": "https://codeium.com",
+    "review": "/reviews/codeium",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Continue.dev",
+    "slug": "continue-dev",
+    "by": "Continue",
+    "blurb": "Open-source AI coding assistant for VS Code and JetBrains.",
+    "category": "code",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "100% Free",
+      "Open Source"
+    ],
+    "url": "https://continue.dev",
+    "review": "/reviews/continue-dev",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Aider",
+    "slug": "aider",
+    "by": "Paul Gauthier",
+    "blurb": "AI pair programmer in your terminal.",
+    "category": "code",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Free",
+      "Open Source"
+    ],
+    "url": "https://aider.chat",
+    "review": "/reviews/aider",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Tabnine",
+    "slug": "tabnine",
+    "by": "Tabnine",
+    "blurb": "Privacy-first AI coding assistant.",
+    "category": "code",
+    "tags": [],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier",
+      "Local Option"
+    ],
+    "url": "https://tabnine.com",
+    "review": "/reviews/tabnine",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "QuillBot",
+    "slug": "quillbot",
+    "by": "QuillBot",
+    "blurb": "The best free paraphrasing and grammar tool.",
+    "category": "writing",
+    "tags": [],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier",
+      "Quick Start"
+    ],
+    "url": "https://quillbot.com",
+    "review": "/reviews/quillbot",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Hemingway Editor",
+    "slug": "hemingway-editor",
+    "by": "Hemingway App",
+    "blurb": "Paste your text and it shows you exactly what to cut.",
+    "category": "writing",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "No Signup"
+    ],
+    "url": "https://hemingwayapp.com",
+    "review": "/reviews/hemingway-editor",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Grammarly",
+    "slug": "grammarly",
+    "by": "Grammarly",
+    "blurb": "Real-time grammar, spelling, and style suggestions across every website and app you use.",
+    "category": "writing",
+    "tags": [],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier"
+    ],
+    "url": "https://grammarly.com",
+    "review": "/reviews/grammarly",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Rytr",
+    "slug": "rytr",
+    "by": "Rytr",
+    "blurb": "AI writing assistant with a free tier of 10,000 characters/month.",
+    "category": "writing",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "10K chars free"
+    ],
+    "url": "https://rytr.me",
+    "review": "/reviews/rytr",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Copy.ai",
+    "slug": "copy-ai",
+    "by": "Copy.ai",
+    "blurb": "AI copywriting with 2,000 words free per month.",
+    "category": "writing",
+    "tags": [],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier"
+    ],
+    "url": "https://copy.ai",
+    "review": "/reviews/copy-ai",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Wordtune",
+    "slug": "wordtune",
+    "by": "AI21 Labs",
+    "blurb": "Rephrase, shorten, or expand any sentence in one click.",
+    "category": "writing",
+    "tags": [],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier"
+    ],
+    "url": "https://wordtune.com",
+    "review": "/reviews/wordtune",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Llama 3.3 70B",
+    "slug": "llama-3-3-70b",
+    "by": "Meta",
+    "blurb": "Meta's flagship open-source model.",
+    "category": "models",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Free",
+      "Open Source"
+    ],
+    "url": "https://ollama.ai/library/llama3.3",
+    "review": "/reviews/llama-3-3-70b",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Mistral 7B / Mixtral",
+    "slug": "mistral-7b-mixtral",
+    "by": "Mistral AI",
+    "blurb": "Europe's answer to GPT.",
+    "category": "models",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Apache 2.0"
+    ],
+    "url": "https://ollama.ai/library/mistral",
+    "review": "/reviews/mistral-7b-mixtral",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Phi-4",
+    "slug": "phi-4",
+    "by": "Microsoft",
+    "blurb": "Microsoft's small but mighty model.",
+    "category": "models",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "MIT License"
+    ],
+    "url": "https://ollama.ai/library/phi4",
+    "review": "/reviews/phi-4",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Gemma 2",
+    "slug": "gemma-2",
+    "by": "Google DeepMind",
+    "blurb": "Google's open-source model family.",
+    "category": "models",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Free",
+      "Open Source"
+    ],
+    "url": "https://ollama.ai/library/gemma2",
+    "review": "/reviews/gemma-2",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "DeepSeek R1",
+    "slug": "deepseek-r1",
+    "by": "DeepSeek",
+    "blurb": "The reasoning model that shocked the AI world.",
+    "category": "models",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Free",
+      "Open Source"
+    ],
+    "url": "https://ollama.ai/library/deepseek-r1",
+    "review": "/reviews/deepseek-r1",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Qwen2.5",
+    "slug": "qwen2-5",
+    "by": "Alibaba",
+    "blurb": "Alibaba's top open-source model.",
+    "category": "models",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Apache 2.0"
+    ],
+    "url": "https://ollama.ai/library/qwen2.5",
+    "review": "/reviews/qwen2-5",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Falcon 180B",
+    "slug": "falcon-180b",
+    "by": "TII (UAE)",
+    "blurb": "One of the largest fully open-source models available.",
+    "category": "models",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Free",
+      "Open Source"
+    ],
+    "url": "https://huggingface.co/tiiuae",
+    "review": "/reviews/falcon-180b",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Command R+",
+    "slug": "command-r",
+    "by": "Cohere",
+    "blurb": "Cohere's best open-weight model.",
+    "category": "models",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Open Weights"
+    ],
+    "url": "https://ollama.ai/library/command-r-plus",
+    "review": "/reviews/command-r",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "NotebookLM",
+    "slug": "notebooklm",
+    "by": "Google",
+    "blurb": "Upload documents and ask grounded questions against the source material.",
+    "category": "research",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Best for Docs"
+    ],
+    "url": "https://notebooklm.google.com",
+    "review": "/reviews/notebooklm",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Elicit",
+    "slug": "elicit",
+    "by": "Elicit",
+    "blurb": "AI research assistant that searches and summarizes academic papers.",
+    "category": "research",
+    "tags": [],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier"
+    ],
+    "url": "https://elicit.com",
+    "review": "/reviews/elicit",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Consensus",
+    "slug": "consensus",
+    "by": "Consensus",
+    "blurb": "Search engine that answers questions using scientific evidence.",
+    "category": "research",
+    "tags": [],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier"
+    ],
+    "url": "https://consensus.app",
+    "review": "/reviews/consensus",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Semantic Scholar",
+    "slug": "semantic-scholar",
+    "by": "Allen AI",
+    "blurb": "Free AI-powered academic search engine with 220M+ papers.",
+    "category": "research",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Unlimited Free",
+      "No Signup"
+    ],
+    "url": "https://semanticscholar.org",
+    "review": "/reviews/semantic-scholar",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Hugging Face",
+    "slug": "hugging-face",
+    "by": "Hugging Face",
+    "blurb": "The GitHub of AI.",
+    "category": "dev",
+    "tags": [],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier",
+      "Open Source Hub"
+    ],
+    "url": "https://huggingface.co",
+    "review": "/reviews/hugging-face",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "LangChain",
+    "slug": "langchain",
+    "by": "LangChain",
+    "blurb": "The most popular open-source framework for building AI agents and LLM apps.",
+    "category": "dev",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Free",
+      "Open Source"
+    ],
+    "url": "https://langchain.com",
+    "review": "/reviews/langchain",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Gradio",
+    "slug": "gradio",
+    "by": "Hugging Face",
+    "blurb": "Build and share AI demo apps in 3 lines of Python.",
+    "category": "dev",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Free",
+      "Open Source"
+    ],
+    "url": "https://gradio.app",
+    "review": "/reviews/gradio",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "LlamaIndex",
+    "slug": "llamaindex",
+    "by": "LlamaIndex",
+    "blurb": "Open-source framework for building RAG systems.",
+    "category": "dev",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Free",
+      "Open Source"
+    ],
+    "url": "https://llamaindex.ai",
+    "review": "/reviews/llamaindex",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Streamlit",
+    "slug": "streamlit",
+    "by": "Snowflake",
+    "blurb": "Turn Python scripts into shareable web apps with no frontend knowledge.",
+    "category": "dev",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Free Hosting",
+      "Open Source"
+    ],
+    "url": "https://streamlit.io",
+    "review": "/reviews/streamlit",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Together AI",
+    "slug": "together-ai",
+    "by": "Together",
+    "blurb": "Free API access to 50+ open-source models including Llama 3, Mixtral, DBRX.",
+    "category": "dev",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "$1 Free Credit",
+      "API"
+    ],
+    "url": "https://together.ai",
+    "review": "/reviews/together-ai",
+    "added": "2026-06-30"
+  },
+  {
+    "name": "Bitwarden",
+    "slug": "bitwarden",
+    "by": "Open Source",
+    "blurb": "Unlimited passwords and devices on the free plan, zero-knowledge encryption.",
+    "category": "security",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "Free",
+      "Open Source"
+    ],
+    "url": "https://bitwarden.com",
+    "review": "/reviews/bitwarden",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "KeePassXC",
+    "slug": "keepassxc",
+    "by": "Open Source",
+    "blurb": "Fully local, encrypted vault file — no account, no cloud, no subscription.",
+    "category": "security",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "Free",
+      "Open Source"
+    ],
+    "url": "https://keepassxc.org",
+    "review": "/reviews/keepassxc",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Proton Pass",
+    "slug": "proton-pass",
+    "by": "Proton",
+    "blurb": "Privacy-focused free tier with unlimited logins and hide-my-email aliases.",
+    "category": "security",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free"
+    ],
+    "url": "https://proton.me/pass",
+    "review": "/reviews/proton-pass",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Google Password Manager",
+    "slug": "google-password-manager",
+    "by": "Google",
+    "blurb": "Built into Chrome and Android — free, zero setup, passkey support.",
+    "category": "security",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "No Signup"
+    ],
+    "url": "https://passwords.google.com",
+    "review": "/reviews/google-password-manager",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Apple Passwords",
+    "slug": "apple-passwords",
+    "by": "Apple",
+    "blurb": "Built into iPhone, iPad, and Mac — free, iCloud sync, passkey support.",
+    "category": "security",
+    "tags": [
+      "new"
+    ],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "No Signup"
+    ],
+    "url": "https://www.apple.com/",
+    "review": "/reviews/apple-passwords",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "DeepL Write",
+    "slug": "deepl-write",
+    "by": "DeepL",
+    "blurb": "Free tone and grammar polishing, especially strong for non-native speakers.",
+    "category": "writing",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "No Signup"
+    ],
+    "url": "https://www.deepl.com/write",
+    "review": "/reviews/deepl-write",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Dota 2",
+    "slug": "dota-2",
+    "by": "Valve",
+    "blurb": "A full competitive MOBA where every hero is available without paying.",
+    "category": "gaming",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Fair F2P"
+    ],
+    "url": "https://store.steampowered.com/app/570/Dota_2/",
+    "review": "/reviews/dota-2",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Path of Exile",
+    "slug": "path-of-exile",
+    "by": "Grinding Gear Games",
+    "blurb": "A massive ARPG with deep builds and no paid power.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Fair F2P"
+    ],
+    "url": "https://www.pathofexile.com/",
+    "review": "/reviews/path-of-exile",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Warframe",
+    "slug": "warframe",
+    "by": "Digital Extremes",
+    "blurb": "Fast co-op space-ninja action with years of free content.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Co-op"
+    ],
+    "url": "https://www.warframe.com/",
+    "review": "/reviews/warframe",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Marvel Rivals",
+    "slug": "marvel-rivals",
+    "by": "NetEase / Marvel",
+    "blurb": "A polished superhero team shooter with instant pick-up appeal.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Hero Shooter"
+    ],
+    "url": "https://www.marvelrivals.com/",
+    "review": "/reviews/marvel-rivals",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "The Finals",
+    "slug": "the-finals",
+    "by": "Embark Studios",
+    "blurb": "Destructible-arena shooter with chaotic team objectives.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Shooter"
+    ],
+    "url": "https://www.reachthefinals.com/",
+    "review": "/reviews/the-finals",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Brawlhalla",
+    "slug": "brawlhalla",
+    "by": "Blue Mammoth / Ubisoft",
+    "blurb": "Platform fighting that runs on almost anything.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Fighting"
+    ],
+    "url": "https://www.brawlhalla.com/",
+    "review": "/reviews/brawlhalla",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Rocket League",
+    "slug": "rocket-league",
+    "by": "Psyonix / Epic",
+    "blurb": "Soccer with rocket cars; still one of the cleanest skill games.",
+    "category": "gaming",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Sports"
+    ],
+    "url": "https://www.rocketleague.com/",
+    "review": "/reviews/rocket-league",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Counter-Strike 2",
+    "slug": "counter-strike-2",
+    "by": "Valve",
+    "blurb": "The classic tactical shooter, free for casual and competitive play.",
+    "category": "gaming",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Tactical"
+    ],
+    "url": "https://store.steampowered.com/app/730/CounterStrike_2/",
+    "review": "/reviews/counter-strike-2",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Fortnite",
+    "slug": "fortnite",
+    "by": "Epic Games",
+    "blurb": "Battle royale, creative maps, Lego modes, racing, concerts and more.",
+    "category": "gaming",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Battle Royale"
+    ],
+    "url": "https://www.fortnite.com/",
+    "review": "/reviews/fortnite",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Team Fortress 2",
+    "slug": "team-fortress-2",
+    "by": "Valve",
+    "blurb": "A classic class shooter with personality, chaos, and a long community tail.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Classic"
+    ],
+    "url": "https://store.steampowered.com/app/440/Team_Fortress_2/",
+    "review": "/reviews/team-fortress-2",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "0 A.D.",
+    "slug": "0-a-d",
+    "by": "Wildfire Games",
+    "blurb": "A free, open-source RTS of ancient warfare.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Free"
+    ],
+    "url": "https://play0ad.com/",
+    "review": "/reviews/0-a-d",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "The Battle for Wesnoth",
+    "slug": "the-battle-for-wesnoth",
+    "by": "Community",
+    "blurb": "A turn-based fantasy strategy classic with campaigns and multiplayer.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Strategy"
+    ],
+    "url": "https://www.wesnoth.org/",
+    "review": "/reviews/the-battle-for-wesnoth",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "OpenTTD",
+    "slug": "openttd",
+    "by": "OpenTTD Team",
+    "blurb": "Build transport networks and accidentally lose entire evenings.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Sim"
+    ],
+    "url": "https://www.openttd.org/",
+    "review": "/reviews/openttd",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "SuperTuxKart",
+    "slug": "supertuxkart",
+    "by": "Community",
+    "blurb": "A free kart racer with local multiplayer and community charm.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Racing"
+    ],
+    "url": "https://supertuxkart.net/",
+    "review": "/reviews/supertuxkart",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Luanti / Minetest",
+    "slug": "luanti-minetest",
+    "by": "Community",
+    "blurb": "A free voxel sandbox engine for Minecraft-like worlds.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Sandbox"
+    ],
+    "url": "https://www.luanti.org/",
+    "review": "/reviews/luanti-minetest",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Veloren",
+    "slug": "veloren",
+    "by": "Community",
+    "blurb": "Open-source voxel RPG with exploration and co-op promise.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "RPG"
+    ],
+    "url": "https://veloren.net/",
+    "review": "/reviews/veloren",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Freeciv",
+    "slug": "freeciv",
+    "by": "Community",
+    "blurb": "Civilization-style empire building, free and open source.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Strategy"
+    ],
+    "url": "https://www.freeciv.org/",
+    "review": "/reviews/freeciv",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Endless Sky",
+    "slug": "endless-sky",
+    "by": "Community",
+    "blurb": "A free space trading and combat game inspired by Escape Velocity.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Space"
+    ],
+    "url": "https://endless-sky.github.io/",
+    "review": "/reviews/endless-sky",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Cave Story",
+    "slug": "cave-story",
+    "by": "Studio Pixel",
+    "blurb": "The freeware action-platformer that helped define indie games.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Freeware",
+      "Classic"
+    ],
+    "url": "https://www.cavestory.org/download/cave-story.php",
+    "review": "/reviews/cave-story",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Doki Doki Literature Club!",
+    "slug": "doki-doki-literature-club",
+    "by": "Team Salvato",
+    "blurb": "A famous free visual novel best played without spoilers.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Narrative"
+    ],
+    "url": "https://ddlc.moe/",
+    "review": "/reviews/doki-doki-literature-club",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Deltarune Chapters 1 & 2",
+    "slug": "deltarune-chapters-1-2",
+    "by": "Toby Fox",
+    "blurb": "A free start to Toby Fox’s follow-up universe.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "RPG"
+    ],
+    "url": "https://deltarune.com/",
+    "review": "/reviews/deltarune-chapters-1-2",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Friday Night Funkin’",
+    "slug": "friday-night-funkin",
+    "by": "The Funkin Crew",
+    "blurb": "A free rhythm-game phenomenon with a huge mod scene.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Rhythm"
+    ],
+    "url": "https://ninja-muffin24.itch.io/funkin",
+    "review": "/reviews/friday-night-funkin",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "N Step Steve",
+    "slug": "n-step-steve",
+    "by": "EPG800",
+    "blurb": "A brilliant browser puzzle game about counting steps.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Browser",
+      "Puzzle"
+    ],
+    "url": "https://www.qutaifan.com/best-free-games-2026#n-step-steve",
+    "review": "/reviews/n-step-steve",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Cookie Clicker Classic",
+    "slug": "cookie-clicker-classic",
+    "by": "Orteil",
+    "blurb": "The incremental-game classic: click cookies, automate, ascend, repeat.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Browser",
+      "Incremental"
+    ],
+    "url": "https://orteil.dashnet.org/cookieclicker/",
+    "review": "/reviews/cookie-clicker-classic",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "A Dark Room",
+    "slug": "a-dark-room",
+    "by": "Doublespeak Games",
+    "blurb": "Minimal text survival that expands into something stranger.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Browser",
+      "Narrative"
+    ],
+    "url": "https://adarkroom.doublespeakgames.com/",
+    "review": "/reviews/a-dark-room",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Townscaper Demo / Web Toy",
+    "slug": "townscaper-demo-web-toy",
+    "by": "Oskar Stålberg",
+    "blurb": "A tiny creative city-building toy in the browser.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Browser",
+      "Creative"
+    ],
+    "url": "https://oskarstalberg.com/Townscaper/",
+    "review": "/reviews/townscaper-demo-web-toy",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Krunker",
+    "slug": "krunker",
+    "by": "FRVR",
+    "blurb": "Fast browser FPS that runs almost instantly.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Browser",
+      "FPS"
+    ],
+    "url": "https://krunker.io/",
+    "review": "/reviews/krunker",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "GeoFS",
+    "slug": "geofs",
+    "by": "GeoFS",
+    "blurb": "A free browser flight simulator with global scenery.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Browser",
+      "Flight Sim"
+    ],
+    "url": "https://www.geo-fs.com/",
+    "review": "/reviews/geofs",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "LibreOffice",
+    "slug": "libreoffice",
+    "by": "The Document Foundation",
+    "blurb": "Full desktop office suite for documents, spreadsheets, presentations and databases.",
+    "category": "opensource",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Office"
+    ],
+    "url": "https://www.libreoffice.org/",
+    "review": "/reviews/libreoffice",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "ONLYOFFICE Docs",
+    "slug": "onlyoffice-docs",
+    "by": "Ascensio System SIA",
+    "blurb": "Collaborative editors with strong Microsoft Office file compatibility and self-hosting options.",
+    "category": "opensource",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Office"
+    ],
+    "url": "https://www.onlyoffice.com/",
+    "review": "/reviews/onlyoffice-docs",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "GIMP",
+    "slug": "gimp",
+    "by": "GIMP Team",
+    "blurb": "Powerful free image editor with layers, masks, plugins and scripting.",
+    "category": "opensource",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Design"
+    ],
+    "url": "https://www.gimp.org/",
+    "review": "/reviews/gimp",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Kdenlive",
+    "slug": "kdenlive",
+    "by": "KDE Community",
+    "blurb": "Non-linear video editor for serious free video workflows.",
+    "category": "opensource",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Video"
+    ],
+    "url": "https://kdenlive.org/",
+    "review": "/reviews/kdenlive",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Shotcut",
+    "slug": "shotcut",
+    "by": "Meltytech",
+    "blurb": "Cross-platform open-source video editor with broad format support.",
+    "category": "opensource",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Video"
+    ],
+    "url": "https://shotcut.org/",
+    "review": "/reviews/shotcut",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "WordPress",
+    "slug": "wordpress",
+    "by": "WordPress Foundation",
+    "blurb": "Open-source CMS powering blogs, business sites, shops and publications.",
+    "category": "opensource",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "CMS"
+    ],
+    "url": "https://wordpress.org/",
+    "review": "/reviews/wordpress",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "OpenProject",
+    "slug": "openproject",
+    "by": "OpenProject GmbH",
+    "blurb": "Open-source project management with tasks, Gantt, roadmaps and wiki features.",
+    "category": "opensource",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "PM"
+    ],
+    "url": "https://www.openproject.org/",
+    "review": "/reviews/openproject",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Mattermost",
+    "slug": "mattermost",
+    "by": "Mattermost",
+    "blurb": "Self-hostable team chat and collaboration platform for technical teams.",
+    "category": "opensource",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Chat"
+    ],
+    "url": "https://mattermost.com/",
+    "review": "/reviews/mattermost",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Jitsi Meet",
+    "slug": "jitsi-meet",
+    "by": "8x8 / Community",
+    "blurb": "Open-source video meetings that can run in the browser or on your own server.",
+    "category": "opensource",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Meetings"
+    ],
+    "url": "https://jitsi.org/",
+    "review": "/reviews/jitsi-meet",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Nextcloud",
+    "slug": "nextcloud",
+    "by": "Nextcloud GmbH",
+    "blurb": "Self-hosted file sync, sharing, calendar, contacts and collaboration suite.",
+    "category": "opensource",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Cloud"
+    ],
+    "url": "https://nextcloud.com/",
+    "review": "/reviews/nextcloud",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "EspoCRM",
+    "slug": "espocrm",
+    "by": "EspoCRM",
+    "blurb": "Lightweight open-source CRM for contacts, sales pipelines and business records.",
+    "category": "opensource",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "CRM"
+    ],
+    "url": "https://www.espocrm.com/",
+    "review": "/reviews/espocrm",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "SuiteCRM",
+    "slug": "suitecrm",
+    "by": "SalesAgility",
+    "blurb": "Feature-rich open-source CRM for sales, marketing and service teams.",
+    "category": "opensource",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "CRM"
+    ],
+    "url": "https://suitecrm.com/",
+    "review": "/reviews/suitecrm",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Joplin",
+    "slug": "joplin",
+    "by": "Joplin Project",
+    "blurb": "Open-source note app with markdown, sync options and end-to-end encryption.",
+    "category": "opensource",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Notes"
+    ],
+    "url": "https://joplinapp.org/",
+    "review": "/reviews/joplin",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Logseq",
+    "slug": "logseq",
+    "by": "Logseq",
+    "blurb": "Local-first outliner and knowledge graph for linked markdown notes.",
+    "category": "opensource",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Notes"
+    ],
+    "url": "https://logseq.com/",
+    "review": "/reviews/logseq",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Bitwarden",
+    "slug": "bitwarden",
+    "by": "Bitwarden",
+    "blurb": "Open-source password manager with a strong free cloud-synced plan.",
+    "category": "opensource",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Security"
+    ],
+    "url": "https://bitwarden.com/",
+    "review": "/reviews/bitwarden",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "KeePassXC",
+    "slug": "keepassxc",
+    "by": "KeePassXC Team",
+    "blurb": "Local encrypted password vault with no account and no subscription.",
+    "category": "opensource",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Security"
+    ],
+    "url": "https://keepassxc.org/",
+    "review": "/reviews/keepassxc",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Linux Mint",
+    "slug": "linux-mint",
+    "by": "Linux Mint Team",
+    "blurb": "Most Windows switchers who want a calm, familiar desktop.",
+    "category": "linux",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "free",
+    "badges": [
+      "Best Overall",
+      "Windows-like"
+    ],
+    "url": "https://linuxmint.com/",
+    "review": "/reviews/linux-mint",
+    "added": "2026-07-02"
+  },
+  {
+    "name": "Ubuntu",
+    "slug": "ubuntu",
+    "by": "Canonical",
+    "blurb": "Beginners who want the most tutorials, vendor support and predictable releases.",
+    "category": "linux",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "free",
+    "badges": [
+      "Largest Ecosystem",
+      "LTS"
+    ],
+    "url": "https://ubuntu.com/desktop",
+    "review": "/reviews/ubuntu",
+    "added": "2026-07-02"
+  },
+  {
+    "name": "Fedora Workstation",
+    "slug": "fedora-workstation",
+    "by": "Fedora Project",
+    "blurb": "Curious beginners who want a clean, current Linux desktop with strong upstream defaults.",
+    "category": "linux",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Modern",
+      "Clean GNOME"
+    ],
+    "url": "https://fedoraproject.org/workstation/",
+    "review": "/reviews/fedora-workstation",
+    "added": "2026-07-02"
+  },
+  {
+    "name": "Zorin OS",
+    "slug": "zorin-os",
+    "by": "Zorin Group",
+    "blurb": "Windows refugees who care about polish and a low-anxiety first boot.",
+    "category": "linux",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Windows-like",
+      "Polished"
+    ],
+    "url": "https://zorin.com/os/",
+    "review": "/reviews/zorin-os",
+    "added": "2026-07-02"
+  },
+  {
+    "name": "Pop!_OS",
+    "slug": "pop-os",
+    "by": "System76",
+    "blurb": "Laptop users, developers, creators and NVIDIA GPU owners.",
+    "category": "linux",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Creators",
+      "NVIDIA-friendly"
+    ],
+    "url": "https://pop.system76.com/",
+    "review": "/reviews/pop-os",
+    "added": "2026-07-02"
+  },
+  {
+    "name": "elementary OS",
+    "slug": "elementary-os",
+    "by": "elementary, Inc.",
+    "blurb": "Mac switchers who value visual consistency and simplicity.",
+    "category": "linux",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Mac-like",
+      "Beautiful"
+    ],
+    "url": "https://elementary.io/",
+    "review": "/reviews/elementary-os",
+    "added": "2026-07-02"
+  },
+  {
+    "name": "KDE neon",
+    "slug": "kde-neon",
+    "by": "KDE Community",
+    "blurb": "Beginners who want a Windows-like layout with more customization power.",
+    "category": "linux",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Customizable",
+      "KDE Plasma"
+    ],
+    "url": "https://neon.kde.org/",
+    "review": "/reviews/kde-neon",
+    "added": "2026-07-02"
+  },
+  {
+    "name": "MX Linux",
+    "slug": "mx-linux",
+    "by": "MX Linux Community",
+    "blurb": "Older laptops, low-resource desktops and people who value stability.",
+    "category": "linux",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Old PCs",
+      "Stable"
+    ],
+    "url": "https://mxlinux.org/",
+    "review": "/reviews/mx-linux",
+    "added": "2026-07-02"
+  },
+  {
+    "name": "Linux Lite",
+    "slug": "linux-lite",
+    "by": "Linux Lite Team",
+    "blurb": "Windows users reviving an older laptop with minimum drama.",
+    "category": "linux",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Very Easy",
+      "Old Laptop"
+    ],
+    "url": "https://www.linuxliteos.com/",
+    "review": "/reviews/linux-lite",
+    "added": "2026-07-02"
+  },
+  {
+    "name": "Nobara",
+    "slug": "nobara",
+    "by": "Nobara Project",
+    "blurb": "Gamers who want Linux gaming tweaks without assembling everything manually.",
+    "category": "linux",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Gaming",
+      "Fedora-based"
+    ],
+    "url": "https://nobaraproject.org/",
+    "review": "/reviews/nobara",
+    "added": "2026-07-02"
+  },
+  {
+    "name": "itch.io Free Games",
+    "slug": "itch-io-free-games",
+    "by": "Indie creators",
+    "blurb": "A living shelf of experimental free indie games.",
+    "category": "gaming",
+    "tags": [],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Indie"
+    ],
+    "url": "https://itch.io/games/free",
+    "review": "/reviews/itch-io-free-games",
+    "added": "2026-07-01"
+  },
+  {
+    "name": "Krita",
+    "slug": "krita",
+    "by": "Official project",
+    "blurb": "Illustration, comics, and digital painting.",
+    "category": "image",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Brush engines"
+    ],
+    "url": "https://krita.org/",
+    "review": "/reviews/krita",
+    "added": "2026-07-03"
+  },
+  {
+    "name": "Inkscape",
+    "slug": "inkscape",
+    "by": "Official project",
+    "blurb": "Logos, icons, diagrams, and scalable illustration.",
+    "category": "image",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "SVG"
+    ],
+    "url": "https://inkscape.org/",
+    "review": "/reviews/inkscape",
+    "added": "2026-07-13"
+  },
+  {
+    "name": "Photopea",
+    "slug": "photopea",
+    "by": "Official project",
+    "blurb": "PSD editing in a browser with nothing to install.",
+    "category": "image",
+    "tags": [],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier",
+      "PSD"
+    ],
+    "url": "https://www.photopea.com/",
+    "review": "/reviews/photopea",
+    "added": "2026-07-03"
+  },
+  {
+    "name": "Canva Free",
+    "slug": "canva-free",
+    "by": "Official project",
+    "blurb": "Fast social graphics, presentations, and marketing designs.",
+    "category": "image",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier",
+      "Templates"
+    ],
+    "url": "https://www.canva.com/pricing/",
+    "review": "/reviews/canva-free",
+    "added": "2026-07-13"
+  },
+  {
+    "name": "Penpot",
+    "slug": "penpot",
+    "by": "Official project",
+    "blurb": "Open-standard interface design and prototyping.",
+    "category": "image",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "UI Design"
+    ],
+    "url": "https://penpot.app/",
+    "review": "/reviews/penpot",
+    "added": "2026-07-13"
+  },
+  {
+    "name": "darktable",
+    "slug": "darktable",
+    "by": "Official project",
+    "blurb": "Non-destructive RAW development and photo management.",
+    "category": "image",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "RAW"
+    ],
+    "url": "https://www.darktable.org/",
+    "review": "/reviews/darktable",
+    "added": "2026-07-03"
+  },
+  {
+    "name": "Scribus",
+    "slug": "scribus",
+    "by": "Official project",
+    "blurb": "Print-ready brochures, magazines, and PDFs.",
+    "category": "image",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Publishing"
+    ],
+    "url": "https://www.scribus.net/",
+    "review": "/reviews/scribus",
+    "added": "2026-07-13"
+  },
+  {
+    "name": "Paint.NET",
+    "slug": "paint-net",
+    "by": "Official project",
+    "blurb": "Simple, fast photo editing and retouching for Windows.",
+    "category": "image",
+    "tags": [
+      "new"
+    ],
+    "pricing": "free",
+    "badges": [
+      "Free",
+      "Windows"
+    ],
+    "url": "https://www.getpaint.net/",
+    "review": "/reviews/paint-net",
+    "added": "2026-07-03"
+  },
+  {
+    "name": "Pixlr",
+    "slug": "pixlr",
+    "by": "Official project",
+    "blurb": "Browser photo editor with AI cutout and retouch tools.",
+    "category": "image",
+    "tags": [
+      "new"
+    ],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier",
+      "Browser"
+    ],
+    "url": "https://pixlr.com/",
+    "review": "/reviews/pixlr",
+    "added": "2026-07-03"
+  },
+  {
+    "name": "Photoscape X",
+    "slug": "photoscape-x",
+    "by": "Official project",
+    "blurb": "Batch photo editing, collages, and quick fixes.",
+    "category": "image",
+    "tags": [
+      "new"
+    ],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier",
+      "Batch Editing"
+    ],
+    "url": "https://x.photoscape.org/",
+    "review": "/reviews/photoscape-x",
+    "added": "2026-07-03"
+  },
+  {
+    "name": "DaVinci Resolve",
+    "slug": "davinci-resolve",
+    "by": "Official project",
+    "blurb": "Editing, color, audio, and VFX in one application.",
+    "category": "video",
+    "tags": [
+      "popular"
+    ],
+    "pricing": "free-tier",
+    "badges": [
+      "Free Tier",
+      "Pro Editing"
+    ],
+    "url": "https://www.blackmagicdesign.com/products/davinciresolve",
+    "review": "/reviews/davinci-resolve",
+    "added": "2026-07-13"
+  },
+  {
+    "name": "OpenShot",
+    "slug": "openshot",
+    "by": "Official project",
+    "blurb": "Simple cuts, titles, and home-video projects.",
+    "category": "video",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Beginner"
+    ],
+    "url": "https://www.openshot.org/",
+    "review": "/reviews/openshot",
+    "added": "2026-07-13"
+  },
+  {
+    "name": "Blender Video Sequence Editor",
+    "slug": "blender-video-sequence-editor",
+    "by": "Official project",
+    "blurb": "Video editing, animation, compositing, and 3D.",
+    "category": "video",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "3D + Video"
+    ],
+    "url": "https://www.blender.org/",
+    "review": "/reviews/blender-video-sequence-editor",
+    "added": "2026-07-13"
+  },
+  {
+    "name": "Flowblade",
+    "slug": "flowblade",
+    "by": "Official project",
+    "blurb": "Focused multi-track video editing on Linux.",
+    "category": "video",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Linux"
+    ],
+    "url": "https://jliljebl.github.io/flowblade/",
+    "review": "/reviews/flowblade",
+    "added": "2026-07-13"
+  },
+  {
+    "name": "Olive",
+    "slug": "olive",
+    "by": "Official project",
+    "blurb": "Modern experimental open-source video editing.",
+    "category": "video",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Experimental"
+    ],
+    "url": "https://www.olivevideoeditor.org/",
+    "review": "/reviews/olive",
+    "added": "2026-07-13"
+  },
+  {
+    "name": "LosslessCut",
+    "slug": "losslesscut",
+    "by": "Official project",
+    "blurb": "Fast cuts, splits, and joins without re-encoding.",
+    "category": "video",
+    "tags": [],
+    "pricing": "open-source",
+    "badges": [
+      "Open Source",
+      "Lossless"
+    ],
+    "url": "https://github.com/mifi/lossless-cut",
+    "review": "/reviews/losslesscut",
+    "added": "2026-07-13"
+  }
+]

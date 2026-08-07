@@ -1,0 +1,10 @@
+# Cloudflare Wrangler build cache — contains account id/email, must not be committed
+.wrangler/
+
+# Local env / secrets
+.env
+.env.*
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
