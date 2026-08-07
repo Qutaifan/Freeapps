@@ -620,6 +620,8 @@
   .bento-card-large, .bento-card-medium, .bento-card-small { grid-column: span 12; }
   .hero-stats-strip { grid-template-columns: repeat(2, 1fr); }
   .features-grid { grid-template-columns: 1fr; }
+  .prompt-gen-grid { grid-template-columns: 1fr !important; }
+  .comparison-display-box { grid-template-columns: 1fr !important; }
   .nav-links-group { display: none; }
   .sticky-anchor-bar { padding: 0.25rem 0.5rem; }
 }

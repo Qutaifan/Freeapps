@@ -17,6 +17,7 @@ import { InFeedAdCard } from './components/InFeedAdCard'
 import { ToastNotification } from './components/ToastNotification'
 import { FeaturesArchitecture } from './components/FeaturesArchitecture'
 import { SoftwareComparator } from './components/SoftwareComparator'
+import { PromptGenerator } from './components/PromptGenerator'
 import { FaqSection } from './components/FaqSection'
 import { StickyAnchorAd } from './components/StickyAnchorAd'
 import { FooterSection } from './components/FooterSection'
@@ -169,6 +170,9 @@ function App() {
             </div>
           )}
         </section>
+
+        {/* Unlimited Free AI Prompt Generator */}
+        <PromptGenerator onShowToast={showToast} />
 
         {/* Software Comparison Calculator */}
         <SoftwareComparator />
