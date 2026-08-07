@@ -206,17 +206,40 @@
 <!-- Navbar -->
 <header>
   <nav class="navbar-fixed">
-    <a href="/" class="nav-brand"><span style="color: var(--accent-cyan);">THE</span>HUB</a>
+    <a href="/" class="nav-brand" style="display: flex; align-items: center; gap: 0.65rem; text-decoration: none;">
+      <!-- Dark Circular Circuit Network Emblem (Option 1) -->
+      <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="28" fill="#111113" stroke="#A1A1AA" stroke-width="2.5" stroke-opacity="0.8" />
+        <path d="M 32 14 L 32 30 L 40 38 L 40 48" fill="none" stroke="#F4F4F5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+        <circle cx="40" cy="48" r="2.5" fill="#22D3EE" />
+        <path d="M 32 22 L 22 22 L 16 28 L 16 40" fill="none" stroke="#F4F4F5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+        <circle cx="16" cy="40" r="2.5" fill="#22D3EE" />
+        <path d="M 22 28 L 28 28 L 28 44" fill="none" stroke="#F4F4F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <circle cx="28" cy="44" r="2" fill="#38BDF8" />
+        <circle cx="22" cy="28" r="2" fill="#38BDF8" />
+        <circle cx="32" cy="14" r="2.5" fill="#22D3EE" />
+      </svg>
+
+      <div style="display: flex; flex-direction: column; line-height: 1;">
+        <span style="font-weight: 800; font-size: 1.05rem; letter-spacing: 0.04em; color: #FFFFFF; font-family: var(--font-sans);">
+          THEHUB
+        </span>
+        <span style="font-size: 0.58rem; letter-spacing: 0.18em; color: var(--text-muted); font-family: var(--font-mono); margin-top: 2px; text-transform: uppercase;">
+          BY QUTAIFAN.COM
+        </span>
+      </div>
+    </a>
 
     <ul class="nav-links-group">
       <li><a href="#categories" class="nav-link">Pillars</a></li>
       <li><a href="#featured" class="nav-link">Directory</a></li>
-      <li><a href="#how-it-works" class="nav-link">Workflow</a></li>
+      <li><a href="#prompt-generator" class="nav-link">AI Prompt Gen</a></li>
+      <li><a href="#faq" class="nav-link">FAQ</a></li>
     </ul>
 
     <div class="nav-right-actions">
       <button class="search-trigger-btn" id="search-trigger">
-        <span>Search</span>
+        <span>Search directory...</span>
         <span class="kbd-tag">⌘K</span>
       </button>
       <a href="#featured" class="btn-accent">Submit tool</a>
