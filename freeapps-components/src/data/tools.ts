@@ -140,9 +140,93 @@ export const FEATURED_TOOLS: ToolCard[] = [
     url: 'https://obsproject.com',
     size: 'small',
     features: ['Unlimited scenes', 'Intuitive audio mixer', 'VST plugin support', 'Hardware encoding']
+  },
+  {
+    id: '11',
+    name: 'Supabase Database',
+    description: 'Open-source Firebase alternative with auto-generated Postgres APIs and auth.',
+    fullDetails: 'Supabase provides a complete open-source backend with PostgreSQL database, real-time subscriptions, authentication, auto-generated REST/GraphQL APIs, and storage bucket management.',
+    mainCategory: 'opensource',
+    mainCategoryLabel: '🔓 Open Source CLI',
+    tags: ['Self-hosted', 'CLI', 'Network'],
+    license: 'Apache-2.0',
+    stars: '68.5k ★',
+    url: 'https://supabase.com',
+    size: 'medium',
+    features: ['Postgres engine', 'Row level security', 'Edge functions', 'Realtime webhooks']
+  },
+  {
+    id: '12',
+    name: 'Ollama Engine',
+    description: 'Run Llama 3, DeepSeek, and local LLMs on your computer with zero setup.',
+    fullDetails: 'Ollama bundle packages open-source large language models into lightweight local daemons for macOS, Linux, and Windows with REST API integration.',
+    mainCategory: 'ai',
+    mainCategoryLabel: '🤖 AI & Automation',
+    tags: ['AI', 'CLI', 'Rust'],
+    license: 'MIT',
+    stars: '92.4k ★',
+    url: 'https://ollama.com',
+    size: 'large',
+    features: ['Local CPU/GPU inference', 'Modelfile configuration', 'Python SDK', 'Zero data leak']
+  },
+  {
+    id: '13',
+    name: 'Hoppscotch API',
+    description: 'Open-source lightweight API development ecosystem and Postman alternative.',
+    fullDetails: 'Fast web-based API testing platform supporting HTTP, WebSocket, GraphQL, and gRPC requests without requiring heavy desktop installations.',
+    mainCategory: 'utilities',
+    mainCategoryLabel: '🛠️ Online Utilities',
+    tags: ['Browser', 'Network', 'GUI'],
+    license: 'MIT',
+    stars: '61.2k ★',
+    url: 'https://hoppscotch.io',
+    size: 'medium',
+    features: ['Instant browser testing', 'Environment variables', 'GraphQL IDE', 'Zero registration']
+  },
+  {
+    id: '14',
+    name: 'KeePassXC Vault',
+    description: 'Offline cross-platform password manager with local encrypted database files.',
+    fullDetails: 'KeePassXC stores all credentials in a single local .kdbx file encrypted with AES-256 or ChaCha20, giving users complete data sovereignty.',
+    mainCategory: 'apps',
+    mainCategoryLabel: '💻 Desktop Apps',
+    tags: ['Security', 'Privacy', 'GUI'],
+    license: 'GPL-3.0',
+    stars: '27.8k ★',
+    url: 'https://keepassxc.org',
+    size: 'small',
+    features: ['100% offline vault', 'KDBX 4 format', 'Auto-Type engine', 'Browser integration']
+  },
+  {
+    id: '15',
+    name: 'Inkscape Vector',
+    description: 'Professional vector graphics editor for SVG illustration and logo creation.',
+    fullDetails: 'Inkscape is an open-source vector editor providing flexible drawing tools, broad file format compatibility, node editing, and path operations.',
+    mainCategory: 'apps',
+    mainCategoryLabel: '💻 Desktop Apps',
+    tags: ['Desktop', 'Graphics', 'GUI'],
+    license: 'GPL-3.0',
+    stars: '15.6k ★',
+    url: 'https://inkscape.org',
+    size: 'medium',
+    features: ['SVG native', 'Node manipulation', 'Boolean path ops', 'Color profiles']
+  },
+  {
+    id: '16',
+    name: 'Zoxide CLI Navigator',
+    description: 'Smarter cd command for your terminal that remembers your most used directories.',
+    fullDetails: 'Zoxide tracks your most frequently used shell directories using a frecent algorithm to let you jump to any directory in just a few keystrokes.',
+    mainCategory: 'opensource',
+    mainCategoryLabel: '🔓 Open Source CLI',
+    tags: ['CLI', 'System', 'Rust'],
+    license: 'MIT',
+    stars: '22.3k ★',
+    url: 'https://github.com/ajeetdsouza/zoxide',
+    size: 'small',
+    features: ['Fuzzy searching', 'Fzf integration', 'Shell auto-completion', 'Ultra lightweight']
   }
 ]
 
 export const ALL_TAGS: string[] = [
-  'Browser', 'GUI', 'Graphics', 'Security', 'Self-hosted', 'AI', 'Privacy', 'Media', 'Design', 'Network', 'Rust', 'CLI'
+  'Browser', 'GUI', 'Graphics', 'Security', 'Self-hosted', 'AI', 'Privacy', 'Media', 'Design', 'Network', 'Rust', 'CLI', 'System', 'Code'
 ]

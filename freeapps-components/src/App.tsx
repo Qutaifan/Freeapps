@@ -16,6 +16,8 @@ import { AdSenseBanner } from './components/AdSenseBanner'
 import { InFeedAdCard } from './components/InFeedAdCard'
 import { ToastNotification } from './components/ToastNotification'
 import { FeaturesArchitecture } from './components/FeaturesArchitecture'
+import { SoftwareComparator } from './components/SoftwareComparator'
+import { StickyAnchorAd } from './components/StickyAnchorAd'
 import { FooterSection } from './components/FooterSection'
 
 function App() {
@@ -167,12 +169,18 @@ function App() {
           )}
         </section>
 
+        {/* Software Comparison Calculator */}
+        <SoftwareComparator />
+
         {/* Features Architecture Section */}
         <FeaturesArchitecture />
 
         {/* Footer */}
         <FooterSection />
       </main>
+
+      {/* Sticky Bottom Anchor Ad */}
+      <StickyAnchorAd />
 
       {/* Live Search Modal */}
       <LiveSearchModal
