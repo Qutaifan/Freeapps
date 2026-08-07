@@ -4,11 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   
-  <!-- Custom Browser Tab Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="alternate icon" href="/favicon.ico" />
   
-  <!-- Google SEO Starter Guide Meta Tags -->
   <title>UTIL.OS — Free & Open Source Utility Tools Directory | qutaifan.com</title>
   <meta name="description" content="Discover verified open-source software, free online utilities, password managers, photo editors, and developer CLI tools with zero account traps." />
   <meta name="keywords" content="free tools, open source software, developer utilities, photopea, bitwarden, cryptpad, qutaifan, free apps online" />
@@ -16,24 +14,10 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://www.qutaifan.com/" />
 
-  <!-- Open Graph Meta Tags for Social Media & Google Rich Snippets -->
-  <meta property="og:locale" content="en_US" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="UTIL.OS — Free & Open Source Utility Tools Directory" />
-  <meta property="og:description" content="Hand-curated directory of verified open-source software, CLI utilities, and zero-account web tools." />
-  <meta property="og:url" content="https://www.qutaifan.com/" />
-  <meta property="og:site_name" content="UTIL.OS by Qutaifan" />
-  <meta property="og:image" content="https://www.qutaifan.com/og-image.png" />
-
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="UTIL.OS — Free & Open Source Utility Tools Directory" />
-  <meta name="twitter:description" content="Hand-curated directory of verified open-source software, CLI utilities, and zero-account web tools." />
-
   <!-- Google AdSense Official Script -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9640734919758311" crossorigin="anonymous"></script>
 
-  <!-- Schema.org JSON-LD Structured Data (Google SERP Rich Results) -->
+  <!-- Schema.org JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -48,19 +32,7 @@
           "@type": "Organization",
           "name": "Qutaifan",
           "url": "https://www.qutaifan.com/"
-        },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://www.qutaifan.com/?s={search_term_string}",
-          "query-input": "required name=search_term_string"
         }
-      },
-      {
-        "@type": "DataCatalog",
-        "@id": "https://www.qutaifan.com/#catalog",
-        "name": "Free Utilities & Open Source Tools Directory",
-        "url": "https://www.qutaifan.com/",
-        "description": "Collection of open-source applications, privacy tools, and developer CLI utilities."
       }
     ]
   }
@@ -79,9 +51,6 @@
       --surface-3: #1F1F23;
 
       --accent-cyan: #22D3EE;
-      --accent-cyan-hover: #06B6D4;
-      --accent-cyan-glow: rgba(34, 211, 238, 0.15);
-
       --border-subtle: rgba(255, 255, 255, 0.08);
       --border-subtle-hover: rgba(255, 255, 255, 0.16);
 
@@ -98,269 +67,65 @@
       --font-mono: 'JetBrains Mono', monospace;
     }
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      font-family: var(--font-sans);
-      background-color: var(--bg-base);
-      color: var(--text-primary);
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body {
-      min-height: 100vh;
-      line-height: 1.6;
-      position: relative;
-      overflow-x: hidden;
-    }
+    html { font-family: var(--font-sans); background-color: var(--bg-base); color: var(--text-primary); scroll-behavior: smooth; }
+    body { min-height: 100vh; line-height: 1.6; position: relative; overflow-x: hidden; }
 
     .grain-overlay {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 999;
-      opacity: 0.035;
+      position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 999; opacity: 0.035;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
-    .app-wrapper {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
+    .app-wrapper { max-width: 1240px; margin: 0 auto; padding: 0 1.5rem; }
     .mono { font-family: var(--font-mono); }
 
-    /* Floating Glass Navbar */
     .navbar-fixed {
-      position: fixed;
-      top: 1rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: calc(100% - 3rem);
-      max-width: 1150px;
-      z-index: 1000;
-      border-radius: var(--radius-pill);
-      padding: 0.6rem 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(17, 17, 19, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--border-subtle);
+      position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); width: calc(100% - 3rem); max-width: 1150px; z-index: 1000;
+      border-radius: var(--radius-pill); padding: 0.6rem 1.25rem; display: flex; align-items: center; justify-content: space-between;
+      background: rgba(17, 17, 19, 0.75); backdrop-filter: blur(16px); border: 1px solid var(--border-subtle);
     }
 
-    .nav-brand {
-      font-family: var(--font-mono);
-      font-weight: 700;
-      font-size: 0.95rem;
-      letter-spacing: -0.02em;
-      color: var(--text-primary);
-      text-decoration: none;
-    }
+    .nav-brand { font-family: var(--font-mono); font-weight: 700; font-size: 0.95rem; color: var(--text-primary); text-decoration: none; }
+    .nav-links-group { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+    .nav-link { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; font-weight: 500; }
+    .nav-right-actions { display: flex; align-items: center; gap: 0.75rem; }
+    .search-trigger-btn { background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-subtle); color: var(--text-secondary); padding: 0.4rem 0.85rem; border-radius: var(--radius-pill); font-family: var(--font-mono); font-size: 0.78rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; }
+    .kbd-tag { background: rgba(255, 255, 255, 0.08); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.7rem; }
+    .btn-accent { background: var(--accent-cyan); color: #000; font-weight: 700; font-size: 0.85rem; padding: 0.45rem 1rem; border-radius: var(--radius-pill); border: none; cursor: pointer; text-decoration: none; }
 
-    .nav-links-group {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      list-style: none;
-    }
+    .hero-container { padding: 5.5rem 0 2rem; display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .hero-eyebrow { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; color: var(--accent-cyan); margin-bottom: 0.85rem; text-transform: uppercase; }
+    .hero-kinetic-headline { font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; max-width: 860px; margin-bottom: 1rem; }
+    .hero-subtext { font-size: 1.05rem; color: var(--text-secondary); max-width: 620px; line-height: 1.55; margin-bottom: 1.75rem; }
 
-    .nav-link {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      transition: color 150ms ease;
-    }
+    .code-install-block { background: var(--surface-1); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.75rem 1.15rem; display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; max-width: 540px; width: 100%; margin-bottom: 1.75rem; }
+    .code-install-text { font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-primary); }
+    .code-copy-btn { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-subtle); color: var(--text-secondary); padding: 0.3rem 0.65rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.75rem; cursor: pointer; }
+    .code-copy-btn.copied { background: rgba(34, 211, 238, 0.15); color: var(--accent-cyan); border-color: var(--accent-cyan); }
 
-    .nav-link:hover { color: var(--text-primary); }
+    .hero-cta-group { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1.75rem; }
+    .btn-secondary-hero { background: var(--surface-1); border: 1px solid var(--border-subtle); color: var(--text-primary); font-weight: 600; font-size: 0.85rem; padding: 0.55rem 1.25rem; border-radius: var(--radius-pill); text-decoration: none; }
 
-    .nav-right-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .search-trigger-btn {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-secondary);
-      padding: 0.4rem 0.85rem;
-      border-radius: var(--radius-pill);
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .kbd-tag {
-      background: rgba(255, 255, 255, 0.08);
-      padding: 0.1rem 0.35rem;
-      border-radius: 4px;
-      font-size: 0.7rem;
-    }
-
-    .btn-accent {
-      background: var(--accent-cyan);
-      color: #000;
-      font-weight: 700;
-      font-size: 0.85rem;
-      padding: 0.45rem 1rem;
-      border-radius: var(--radius-pill);
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    /* Hero Section */
-    .hero-container {
-      padding: 5.5rem 0 2.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .hero-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      color: var(--accent-cyan);
-      margin-bottom: 0.85rem;
-      text-transform: uppercase;
-    }
-
-    .hero-kinetic-headline {
-      font-size: clamp(2.4rem, 5vw, 4.2rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.08;
-      max-width: 860px;
-      margin-bottom: 1rem;
-      transition: transform 150ms ease;
-    }
-
-    .hero-subtext {
-      font-size: 1.05rem;
-      color: var(--text-secondary);
-      max-width: 620px;
-      line-height: 1.55;
-      margin-bottom: 1.75rem;
-    }
-
-    .code-install-block {
-      background: var(--surface-1);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 0.75rem 1.15rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.25rem;
-      max-width: 540px;
-      width: 100%;
-      margin-bottom: 1.75rem;
-    }
-
-    .code-install-text {
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      color: var(--text-primary);
-    }
-
-    .code-copy-btn {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-secondary);
-      padding: 0.3rem 0.65rem;
-      border-radius: var(--radius-sm);
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      cursor: pointer;
-    }
-
-    .code-copy-btn.copied {
-      background: rgba(34, 211, 238, 0.15);
-      color: var(--accent-cyan);
-      border-color: var(--accent-cyan);
-    }
-
-    .hero-cta-group {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      margin-bottom: 1.75rem;
-    }
-
-    .btn-secondary-hero {
-      background: var(--surface-1);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-primary);
-      font-weight: 600;
-      font-size: 0.85rem;
-      padding: 0.55rem 1.25rem;
-      border-radius: var(--radius-pill);
-      text-decoration: none;
-    }
-
-    .hero-stats-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      width: 100%;
-      max-width: 900px;
-      background: var(--surface-1);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-bento);
-      padding: 1.25rem;
-      margin-bottom: 3.5rem;
-    }
-
+    .hero-stats-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; width: 100%; max-width: 900px; background: var(--surface-1); border: 1px solid var(--border-subtle); border-radius: var(--radius-bento); padding: 1.25rem; margin-bottom: 2.5rem; }
     .stat-item { display: flex; flex-direction: column; align-items: center; }
-    .stat-val { font-family: var(--font-mono); font-size: 1.25rem; font-weight: 700; color: var(--accent-cyan); }
+    .stat-val { font-family: var(--font-mono); font-size: 1.15rem; font-weight: 700; color: var(--accent-cyan); }
     .stat-lbl { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.15rem; }
 
-    .section-header-quiet { margin-bottom: 1.5rem; }
+    .section-header-quiet { margin-bottom: 1.25rem; }
     .section-tag { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 0.08em; }
     .section-title { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em; margin-top: 0.25rem; }
 
-    .bento-card {
-      background-color: var(--surface-1);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-bento);
-      transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1), border-color 150ms ease;
-    }
+    .bento-card { background-color: var(--surface-1); border: 1px solid var(--border-subtle); border-radius: var(--radius-bento); transition: transform 150ms ease, border-color 150ms ease; }
+    .bento-card:hover { transform: scale(1.02); border-color: var(--border-subtle-hover); }
 
-    .bento-card:hover {
-      transform: scale(1.02);
-      border-color: var(--border-subtle-hover);
-    }
-
-    .bento-grid-featured {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 1rem;
-      margin-bottom: 3.5rem;
-    }
-
+    .bento-grid-featured { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; margin-bottom: 3.5rem; }
     .bento-card-large { grid-column: span 8; padding: 1.75rem; display: flex; flex-direction: column; justify-content: space-between; }
     .bento-card-medium { grid-column: span 4; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; }
     .bento-card-small { grid-column: span 4; padding: 1.35rem; display: flex; flex-direction: column; justify-content: space-between; }
 
     .card-top-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.85rem; }
-    .card-tool-name { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; }
+    .card-tool-name { font-size: 1.2rem; font-weight: 700; }
     .card-license-badge { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); background: var(--surface-2); border: 1px solid var(--border-subtle); padding: 0.15rem 0.45rem; border-radius: 4px; }
     .card-tool-desc { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.5; margin-bottom: 1.15rem; }
 
@@ -369,52 +134,24 @@
 
     .card-action-bar { border-top: 1px solid var(--border-subtle); padding-top: 0.85rem; display: flex; justify-content: space-between; align-items: center; }
     .github-stars { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); }
+    .btn-try-tool { background: var(--surface-2); border: 1px solid var(--border-subtle); color: var(--text-primary); font-size: 0.8rem; font-weight: 600; padding: 0.35rem 0.85rem; border-radius: var(--radius-sm); text-decoration: none; }
 
-    .btn-try-tool {
-      background: var(--surface-2);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-primary);
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 0.35rem 0.85rem;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-    }
-
-    .bento-grid-categories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 0.85rem;
-      margin-bottom: 3.5rem;
-    }
-
-    .category-chip-card { padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: var(--text-primary); }
+    .bento-grid-categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0.85rem; margin-bottom: 2rem; }
+    .category-chip-card { padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: var(--text-primary); cursor: pointer; text-align: left; }
+    .category-chip-card.active-pill { border-color: var(--accent-cyan); background: rgba(34, 211, 238, 0.1); }
     .cat-name { font-weight: 600; font-size: 0.88rem; }
     .cat-count { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); }
-
-    .bento-spotlight-card { padding: 2rem; margin-bottom: 3.5rem; }
-    .spotlight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
-    .spotlight-item { background: var(--surface-2); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.25rem; }
-    .spotlight-snippet { background: var(--surface-3); border: 1px solid var(--border-subtle); padding: 0.65rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-cyan); margin: 0.85rem 0; overflow-x: auto; }
-
-    .how-it-works-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 3.5rem; }
-    .step-card { padding: 1.5rem; }
-    .step-num { font-family: var(--font-mono); font-size: 1.25rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.75rem; }
-    .step-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem; }
-    .step-desc { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; }
 
     .footer-quiet { border-top: 1px solid var(--border-subtle); padding: 2.25rem 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem; }
     .footer-note { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); }
     .footer-links { display: flex; gap: 1.25rem; }
     .footer-link { color: var(--text-secondary); text-decoration: none; font-size: 0.82rem; cursor: pointer; }
-    .footer-link:hover { color: var(--text-primary); }
 
     .modal-overlay { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 1.5rem; background: rgba(17, 17, 19, 0.82); backdrop-filter: blur(16px); }
     .modal-card { max-width: 680px; width: 100%; padding: 2rem; max-height: 85vh; overflow-y: auto; }
 
     @media (max-width: 992px) {
       .bento-card-large, .bento-card-medium, .bento-card-small { grid-column: span 12; }
-      .how-it-works-grid { grid-template-columns: 1fr; }
       .hero-stats-strip { grid-template-columns: repeat(2, 1fr); }
       .nav-links-group { display: none; }
     }
@@ -426,18 +163,17 @@
 
 <!-- Navbar -->
 <header>
-  <nav class="navbar-fixed" aria-label="Main Navigation">
+  <nav class="navbar-fixed">
     <a href="/" class="nav-brand">UTIL.OS</a>
 
     <ul class="nav-links-group">
-      <li><a href="#featured" class="nav-link">Tools</a></li>
-      <li><a href="#opensource" class="nav-link">Open Source</a></li>
-      <li><a href="#categories" class="nav-link">Categories</a></li>
+      <li><a href="#categories" class="nav-link">Pillars</a></li>
+      <li><a href="#featured" class="nav-link">Directory</a></li>
       <li><a href="#how-it-works" class="nav-link">Workflow</a></li>
     </ul>
 
     <div class="nav-right-actions">
-      <button class="search-trigger-btn" id="search-trigger" aria-label="Search tools (Command K)">
+      <button class="search-trigger-btn" id="search-trigger">
         <span>Search</span>
         <span class="kbd-tag">⌘K</span>
       </button>
@@ -448,20 +184,20 @@
 
 <main class="app-wrapper">
   <!-- Hero Section -->
-  <section class="hero-container" aria-label="Introduction">
-    <div class="hero-eyebrow">FREE • OPEN SOURCE • NO BS</div>
+  <section class="hero-container">
+    <div class="hero-eyebrow">4 PILLARS • AI • UTILITIES • APPS • CLI</div>
 
     <h1 class="hero-kinetic-headline" id="hero-headline">
       Utility tools that just work
     </h1>
 
     <p class="hero-subtext">
-      Hand-curated directory of verified open-source software, CLI utilities, and zero-account web tools.
+      Explore 4 core software categories: AI Assistants, Web Utilities, Desktop Applications, and Open Source CLI tools.
     </p>
 
     <div class="code-install-block">
       <span class="code-install-text">curl -sSL https://util-os.com/install.sh | sh</span>
-      <button class="code-copy-btn" id="copy-btn" aria-label="Copy installation command">Copy</button>
+      <button class="code-copy-btn" id="copy-btn">Copy</button>
     </div>
 
     <div class="hero-cta-group">
@@ -471,36 +207,66 @@
 
     <div class="hero-stats-strip">
       <div class="stat-item">
-        <span class="stat-val">142</span>
-        <span class="stat-lbl">Verified Free Tools</span>
+        <span class="stat-val">🤖 AI</span>
+        <span class="stat-lbl">Assistants & Models</span>
       </div>
       <div class="stat-item">
-        <span class="stat-val">100%</span>
-        <span class="stat-lbl">No Account Walls</span>
+        <span class="stat-val">🛠️ Utilities</span>
+        <span class="stat-lbl">Browser Engines</span>
       </div>
       <div class="stat-item">
-        <span class="stat-val">0</span>
-        <span class="stat-lbl">Trackers / Bloat</span>
+        <span class="stat-val">💻 Apps</span>
+        <span class="stat-lbl">Desktop Suites</span>
       </div>
       <div class="stat-item">
-        <span class="stat-val">14.8k</span>
-        <span class="stat-lbl">Developer Stars</span>
+        <span class="stat-val">🔓 Open Source</span>
+        <span class="stat-lbl">CLI Repos</span>
       </div>
     </div>
   </section>
 
-  <!-- Featured Bento Grid -->
-  <section id="featured" style="margin-bottom: 3.5rem;" aria-labelledby="featured-heading">
+  <!-- 4 Category Pillars Filter Bar -->
+  <section id="categories" style="margin-bottom: 2.5rem;">
     <div class="section-header-quiet">
-      <span class="section-tag">01 / FEATURED DIRECTORY</span>
-      <h2 id="featured-heading" class="section-title">Essential Free Utilities</h2>
+      <span class="section-tag">01 / PRIMARY PILLARS</span>
+      <h2 class="section-title">Select Category Pillar</h2>
     </div>
 
-    <div class="bento-grid-featured">
-      <article class="bento-card bento-card-large">
+    <div class="bento-grid-categories">
+      <button class="bento-card category-chip-card active-pill" onclick="filterCategory('all', this)">
+        <span class="cat-name">⚡ All Software</span>
+        <span class="cat-count">142</span>
+      </button>
+      <button class="bento-card category-chip-card" onclick="filterCategory('ai', this)">
+        <span class="cat-name">🤖 AI & Automation</span>
+        <span class="cat-count">38</span>
+      </button>
+      <button class="bento-card category-chip-card" onclick="filterCategory('utilities', this)">
+        <span class="cat-name">🛠️ Online Utilities</span>
+        <span class="cat-count">54</span>
+      </button>
+      <button class="bento-card category-chip-card" onclick="filterCategory('apps', this)">
+        <span class="cat-name">💻 Apps & Software</span>
+        <span class="cat-count">32</span>
+      </button>
+      <button class="bento-card category-chip-card" onclick="filterCategory('opensource', this)">
+        <span class="cat-name">🔓 Open Source CLI</span>
+        <span class="cat-count">18</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Featured Bento Grid -->
+  <section id="featured" style="margin-bottom: 3.5rem;">
+    <div class="bento-grid-featured" id="tools-grid">
+      <!-- Tool Card 1 -->
+      <article class="bento-card bento-card-large" data-category="utilities">
         <div>
           <div class="card-top-header">
-            <h3 class="card-tool-name">Photopea Engine</h3>
+            <div>
+              <h3 class="card-tool-name">Photopea Engine</h3>
+              <span style="font-size: 0.75rem; color: var(--accent-cyan); font-weight: 600;">🛠️ Online Utilities</span>
+            </div>
             <span class="card-license-badge">Freemium</span>
           </div>
           <p class="card-tool-desc">Full-featured browser-based PSD editor & digital paint engine operating 100% in local RAM.</p>
@@ -516,10 +282,14 @@
         </div>
       </article>
 
-      <article class="bento-card bento-card-medium">
+      <!-- Tool Card 2 -->
+      <article class="bento-card bento-card-medium" data-category="utilities">
         <div>
           <div class="card-top-header">
-            <h3 class="card-tool-name">Bitwarden Vault</h3>
+            <div>
+              <h3 class="card-tool-name">Bitwarden Vault</h3>
+              <span style="font-size: 0.75rem; color: var(--accent-cyan); font-weight: 600;">🛠️ Online Utilities</span>
+            </div>
             <span class="card-license-badge">GPL-3.0</span>
           </div>
           <p class="card-tool-desc">Zero-knowledge end-to-end encrypted password manager with unlimited device sync on free tier.</p>
@@ -534,10 +304,14 @@
         </div>
       </article>
 
-      <article class="bento-card bento-card-medium">
+      <!-- Tool Card 3 -->
+      <article class="bento-card bento-card-medium" data-category="ai">
         <div>
           <div class="card-top-header">
-            <h3 class="card-tool-name">Claude & Kimi AI</h3>
+            <div>
+              <h3 class="card-tool-name">Claude & Kimi AI</h3>
+              <span style="font-size: 0.75rem; color: var(--accent-cyan); font-weight: 600;">🤖 AI & Automation</span>
+            </div>
             <span class="card-license-badge">Free Tier</span>
           </div>
           <p class="card-tool-desc">State-of-the-art AI reasoning models for code generation, technical text, and document parsing.</p>
@@ -552,10 +326,14 @@
         </div>
       </article>
 
-      <article class="bento-card bento-card-small">
+      <!-- Tool Card 4 -->
+      <article class="bento-card bento-card-small" data-category="utilities">
         <div>
           <div class="card-top-header">
-            <h3 class="card-tool-name">Excalibur Canvas</h3>
+            <div>
+              <h3 class="card-tool-name">Excalibur Canvas</h3>
+              <span style="font-size: 0.75rem; color: var(--accent-cyan); font-weight: 600;">🛠️ Online Utilities</span>
+            </div>
             <span class="card-license-badge">MIT</span>
           </div>
           <p class="card-tool-desc">Hand-drawn infinite whiteboard and SVG flowchart canvas.</p>
@@ -570,10 +348,14 @@
         </div>
       </article>
 
-      <article class="bento-card bento-card-small">
+      <!-- Tool Card 5 -->
+      <article class="bento-card bento-card-small" data-category="utilities">
         <div>
           <div class="card-top-header">
-            <h3 class="card-tool-name">CryptPad Suite</h3>
+            <div>
+              <h3 class="card-tool-name">CryptPad Suite</h3>
+              <span style="font-size: 0.75rem; color: var(--accent-cyan); font-weight: 600;">🛠️ Online Utilities</span>
+            </div>
             <span class="card-license-badge">AGPL-3.0</span>
           </div>
           <p class="card-tool-desc">Zero-knowledge collaborative docs & spreadsheet suite.</p>
@@ -588,10 +370,14 @@
         </div>
       </article>
 
-      <article class="bento-card bento-card-medium">
+      <!-- Tool Card 6 -->
+      <article class="bento-card bento-card-medium" data-category="apps">
         <div>
           <div class="card-top-header">
-            <h3 class="card-tool-name">Proton VPN Free</h3>
+            <div>
+              <h3 class="card-tool-name">Proton VPN Free</h3>
+              <span style="font-size: 0.75rem; color: var(--accent-cyan); font-weight: 600;">💻 Desktop Apps</span>
+            </div>
             <span class="card-license-badge">GPL-3.0</span>
           </div>
           <p class="card-tool-desc">Unlimited bandwidth zero-log privacy VPN created by CERN scientists.</p>
@@ -608,82 +394,7 @@
     </div>
   </section>
 
-  <!-- Categories -->
-  <section id="categories" style="margin-bottom: 3.5rem;" aria-labelledby="cat-heading">
-    <div class="section-header-quiet">
-      <span class="section-tag">02 / CATEGORY INDEX</span>
-      <h2 id="cat-heading" class="section-title">Explore by Domain</h2>
-    </div>
-
-    <div class="bento-grid-categories">
-      <a href="#featured" class="bento-card category-chip-card"><span class="cat-name">System Utilities</span><span class="cat-count">142</span></a>
-      <a href="#featured" class="bento-card category-chip-card"><span class="cat-name">Privacy & Vaults</span><span class="cat-count">88</span></a>
-      <a href="#featured" class="bento-card category-chip-card"><span class="cat-name">Developer CLI</span><span class="cat-count">210</span></a>
-      <a href="#featured" class="bento-card category-chip-card"><span class="cat-name">Productivity</span><span class="cat-count">64</span></a>
-      <a href="#featured" class="bento-card category-chip-card"><span class="cat-name">Media & Graphics</span><span class="cat-count">95</span></a>
-      <a href="#featured" class="bento-card category-chip-card"><span class="cat-name">Security Auditing</span><span class="cat-count">52</span></a>
-    </div>
-  </section>
-
-  <!-- Open Source Spotlight -->
-  <section id="opensource" style="margin-bottom: 3.5rem;" aria-labelledby="oss-heading">
-    <div class="bento-card bento-spotlight-card">
-      <span class="section-tag">03 / OPEN SOURCE SPOTLIGHT</span>
-      <h2 id="oss-heading" class="section-title">Verified High-Performance Repos</h2>
-      <p style="color: var(--text-secondary); max-width: 580px; margin-top: 0.35rem; font-size:0.9rem;">
-        Clean, single-purpose CLI utilities and terminal engines written in Rust, C++, and Go.
-      </p>
-
-      <div class="spotlight-grid">
-        <div class="spotlight-item">
-          <div style="font-weight:700;font-size:1.05rem;">Ghostty Terminal</div>
-          <div style="font-size:0.82rem;color:var(--text-secondary);margin-top:0.25rem;">Fast native terminal emulator with GPU acceleration.</div>
-          <div class="spotlight-snippet">$ ghostty --config-file=~/.config/ghostty/config</div>
-          <a href="https://ghostty.org" target="_blank" rel="noopener noreferrer" class="btn-try-tool">View source &rarr;</a>
-        </div>
-        <div class="spotlight-item">
-          <div style="font-weight:700;font-size:1.05rem;">Zoxide CLI</div>
-          <div style="font-size:0.82rem;color:var(--text-secondary);margin-top:0.25rem;">Smarter cd command for your terminal.</div>
-          <div class="spotlight-snippet">$ z workspace # jumps instantly</div>
-          <a href="https://github.com/ajeetdsouza/zoxide" target="_blank" rel="noopener noreferrer" class="btn-try-tool">View source &rarr;</a>
-        </div>
-        <div class="spotlight-item">
-          <div style="font-weight:700;font-size:1.05rem;">Ruff Linter</div>
-          <div style="font-size:0.82rem;color:var(--text-secondary);margin-top:0.25rem;">Extremely fast Python linter written in Rust.</div>
-          <div class="spotlight-snippet">$ ruff check . --fix</div>
-          <a href="https://github.com/astral-sh/ruff" target="_blank" rel="noopener noreferrer" class="btn-try-tool">View source &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How It Works Section -->
-  <section id="how-it-works" style="margin-bottom: 3.5rem;" aria-labelledby="hiw-heading">
-    <div class="section-header-quiet">
-      <span class="section-tag">04 / PROTOCOL WORKFLOW</span>
-      <h2 id="hiw-heading" class="section-title">How UTIL.OS Operates</h2>
-    </div>
-
-    <div class="how-it-works-grid">
-      <div class="bento-card step-card">
-        <div class="step-num">01</div>
-        <h3 class="step-title">Strict Verification</h3>
-        <p class="step-desc">Audited for genuine free tiers, open-source licenses, and zero dark patterns.</p>
-      </div>
-      <div class="bento-card step-card">
-        <div class="step-num">02</div>
-        <h3 class="step-title">No Account Walls</h3>
-        <p class="step-desc">Direct access links to web tools and one-line CLI installation packages.</p>
-      </div>
-      <div class="bento-card step-card">
-        <div class="step-num">03</div>
-        <h3 class="step-title">Machine Readable</h3>
-        <p class="step-desc">Full API and JSON manifests structured for developers and AI agents.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer with AdSense Compliance Links -->
+  <!-- Footer -->
   <footer class="footer-quiet">
     <div class="footer-note">© 2026 UTIL.OS • Built for humans & agents</div>
     <div class="footer-links">
@@ -695,55 +406,40 @@
   </footer>
 </main>
 
-<!-- Privacy Policy Modal -->
+<!-- Modals -->
 <div id="privacy-modal" class="modal-overlay" style="display:none;" onclick="closeModal('privacy-modal')">
   <div class="bento-card modal-card" onclick="event.stopPropagation()">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
       <h3 style="font-size:1.2rem;font-weight:700;">Privacy Policy</h3>
-      <button onclick="closeModal('privacy-modal')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.2rem;" aria-label="Close Privacy Policy">&times;</button>
+      <button onclick="closeModal('privacy-modal')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.2rem;">&times;</button>
     </div>
     <div style="font-size:0.88rem;color:var(--text-secondary);line-height:1.6;">
-      <p style="margin-bottom:0.75rem;">At UTIL.OS (www.qutaifan.com), your privacy is our top priority. We do not require account registration or store personal user data.</p>
-      <p style="margin-bottom:0.75rem;"><strong>Cookies & Advertising:</strong> Third party vendors, including Google AdSense, use cookies to serve ads based on a user's prior visits to your website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to users based on their visit to your sites and/or other sites on the Internet.</p>
-      <p style="margin-bottom:0.75rem;">Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style="color:var(--accent-cyan);">Google AdSettings</a> or aboutads.info.</p>
+      <p style="margin-bottom:0.75rem;">At UTIL.OS (www.qutaifan.com), your privacy is our top priority. Third-party vendors including Google AdSense use cookies to serve ads based on visits to this site.</p>
     </div>
   </div>
 </div>
 
-<!-- Terms Modal -->
 <div id="terms-modal" class="modal-overlay" style="display:none;" onclick="closeModal('terms-modal')">
   <div class="bento-card modal-card" onclick="event.stopPropagation()">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
       <h3 style="font-size:1.2rem;font-weight:700;">Terms of Service</h3>
-      <button onclick="closeModal('terms-modal')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.2rem;" aria-label="Close Terms of Service">&times;</button>
+      <button onclick="closeModal('terms-modal')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.2rem;">&times;</button>
     </div>
     <div style="font-size:0.88rem;color:var(--text-secondary);line-height:1.6;">
-      <p style="margin-bottom:0.75rem;">UTIL.OS provides a directory of free software, open-source utilities, and online applications as an information service.</p>
+      <p>UTIL.OS provides a directory of free software, open-source utilities, and online applications as an information service.</p>
     </div>
   </div>
 </div>
 
-<!-- About Modal -->
 <div id="about-modal" class="modal-overlay" style="display:none;" onclick="closeModal('about-modal')">
   <div class="bento-card modal-card" onclick="event.stopPropagation()">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
-      <h3 style="font-size:1.2rem;font-weight:700;">About UTIL.OS</h3>
-      <button onclick="closeModal('about-modal')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.2rem;" aria-label="Close About Us">&times;</button>
+      <h3 style="font-size:1.2rem;font-weight:700;">About Us</h3>
+      <button onclick="closeModal('about-modal')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.2rem;">&times;</button>
     </div>
     <div style="font-size:0.88rem;color:var(--text-secondary);line-height:1.6;">
-      <p style="margin-bottom:0.75rem;">UTIL.OS by Qutaifan (www.qutaifan.com) is built to aggregate genuinely free, privacy-respecting, and open-source software tools for developers and creators worldwide.</p>
+      <p>UTIL.OS by Qutaifan (www.qutaifan.com) aggregates free, open-source software tools for developers and creators worldwide.</p>
     </div>
-  </div>
-</div>
-
-<!-- ⌘K Search Modal -->
-<div id="search-modal" class="modal-overlay" style="display:none;" onclick="closeModal('search-modal')">
-  <div class="bento-card search-modal-card" onclick="event.stopPropagation()">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
-      <span class="mono" style="font-size:0.82rem;color:var(--accent-cyan);">⌘K QUICK SEARCH</span>
-      <button onclick="closeModal('search-modal')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;" aria-label="Close Search">&times;</button>
-    </div>
-    <input type="text" id="search-input" class="code-install-text" style="width:100%;padding:0.75rem 1rem;background:var(--surface-2);border:1px solid var(--border-subtle);border-radius:8px;outline:none;" placeholder="Search CLI tools, password managers..." />
   </div>
 </div>
 
@@ -751,12 +447,21 @@
   function openModal(id) { document.getElementById(id).style.display = 'flex'; }
   function closeModal(id) { document.getElementById(id).style.display = 'none'; }
 
-  const headline = document.getElementById('hero-headline');
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const scale = Math.max(0.95, 1 - scrollY * 0.0003);
-    if (headline) headline.style.transform = `scale(${scale})`;
-  }, { passive: true });
+  function filterCategory(cat, btn) {
+    const buttons = document.querySelectorAll('.category-chip-card');
+    buttons.forEach(b => b.classList.remove('active-pill'));
+    btn.classList.add('active-pill');
+
+    const cards = document.querySelectorAll('#tools-grid article');
+    cards.forEach(card => {
+      const cardCat = card.getAttribute('data-category');
+      if (cat === 'all' || cardCat === cat) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
 
   const copyBtn = document.getElementById('copy-btn');
   const installCmd = 'curl -sSL https://util-os.com/install.sh | sh';
@@ -771,16 +476,6 @@
       }, 2000);
     });
   }
-
-  const searchTrigger = document.getElementById('search-trigger');
-  if (searchTrigger) searchTrigger.addEventListener('click', () => openModal('search-modal'));
-
-  document.addEventListener('keydown', (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-      e.preventDefault();
-      openModal('search-modal');
-    }
-  });
 </script>
 </body>
 </html>

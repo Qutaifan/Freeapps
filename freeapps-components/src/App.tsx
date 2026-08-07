@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import './App.css'
 
 interface ToolCard {
   id: string
   name: string
   description: string
+  mainCategory: 'ai' | 'utilities' | 'apps' | 'opensource'
+  mainCategoryLabel: string
   tags: string[]
   license: string
   stars: string
@@ -17,6 +19,8 @@ const FEATURED_TOOLS: ToolCard[] = [
     id: '1',
     name: 'Photopea Engine',
     description: 'Full-featured browser-based PSD editor & digital paint engine operating 100% in local RAM.',
+    mainCategory: 'utilities',
+    mainCategoryLabel: '🛠️ Online Utilities',
     tags: ['Browser', 'GUI', 'Graphics'],
     license: 'Freemium',
     stars: '18.4k ★',
@@ -27,6 +31,8 @@ const FEATURED_TOOLS: ToolCard[] = [
     id: '2',
     name: 'Bitwarden Vault',
     description: 'Zero-knowledge end-to-end encrypted password manager with unlimited device sync on free tier.',
+    mainCategory: 'utilities',
+    mainCategoryLabel: '🛠️ Online Utilities',
     tags: ['Self-hosted', 'Security', 'GUI'],
     license: 'GPL-3.0',
     stars: '21.5k ★',
@@ -37,6 +43,8 @@ const FEATURED_TOOLS: ToolCard[] = [
     id: '3',
     name: 'Claude & Kimi AI',
     description: 'State-of-the-art AI reasoning models for code generation, technical text, and document parsing.',
+    mainCategory: 'ai',
+    mainCategoryLabel: '🤖 AI & Automation',
     tags: ['AI', 'CLI / Web', 'Code'],
     license: 'Free Tier',
     stars: '42.1k ★',
@@ -47,6 +55,8 @@ const FEATURED_TOOLS: ToolCard[] = [
     id: '4',
     name: 'Excalibur Canvas',
     description: 'Hand-drawn infinite whiteboard and architecture flowchart canvas with local SVG exports.',
+    mainCategory: 'utilities',
+    mainCategoryLabel: '🛠️ Online Utilities',
     tags: ['Browser', 'Design'],
     license: 'MIT',
     stars: '14.2k ★',
@@ -57,6 +67,8 @@ const FEATURED_TOOLS: ToolCard[] = [
     id: '5',
     name: 'CryptPad Workspace',
     description: 'Zero-knowledge encrypted collaborative docs, spreadsheets, and private drive suite.',
+    mainCategory: 'utilities',
+    mainCategoryLabel: '🛠️ Online Utilities',
     tags: ['Self-hosted', 'Privacy'],
     license: 'AGPL-3.0',
     stars: '9.8k ★',
@@ -67,6 +79,8 @@ const FEATURED_TOOLS: ToolCard[] = [
     id: '6',
     name: 'Proton VPN Free',
     description: 'Unlimited bandwidth zero-log privacy VPN created by CERN scientists.',
+    mainCategory: 'apps',
+    mainCategoryLabel: '💻 Desktop Apps',
     tags: ['Privacy', 'Security', 'GUI'],
     license: 'GPL-3.0',
     stars: '16.5k ★',
@@ -77,6 +91,8 @@ const FEATURED_TOOLS: ToolCard[] = [
     id: '7',
     name: 'DaVinci Resolve',
     description: 'Hollywood-grade 4K video editing suite with zero watermarks on free edition.',
+    mainCategory: 'apps',
+    mainCategoryLabel: '💻 Desktop Apps',
     tags: ['Desktop', 'GUI', 'Media'],
     license: 'Freemium',
     stars: '32.1k ★',
@@ -87,6 +103,8 @@ const FEATURED_TOOLS: ToolCard[] = [
     id: '8',
     name: 'LocalSend',
     description: 'Open-source cross-platform air-drop alternative for sharing files securely on local network.',
+    mainCategory: 'apps',
+    mainCategoryLabel: '💻 Desktop Apps',
     tags: ['Utility', 'Network', 'CLI'],
     license: 'MIT',
     stars: '38.0k ★',
@@ -95,18 +113,22 @@ const FEATURED_TOOLS: ToolCard[] = [
   },
   {
     id: '9',
-    name: 'FFmpeg Core',
-    description: 'Ultra-fast media transcoding and video editing command line engine.',
-    tags: ['CLI', 'System', 'Media'],
-    license: 'LGPL-2.1',
-    stars: '45.0k ★',
-    url: 'https://ffmpeg.org',
+    name: 'Ghostty Terminal',
+    description: 'Fast native terminal emulator with GPU acceleration and Rust performance.',
+    mainCategory: 'opensource',
+    mainCategoryLabel: '🔓 Open Source CLI',
+    tags: ['CLI', 'System', 'Rust'],
+    license: 'MIT',
+    stars: '24.0k ★',
+    url: 'https://ghostty.org',
     size: 'small'
   },
   {
     id: '10',
     name: 'OBS Studio',
     description: 'Free open-source screen recorder, live streaming engine, and video capture tool.',
+    mainCategory: 'apps',
+    mainCategoryLabel: '💻 Desktop Apps',
     tags: ['Desktop', 'Media', 'GUI'],
     license: 'GPL-2.0',
     stars: '54.2k ★',
@@ -115,31 +137,10 @@ const FEATURED_TOOLS: ToolCard[] = [
   }
 ]
 
-const OPEN_SOURCE_SPOTLIGHT = [
-  {
-    name: 'Ghostty Terminal',
-    desc: 'Fast, native, feature-rich terminal emulator leveraging GPU acceleration.',
-    snippet: '$ ghostty --config-file=~/.config/ghostty/config',
-    url: 'https://ghostty.org'
-  },
-  {
-    name: 'Zoxide CLI',
-    desc: 'Smarter cd command for your terminal. Remembers your most used paths.',
-    snippet: '$ z workspace  # jumps instantly to ~/Projects',
-    url: 'https://github.com/ajeetdsouza/zoxide'
-  },
-  {
-    name: 'Ruff Linter',
-    desc: 'Extremely fast Python linter and code formatter written in Rust.',
-    snippet: '$ ruff check . --fix',
-    url: 'https://github.com/astral-sh/ruff'
-  }
-]
-
 function App() {
   const [copied, setCopied] = useState(false)
   const [showSearchModal, setShowSearchModal] = useState(false)
-  const [headlineScale, setHeadlineScale] = useState(1)
+  const [activeCategory, setActiveCategory] = useState<string>('all')
   const [searchQuery, setSearchQuery] = useState('')
 
   const installCmd = 'curl -sSL https://util-os.com/install.sh | sh'
@@ -151,39 +152,35 @@ function App() {
   }
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY
-      const scale = Math.max(0.95, 1 - scrollY * 0.0003)
-      setHeadlineScale(scale)
-    }
-
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault()
         setShowSearchModal((prev) => !prev)
       }
     }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
     window.addEventListener('keydown', handleKeyDown)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('keydown', handleKeyDown)
-    }
+    return () => window.removeEventListener('keydown', handleKeyDown)
   }, [])
+
+  const filteredTools = useMemo(() => {
+    return FEATURED_TOOLS.filter(t => {
+      const matchesCat = activeCategory === 'all' || t.mainCategory === activeCategory
+      const matchesSearch = !searchQuery || t.name.toLowerCase().includes(searchQuery.toLowerCase()) || t.description.toLowerCase().includes(searchQuery.toLowerCase())
+      return matchesCat && matchesSearch
+    })
+  }, [activeCategory, searchQuery])
 
   return (
     <div>
       <div className="grain-overlay" />
 
-      {/* 1. Navbar */}
+      {/* Navbar */}
       <nav className="navbar-fixed glass-nav">
         <a href="/" className="nav-brand">UTIL.OS</a>
 
         <ul className="nav-links-group">
-          <li><a href="#featured" className="nav-link">Tools</a></li>
-          <li><a href="#opensource" className="nav-link">Open Source</a></li>
-          <li><a href="#categories" className="nav-link">Categories</a></li>
+          <li><a href="#categories" className="nav-link">Pillars</a></li>
+          <li><a href="#featured" className="nav-link">Directory</a></li>
           <li><a href="#how-it-works" className="nav-link">Workflow</a></li>
         </ul>
 
@@ -197,27 +194,21 @@ function App() {
       </nav>
 
       <main className="app-wrapper">
-        {/* 2. Compact Hero Section */}
+        {/* Hero Section */}
         <section className="hero-container">
-          <div className="hero-eyebrow">FREE • OPEN SOURCE • NO BS</div>
+          <div className="hero-eyebrow">4 PILLARS • AI • UTILITIES • APPS • CLI</div>
 
-          <h1
-            className="hero-kinetic-headline"
-            style={{ transform: `scale(${headlineScale})` }}
-          >
+          <h1 className="hero-kinetic-headline">
             Utility tools that just work
           </h1>
 
           <p className="hero-subtext">
-            Hand-curated directory of verified open-source software, CLI utilities, and zero-account web tools.
+            Explore 4 core software categories: AI Assistants, Web Utilities, Desktop Applications, and Open Source CLI tools.
           </p>
 
           <div className="code-install-block">
             <span className="code-install-text">{installCmd}</span>
-            <button
-              className={`code-copy-btn ${copied ? 'copied' : ''}`}
-              onClick={handleCopyCode}
-            >
+            <button className={`code-copy-btn ${copied ? 'copied' : ''}`} onClick={handleCopyCode}>
               {copied ? 'Copied!' : 'Copy'}
             </button>
           </div>
@@ -231,38 +222,63 @@ function App() {
             </a>
           </div>
 
-          {/* Stat Strip Bar (Fills empty space) */}
           <div className="hero-stats-strip">
             <div className="stat-item">
-              <span className="stat-val">142</span>
-              <span className="stat-lbl">Verified Free Tools</span>
+              <span className="stat-val">🤖 AI</span>
+              <span className="stat-lbl">Assistants & Models</span>
             </div>
             <div className="stat-item">
-              <span className="stat-val">100%</span>
-              <span className="stat-lbl">No Account Walls</span>
+              <span className="stat-val">🛠️ Utilities</span>
+              <span className="stat-lbl">Browser Engines</span>
             </div>
             <div className="stat-item">
-              <span className="stat-val">0</span>
-              <span className="stat-lbl">Trackers / Bloat</span>
+              <span className="stat-val">💻 Apps</span>
+              <span className="stat-lbl">Desktop Suites</span>
             </div>
             <div className="stat-item">
-              <span className="stat-val">14.8k</span>
-              <span className="stat-lbl">Developer Stars</span>
+              <span className="stat-val">🔓 Open Source</span>
+              <span className="stat-lbl">CLI Repos</span>
             </div>
           </div>
         </section>
 
-        {/* 3. Dense Bento Grid of Featured Free Utilities */}
-        <section id="featured" style={{ marginBottom: '3.5rem' }}>
+        {/* 4 Major Pillars Filter Section */}
+        <section id="categories" style={{ marginBottom: '2.5rem' }}>
           <div className="section-header-quiet">
             <div>
-              <span className="section-tag">01 / FEATURED DIRECTORY</span>
-              <h2 className="section-title">Essential Free Utilities</h2>
+              <span className="section-tag">01 / PRIMARY PILLARS</span>
+              <h2 className="section-title">Select Category Pillar</h2>
             </div>
           </div>
 
+          <div className="bento-grid-categories">
+            <button className={`bento-card category-chip-card ${activeCategory === 'all' ? 'active-pill' : ''}`} onClick={() => setActiveCategory('all')}>
+              <span className="cat-name">⚡ All Software</span>
+              <span className="cat-count">142</span>
+            </button>
+            <button className={`bento-card category-chip-card ${activeCategory === 'ai' ? 'active-pill' : ''}`} onClick={() => setActiveCategory('ai')}>
+              <span className="cat-name">🤖 AI & Automation</span>
+              <span className="cat-count">38</span>
+            </button>
+            <button className={`bento-card category-chip-card ${activeCategory === 'utilities' ? 'active-pill' : ''}`} onClick={() => setActiveCategory('utilities')}>
+              <span className="cat-name">🛠️ Online Utilities</span>
+              <span className="cat-count">54</span>
+            </button>
+            <button className={`bento-card category-chip-card ${activeCategory === 'apps' ? 'active-pill' : ''}`} onClick={() => setActiveCategory('apps')}>
+              <span className="cat-name">💻 Apps & Software</span>
+              <span className="cat-count">32</span>
+            </button>
+            <button className={`bento-card category-chip-card ${activeCategory === 'opensource' ? 'active-pill' : ''}`} onClick={() => setActiveCategory('opensource')}>
+              <span className="cat-name">🔓 Open Source CLI</span>
+              <span className="cat-count">18</span>
+            </button>
+          </div>
+        </section>
+
+        {/* Dense Bento Grid */}
+        <section id="featured" style={{ marginBottom: '3.5rem' }}>
           <div className="bento-grid-featured">
-            {FEATURED_TOOLS.map((tool) => {
+            {filteredTools.map((tool) => {
               const cardClass = tool.size === 'large' 
                 ? 'bento-card bento-card-large' 
                 : tool.size === 'medium' 
@@ -273,7 +289,10 @@ function App() {
                 <article key={tool.id} className={cardClass}>
                   <div>
                     <div className="card-top-header">
-                      <h3 className="card-tool-name">{tool.name}</h3>
+                      <div>
+                        <h3 className="card-tool-name">{tool.name}</h3>
+                        <span style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', fontWeight: 600 }}>{tool.mainCategoryLabel}</span>
+                      </div>
                       <span className="card-license-badge">{tool.license}</span>
                     </div>
 
@@ -298,111 +317,18 @@ function App() {
           </div>
         </section>
 
-        {/* 4. Categories Section */}
-        <section id="categories" style={{ marginBottom: '3.5rem' }}>
-          <div className="section-header-quiet">
-            <div>
-              <span className="section-tag">02 / CATEGORY INDEX</span>
-              <h2 className="section-title">Explore by Domain</h2>
-            </div>
-          </div>
-
-          <div className="bento-grid-categories">
-            <a href="#featured" className="bento-card category-chip-card">
-              <span className="cat-name">System Utilities</span>
-              <span className="cat-count">142</span>
-            </a>
-            <a href="#featured" className="bento-card category-chip-card">
-              <span className="cat-name">Privacy & Vaults</span>
-              <span className="cat-count">88</span>
-            </a>
-            <a href="#featured" className="bento-card category-chip-card">
-              <span className="cat-name">Developer CLI</span>
-              <span className="cat-count">210</span>
-            </a>
-            <a href="#featured" className="bento-card category-chip-card">
-              <span className="cat-name">Productivity</span>
-              <span className="cat-count">64</span>
-            </a>
-            <a href="#featured" className="bento-card category-chip-card">
-              <span className="cat-name">Media & Graphics</span>
-              <span className="cat-count">95</span>
-            </a>
-            <a href="#featured" className="bento-card category-chip-card">
-              <span className="cat-name">Security Auditing</span>
-              <span className="cat-count">52</span>
-            </a>
-          </div>
-        </section>
-
-        {/* 5. Open Source Spotlight */}
-        <section id="opensource" style={{ marginBottom: '3.5rem' }}>
-          <div className="bento-card bento-spotlight-card">
-            <span className="section-tag">03 / OPEN SOURCE SPOTLIGHT</span>
-            <h2 className="section-title">Verified High-Performance Repos</h2>
-            <p style={{ color: 'var(--text-secondary)', maxWidth: '580px', marginTop: '0.35rem', fontSize: '0.9rem' }}>
-              Clean, single-purpose CLI utilities and terminal engines written in Rust, C++, and Go with zero analytics tracking.
-            </p>
-
-            <div className="spotlight-grid">
-              {OPEN_SOURCE_SPOTLIGHT.map((item, idx) => (
-                <div key={idx} className="spotlight-item">
-                  <div style={{ fontWeight: 700, fontSize: '1.05rem' }}>{item.name}</div>
-                  <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '0.25rem' }}>{item.desc}</div>
-                  <div className="spotlight-snippet">{item.snippet}</div>
-                  <a href={item.url} target="_blank" rel="noopener noreferrer" className="btn-try-tool">
-                    View source &rarr;
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* 6. How It Works Section */}
-        <section id="how-it-works" style={{ marginBottom: '3.5rem' }}>
-          <div className="section-header-quiet">
-            <div>
-              <span className="section-tag">04 / PROTOCOL WORKFLOW</span>
-              <h2 className="section-title">How UTIL.OS Operates</h2>
-            </div>
-          </div>
-
-          <div className="how-it-works-grid">
-            <div className="bento-card step-card">
-              <div className="step-num">01</div>
-              <h3 className="step-title">Strict Verification</h3>
-              <p className="step-desc">Every tool is audited for genuine free tiers, open-source licenses, and zero dark patterns.</p>
-            </div>
-            <div className="bento-card step-card">
-              <div className="step-num">02</div>
-              <h3 className="step-title">No Account Walls</h3>
-              <p className="step-desc">Direct access links to web tools and one-line CLI installation packages without registration traps.</p>
-            </div>
-            <div className="bento-card step-card">
-              <div className="step-num">03</div>
-              <h3 className="step-title">Machine Readable</h3>
-              <p className="step-desc">Full API and JSON manifests structured for both human developers and autonomous AI coding agents.</p>
-            </div>
-          </div>
-        </section>
-
-        {/* 7. Footer */}
+        {/* Footer */}
         <footer className="footer-quiet">
-          <div className="footer-note">
-            © 2026 UTIL.OS • Built for humans & agents
-          </div>
-
+          <div className="footer-note">© 2026 UTIL.OS • Built for humans & agents</div>
           <div className="footer-links">
+            <a href="#categories" className="footer-link">Pillars</a>
             <a href="#featured" className="footer-link">Tools</a>
-            <a href="#opensource" className="footer-link">Open Source</a>
-            <a href="#categories" className="footer-link">Categories</a>
             <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="footer-link">GitHub</a>
           </div>
         </footer>
       </main>
 
-      {/* ⌘K Search Modal */}
+      {/* Search Modal */}
       {showSearchModal && (
         <div className="search-modal-overlay" onClick={() => setShowSearchModal(false)}>
           <div className="search-modal-card bento-card" onClick={(e) => e.stopPropagation()}>
@@ -410,25 +336,15 @@ function App() {
               <span className="mono" style={{ fontSize: '0.82rem', color: 'var(--accent-cyan)' }}>⌘K QUICK SEARCH</span>
               <button style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }} onClick={() => setShowSearchModal(false)}>&times;</button>
             </div>
-
             <input
               type="text"
               className="code-install-text"
               style={{ width: '100%', padding: '0.75rem 1rem', background: 'var(--surface-2)', border: '1px solid var(--border-subtle)', borderRadius: '8px', outline: 'none' }}
-              placeholder="Search CLI tools, password managers, photo editors..."
+              placeholder="Search AI, CLI tools, password managers..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               autoFocus
             />
-
-            <div style={{ marginTop: '0.85rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-              {FEATURED_TOOLS.filter(t => t.name.toLowerCase().includes(searchQuery.toLowerCase())).map(t => (
-                <a key={t.id} href={t.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', justifyContent: 'space-between', padding: '0.5rem 0.75rem', background: 'var(--surface-2)', borderRadius: '6px', color: '#fff', textDecoration: 'none', fontSize: '0.85rem' }}>
-                  <span>{t.name}</span>
-                  <span className="mono" style={{ color: 'var(--accent-cyan)' }}>{t.stars}</span>
-                </a>
-              ))}
-            </div>
           </div>
         </div>
       )}
