@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 interface HeroProps {
   totalToolsCount: number
   savedCount: number
@@ -13,39 +11,22 @@ export function Hero({
   savedCount,
   activeCategory,
   onSelectCategory,
-  onShowToast
+  onShowToast: _onShowToast
 }: HeroProps) {
-  const [copied, setCopied] = useState(false)
-  const installCmd = 'curl -sSL https://thehub.dev/install.sh | sh'
-
-  const handleCopyCode = () => {
-    navigator.clipboard.writeText(installCmd)
-    setCopied(true)
-    onShowToast('Install command copied to clipboard!')
-    setTimeout(() => setCopied(false), 2000)
-  }
-
   return (
     <section className="hero-container">
       <div className="hero-eyebrow">THEHUB • 4 PILLARS • AI • UTILITIES • APPS • CLI</div>
 
       <h1 className="hero-kinetic-headline">
-        Open-source software & tools that just work
+        Open-source software &amp; tools that just work
       </h1>
 
       <p className="hero-subtext">
         Discover verified open-source software, free web utilities, privacy-focused desktop apps, and CLI tools with zero signup traps.
       </p>
 
-      <div className="code-install-block">
-        <span className="code-install-text">{installCmd}</span>
-        <button className={`code-copy-btn ${copied ? 'copied' : ''}`} onClick={handleCopyCode}>
-          {copied ? 'Copied!' : 'Copy'}
-        </button>
-      </div>
-
       <div className="hero-cta-group">
-        <a href="#featured" className="btn-accent" style={{ padding: '0.6rem 1.3rem', fontSize: '0.88rem' }}>
+        <a href="#featured" className="btn-accent" style={{ padding: '0.66rem 1.4rem', fontSize: '0.9rem' }}>
           Explore {totalToolsCount} Verified Tools
         </a>
         <button
@@ -58,20 +39,20 @@ export function Hero({
 
       <div className="hero-stats-strip">
         <div className="stat-item">
-          <span className="stat-val">🤖 AI</span>
-          <span className="stat-lbl">Assistants & Models</span>
+          <span className="stat-number">100%</span>
+          <span className="stat-label">Free &amp; Open Source</span>
         </div>
         <div className="stat-item">
-          <span className="stat-val">🛠️ Utilities</span>
-          <span className="stat-lbl">Browser Engines</span>
+          <span className="stat-number">0</span>
+          <span className="stat-label">Credit Card Traps</span>
         </div>
         <div className="stat-item">
-          <span className="stat-val">💻 Apps</span>
-          <span className="stat-lbl">Desktop Suites</span>
+          <span className="stat-number">4</span>
+          <span className="stat-label">Core Pillars</span>
         </div>
         <div className="stat-item">
-          <span className="stat-val">🔓 Open Source</span>
-          <span className="stat-lbl">CLI Repos</span>
+          <span className="stat-number">Local</span>
+          <span className="stat-label">RAM Processing</span>
         </div>
       </div>
     </section>
