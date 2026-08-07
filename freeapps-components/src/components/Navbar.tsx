@@ -6,20 +6,28 @@ interface NavbarProps {
 export function Navbar({ onOpenSearch, onOpenSubmit }: NavbarProps) {
   return (
     <nav className="navbar-fixed glass-nav">
-      <a href="/" className="nav-brand" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-        <img
-          src="/logo.jpg"
-          alt="THEHUB Logo"
-          style={{
-            width: '28px',
-            height: '28px',
-            borderRadius: '8px',
-            border: '1.5px solid rgba(34, 211, 238, 0.8)',
-            boxShadow: '0 0 12px rgba(34, 211, 238, 0.4)',
-            objectFit: 'cover'
-          }}
-        />
-        <span><span className="brand-accent">THE</span>HUB</span>
+      <a href="/" className="nav-brand" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', textDecoration: 'none' }}>
+        {/* Dark Circular Circuit Network Emblem (Option 1) */}
+        <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" fill="#111113" stroke="#A1A1AA" strokeWidth="2.5" strokeOpacity="0.8" />
+          <path d="M 32 14 L 32 30 L 40 38 L 40 48" fill="none" stroke="#F4F4F5" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="40" cy="48" r="2.5" fill="#22D3EE" />
+          <path d="M 32 22 L 22 22 L 16 28 L 16 40" fill="none" stroke="#F4F4F5" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="16" cy="40" r="2.5" fill="#22D3EE" />
+          <path d="M 22 28 L 28 28 L 28 44" fill="none" stroke="#F4F4F5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="28" cy="44" r="2" fill="#38BDF8" />
+          <circle cx="22" cy="28" r="2" fill="#38BDF8" />
+          <circle cx="32" cy="14" r="2.5" fill="#22D3EE" />
+        </svg>
+
+        <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
+          <span style={{ fontWeight: 800, fontSize: '1.05rem', letterSpacing: '0.04em', color: '#FFFFFF', fontFamily: 'var(--font-sans)' }}>
+            THEHUB
+          </span>
+          <span style={{ fontSize: '0.58rem', letterSpacing: '0.18em', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', marginTop: '2px', textTransform: 'uppercase' }}>
+            BY QUTAIFAN.COM
+          </span>
+        </div>
       </a>
 
       <ul className="nav-links-group">
