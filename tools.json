@@ -367,12 +367,13 @@
     "name": "Luma Dream Machine",
     "slug": "luma-dream-machine",
     "by": "Luma AI",
-    "blurb": "Stunning video generation from text or image.",
+    "blurb": "Generative video model from text or image with free trial & paid subscription plans.",
     "category": "video",
     "tags": [],
-    "pricing": "free-tier",
+    "pricing": "freemium",
     "badges": [
-      "Free Tier"
+      "Freemium",
+      "Paid Plans"
     ],
     "url": "https://lumalabs.ai/dream-machine",
     "review": "/reviews/luma-dream-machine",
