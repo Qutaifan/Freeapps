@@ -237,11 +237,6 @@
       Discover verified open-source software, free online utilities, password managers, photo editors, and developer CLI tools.
     </p>
 
-    <div class="code-install-block">
-      <span class="code-install-text">curl -sSL https://thehub.dev/install.sh | sh</span>
-      <button class="code-copy-btn" id="copy-btn">Copy</button>
-    </div>
-
     <div class="hero-cta-group">
       <a href="#featured" class="btn-accent" style="padding:0.6rem 1.3rem;font-size:0.88rem;">Browse free tools</a>
       <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-secondary-hero">Star on GitHub</a>
@@ -613,20 +608,6 @@
       } else {
         card.style.display = 'none';
       }
-    });
-  }
-
-  const copyBtn = document.getElementById('copy-btn');
-  const installCmd = 'curl -sSL https://thehub.dev/install.sh | sh';
-  if (copyBtn) {
-    copyBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText(installCmd);
-      copyBtn.textContent = 'Copied!';
-      copyBtn.classList.add('copied');
-      setTimeout(() => {
-        copyBtn.textContent = 'Copy';
-        copyBtn.classList.remove('copied');
-      }, 2000);
     });
   }
 </script>
