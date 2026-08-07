@@ -31,21 +31,31 @@ export const FEATURED_TOOLS: ToolCard[] = [
   },
   {
     id: '3',
-    name: 'Claude & Kimi AI',
-    description: 'State-of-the-art AI reasoning models for code generation, technical text, and document parsing.',
-    fullDetails: 'Cutting-edge artificial intelligence platforms designed for advanced coding assistance, document synthesis, and multi-step agent reasoning with ultra-large context windows. Select between Anthropic Claude AI and Moonshot Kimi AI.',
+    name: 'Claude AI',
+    description: 'State-of-the-art AI reasoning model by Anthropic for code generation, technical text, and live artifacts.',
+    fullDetails: 'Claude by Anthropic is an advanced AI assistant designed for technical writing, complex multi-step coding, document analysis, and interactive code artifacts execution.',
     mainCategory: 'ai',
     mainCategoryLabel: '🤖 AI & Automation',
-    tags: ['AI', 'CLI / Web', 'Code'],
+    tags: ['AI', 'Code', 'Browser'],
     license: 'Free Tier',
-    stars: '42.1k ★',
+    stars: '48.5k ★',
     url: 'https://claude.ai',
-    secondaryUrls: [
-      { label: 'Claude AI', url: 'https://claude.ai' },
-      { label: 'Kimi AI', url: 'https://kimi.moonshot.cn' }
-    ],
     size: 'medium',
-    features: ['Context windowing', 'Artifact sandbox', 'Multi-modal analysis', 'Code interpreter']
+    features: ['Live code artifacts', '200k+ context window', 'Multi-modal analysis', 'Code interpreter']
+  },
+  {
+    id: '3b',
+    name: 'Kimi AI',
+    description: 'Ultra-large context window AI model by Moonshot AI for processing massive PDFs, books, and documents.',
+    fullDetails: 'Kimi AI is an advanced artificial intelligence model specializing in ultra-long context understanding (up to 2 million tokens), multi-file document extraction, and rapid web research.',
+    mainCategory: 'ai',
+    mainCategoryLabel: '🤖 AI & Automation',
+    tags: ['AI', 'Browser', 'Privacy'],
+    license: 'Free Tier',
+    stars: '29.3k ★',
+    url: 'https://kimi.moonshot.cn',
+    size: 'medium',
+    features: ['2M token context window', 'PDF & Doc parser', 'Web search grounding', 'Multi-file analysis']
   },
   {
     id: '4',
