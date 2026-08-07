@@ -16,7 +16,7 @@ export function Hero({
   onShowToast
 }: HeroProps) {
   const [copied, setCopied] = useState(false)
-  const installCmd = 'git clone https://github.com/Qutaifan/Freeapps.git'
+  const installCmd = 'curl -sSL https://thehub.dev/install.sh | sh'
 
   const handleCopyCode = () => {
     navigator.clipboard.writeText(installCmd)
