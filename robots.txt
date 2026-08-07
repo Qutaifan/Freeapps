@@ -1,0 +1,6 @@
+# Google Search Engine Crawler Robots File for qutaifan.com
+User-agent: *
+Allow: /
+
+# Sitemap Index Link
+Sitemap: https://www.qutaifan.com/sitemap.xml

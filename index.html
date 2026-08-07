@@ -3,13 +3,64 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>UTIL.OS — Utility tools that just work | Free & Open Source Directory</title>
-  <meta name="description" content="Quiet, content-dense directory of verified open-source software, CLI utilities, and zero-account web tools." />
-  <meta name="robots" content="index, follow" />
+  
+  <!-- Google SEO Starter Guide Meta Tags -->
+  <title>UTIL.OS — Free & Open Source Utility Tools Directory | qutaifan.com</title>
+  <meta name="description" content="Discover verified open-source software, free online utilities, password managers, photo editors, and developer CLI tools with zero account traps." />
+  <meta name="keywords" content="free tools, open source software, developer utilities, photopea, bitwarden, cryptpad, qutaifan, free apps online" />
+  <meta name="author" content="Qutaifan" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://www.qutaifan.com/" />
+
+  <!-- Open Graph Meta Tags for Social Media & Google Rich Snippets -->
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="UTIL.OS — Free & Open Source Utility Tools Directory" />
+  <meta property="og:description" content="Hand-curated directory of verified open-source software, CLI utilities, and zero-account web tools." />
+  <meta property="og:url" content="https://www.qutaifan.com/" />
+  <meta property="og:site_name" content="UTIL.OS by Qutaifan" />
+  <meta property="og:image" content="https://www.qutaifan.com/og-image.png" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="UTIL.OS — Free & Open Source Utility Tools Directory" />
+  <meta name="twitter:description" content="Hand-curated directory of verified open-source software, CLI utilities, and zero-account web tools." />
 
   <!-- Google AdSense Official Script -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9640734919758311" crossorigin="anonymous"></script>
+
+  <!-- Schema.org JSON-LD Structured Data (Google SERP Rich Results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.qutaifan.com/#website",
+        "url": "https://www.qutaifan.com/",
+        "name": "UTIL.OS",
+        "description": "Free & Open Source Utility Tools Directory",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Qutaifan",
+          "url": "https://www.qutaifan.com/"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.qutaifan.com/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "DataCatalog",
+        "@id": "https://www.qutaifan.com/#catalog",
+        "name": "Free Utilities & Open Source Tools Directory",
+        "url": "https://www.qutaifan.com/",
+        "description": "Collection of open-source applications, privacy tools, and developer CLI utilities."
+      }
+    ]
+  }
+  </script>
 
   <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -369,29 +420,31 @@
 
 <div class="grain-overlay"></div>
 
-<!-- 1. Navbar -->
-<nav class="navbar-fixed">
-  <a href="/" class="nav-brand">UTIL.OS</a>
+<!-- Navbar -->
+<header>
+  <nav class="navbar-fixed" aria-label="Main Navigation">
+    <a href="/" class="nav-brand">UTIL.OS</a>
 
-  <ul class="nav-links-group">
-    <li><a href="#featured" class="nav-link">Tools</a></li>
-    <li><a href="#opensource" class="nav-link">Open Source</a></li>
-    <li><a href="#categories" class="nav-link">Categories</a></li>
-    <li><a href="#how-it-works" class="nav-link">Workflow</a></li>
-  </ul>
+    <ul class="nav-links-group">
+      <li><a href="#featured" class="nav-link">Tools</a></li>
+      <li><a href="#opensource" class="nav-link">Open Source</a></li>
+      <li><a href="#categories" class="nav-link">Categories</a></li>
+      <li><a href="#how-it-works" class="nav-link">Workflow</a></li>
+    </ul>
 
-  <div class="nav-right-actions">
-    <button class="search-trigger-btn" id="search-trigger">
-      <span>Search</span>
-      <span class="kbd-tag">⌘K</span>
-    </button>
-    <a href="#featured" class="btn-accent">Submit tool</a>
-  </div>
-</nav>
+    <div class="nav-right-actions">
+      <button class="search-trigger-btn" id="search-trigger" aria-label="Search tools (Command K)">
+        <span>Search</span>
+        <span class="kbd-tag">⌘K</span>
+      </button>
+      <a href="#featured" class="btn-accent">Submit tool</a>
+    </div>
+  </nav>
+</header>
 
 <main class="app-wrapper">
-  <!-- 2. Compact Hero Section -->
-  <section class="hero-container">
+  <!-- Hero Section -->
+  <section class="hero-container" aria-label="Introduction">
     <div class="hero-eyebrow">FREE • OPEN SOURCE • NO BS</div>
 
     <h1 class="hero-kinetic-headline" id="hero-headline">
@@ -404,12 +457,12 @@
 
     <div class="code-install-block">
       <span class="code-install-text">curl -sSL https://util-os.com/install.sh | sh</span>
-      <button class="code-copy-btn" id="copy-btn">Copy</button>
+      <button class="code-copy-btn" id="copy-btn" aria-label="Copy installation command">Copy</button>
     </div>
 
     <div class="hero-cta-group">
       <a href="#featured" class="btn-accent" style="padding:0.6rem 1.3rem;font-size:0.88rem;">Browse free tools</a>
-      <a href="https://github.com" target="_blank" class="btn-secondary-hero">Star on GitHub</a>
+      <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-secondary-hero">Star on GitHub</a>
     </div>
 
     <div class="hero-stats-strip">
@@ -432,11 +485,11 @@
     </div>
   </section>
 
-  <!-- 3. Dense Bento Grid -->
-  <section id="featured" style="margin-bottom: 3.5rem;">
+  <!-- Featured Bento Grid -->
+  <section id="featured" style="margin-bottom: 3.5rem;" aria-labelledby="featured-heading">
     <div class="section-header-quiet">
       <span class="section-tag">01 / FEATURED DIRECTORY</span>
-      <h2 class="section-title">Essential Free Utilities</h2>
+      <h2 id="featured-heading" class="section-title">Essential Free Utilities</h2>
     </div>
 
     <div class="bento-grid-featured">
@@ -455,7 +508,7 @@
         </div>
         <div class="card-action-bar">
           <span class="github-stars">18.4k ★</span>
-          <a href="https://www.photopea.com" target="_blank" class="btn-try-tool">Try Tool &rarr;</a>
+          <a href="https://www.photopea.com" target="_blank" rel="noopener noreferrer" class="btn-try-tool">Try Tool &rarr;</a>
         </div>
       </article>
 
@@ -473,7 +526,7 @@
         </div>
         <div class="card-action-bar">
           <span class="github-stars">21.5k ★</span>
-          <a href="https://bitwarden.com" target="_blank" class="btn-try-tool">Try Tool &rarr;</a>
+          <a href="https://bitwarden.com" target="_blank" rel="noopener noreferrer" class="btn-try-tool">Try Tool &rarr;</a>
         </div>
       </article>
 
@@ -491,7 +544,7 @@
         </div>
         <div class="card-action-bar">
           <span class="github-stars">42.1k ★</span>
-          <a href="https://claude.ai" target="_blank" class="btn-try-tool">Try Tool &rarr;</a>
+          <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" class="btn-try-tool">Try Tool &rarr;</a>
         </div>
       </article>
 
@@ -509,7 +562,7 @@
         </div>
         <div class="card-action-bar">
           <span class="github-stars">14.2k ★</span>
-          <a href="https://excalibur.com" target="_blank" class="btn-try-tool">Try Tool &rarr;</a>
+          <a href="https://excalibur.com" target="_blank" rel="noopener noreferrer" class="btn-try-tool">Try Tool &rarr;</a>
         </div>
       </article>
 
@@ -527,7 +580,7 @@
         </div>
         <div class="card-action-bar">
           <span class="github-stars">9.8k ★</span>
-          <a href="https://cryptpad.fr" target="_blank" class="btn-try-tool">Try Tool &rarr;</a>
+          <a href="https://cryptpad.fr" target="_blank" rel="noopener noreferrer" class="btn-try-tool">Try Tool &rarr;</a>
         </div>
       </article>
 
@@ -545,17 +598,17 @@
         </div>
         <div class="card-action-bar">
           <span class="github-stars">16.5k ★</span>
-          <a href="https://protonvpn.com" target="_blank" class="btn-try-tool">Try Tool &rarr;</a>
+          <a href="https://protonvpn.com" target="_blank" rel="noopener noreferrer" class="btn-try-tool">Try Tool &rarr;</a>
         </div>
       </article>
     </div>
   </section>
 
-  <!-- 4. Categories -->
-  <section id="categories" style="margin-bottom: 3.5rem;">
+  <!-- Categories -->
+  <section id="categories" style="margin-bottom: 3.5rem;" aria-labelledby="cat-heading">
     <div class="section-header-quiet">
       <span class="section-tag">02 / CATEGORY INDEX</span>
-      <h2 class="section-title">Explore by Domain</h2>
+      <h2 id="cat-heading" class="section-title">Explore by Domain</h2>
     </div>
 
     <div class="bento-grid-categories">
@@ -568,11 +621,11 @@
     </div>
   </section>
 
-  <!-- 5. Open Source Spotlight -->
-  <section id="opensource" style="margin-bottom: 3.5rem;">
+  <!-- Open Source Spotlight -->
+  <section id="opensource" style="margin-bottom: 3.5rem;" aria-labelledby="oss-heading">
     <div class="bento-card bento-spotlight-card">
       <span class="section-tag">03 / OPEN SOURCE SPOTLIGHT</span>
-      <h2 class="section-title">Verified High-Performance Repos</h2>
+      <h2 id="oss-heading" class="section-title">Verified High-Performance Repos</h2>
       <p style="color: var(--text-secondary); max-width: 580px; margin-top: 0.35rem; font-size:0.9rem;">
         Clean, single-purpose CLI utilities and terminal engines written in Rust, C++, and Go.
       </p>
@@ -582,29 +635,29 @@
           <div style="font-weight:700;font-size:1.05rem;">Ghostty Terminal</div>
           <div style="font-size:0.82rem;color:var(--text-secondary);margin-top:0.25rem;">Fast native terminal emulator with GPU acceleration.</div>
           <div class="spotlight-snippet">$ ghostty --config-file=~/.config/ghostty/config</div>
-          <a href="https://ghostty.org" target="_blank" class="btn-try-tool">View source &rarr;</a>
+          <a href="https://ghostty.org" target="_blank" rel="noopener noreferrer" class="btn-try-tool">View source &rarr;</a>
         </div>
         <div class="spotlight-item">
           <div style="font-weight:700;font-size:1.05rem;">Zoxide CLI</div>
           <div style="font-size:0.82rem;color:var(--text-secondary);margin-top:0.25rem;">Smarter cd command for your terminal.</div>
           <div class="spotlight-snippet">$ z workspace # jumps instantly</div>
-          <a href="https://github.com/ajeetdsouza/zoxide" target="_blank" class="btn-try-tool">View source &rarr;</a>
+          <a href="https://github.com/ajeetdsouza/zoxide" target="_blank" rel="noopener noreferrer" class="btn-try-tool">View source &rarr;</a>
         </div>
         <div class="spotlight-item">
           <div style="font-weight:700;font-size:1.05rem;">Ruff Linter</div>
           <div style="font-size:0.82rem;color:var(--text-secondary);margin-top:0.25rem;">Extremely fast Python linter written in Rust.</div>
           <div class="spotlight-snippet">$ ruff check . --fix</div>
-          <a href="https://github.com/astral-sh/ruff" target="_blank" class="btn-try-tool">View source &rarr;</a>
+          <a href="https://github.com/astral-sh/ruff" target="_blank" rel="noopener noreferrer" class="btn-try-tool">View source &rarr;</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. How It Works Section -->
-  <section id="how-it-works" style="margin-bottom: 3.5rem;">
+  <!-- How It Works Section -->
+  <section id="how-it-works" style="margin-bottom: 3.5rem;" aria-labelledby="hiw-heading">
     <div class="section-header-quiet">
       <span class="section-tag">04 / PROTOCOL WORKFLOW</span>
-      <h2 class="section-title">How UTIL.OS Operates</h2>
+      <h2 id="hiw-heading" class="section-title">How UTIL.OS Operates</h2>
     </div>
 
     <div class="how-it-works-grid">
@@ -626,29 +679,29 @@
     </div>
   </section>
 
-  <!-- 7. Footer with AdSense Compliance Links -->
+  <!-- Footer with AdSense Compliance Links -->
   <footer class="footer-quiet">
     <div class="footer-note">© 2026 UTIL.OS • Built for humans & agents</div>
     <div class="footer-links">
       <span class="footer-link" onclick="openModal('privacy-modal')">Privacy Policy</span>
       <span class="footer-link" onclick="openModal('terms-modal')">Terms of Service</span>
       <span class="footer-link" onclick="openModal('about-modal')">About Us</span>
-      <a href="https://github.com" target="_blank" class="footer-link">GitHub</a>
+      <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
     </div>
   </footer>
 </main>
 
-<!-- Privacy Policy Modal (Required for AdSense) -->
+<!-- Privacy Policy Modal -->
 <div id="privacy-modal" class="modal-overlay" style="display:none;" onclick="closeModal('privacy-modal')">
   <div class="bento-card modal-card" onclick="event.stopPropagation()">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
       <h3 style="font-size:1.2rem;font-weight:700;">Privacy Policy</h3>
-      <button onclick="closeModal('privacy-modal')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.2rem;">&times;</button>
+      <button onclick="closeModal('privacy-modal')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.2rem;" aria-label="Close Privacy Policy">&times;</button>
     </div>
     <div style="font-size:0.88rem;color:var(--text-secondary);line-height:1.6;">
       <p style="margin-bottom:0.75rem;">At UTIL.OS (www.qutaifan.com), your privacy is our top priority. We do not require account registration or store personal user data.</p>
       <p style="margin-bottom:0.75rem;"><strong>Cookies & Advertising:</strong> Third party vendors, including Google AdSense, use cookies to serve ads based on a user's prior visits to your website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to users based on their visit to your sites and/or other sites on the Internet.</p>
-      <p style="margin-bottom:0.75rem;">Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" style="color:var(--accent-cyan);">Google AdSettings</a> or aboutads.info.</p>
+      <p style="margin-bottom:0.75rem;">Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style="color:var(--accent-cyan);">Google AdSettings</a> or aboutads.info.</p>
     </div>
   </div>
 </div>
@@ -658,11 +711,10 @@
   <div class="bento-card modal-card" onclick="event.stopPropagation()">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
       <h3 style="font-size:1.2rem;font-weight:700;">Terms of Service</h3>
-      <button onclick="closeModal('terms-modal')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.2rem;">&times;</button>
+      <button onclick="closeModal('terms-modal')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.2rem;" aria-label="Close Terms of Service">&times;</button>
     </div>
     <div style="font-size:0.88rem;color:var(--text-secondary);line-height:1.6;">
       <p style="margin-bottom:0.75rem;">UTIL.OS provides a directory of free software, open-source utilities, and online applications as an information service.</p>
-      <p style="margin-bottom:0.75rem;">All trademarks, tool names, and brand names belong to their respective open-source projects and owners.</p>
     </div>
   </div>
 </div>
@@ -672,7 +724,7 @@
   <div class="bento-card modal-card" onclick="event.stopPropagation()">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
       <h3 style="font-size:1.2rem;font-weight:700;">About UTIL.OS</h3>
-      <button onclick="closeModal('about-modal')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.2rem;">&times;</button>
+      <button onclick="closeModal('about-modal')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.2rem;" aria-label="Close About Us">&times;</button>
     </div>
     <div style="font-size:0.88rem;color:var(--text-secondary);line-height:1.6;">
       <p style="margin-bottom:0.75rem;">UTIL.OS by Qutaifan (www.qutaifan.com) is built to aggregate genuinely free, privacy-respecting, and open-source software tools for developers and creators worldwide.</p>
@@ -685,7 +737,7 @@
   <div class="bento-card search-modal-card" onclick="event.stopPropagation()">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
       <span class="mono" style="font-size:0.82rem;color:var(--accent-cyan);">⌘K QUICK SEARCH</span>
-      <button onclick="closeModal('search-modal')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;">&times;</button>
+      <button onclick="closeModal('search-modal')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;" aria-label="Close Search">&times;</button>
     </div>
     <input type="text" id="search-input" class="code-install-text" style="width:100%;padding:0.75rem 1rem;background:var(--surface-2);border:1px solid var(--border-subtle);border-radius:8px;outline:none;" placeholder="Search CLI tools, password managers..." />
   </div>
