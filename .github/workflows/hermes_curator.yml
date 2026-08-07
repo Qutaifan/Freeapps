@@ -1,0 +1,28 @@
+name: Hermes Daily Autonomous Curation Pipeline
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Daily at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  audit-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run Hermes Agent Curator Audit
+        run: node scripts/hermes_curator.js
+
+      - name: Build & Verify React Components
+        run: |
+          cd freeapps-components
+          npm ci || npm install
+          npm run lint
+          npm run build

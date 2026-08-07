@@ -1807,7 +1807,7 @@
   },
   {
     "name": "Bitwarden",
-    "slug": "bitwarden",
+    "slug": "bitwarden-foss",
     "by": "Bitwarden",
     "blurb": "Open-source password manager with a strong free cloud-synced plan.",
     "category": "opensource",
@@ -1818,12 +1818,12 @@
       "Security"
     ],
     "url": "https://bitwarden.com/",
-    "review": "/reviews/bitwarden",
+    "review": "/reviews/bitwarden-foss",
     "added": "2026-07-01"
   },
   {
     "name": "KeePassXC",
-    "slug": "keepassxc",
+    "slug": "keepassxc-vault",
     "by": "KeePassXC Team",
     "blurb": "Local encrypted password vault with no account and no subscription.",
     "category": "opensource",
@@ -1834,7 +1834,7 @@
       "Security"
     ],
     "url": "https://keepassxc.org/",
-    "review": "/reviews/keepassxc",
+    "review": "/reviews/keepassxc-vault",
     "added": "2026-07-01"
   },
   {
