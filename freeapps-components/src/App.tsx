@@ -13,6 +13,7 @@ import { ToolDetailModal } from './components/ToolDetailModal'
 import { LiveSearchModal } from './components/LiveSearchModal'
 import { SubmitToolModal } from './components/SubmitToolModal'
 import { AdSenseBanner } from './components/AdSenseBanner'
+import { InFeedAdCard } from './components/InFeedAdCard'
 import { ToastNotification } from './components/ToastNotification'
 import { FeaturesArchitecture } from './components/FeaturesArchitecture'
 import { FooterSection } from './components/FooterSection'
@@ -149,16 +150,18 @@ function App() {
             </div>
           ) : (
             <div className="bento-grid-featured">
-              {filteredTools.map((tool) => (
-                <ToolCardItem
-                  key={tool.id}
-                  tool={tool}
-                  isSaved={savedToolIds.includes(tool.id)}
-                  selectedTag={selectedTag}
-                  onToggleBookmark={toggleBookmark}
-                  onSelectTag={setSelectedTag}
-                  onSelectTool={setSelectedTool}
-                />
+              {filteredTools.map((tool, idx) => (
+                <div key={tool.id} style={{ display: 'contents' }}>
+                  <ToolCardItem
+                    tool={tool}
+                    isSaved={savedToolIds.includes(tool.id)}
+                    selectedTag={selectedTag}
+                    onToggleBookmark={toggleBookmark}
+                    onSelectTag={setSelectedTag}
+                    onSelectTool={setSelectedTool}
+                  />
+                  {(idx === 2 || idx === 6) && <InFeedAdCard key={`ad-${idx}`} />}
+                </div>
               ))}
             </div>
           )}

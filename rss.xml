@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>THEHUB — Open-Source Software, AI Tools &amp; Web Utilities</title>
+  <link>https://www.qutaifan.com/</link>
+  <description>Verified open-source software, free online utilities, password managers, photo editors, and developer CLI tools.</description>
+  <language>en-us</language>
+  <lastBuildDate>Fri, 07 Aug 2026 16:45:00 GMT</lastBuildDate>
+  <atom:link href="https://www.qutaifan.com/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>Photopea Engine — Browser-based PSD &amp; Vector Editor</title>
+    <link>https://www.qutaifan.com/#photopea</link>
+    <guid>https://www.qutaifan.com/#photopea</guid>
+    <pubDate>Fri, 07 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Full-featured browser-based PSD editor &amp; digital paint engine operating 100% in local RAM with zero installation needed.</description>
+  </item>
+
+  <item>
+    <title>Bitwarden Vault — Open Source Zero-Knowledge Password Manager</title>
+    <link>https://www.qutaifan.com/#bitwarden</link>
+    <guid>https://www.qutaifan.com/#bitwarden</guid>
+    <pubDate>Fri, 07 Aug 2026 11:30:00 GMT</pubDate>
+    <description>Zero-knowledge end-to-end encrypted password manager with unlimited device sync on free tier.</description>
+  </item>
+
+  <item>
+    <title>Claude &amp; Kimi AI — Code Generation &amp; Reasoning Models</title>
+    <link>https://www.qutaifan.com/#claude</link>
+    <guid>https://www.qutaifan.com/#claude</guid>
+    <pubDate>Fri, 07 Aug 2026 11:00:00 GMT</pubDate>
+    <description>State-of-the-art AI reasoning models for code generation, technical text, and document parsing.</description>
+  </item>
+
+  <item>
+    <title>Ghostty Terminal — Fast Native GPU Accelerated Terminal Emulator</title>
+    <link>https://www.qutaifan.com/#ghostty</link>
+    <guid>https://www.qutaifan.com/#ghostty</guid>
+    <pubDate>Fri, 07 Aug 2026 10:30:00 GMT</pubDate>
+    <description>Fast native terminal emulator with GPU acceleration and Rust performance for macOS and Linux.</description>
+  </item>
+</channel>
+</rss>
