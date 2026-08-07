@@ -5,15 +5,35 @@ interface ToolDetailModalProps {
   isSaved: boolean
   onClose: () => void
   onToggleBookmark: (id: string, name: string) => void
+  onShowToast?: (msg: string) => void
 }
 
 export function ToolDetailModal({
   tool,
   isSaved,
   onClose,
-  onToggleBookmark
+  onToggleBookmark,
+  onShowToast
 }: ToolDetailModalProps) {
   if (!tool) return null
+
+  const shareUrl = encodeURIComponent(`https://www.qutaifan.com/#${tool.name.toLowerCase().replace(/\s+/g, '-')}`)
+  const shareText = encodeURIComponent(`Check out ${tool.name} on THEHUB — ${tool.description}`)
+
+  const handleShareTwitter = () => {
+    window.open(`https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`, '_blank')
+  }
+
+  const handleShareReddit = () => {
+    window.open(`https://www.reddit.com/submit?title=${encodeURIComponent(tool.name)}&url=${shareUrl}`, '_blank')
+  }
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(`https://www.qutaifan.com/#${tool.name.toLowerCase().replace(/\s+/g, '-')}`)
+    if (onShowToast) {
+      onShowToast(`Deep link to ${tool.name} copied to clipboard!`)
+    }
+  }
 
   return (
     <div className="search-modal-overlay" onClick={onClose}>
@@ -48,12 +68,22 @@ export function ToolDetailModal({
           </div>
         )}
 
-        <div className="card-tag-group" style={{ marginBottom: '1.5rem' }}>
+        <div className="card-tag-group" style={{ marginBottom: '1.25rem' }}>
           {tool.tags.map((t, i) => (
             <span key={i} className="card-tag">
               {t}
             </span>
           ))}
+        </div>
+
+        {/* Social Share Bar */}
+        <div style={{ background: 'var(--surface-2)', border: '1px solid var(--border-subtle)', borderRadius: '8px', padding: '0.75rem 1rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-muted)' }}>Share Tool:</span>
+          <div style={{ display: 'flex', gap: '0.5rem' }}>
+            <button className="tag-chip" onClick={handleShareTwitter}>𝕏 Twitter</button>
+            <button className="tag-chip" onClick={handleShareReddit}>Reddit</button>
+            <button className="tag-chip" onClick={handleCopyLink}>🔗 Copy Link</button>
+          </div>
         </div>
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--border-subtle)', paddingTop: '1rem' }}>

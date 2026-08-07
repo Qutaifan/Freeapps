@@ -17,6 +17,7 @@ import { InFeedAdCard } from './components/InFeedAdCard'
 import { ToastNotification } from './components/ToastNotification'
 import { FeaturesArchitecture } from './components/FeaturesArchitecture'
 import { SoftwareComparator } from './components/SoftwareComparator'
+import { FaqSection } from './components/FaqSection'
 import { StickyAnchorAd } from './components/StickyAnchorAd'
 import { FooterSection } from './components/FooterSection'
 
@@ -172,6 +173,9 @@ function App() {
         {/* Software Comparison Calculator */}
         <SoftwareComparator />
 
+        {/* FAQ Accordion Section */}
+        <FaqSection />
+
         {/* Features Architecture Section */}
         <FeaturesArchitecture />
 
@@ -198,6 +202,7 @@ function App() {
         isSaved={selectedTool ? savedToolIds.includes(selectedTool.id) : false}
         onClose={() => setSelectedTool(null)}
         onToggleBookmark={toggleBookmark}
+        onShowToast={showToast}
       />
 
       {/* Submit Tool Modal */}
