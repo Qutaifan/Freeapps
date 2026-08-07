@@ -2284,5 +2284,245 @@
     "url": "https://github.com/mifi/lossless-cut",
     "review": "/reviews/losslesscut",
     "added": "2026-07-13"
+  },
+  {
+    "name": "Open-WebUI",
+    "slug": "open-webui",
+    "by": "Open-WebUI Team",
+    "blurb": "User-friendly WebUI for Ollama and local LLMs with web search & RAG.",
+    "category": "ai",
+    "tags": [
+      "Local AI",
+      "Ollama",
+      "RAG"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "MIT",
+      "Local RAM"
+    ],
+    "url": "https://openwebui.com",
+    "review": "/reviews/open-webui",
+    "added": "2026-08-07"
+  },
+  {
+    "name": "AnythingLLM",
+    "slug": "anything-llm",
+    "by": "Mintplex Labs",
+    "blurb": "All-in-one desktop AI application with local vector DB and document RAG.",
+    "category": "ai",
+    "tags": [
+      "Desktop",
+      "RAG",
+      "Privacy"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "MIT",
+      "Desktop"
+    ],
+    "url": "https://anythingllm.com",
+    "review": "/reviews/anything-llm",
+    "added": "2026-08-07"
+  },
+  {
+    "name": "Hoppscotch",
+    "slug": "hoppscotch",
+    "by": "Hoppscotch",
+    "blurb": "Open-source API development ecosystem alternative to Postman.",
+    "category": "dev",
+    "tags": [
+      "API",
+      "REST",
+      "GraphQL"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "MIT",
+      "Browser"
+    ],
+    "url": "https://hoppscotch.io",
+    "review": "/reviews/hoppscotch",
+    "added": "2026-08-07"
+  },
+  {
+    "name": "Podman Desktop",
+    "slug": "podman-desktop",
+    "by": "Red Hat",
+    "blurb": "Open-source daemonless container management alternative to Docker Desktop.",
+    "category": "dev",
+    "tags": [
+      "Containers",
+      "Docker",
+      "Kubernetes"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "Apache-2.0",
+      "GUI"
+    ],
+    "url": "https://podman-desktop.io",
+    "review": "/reviews/podman-desktop",
+    "added": "2026-08-07"
+  },
+  {
+    "name": "AppFlowy",
+    "slug": "appflowy",
+    "by": "AppFlowy Team",
+    "blurb": "Open-source privacy-first Notion alternative powered by Flutter & Rust.",
+    "category": "productivity",
+    "tags": [
+      "Notes",
+      "Kanban",
+      "Local First"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "AGPL-3.0",
+      "Desktop"
+    ],
+    "url": "https://www.appflowy.io",
+    "review": "/reviews/appflowy",
+    "added": "2026-08-07"
+  },
+  {
+    "name": "Draw.io",
+    "slug": "draw-io",
+    "by": "JGraph",
+    "blurb": "Security-first diagramming and flowchart tool with local file saving.",
+    "category": "productivity",
+    "tags": [
+      "Diagrams",
+      "Flowcharts",
+      "No Signup"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "Apache-2.0",
+      "Local RAM"
+    ],
+    "url": "https://app.diagrams.net",
+    "review": "/reviews/draw-io",
+    "added": "2026-08-07"
+  },
+  {
+    "name": "Cryptomator",
+    "slug": "cryptomator",
+    "by": "Skymatic",
+    "blurb": "Multi-platform transparent client-side encryption for cloud storage.",
+    "category": "security",
+    "tags": [
+      "Encryption",
+      "Cloud",
+      "Privacy"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "GPL-3.0",
+      "Desktop"
+    ],
+    "url": "https://cryptomator.org",
+    "review": "/reviews/cryptomator",
+    "added": "2026-08-07"
+  },
+  {
+    "name": "DuckDB",
+    "slug": "duckdb",
+    "by": "DuckDB Foundation",
+    "blurb": "High-performance in-process analytical SQL database engine.",
+    "category": "data",
+    "tags": [
+      "Database",
+      "SQL",
+      "Analytics"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "MIT",
+      "Embedded"
+    ],
+    "url": "https://duckdb.org",
+    "review": "/reviews/duckdb",
+    "added": "2026-08-07"
+  },
+  {
+    "name": "Ventoy",
+    "slug": "ventoy",
+    "by": "longPanda",
+    "blurb": "Open-source tool to create bootable USB drive for ISO/WIM/IMG files.",
+    "category": "system",
+    "tags": [
+      "USB",
+      "Bootable",
+      "Utility"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "GPL-3.0",
+      "CLI/GUI"
+    ],
+    "url": "https://www.ventoy.net",
+    "review": "/reviews/ventoy",
+    "added": "2026-08-07"
+  },
+  {
+    "name": "Revolt.chat",
+    "slug": "revolt-chat",
+    "by": "Revolt Team",
+    "blurb": "Open-source user-first chat platform alternative to Discord.",
+    "category": "community",
+    "tags": [
+      "Messaging",
+      "Voice",
+      "Privacy"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "AGPL-3.0",
+      "Self-Host"
+    ],
+    "url": "https://revolt.chat",
+    "review": "/reviews/revolt-chat",
+    "added": "2026-08-07"
+  },
+  {
+    "name": "Stirling-PDF",
+    "slug": "stirling-pdf",
+    "by": "Stirling-Tools",
+    "blurb": "Robust local web-based PDF manipulation suite (Merge, Split, Convert, OCR).",
+    "category": "utilities",
+    "tags": [
+      "PDF",
+      "Converters",
+      "OCR"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "GPL-3.0",
+      "Local RAM"
+    ],
+    "url": "https://github.com/Stirling-Tools/Stirling-PDF",
+    "review": "/reviews/stirling-pdf",
+    "added": "2026-08-07"
+  },
+  {
+    "name": "DevToys",
+    "slug": "devtoys",
+    "by": "DevToys Team",
+    "blurb": "Swiss army knife for developers: JSON formatters, JWT decoders, Base64, Regex, hashers.",
+    "category": "utilities",
+    "tags": [
+      "Swiss Army",
+      "Converters",
+      "Decoders"
+    ],
+    "pricing": "open-source",
+    "badges": [
+      "MIT",
+      "Offline"
+    ],
+    "url": "https://devtoys.app",
+    "review": "/reviews/devtoys",
+    "added": "2026-08-07"
   }
 ]
