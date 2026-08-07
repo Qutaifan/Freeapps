@@ -86,18 +86,27 @@ export function ToolDetailModal({
           </div>
         </div>
 
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--border-subtle)', paddingTop: '1rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--border-subtle)', paddingTop: '1rem', flexWrap: 'wrap', gap: '0.75rem' }}>
           <span className="github-stars">{tool.stars} • License: {tool.license}</span>
-          <div style={{ display: 'flex', gap: '0.75rem' }}>
+          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
             <button
               className="btn-secondary-hero"
               onClick={() => onToggleBookmark(tool.id, tool.name)}
             >
               {isSaved ? '★ Bookmarked' : '☆ Bookmark'}
             </button>
-            <a href={tool.url} target="_blank" rel="noopener noreferrer" className="btn-accent">
-              Visit {tool.name} &rarr;
-            </a>
+            
+            {tool.secondaryUrls && tool.secondaryUrls.length > 0 ? (
+              tool.secondaryUrls.map((link, idx) => (
+                <a key={idx} href={link.url} target="_blank" rel="noopener noreferrer" className="btn-accent">
+                  Visit {link.label} &rarr;
+                </a>
+              ))
+            ) : (
+              <a href={tool.url} target="_blank" rel="noopener noreferrer" className="btn-accent">
+                Visit {tool.name} &rarr;
+              </a>
+            )}
           </div>
         </div>
       </div>

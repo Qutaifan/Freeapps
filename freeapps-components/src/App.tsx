@@ -53,6 +53,32 @@ function App() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [])
 
+  // Body Scroll Lock when Modal is Open
+  useEffect(() => {
+    const isModalOpen = showSearchModal || !!selectedTool || showSubmitModal
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [showSearchModal, selectedTool, showSubmitModal])
+
+  // Hash Deep Link Listener
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '').toLowerCase()
+    if (hash) {
+      const matched = FEATURED_TOOLS.find(
+        (t) => t.name.toLowerCase().replace(/\s+/g, '-') === hash
+      )
+      if (matched) {
+        setSelectedTool(matched)
+      }
+    }
+  }, [])
+
   const filteredTools = useMemo(() => {
     return FEATURED_TOOLS.filter((t) => {
       if (activeCategory === 'saved') {

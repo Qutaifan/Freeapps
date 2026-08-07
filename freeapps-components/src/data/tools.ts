@@ -33,13 +33,17 @@ export const FEATURED_TOOLS: ToolCard[] = [
     id: '3',
     name: 'Claude & Kimi AI',
     description: 'State-of-the-art AI reasoning models for code generation, technical text, and document parsing.',
-    fullDetails: 'Cutting-edge artificial intelligence platforms designed for advanced coding assistance, document synthesis, and multi-step agent reasoning with ultra-large context windows.',
+    fullDetails: 'Cutting-edge artificial intelligence platforms designed for advanced coding assistance, document synthesis, and multi-step agent reasoning with ultra-large context windows. Select between Anthropic Claude AI and Moonshot Kimi AI.',
     mainCategory: 'ai',
     mainCategoryLabel: '🤖 AI & Automation',
     tags: ['AI', 'CLI / Web', 'Code'],
     license: 'Free Tier',
     stars: '42.1k ★',
     url: 'https://claude.ai',
+    secondaryUrls: [
+      { label: 'Claude AI', url: 'https://claude.ai' },
+      { label: 'Kimi AI', url: 'https://kimi.moonshot.cn' }
+    ],
     size: 'medium',
     features: ['Context windowing', 'Artifact sandbox', 'Multi-modal analysis', 'Code interpreter']
   },

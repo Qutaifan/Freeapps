@@ -1,4 +1,17 @@
+import { useEffect } from 'react'
+
 export function AdSenseBanner() {
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        const adsbygoogle = (window as any).adsbygoogle || []
+        adsbygoogle.push({})
+      }
+    } catch (e) {
+      console.warn('AdSense push skipped:', e)
+    }
+  }, [])
+
   return (
     <section className="adsense-banner-wrapper" style={{ marginBottom: '1.5rem' }}>
       <div className="adsense-slot-container bento-card">

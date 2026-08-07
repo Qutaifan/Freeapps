@@ -1,28 +1,32 @@
+import { useEffect } from 'react'
+
 export function InFeedAdCard() {
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        const adsbygoogle = (window as any).adsbygoogle || []
+        adsbygoogle.push({})
+      }
+    } catch (e) {
+      console.warn('InFeed AdSense push skipped:', e)
+    }
+  }, [])
+
   return (
     <article className="bento-card bento-card-medium in-feed-ad-card">
-      <div>
-        <div className="card-top-header">
-          <div>
-            <span className="section-tag" style={{ color: 'var(--text-muted)' }}>SPONSORED AD</span>
-            <h3 className="card-tool-name" style={{ fontSize: '1rem', marginTop: '0.2rem' }}>Featured Partner</h3>
-          </div>
-          <span className="card-license-badge">Ad</span>
+      <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <span className="adsense-label">SPONSORED NATIVE AD</span>
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0.75rem 0' }}>
+          <ins
+            className="adsbygoogle"
+            style={{ display: 'block', width: '100%' }}
+            data-ad-format="fluid"
+            data-ad-layout-key="-fb+5w+4e-db+86"
+            data-ad-client="ca-pub-9640734919758311"
+            data-ad-slot="auto"
+          />
         </div>
-        <p className="card-tool-desc" style={{ fontSize: '0.82rem' }}>
-          Discover verified developer tools, AI software, and cloud infrastructure.
-        </p>
-      </div>
-
-      <div className="card-action-bar" style={{ justifyContent: 'center' }}>
-        <ins
-          className="adsbygoogle"
-          style={{ display: 'block', width: '100%', textAlign: 'center' }}
-          data-ad-client="ca-pub-9640734919758311"
-          data-ad-slot="auto"
-          data-ad-format="fluid"
-          data-ad-layout-key="-fb+5w+4e-db+86"
-        />
+        <span className="github-stars" style={{ fontSize: '0.7rem' }}>Google Certified Sponsor</span>
       </div>
     </article>
   )

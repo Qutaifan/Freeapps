@@ -65,13 +65,34 @@ export function ToolCardItem({
 
       <div className="card-action-bar">
         <span className="github-stars">{tool.stars}</span>
-        <div style={{ display: 'flex', gap: '0.5rem' }}>
+        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
           <button className="btn-details" onClick={() => onSelectTool(tool)}>
             Details
           </button>
-          <a href={tool.url} target="_blank" rel="noopener noreferrer" className="btn-try-tool">
-            Visit &rarr;
-          </a>
+          
+          {tool.secondaryUrls && tool.secondaryUrls.length > 0 ? (
+            tool.secondaryUrls.map((link, idx) => (
+              <a
+                key={idx}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-visit"
+                style={{ fontSize: '0.75rem', padding: '0.3rem 0.65rem' }}
+              >
+                {link.label} &rarr;
+              </a>
+            ))
+          ) : (
+            <a
+              href={tool.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-visit"
+            >
+              Visit &rarr;
+            </a>
+          )}
         </div>
       </div>
     </article>

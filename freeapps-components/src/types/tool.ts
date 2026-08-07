@@ -1,3 +1,8 @@
+export interface ToolLink {
+  label: string
+  url: string
+}
+
 export interface ToolCard {
   id: string
   name: string
@@ -9,6 +14,7 @@ export interface ToolCard {
   license: string
   stars: string
   url: string
+  secondaryUrls?: ToolLink[]
   size: 'large' | 'medium' | 'small'
   features?: string[]
 }

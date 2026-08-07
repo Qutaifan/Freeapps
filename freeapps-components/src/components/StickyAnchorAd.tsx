@@ -1,7 +1,18 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export function StickyAnchorAd() {
   const [dismissed, setDismissed] = useState(false)
+
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        const adsbygoogle = (window as any).adsbygoogle || []
+        adsbygoogle.push({})
+      }
+    } catch (e) {
+      console.warn('Sticky Anchor AdSense push skipped:', e)
+    }
+  }, [])
 
   if (dismissed) return null
 
