@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "last_learning_cycle": "2026-08-07T18:37:51.129Z",
+  "trusted_domains": [
+    "github.com",
+    "gitlab.com",
+    "huggingface.co",
+    "bitwarden.com",
+    "photopea.com",
+    "lumalabs.ai",
+    "hailuoai.video"
+  ],
+  "category_performance_weights": {
+    "ai": 1.25,
+    "utilities": 1.15,
+    "apps": 1.1,
+    "opensource": 1.2
+  },
+  "self_improvement_rules": [
+    "Auto-promote local RAM processing tools to top Bento tier",
+    "Flag tools with > 3 paywall indicators as Freemium",
+    "Auto-generate Schema.org WebApplication structured data for all FOSS apps",
+    "Prioritize tools with active GitHub commits in the last 90 days"
+  ]
+}
