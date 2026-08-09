@@ -48,6 +48,23 @@
     gtag('config', 'G-WKLJQZBWD1', { page_path: window.location.pathname });
   </script>
 
+  <!-- Core Web Vitals RUM Performance Tracking Script (2026 Master Plan) -->
+  <script type="module">
+    import {onLCP, onINP, onCLS} from 'https://unpkg.com/web-vitals@4?module';
+    function sendToAnalytics(metric) {
+      if (window.gtag) {
+        gtag('event', metric.name, {
+          value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
+          event_label: metric.id,
+          non_interaction: true,
+        });
+      }
+    }
+    onLCP(sendToAnalytics);
+    onINP(sendToAnalytics);
+    onCLS(sendToAnalytics);
+  </script>
+
   <!-- Schema.org JSON-LD Structured Data -->
   <script type="application/ld+json">
   {

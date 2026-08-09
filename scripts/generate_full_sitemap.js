@@ -22,7 +22,10 @@ const staticPages = [
   { url: 'https://www.qutaifan.com/best-open-source-software-alternatives-2026/', priority: '0.9', changefreq: 'weekly' },
   { url: 'https://www.qutaifan.com/best-free-password-managers-2026/', priority: '0.8', changefreq: 'monthly' },
   { url: 'https://www.qutaifan.com/best-free-video-editing-software-2026/', priority: '0.8', changefreq: 'monthly' },
-  { url: 'https://www.qutaifan.com/best-free-photo-graphic-design-tools-2026/', priority: '0.8', changefreq: 'monthly' }
+  { url: 'https://www.qutaifan.com/best-free-photo-graphic-design-tools-2026/', priority: '0.8', changefreq: 'monthly' },
+  { url: 'https://www.qutaifan.com/author/qutaifan-editorial-board/', priority: '0.8', changefreq: 'monthly' },
+  { url: 'https://www.qutaifan.com/how-to/how-to-choose-the-best-free-software-2026/', priority: '0.9', changefreq: 'weekly' },
+  { url: 'https://www.qutaifan.com/vs/claude-vs-chatgpt/', priority: '0.9', changefreq: 'weekly' }
 ];
 
 let xmlContent = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
