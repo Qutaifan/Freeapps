@@ -196,10 +196,33 @@ def main() -> int:
     site_root = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(".")
     all_problems: list[str] = []
 
+    # The adsense_loader check asks "does this page carry the AdSense account
+    # meta and loader script". Two classes of file must be exempt:
+    #
+    #   404.html                -- a noindex error page with no article body.
+    #                              The loader enables Auto Ads, so requiring it
+    #                              here would let Google inject ads onto a page
+    #                              with no publisher content, which is a policy
+    #                              violation rather than a compliance win.
+    #   freeapps-components/**  -- a Vite dev scaffold that is never deployed
+    #                              and is not reachable from any live page.
+    #
+    # Everything else on the site is still checked.
+    ADSENSE_EXEMPT_FILES = {"404.html"}
+    ADSENSE_EXEMPT_DIRS = {"freeapps-components"}
+
+    def _adsense_exempt(rel: Path) -> bool:
+        return rel.as_posix() in ADSENSE_EXEMPT_FILES or bool(
+            set(rel.parts) & ADSENSE_EXEMPT_DIRS
+        )
+
     all_pages = sorted(site_root.rglob("*.html"))
     for p in all_pages:
+        rel = p.relative_to(site_root)
+        if _adsense_exempt(rel):
+            continue
         for reason in check_adsense_loader(p.read_text(errors="ignore")):
-            all_problems.append(f"[adsense_loader] {p.relative_to(site_root)}: {reason}")
+            all_problems.append(f"[adsense_loader] {rel}: {reason}")
 
     for name, fn in CHECKS:
         for reason in fn(site_root):
