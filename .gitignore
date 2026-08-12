@@ -11,3 +11,7 @@ Thumbs.db
 
 # Visual Studio local state
 .vs/
+
+# Obsidian vault — project notes, not site content.
+# The repo root IS the deployed site, so anything committed here becomes a public URL.
+MY-NOTES/

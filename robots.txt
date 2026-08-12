@@ -13,5 +13,5 @@ Disallow: /freeapps-components/
 Disallow: /scripts/
 Disallow: /.vs/
 
-# Sitemap Index Link
+# Sitemap (single file, 156 URLs — not a sitemap index)
 Sitemap: https://www.qutaifan.com/sitemap.xml
