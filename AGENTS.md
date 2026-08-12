@@ -6,6 +6,27 @@ Canonical operating instructions for AI agents and contributors working on **qut
 
 Full project context — architecture, history, open problems, roadmap — lives in the Obsidian vault at `MY-NOTES/THEHUB/PROJECT-BRIEF.md`, with current work in `MY-NOTES/THEHUB/TODO.md`. The vault is not committed to this repository. If you do not have it, ask before assuming context.
 
+## 0. The vault is the source of truth — read it first, write back to it after
+
+This applies to **every** AI agent working on this project, not just the one that set it up.
+
+**Before acting:** read `MY-NOTES/THEHUB/HOME.md`, then `PROJECT-BRIEF.md`, then `TODO.md`. Several items marked open in `TODO.md` are already complete on a feature branch. Acting without reading means redoing finished work, or undoing it.
+
+**After acting:** write findings back into the vault, not only into a chat reply or a scratch folder.
+
+- A new investigation becomes `MY-NOTES/THEHUB/Audits/<date>-<name>.md`
+- Anything that changes what should happen next becomes a targeted `TODO.md` edit
+- A new top-level area gets a row in `HOME.md`'s "Where everything lives" table
+
+**Four rules for writing back:**
+
+1. **Report only what is new.** If the vault already records something, do not restate it as a discovery. Say what changed, or what contradicts it.
+2. **Retract in place.** A finding that turns out wrong is struck through and corrected where it was written — never silently deleted. §1 of `Audits/2026-08-12-live-site-audit.md` is the worked example.
+3. **Cite what you measured.** Numbers in the vault carry a date and a method. "Verified in Chrome" and "reported by an HTTP fetch" are not the same claim.
+4. **Respect the ownership rule.** `Tools/` notes are canonical; `Categories/`, `Freeapps-Tools-by-Category.md` and `tools.json` are generated views. Never hand-edit a generated view.
+
+The vault is deliberately **not** in this repository — `MY-NOTES/` is gitignored, because the repo root is the deployed site and anything committed here becomes a public URL. It has its own git history. **If you are working from a fresh clone you do not have it: ask for it rather than proceeding on assumption.**
+
 ---
 
 ## 1. Hard rules

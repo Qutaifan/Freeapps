@@ -6,6 +6,18 @@ Instructions for Claude Code working on **qutaifan.com** (repo: `Qutaifan/Freeap
 
 Full project context lives in the Obsidian vault at `MY-NOTES/THEHUB/PROJECT-BRIEF.md`, with current work in `MY-NOTES/THEHUB/TODO.md`. The vault is not committed to this repository.
 
+## The vault is the source of truth — read first, write back after
+
+Applies to every AI agent, every session.
+
+- **Before acting:** read `MY-NOTES/THEHUB/HOME.md` → `PROJECT-BRIEF.md` → `TODO.md`. Items marked open there may already be done on a branch.
+- **After acting:** write findings into the vault — a new `Audits/<date>-<name>.md` for an investigation, targeted `TODO.md` edits for anything that changes what happens next. Not into chat only, not into a scratch folder.
+- **Report only what is new.** Do not restate what the vault already records as a discovery.
+- **Retract in place.** A wrong finding gets struck through and corrected where it was written, never deleted.
+- **Cite what you measured**, with the method. "Verified in a browser" ≠ "reported by an HTTP fetch".
+
+`MY-NOTES/` is gitignored (the repo root is the deployed site) and versioned as its own repo. From a fresh clone you will not have it — ask rather than assume. See `AGENTS.md` §0 for the full version.
+
 ---
 
 ## Hard rules
