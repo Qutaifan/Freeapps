@@ -1,110 +1,1688 @@
 [
   {
+    "title": "THEHUB — Free & Open Source Software Directory",
+    "url": "/",
+    "description": "Discover verified open-source software, free online utilities, password managers, photo editors, and developer CLI tools with zero account traps.",
+    "keywords": [
+      "thehub",
+      "free tools",
+      "open source software",
+      "developer utilities",
+      "photopea",
+      "bitwarden",
+      "cryptpad",
+      "qutaifan"
+    ]
+  },
+  {
+    "title": "Free AI Prompt Generator — No Login Required | THEHUB",
+    "url": "/free-ai-prompt-generator/",
+    "description": "Generate high-converting system prompts for ChatGPT, Midjourney v6, Claude 3.5, and coding assistants with zero login traps. 100% free local RAM generator.",
+    "keywords": [
+      "ai prompt generator",
+      "free prompt builder",
+      "chatgpt prompt generator no login",
+      "midjourney prompt builder",
+      "claude prompt maker",
+      "seo prompt generator",
+      "free ai tools"
+    ]
+  },
+  {
     "title": "Best Free AI Tools 2026: 100+ Free Picks",
     "url": "/best-free-ai-tools-2026",
     "description": "Find the best free AI tools 2026: 100+ chatbots, image, video, code and local AI picks. Compare no-cost options and start building today.",
-    "keywords": [
-      "best free AI tools 2026",
-      "free AI tools no credit card",
-      "free chatgpt alternative",
-      "free AI image generator",
-      "open source AI tools"
-    ]
+    "keywords": []
   },
   {
     "title": "Best Free AI Writing Tools 2026 — Tested & Compared",
     "url": "/best-free-ai-writing-tools-2026",
     "description": "Compare the best free AI writing tools in 2026: ChatGPT, Claude, QuillBot, Grammarly, Hemingway Editor, and DeepL Write. Genuinely free options compared.",
-    "keywords": [
-      "best free AI writing tools 2026",
-      "free ChatGPT alternative for writing",
-      "QuillBot vs Grammarly",
-      "free AI paraphrasing tool",
-      "free grammar checker AI"
-    ]
+    "keywords": []
   },
   {
-    "title": "Best Free Games 2026: Fair No-Cost Picks",
-    "url": "/best-free-games-2026",
-    "description": "Best free games 2026: fair free-to-play, open-source, indie and browser games worth playing. No trials, no pay-to-win traps.",
-    "keywords": [
-      "best free games 2026",
-      "free to play games no pay to win",
-      "best free steam games",
-      "free indie games worth playing",
-      "free games no download"
-    ]
-  },
-  {
-    "title": "Best Free Graphic Design Tools 2026: 8 Honest Picks",
-    "url": "/best-free-graphic-design-tools-2026",
-    "description": "Compare eight verified free graphic design tools for photos, vectors, painting, UI, RAW files, and print—with honest limits and official links.",
-    "keywords": [
-      "best free graphic design software 2026",
-      "free photoshop alternative",
-      "GIMP vs Photopea",
-      "free design tools no watermark",
-      "open source design software"
-    ]
+    "title": "Open Source Alternative to Paid Software 2026",
+    "url": "/best-open-source-software-alternatives-2026",
+    "description": "Open source alternative to paid software: replace Office, Photoshop, Slack, Notion, Drive, Salesforce and more with free open-source tools.",
+    "keywords": []
   },
   {
     "title": "Best Free Password Manager 2026: Top Picks",
     "url": "/best-free-password-managers-2026",
     "description": "Compare the best free password manager 2026 picks: Bitwarden, KeePassXC, Proton Pass, Google Password Manager and Apple Passwords.",
-    "keywords": [
-      "best free password manager 2026",
-      "free password manager no subscription",
-      "Bitwarden vs KeePassXC",
-      "open source password manager",
-      "free password manager for families"
-    ]
+    "keywords": []
   },
   {
     "title": "Best Free Video Editing Software 2026: 8 Picks",
     "url": "/best-free-video-editing-software-2026",
     "description": "Compare eight verified free video editors for professional color, YouTube timelines, quick cuts, and Linux workflows—with honest limits and official links.",
     "keywords": [
-      "best free video editing software 2026",
-      "free video editor no watermark",
-      "DaVinci Resolve vs Shotcut",
-      "open source video editor",
-      "free video editing for YouTube"
+      "free video editor no watermark no export limit",
+      "best open source video editor for YouTube",
+      "free 4K video editor without watermark"
     ]
+  },
+  {
+    "title": "Best Free Photo & Design Tools 2026 | THEHUB",
+    "url": "/best-free-photo-graphic-design-tools-2026/",
+    "description": "Discover top free browser PSD editors, vector graphic apps, infinite whiteboards, and raw photo tools in 2026.",
+    "keywords": [
+      "photopea",
+      "excalidraw",
+      "gimp",
+      "inkscape",
+      "free graphic design tools 2026",
+      "photoshop online alternative"
+    ]
+  },
+  {
+    "title": "Qutaifan Editorial Board — Who Writes THEHUB",
+    "url": "/author/qutaifan-editorial-board/",
+    "description": "Who researches and writes THEHUB, how entries are sourced, and what we do and do not claim to have tested.",
+    "keywords": [
+      "qutaifan editorial board",
+      "software audit team",
+      "open source security experts",
+      "zero trap software review",
+      "thehub authors"
+    ]
+  },
+  {
+    "title": "How to Choose Free Software in 2026 — 5-Step Guide | THEHUB",
+    "url": "/how-to/how-to-choose-the-best-free-software-2026/",
+    "description": "How to evaluate free software in 2026: spotting credit-card traps, reading open-source licences, and checking what a tool sends home.",
+    "keywords": [
+      "how to choose free software",
+      "open source software guide",
+      "avoid free trial traps",
+      "local ram privacy",
+      "foss software audit 2026",
+      "webassembly privacy"
+    ]
+  },
+  {
+    "title": "Claude vs ChatGPT 2026 — Code, Reasoning & Free Limits",
+    "url": "/vs/claude-vs-chatgpt/",
+    "description": "Claude 3.5 Sonnet and ChatGPT GPT-4o compared: reasoning, multi-file code, context limits, and what each free tier actually allows.",
+    "keywords": [
+      "claude vs chatgpt 2026",
+      "claude 3 5 sonnet vs gpt 4o",
+      "best free ai model",
+      "ai code generator comparison",
+      "claude artifacts vs chatgpt canvas"
+    ]
+  },
+  {
+    "title": "Bitwarden vs KeePassXC 2026 — Sync, Security & Licence",
+    "url": "/vs/bitwarden-vs-keepassxc/",
+    "description": "Bitwarden and KeePassXC compared: cloud sync vs offline KDBX vaults, passkey support, encryption model, and licensing.",
+    "keywords": [
+      "bitwarden vs keepassxc 2026",
+      "best open source password manager",
+      "encrypted vault sync",
+      "local kdbx database",
+      "passkey support foss"
+    ]
+  },
+  {
+    "title": "All Software Reviews & Audit Catalog (2026) | THEHUB",
+    "url": "/reviews/",
+    "description": "Browse the complete index of 138 audited software reviews, open-source utilities, local AI runners, and privacy tools on THEHUB.",
+    "keywords": [
+      "software reviews index",
+      "audited open source tools",
+      "photopea review",
+      "bitwarden review",
+      "claude review",
+      "zero trap software directory"
+    ]
+  },
+  {
+    "title": "0 A.D. Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/0-a-d",
+    "description": "Independent evaluation of 0 A.D.: A free, open-source RTS of ancient warfare.",
+    "keywords": [
+      "0 a.d.",
+      "0-a-d",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "A Dark Room Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/a-dark-room",
+    "description": "Independent evaluation of A Dark Room: Minimal text survival that expands into something stranger.",
+    "keywords": [
+      "a dark room",
+      "a-dark-room",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Adobe Firefly Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/adobe-firefly",
+    "description": "Independent evaluation of Adobe Firefly: Adobe's AI image generator trained on licensed content — safe for commercial use.",
+    "keywords": [
+      "adobe firefly",
+      "adobe-firefly",
+      "free software review 2026",
+      "image"
+    ]
+  },
+  {
+    "title": "Aider Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/aider",
+    "description": "Independent evaluation of Aider: AI pair programmer in your terminal.",
+    "keywords": [
+      "aider",
+      "aider",
+      "free software review 2026",
+      "code"
+    ]
+  },
+  {
+    "title": "Apple Passwords Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/apple-passwords",
+    "description": "Independent evaluation of Apple Passwords: Built into iPhone, iPad, and Mac — free, iCloud sync, passkey support.",
+    "keywords": [
+      "apple passwords",
+      "apple-passwords",
+      "free software review 2026",
+      "security"
+    ]
+  },
+  {
+    "title": "AudioCraft Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/audiocraft",
+    "description": "Independent evaluation of AudioCraft: Meta's open-source audio AI suite.",
+    "keywords": [
+      "audiocraft",
+      "audiocraft",
+      "free software review 2026",
+      "audio"
+    ]
+  },
+  {
+    "title": "Automatic1111 Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/automatic1111",
+    "description": "Independent evaluation of Automatic1111: The classic local Stable Diffusion web UI.",
+    "keywords": [
+      "automatic1111",
+      "automatic1111",
+      "free software review 2026",
+      "image"
+    ]
+  },
+  {
+    "title": "Bing Image Creator Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/bing-image-creator",
+    "description": "Independent evaluation of Bing Image Creator: Free DALL-E 3 powered image generation from Microsoft.",
+    "keywords": [
+      "bing image creator",
+      "bing-image-creator",
+      "free software review 2026",
+      "image"
+    ]
+  },
+  {
+    "title": "Bitwarden Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/bitwarden",
+    "description": "Independent evaluation of Bitwarden: Unlimited passwords and devices on the free plan, zero-knowledge encryption.",
+    "keywords": [
+      "bitwarden",
+      "bitwarden",
+      "free software review 2026",
+      "security"
+    ]
+  },
+  {
+    "title": "Blender Video Sequence Editor Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/blender-video-sequence-editor",
+    "description": "Independent evaluation of Blender Video Sequence Editor: Video editing, animation, compositing, and 3D.",
+    "keywords": [
+      "blender video sequence editor",
+      "blender-video-sequence-editor",
+      "free software review 2026",
+      "video"
+    ]
+  },
+  {
+    "title": "Brawlhalla Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/brawlhalla",
+    "description": "Independent evaluation of Brawlhalla: Platform fighting that runs on almost anything.",
+    "keywords": [
+      "brawlhalla",
+      "brawlhalla",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Canva Free Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/canva-free",
+    "description": "Independent evaluation of Canva Free: Fast social graphics, presentations, and marketing designs.",
+    "keywords": [
+      "canva free",
+      "canva-free",
+      "free software review 2026",
+      "image"
+    ]
+  },
+  {
+    "title": "Cave Story Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/cave-story",
+    "description": "Independent evaluation of Cave Story: The freeware action-platformer that helped define indie games.",
+    "keywords": [
+      "cave story",
+      "cave-story",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "ChatGPT Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/chatgpt",
+    "description": "Independent evaluation of ChatGPT: A widely used AI assistant.",
+    "keywords": [
+      "chatgpt",
+      "chatgpt",
+      "free software review 2026",
+      "chatbots"
+    ]
+  },
+  {
+    "title": "Claude Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/claude",
+    "description": "Independent evaluation of Claude: Exceptional at long documents, coding, and nuanced reasoning.",
+    "keywords": [
+      "claude",
+      "claude",
+      "free software review 2026",
+      "chatbots"
+    ]
+  },
+  {
+    "title": "Codeium Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/codeium",
+    "description": "Independent evaluation of Codeium: Truly unlimited free AI code completions.",
+    "keywords": [
+      "codeium",
+      "codeium",
+      "free software review 2026",
+      "code"
+    ]
+  },
+  {
+    "title": "ComfyUI Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/comfyui",
+    "description": "Independent evaluation of ComfyUI: The most powerful local image generation interface.",
+    "keywords": [
+      "comfyui",
+      "comfyui",
+      "free software review 2026",
+      "image"
+    ]
+  },
+  {
+    "title": "Command R+ Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/command-r",
+    "description": "Independent evaluation of Command R+: Cohere's best open-weight model.",
+    "keywords": [
+      "command r+",
+      "command-r",
+      "free software review 2026",
+      "models"
+    ]
+  },
+  {
+    "title": "Consensus Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/consensus",
+    "description": "Independent evaluation of Consensus: Search engine that answers questions using scientific evidence.",
+    "keywords": [
+      "consensus",
+      "consensus",
+      "free software review 2026",
+      "research"
+    ]
+  },
+  {
+    "title": "Continue.dev Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/continue-dev",
+    "description": "Independent evaluation of Continue.dev: Open-source AI coding assistant for VS Code and JetBrains.",
+    "keywords": [
+      "continue.dev",
+      "continue-dev",
+      "free software review 2026",
+      "code"
+    ]
+  },
+  {
+    "title": "Cookie Clicker Classic Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/cookie-clicker-classic",
+    "description": "Independent evaluation of Cookie Clicker Classic: The incremental-game classic: click cookies, automate, ascend, repeat.",
+    "keywords": [
+      "cookie clicker classic",
+      "cookie-clicker-classic",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Copy.ai Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/copy-ai",
+    "description": "Independent evaluation of Copy.ai: AI copywriting with 2,000 words free per month.",
+    "keywords": [
+      "copy.ai",
+      "copy-ai",
+      "free software review 2026",
+      "writing"
+    ]
+  },
+  {
+    "title": "Coqui TTS Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/coqui-tts",
+    "description": "Independent evaluation of Coqui TTS: Open-source text-to-speech with voice cloning.",
+    "keywords": [
+      "coqui tts",
+      "coqui-tts",
+      "free software review 2026",
+      "audio"
+    ]
+  },
+  {
+    "title": "Counter-Strike 2 Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/counter-strike-2",
+    "description": "Independent evaluation of Counter-Strike 2: The classic tactical shooter, free for casual and competitive play.",
+    "keywords": [
+      "counter-strike 2",
+      "counter-strike-2",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Craiyon Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/craiyon",
+    "description": "Independent evaluation of Craiyon: Formerly DALL-E Mini.",
+    "keywords": [
+      "craiyon",
+      "craiyon",
+      "free software review 2026",
+      "image"
+    ]
+  },
+  {
+    "title": "Cursor Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/cursor",
+    "description": "Independent evaluation of Cursor: AI-first code editor built on VS Code.",
+    "keywords": [
+      "cursor",
+      "cursor",
+      "free software review 2026",
+      "code"
+    ]
+  },
+  {
+    "title": "darktable Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/darktable",
+    "description": "Independent evaluation of darktable: Non-destructive RAW development and photo management.",
+    "keywords": [
+      "darktable",
+      "darktable",
+      "free software review 2026",
+      "image"
+    ]
+  },
+  {
+    "title": "DaVinci Resolve Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/davinci-resolve",
+    "description": "Independent evaluation of DaVinci Resolve: Editing, color, audio, and VFX in one application.",
+    "keywords": [
+      "davinci resolve",
+      "davinci-resolve",
+      "free software review 2026",
+      "video"
+    ]
+  },
+  {
+    "title": "DeepL Write Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/deepl-write",
+    "description": "Independent evaluation of DeepL Write: Free tone and grammar polishing, especially strong for non-native speakers.",
+    "keywords": [
+      "deepl write",
+      "deepl-write",
+      "free software review 2026",
+      "writing"
+    ]
+  },
+  {
+    "title": "DeepSeek Chat Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/deepseek-chat",
+    "description": "Independent evaluation of DeepSeek Chat: China's most powerful open-source AI.",
+    "keywords": [
+      "deepseek chat",
+      "deepseek-chat",
+      "free software review 2026",
+      "chatbots"
+    ]
+  },
+  {
+    "title": "DeepSeek R1 Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/deepseek-r1",
+    "description": "Independent evaluation of DeepSeek R1: The reasoning model that shocked the AI world.",
+    "keywords": [
+      "deepseek r1",
+      "deepseek-r1",
+      "free software review 2026",
+      "models"
+    ]
+  },
+  {
+    "title": "Deltarune Chapters 1 & 2 Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/deltarune-chapters-1-2",
+    "description": "Independent evaluation of Deltarune Chapters 1 & 2: A free start to Toby Fox’s follow-up universe.",
+    "keywords": [
+      "deltarune chapters 1 & 2",
+      "deltarune-chapters-1-2",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Doki Doki Literature Club! Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/doki-doki-literature-club",
+    "description": "Independent evaluation of Doki Doki Literature Club!: A famous free visual novel best played without spoilers.",
+    "keywords": [
+      "doki doki literature club!",
+      "doki-doki-literature-club",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Dota 2 Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/dota-2",
+    "description": "Independent evaluation of Dota 2: A full competitive MOBA where every hero is available without paying.",
+    "keywords": [
+      "dota 2",
+      "dota-2",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "elementary OS Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/elementary-os",
+    "description": "Independent evaluation of elementary OS: Mac switchers who value visual consistency and simplicity.",
+    "keywords": [
+      "elementary os",
+      "elementary-os",
+      "free software review 2026",
+      "linux"
+    ]
+  },
+  {
+    "title": "ElevenLabs Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/elevenlabs",
+    "description": "Independent evaluation of ElevenLabs: The most realistic AI voice synthesis available.",
+    "keywords": [
+      "elevenlabs",
+      "elevenlabs",
+      "free software review 2026",
+      "audio"
+    ]
+  },
+  {
+    "title": "Elicit Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/elicit",
+    "description": "Independent evaluation of Elicit: AI research assistant that searches and summarizes academic papers.",
+    "keywords": [
+      "elicit",
+      "elicit",
+      "free software review 2026",
+      "research"
+    ]
+  },
+  {
+    "title": "Endless Sky Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/endless-sky",
+    "description": "Independent evaluation of Endless Sky: A free space trading and combat game inspired by Escape Velocity.",
+    "keywords": [
+      "endless sky",
+      "endless-sky",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "EspoCRM Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/espocrm",
+    "description": "Independent evaluation of EspoCRM: Lightweight open-source CRM for contacts, sales pipelines and business records.",
+    "keywords": [
+      "espocrm",
+      "espocrm",
+      "free software review 2026",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Falcon 180B Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/falcon-180b",
+    "description": "Independent evaluation of Falcon 180B: One of the largest fully open-source models available.",
+    "keywords": [
+      "falcon 180b",
+      "falcon-180b",
+      "free software review 2026",
+      "models"
+    ]
+  },
+  {
+    "title": "Fedora Workstation Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/fedora-workstation",
+    "description": "Independent evaluation of Fedora Workstation: Curious beginners who want a clean, current Linux desktop with strong upstream defaults.",
+    "keywords": [
+      "fedora workstation",
+      "fedora-workstation",
+      "free software review 2026",
+      "linux"
+    ]
+  },
+  {
+    "title": "Flowblade Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/flowblade",
+    "description": "Independent evaluation of Flowblade: Focused multi-track video editing on Linux.",
+    "keywords": [
+      "flowblade",
+      "flowblade",
+      "free software review 2026",
+      "video"
+    ]
+  },
+  {
+    "title": "Flux.1 Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/flux-1",
+    "description": "Independent evaluation of Flux.1: The new state-of-the-art open-source image model.",
+    "keywords": [
+      "flux.1",
+      "flux-1",
+      "free software review 2026",
+      "image"
+    ]
+  },
+  {
+    "title": "Fortnite Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/fortnite",
+    "description": "Independent evaluation of Fortnite: Battle royale, creative maps, Lego modes, racing, concerts and more.",
+    "keywords": [
+      "fortnite",
+      "fortnite",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Freeciv Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/freeciv",
+    "description": "Independent evaluation of Freeciv: Civilization-style empire building, free and open source.",
+    "keywords": [
+      "freeciv",
+      "freeciv",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Friday Night Funkin’ Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/friday-night-funkin",
+    "description": "Independent evaluation of Friday Night Funkin’: A free rhythm-game phenomenon with a huge mod scene.",
+    "keywords": [
+      "friday night funkin’",
+      "friday-night-funkin",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Gemini Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/gemini",
+    "description": "Independent evaluation of Gemini: Google's flagship AI — free with a Google account.",
+    "keywords": [
+      "gemini",
+      "gemini",
+      "free software review 2026",
+      "chatbots"
+    ]
+  },
+  {
+    "title": "Gemma 2 Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/gemma-2",
+    "description": "Independent evaluation of Gemma 2: Google's open-source model family.",
+    "keywords": [
+      "gemma 2",
+      "gemma-2",
+      "free software review 2026",
+      "models"
+    ]
+  },
+  {
+    "title": "GeoFS Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/geofs",
+    "description": "Independent evaluation of GeoFS: A free browser flight simulator with global scenery.",
+    "keywords": [
+      "geofs",
+      "geofs",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "GIMP Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/gimp",
+    "description": "Independent evaluation of GIMP: Powerful free image editor with layers, masks, plugins and scripting.",
+    "keywords": [
+      "gimp",
+      "gimp",
+      "free software review 2026",
+      "opensource"
+    ]
+  },
+  {
+    "title": "GitHub Copilot Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/github-copilot",
+    "description": "Independent evaluation of GitHub Copilot: A mainstream AI coding assistant with a useful free tier: 2,000 completions/month and 50 chat messages.",
+    "keywords": [
+      "github copilot",
+      "github-copilot",
+      "free software review 2026",
+      "code"
+    ]
+  },
+  {
+    "title": "Google Password Manager Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/google-password-manager",
+    "description": "Independent evaluation of Google Password Manager: Built into Chrome and Android — free, zero setup, passkey support.",
+    "keywords": [
+      "google password manager",
+      "google-password-manager",
+      "free software review 2026",
+      "security"
+    ]
+  },
+  {
+    "title": "Gradio Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/gradio",
+    "description": "Independent evaluation of Gradio: Build and share AI demo apps in 3 lines of Python.",
+    "keywords": [
+      "gradio",
+      "gradio",
+      "free software review 2026",
+      "dev"
+    ]
+  },
+  {
+    "title": "Grammarly Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/grammarly",
+    "description": "Independent evaluation of Grammarly: Real-time grammar, spelling, and style suggestions across every website and app you use.",
+    "keywords": [
+      "grammarly",
+      "grammarly",
+      "free software review 2026",
+      "writing"
+    ]
+  },
+  {
+    "title": "Groq Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/groq",
+    "description": "Independent evaluation of Groq: Insanely fast inference on open-source models.",
+    "keywords": [
+      "groq",
+      "groq",
+      "free software review 2026",
+      "chatbots"
+    ]
+  },
+  {
+    "title": "Hailuo AI Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/hailuo-ai",
+    "description": "Independent evaluation of Hailuo AI: Free video generation from text and images.",
+    "keywords": [
+      "hailuo ai",
+      "hailuo-ai",
+      "free software review 2026",
+      "video"
+    ]
+  },
+  {
+    "title": "Hemingway Editor Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/hemingway-editor",
+    "description": "Independent evaluation of Hemingway Editor: Paste your text and it shows you exactly what to cut.",
+    "keywords": [
+      "hemingway editor",
+      "hemingway-editor",
+      "free software review 2026",
+      "writing"
+    ]
+  },
+  {
+    "title": "Hugging Face Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/hugging-face",
+    "description": "Independent evaluation of Hugging Face: The GitHub of AI.",
+    "keywords": [
+      "hugging face",
+      "hugging-face",
+      "free software review 2026",
+      "dev"
+    ]
+  },
+  {
+    "title": "HuggingChat Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/huggingchat",
+    "description": "Independent evaluation of HuggingChat: Open-source ChatGPT alternative running the best open models.",
+    "keywords": [
+      "huggingchat",
+      "huggingchat",
+      "free software review 2026",
+      "chatbots"
+    ]
+  },
+  {
+    "title": "Ideogram Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/ideogram",
+    "description": "Independent evaluation of Ideogram: Best-in-class at rendering readable text in images.",
+    "keywords": [
+      "ideogram",
+      "ideogram",
+      "free software review 2026",
+      "image"
+    ]
+  },
+  {
+    "title": "Inkscape Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/inkscape",
+    "description": "Independent evaluation of Inkscape: Logos, icons, diagrams, and scalable illustration.",
+    "keywords": [
+      "inkscape",
+      "inkscape",
+      "free software review 2026",
+      "image"
+    ]
+  },
+  {
+    "title": "itch.io Free Games Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/itch-io-free-games",
+    "description": "Independent evaluation of itch.io Free Games: A living shelf of experimental free indie games.",
+    "keywords": [
+      "itch.io free games",
+      "itch-io-free-games",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Jan.ai Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/jan-ai",
+    "description": "Independent evaluation of Jan.ai: Open-source, local-first AI assistant.",
+    "keywords": [
+      "jan.ai",
+      "jan-ai",
+      "free software review 2026",
+      "chatbots"
+    ]
+  },
+  {
+    "title": "Jitsi Meet Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/jitsi-meet",
+    "description": "Independent evaluation of Jitsi Meet: Open-source video meetings that can run in the browser or on your own server.",
+    "keywords": [
+      "jitsi meet",
+      "jitsi-meet",
+      "free software review 2026",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Joplin Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/joplin",
+    "description": "Independent evaluation of Joplin: Open-source note app with markdown, sync options and end-to-end encryption.",
+    "keywords": [
+      "joplin",
+      "joplin",
+      "free software review 2026",
+      "opensource"
+    ]
+  },
+  {
+    "title": "KDE neon Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/kde-neon",
+    "description": "Independent evaluation of KDE neon: Beginners who want a Windows-like layout with more customization power.",
+    "keywords": [
+      "kde neon",
+      "kde-neon",
+      "free software review 2026",
+      "linux"
+    ]
+  },
+  {
+    "title": "Kdenlive Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/kdenlive",
+    "description": "Independent evaluation of Kdenlive: Non-linear video editor for serious free video workflows.",
+    "keywords": [
+      "kdenlive",
+      "kdenlive",
+      "free software review 2026",
+      "opensource"
+    ]
+  },
+  {
+    "title": "KeePassXC Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/keepassxc",
+    "description": "Independent evaluation of KeePassXC: Fully local, encrypted vault file — no account, no cloud, no subscription.",
+    "keywords": [
+      "keepassxc",
+      "keepassxc",
+      "free software review 2026",
+      "security"
+    ]
+  },
+  {
+    "title": "Kling AI Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/kling-ai",
+    "description": "Independent evaluation of Kling AI: One of the best free text-to-video generators in 2026.",
+    "keywords": [
+      "kling ai",
+      "kling-ai",
+      "free software review 2026",
+      "video"
+    ]
+  },
+  {
+    "title": "Krita Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/krita",
+    "description": "Independent evaluation of Krita: Illustration, comics, and digital painting.",
+    "keywords": [
+      "krita",
+      "krita",
+      "free software review 2026",
+      "image"
+    ]
+  },
+  {
+    "title": "Krunker Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/krunker",
+    "description": "Independent evaluation of Krunker: Fast browser FPS that runs almost instantly.",
+    "keywords": [
+      "krunker",
+      "krunker",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "LangChain Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/langchain",
+    "description": "Independent evaluation of LangChain: The most popular open-source framework for building AI agents and LLM apps.",
+    "keywords": [
+      "langchain",
+      "langchain",
+      "free software review 2026",
+      "dev"
+    ]
+  },
+  {
+    "title": "LibreOffice Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/libreoffice",
+    "description": "Independent evaluation of LibreOffice: Full desktop office suite for documents, spreadsheets, presentations and databases.",
+    "keywords": [
+      "libreoffice",
+      "libreoffice",
+      "free software review 2026",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Linux Lite Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/linux-lite",
+    "description": "Independent evaluation of Linux Lite: Windows users reviving an older laptop with minimum drama.",
+    "keywords": [
+      "linux lite",
+      "linux-lite",
+      "free software review 2026",
+      "linux"
+    ]
+  },
+  {
+    "title": "Linux Mint Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/linux-mint",
+    "description": "Independent evaluation of Linux Mint: Most Windows switchers who want a calm, familiar desktop.",
+    "keywords": [
+      "linux mint",
+      "linux-mint",
+      "free software review 2026",
+      "linux"
+    ]
+  },
+  {
+    "title": "Llama 3.3 70B Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/llama-3-3-70b",
+    "description": "Independent evaluation of Llama 3.3 70B: Meta's flagship open-source model.",
+    "keywords": [
+      "llama 3.3 70b",
+      "llama-3-3-70b",
+      "free software review 2026",
+      "models"
+    ]
+  },
+  {
+    "title": "LlamaIndex Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/llamaindex",
+    "description": "Independent evaluation of LlamaIndex: Open-source framework for building RAG systems.",
+    "keywords": [
+      "llamaindex",
+      "llamaindex",
+      "free software review 2026",
+      "dev"
+    ]
+  },
+  {
+    "title": "LM Studio Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/lm-studio",
+    "description": "Independent evaluation of LM Studio: Beautiful desktop app to discover, download, and run open-source LLMs locally.",
+    "keywords": [
+      "lm studio",
+      "lm-studio",
+      "free software review 2026",
+      "chatbots"
+    ]
+  },
+  {
+    "title": "Logseq Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/logseq",
+    "description": "Independent evaluation of Logseq: Local-first outliner and knowledge graph for linked markdown notes.",
+    "keywords": [
+      "logseq",
+      "logseq",
+      "free software review 2026",
+      "opensource"
+    ]
+  },
+  {
+    "title": "LosslessCut Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/losslesscut",
+    "description": "Independent evaluation of LosslessCut: Fast cuts, splits, and joins without re-encoding.",
+    "keywords": [
+      "losslesscut",
+      "losslesscut",
+      "free software review 2026",
+      "video"
+    ]
+  },
+  {
+    "title": "Luanti / Minetest Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/luanti-minetest",
+    "description": "Independent evaluation of Luanti / Minetest: A free voxel sandbox engine for Minecraft-like worlds.",
+    "keywords": [
+      "luanti / minetest",
+      "luanti-minetest",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Luma Dream Machine Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/luma-dream-machine",
+    "description": "Independent evaluation of Luma Dream Machine: Generative video model from text or image with free trial & paid subscription plans.",
+    "keywords": [
+      "luma dream machine",
+      "luma-dream-machine",
+      "free software review 2026",
+      "video"
+    ]
+  },
+  {
+    "title": "Marvel Rivals Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/marvel-rivals",
+    "description": "Independent evaluation of Marvel Rivals: A polished superhero team shooter with instant pick-up appeal.",
+    "keywords": [
+      "marvel rivals",
+      "marvel-rivals",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Mattermost Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/mattermost",
+    "description": "Independent evaluation of Mattermost: Self-hostable team chat and collaboration platform for technical teams.",
+    "keywords": [
+      "mattermost",
+      "mattermost",
+      "free software review 2026",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Mistral 7B / Mixtral Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/mistral-7b-mixtral",
+    "description": "Independent evaluation of Mistral 7B / Mixtral: Europe's answer to GPT.",
+    "keywords": [
+      "mistral 7b / mixtral",
+      "mistral-7b-mixtral",
+      "free software review 2026",
+      "models"
+    ]
+  },
+  {
+    "title": "Mistral Le Chat Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/mistral-le-chat",
+    "description": "Independent evaluation of Mistral Le Chat: Europe's leading open AI lab.",
+    "keywords": [
+      "mistral le chat",
+      "mistral-le-chat",
+      "free software review 2026",
+      "chatbots"
+    ]
+  },
+  {
+    "title": "MX Linux Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/mx-linux",
+    "description": "Independent evaluation of MX Linux: Older laptops, low-resource desktops and people who value stability.",
+    "keywords": [
+      "mx linux",
+      "mx-linux",
+      "free software review 2026",
+      "linux"
+    ]
+  },
+  {
+    "title": "N Step Steve Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/n-step-steve",
+    "description": "Independent evaluation of N Step Steve: A brilliant browser puzzle game about counting steps.",
+    "keywords": [
+      "n step steve",
+      "n-step-steve",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Nextcloud Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/nextcloud",
+    "description": "Independent evaluation of Nextcloud: Self-hosted file sync, sharing, calendar, contacts and collaboration suite.",
+    "keywords": [
+      "nextcloud",
+      "nextcloud",
+      "free software review 2026",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Nobara Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/nobara",
+    "description": "Independent evaluation of Nobara: Gamers who want Linux gaming tweaks without assembling everything manually.",
+    "keywords": [
+      "nobara",
+      "nobara",
+      "free software review 2026",
+      "linux"
+    ]
+  },
+  {
+    "title": "NotebookLM Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/notebooklm",
+    "description": "Independent evaluation of NotebookLM: Upload documents and ask grounded questions against the source material.",
+    "keywords": [
+      "notebooklm",
+      "notebooklm",
+      "free software review 2026",
+      "research"
+    ]
+  },
+  {
+    "title": "Olive Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/olive",
+    "description": "Independent evaluation of Olive: Modern experimental open-source video editing.",
+    "keywords": [
+      "olive",
+      "olive",
+      "free software review 2026",
+      "video"
+    ]
+  },
+  {
+    "title": "Ollama Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/ollama",
+    "description": "Independent evaluation of Ollama: Run any open-source model locally.",
+    "keywords": [
+      "ollama",
+      "ollama",
+      "free software review 2026",
+      "chatbots"
+    ]
+  },
+  {
+    "title": "ONLYOFFICE Docs Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/onlyoffice-docs",
+    "description": "Independent evaluation of ONLYOFFICE Docs: Collaborative editors with strong Microsoft Office file compatibility and self-hosting options.",
+    "keywords": [
+      "onlyoffice docs",
+      "onlyoffice-docs",
+      "free software review 2026",
+      "opensource"
+    ]
+  },
+  {
+    "title": "OpenProject Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/openproject",
+    "description": "Independent evaluation of OpenProject: Open-source project management with tasks, Gantt, roadmaps and wiki features.",
+    "keywords": [
+      "openproject",
+      "openproject",
+      "free software review 2026",
+      "opensource"
+    ]
+  },
+  {
+    "title": "OpenShot Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/openshot",
+    "description": "Independent evaluation of OpenShot: Simple cuts, titles, and home-video projects.",
+    "keywords": [
+      "openshot",
+      "openshot",
+      "free software review 2026",
+      "video"
+    ]
+  },
+  {
+    "title": "OpenTTD Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/openttd",
+    "description": "Independent evaluation of OpenTTD: Build transport networks and accidentally lose entire evenings.",
+    "keywords": [
+      "openttd",
+      "openttd",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Paint.NET Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/paint-net",
+    "description": "Independent evaluation of Paint.NET: Simple, fast photo editing and retouching for Windows.",
+    "keywords": [
+      "paint.net",
+      "paint-net",
+      "free software review 2026",
+      "image"
+    ]
+  },
+  {
+    "title": "Path of Exile Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/path-of-exile",
+    "description": "Independent evaluation of Path of Exile: A massive ARPG with deep builds and no paid power.",
+    "keywords": [
+      "path of exile",
+      "path-of-exile",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Penpot Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/penpot",
+    "description": "Independent evaluation of Penpot: Open-standard interface design and prototyping.",
+    "keywords": [
+      "penpot",
+      "penpot",
+      "free software review 2026",
+      "image"
+    ]
+  },
+  {
+    "title": "Perplexity AI Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/perplexity-ai",
+    "description": "Independent evaluation of Perplexity AI: AI-powered search engine that gives cited, sourced answers.",
+    "keywords": [
+      "perplexity ai",
+      "perplexity-ai",
+      "free software review 2026",
+      "chatbots"
+    ]
+  },
+  {
+    "title": "Phi-4 Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/phi-4",
+    "description": "Independent evaluation of Phi-4: Microsoft's small but mighty model.",
+    "keywords": [
+      "phi-4",
+      "phi-4",
+      "free software review 2026",
+      "models"
+    ]
+  },
+  {
+    "title": "Photopea Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/photopea",
+    "description": "Independent evaluation of Photopea: PSD editing in a browser with nothing to install.",
+    "keywords": [
+      "photopea",
+      "photopea",
+      "free software review 2026",
+      "image"
+    ]
+  },
+  {
+    "title": "Photoscape X Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/photoscape-x",
+    "description": "Independent evaluation of Photoscape X: Batch photo editing, collages, and quick fixes.",
+    "keywords": [
+      "photoscape x",
+      "photoscape-x",
+      "free software review 2026",
+      "image"
+    ]
+  },
+  {
+    "title": "Pika Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/pika",
+    "description": "Independent evaluation of Pika: Simple text-to-video with a clean interface.",
+    "keywords": [
+      "pika",
+      "pika",
+      "free software review 2026",
+      "video"
+    ]
+  },
+  {
+    "title": "Pixlr Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/pixlr",
+    "description": "Independent evaluation of Pixlr: Browser photo editor with AI cutout and retouch tools.",
+    "keywords": [
+      "pixlr",
+      "pixlr",
+      "free software review 2026",
+      "image"
+    ]
+  },
+  {
+    "title": "PixVerse Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/pixverse",
+    "description": "Independent evaluation of PixVerse: Text-to-video and image-to-video with a generous free plan.",
+    "keywords": [
+      "pixverse",
+      "pixverse",
+      "free software review 2026",
+      "video"
+    ]
+  },
+  {
+    "title": "Playground AI Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/playground-ai",
+    "description": "Independent evaluation of Playground AI: 100 free images per day with no watermarks.",
+    "keywords": [
+      "playground ai",
+      "playground-ai",
+      "free software review 2026",
+      "image"
+    ]
+  },
+  {
+    "title": "Pop!_OS Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/pop-os",
+    "description": "Independent evaluation of Pop!_OS: Laptop users, developers, creators and NVIDIA GPU owners.",
+    "keywords": [
+      "pop!_os",
+      "pop-os",
+      "free software review 2026",
+      "linux"
+    ]
+  },
+  {
+    "title": "Proton Pass Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/proton-pass",
+    "description": "Independent evaluation of Proton Pass: Privacy-focused free tier with unlimited logins and hide-my-email aliases.",
+    "keywords": [
+      "proton pass",
+      "proton-pass",
+      "free software review 2026",
+      "security"
+    ]
+  },
+  {
+    "title": "QuillBot Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/quillbot",
+    "description": "Independent evaluation of QuillBot: The best free paraphrasing and grammar tool.",
+    "keywords": [
+      "quillbot",
+      "quillbot",
+      "free software review 2026",
+      "writing"
+    ]
+  },
+  {
+    "title": "Qwen2.5 Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/qwen2-5",
+    "description": "Independent evaluation of Qwen2.5: Alibaba's top open-source model.",
+    "keywords": [
+      "qwen2.5",
+      "qwen2-5",
+      "free software review 2026",
+      "models"
+    ]
+  },
+  {
+    "title": "Rocket League Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/rocket-league",
+    "description": "Independent evaluation of Rocket League: Soccer with rocket cars; still one of the cleanest skill games.",
+    "keywords": [
+      "rocket league",
+      "rocket-league",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Runway Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/runway",
+    "description": "Independent evaluation of Runway: Runway is a widely known creative video platform.",
+    "keywords": [
+      "runway",
+      "runway",
+      "free software review 2026",
+      "video"
+    ]
+  },
+  {
+    "title": "Rytr Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/rytr",
+    "description": "Independent evaluation of Rytr: AI writing assistant with a free tier of 10,000 characters/month.",
+    "keywords": [
+      "rytr",
+      "rytr",
+      "free software review 2026",
+      "writing"
+    ]
+  },
+  {
+    "title": "Scribus Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/scribus",
+    "description": "Independent evaluation of Scribus: Print-ready brochures, magazines, and PDFs.",
+    "keywords": [
+      "scribus",
+      "scribus",
+      "free software review 2026",
+      "image"
+    ]
+  },
+  {
+    "title": "Semantic Scholar Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/semantic-scholar",
+    "description": "Independent evaluation of Semantic Scholar: Free AI-powered academic search engine with 220M+ papers.",
+    "keywords": [
+      "semantic scholar",
+      "semantic-scholar",
+      "free software review 2026",
+      "research"
+    ]
+  },
+  {
+    "title": "Shotcut Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/shotcut",
+    "description": "Independent evaluation of Shotcut: Cross-platform open-source video editor with broad format support.",
+    "keywords": [
+      "shotcut",
+      "shotcut",
+      "free software review 2026",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Stable Diffusion Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/stable-diffusion",
+    "description": "Independent evaluation of Stable Diffusion: The original open-source image generation model.",
+    "keywords": [
+      "stable diffusion",
+      "stable-diffusion",
+      "free software review 2026",
+      "image"
+    ]
+  },
+  {
+    "title": "Streamlit Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/streamlit",
+    "description": "Independent evaluation of Streamlit: Turn Python scripts into shareable web apps with no frontend knowledge.",
+    "keywords": [
+      "streamlit",
+      "streamlit",
+      "free software review 2026",
+      "dev"
+    ]
+  },
+  {
+    "title": "SuiteCRM Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/suitecrm",
+    "description": "Independent evaluation of SuiteCRM: Feature-rich open-source CRM for sales, marketing and service teams.",
+    "keywords": [
+      "suitecrm",
+      "suitecrm",
+      "free software review 2026",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Suno Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/suno",
+    "description": "Independent evaluation of Suno: Generate full songs — vocals, instruments, lyrics — from a text prompt.",
+    "keywords": [
+      "suno",
+      "suno",
+      "free software review 2026",
+      "audio"
+    ]
+  },
+  {
+    "title": "SuperTuxKart Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/supertuxkart",
+    "description": "Independent evaluation of SuperTuxKart: A free kart racer with local multiplayer and community charm.",
+    "keywords": [
+      "supertuxkart",
+      "supertuxkart",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Tabnine Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/tabnine",
+    "description": "Independent evaluation of Tabnine: Privacy-first AI coding assistant.",
+    "keywords": [
+      "tabnine",
+      "tabnine",
+      "free software review 2026",
+      "code"
+    ]
+  },
+  {
+    "title": "Team Fortress 2 Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/team-fortress-2",
+    "description": "Independent evaluation of Team Fortress 2: A classic class shooter with personality, chaos, and a long community tail.",
+    "keywords": [
+      "team fortress 2",
+      "team-fortress-2",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "The Battle for Wesnoth Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/the-battle-for-wesnoth",
+    "description": "Independent evaluation of The Battle for Wesnoth: A turn-based fantasy strategy classic with campaigns and multiplayer.",
+    "keywords": [
+      "the battle for wesnoth",
+      "the-battle-for-wesnoth",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "The Finals Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/the-finals",
+    "description": "Independent evaluation of The Finals: Destructible-arena shooter with chaotic team objectives.",
+    "keywords": [
+      "the finals",
+      "the-finals",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Together AI Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/together-ai",
+    "description": "Independent evaluation of Together AI: Free API access to 50+ open-source models including Llama 3, Mixtral, DBRX.",
+    "keywords": [
+      "together ai",
+      "together-ai",
+      "free software review 2026",
+      "dev"
+    ]
+  },
+  {
+    "title": "Townscaper Demo / Web Toy Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/townscaper-demo-web-toy",
+    "description": "Independent evaluation of Townscaper Demo / Web Toy: A tiny creative city-building toy in the browser.",
+    "keywords": [
+      "townscaper demo / web toy",
+      "townscaper-demo-web-toy",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Ubuntu Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/ubuntu",
+    "description": "Independent evaluation of Ubuntu: Beginners who want the most tutorials, vendor support and predictable releases.",
+    "keywords": [
+      "ubuntu",
+      "ubuntu",
+      "free software review 2026",
+      "linux"
+    ]
+  },
+  {
+    "title": "Udio Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/udio",
+    "description": "Independent evaluation of Udio: Suno's main rival.",
+    "keywords": [
+      "udio",
+      "udio",
+      "free software review 2026",
+      "audio"
+    ]
+  },
+  {
+    "title": "Veloren Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/veloren",
+    "description": "Independent evaluation of Veloren: Open-source voxel RPG with exploration and co-op promise.",
+    "keywords": [
+      "veloren",
+      "veloren",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Warframe Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/warframe",
+    "description": "Independent evaluation of Warframe: Fast co-op space-ninja action with years of free content.",
+    "keywords": [
+      "warframe",
+      "warframe",
+      "free software review 2026",
+      "gaming"
+    ]
+  },
+  {
+    "title": "Whisper Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/whisper",
+    "description": "Independent evaluation of Whisper: Open-source speech recognition that runs locally.",
+    "keywords": [
+      "whisper",
+      "whisper",
+      "free software review 2026",
+      "audio"
+    ]
+  },
+  {
+    "title": "WordPress Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/wordpress",
+    "description": "Independent evaluation of WordPress: Open-source CMS powering blogs, business sites, shops and publications.",
+    "keywords": [
+      "wordpress",
+      "wordpress",
+      "free software review 2026",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Wordtune Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/wordtune",
+    "description": "Independent evaluation of Wordtune: Rephrase, shorten, or expand any sentence in one click.",
+    "keywords": [
+      "wordtune",
+      "wordtune",
+      "free software review 2026",
+      "writing"
+    ]
+  },
+  {
+    "title": "You.com Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/you-com",
+    "description": "Independent evaluation of You.com: AI search engine with free access to multiple models.",
+    "keywords": [
+      "you.com",
+      "you-com",
+      "free software review 2026",
+      "chatbots"
+    ]
+  },
+  {
+    "title": "Zorin OS Review (2026): Features, Limits & Verdict | THEHUB",
+    "url": "/reviews/zorin-os",
+    "description": "Independent evaluation of Zorin OS: Windows refugees who care about polish and a low-anxiety first boot.",
+    "keywords": [
+      "zorin os",
+      "zorin-os",
+      "free software review 2026",
+      "linux"
+    ]
+  },
+  {
+    "title": "Best Free Games 2026: Fair No-Cost Picks",
+    "url": "/best-free-games-2026",
+    "description": "Best free games 2026: fair free-to-play, open-source, indie and browser games worth playing. No trials, no pay-to-win traps.",
+    "keywords": []
   },
   {
     "title": "Best Linux Distro for Beginners 2026",
     "url": "/best-linux-distros-beginners-2026",
     "description": "Best Linux distro for beginners 2026: stop paying for Windows/macOS you don't need. Compare Mint, Ubuntu, Fedora, Zorin, Pop!_OS and more.",
-    "keywords": [
-      "best linux distro for beginners 2026",
-      "Ubuntu vs Mint vs Fedora",
-      "easiest linux to switch to from windows",
-      "linux distro for old laptop",
-      "best linux for gaming"
-    ]
+    "keywords": []
   },
   {
-    "title": "Open Source Alternative to Paid Software 2026",
-    "url": "/best-open-source-software-alternatives-2026",
-    "description": "Open source alternative to paid software: replace Office, Photoshop, Slack, Notion, Drive, Salesforce and more with free open-source tools.",
-    "keywords": [
-      "open source alternative to",
-      "free open source software",
-      "open source software list 2026",
-      "libre software alternatives",
-      "free alternative to adobe/microsoft/google"
-    ]
+    "title": "Terms of Service — Qutaifan",
+    "url": "/terms-of-service",
+    "description": "Terms of service for Qutaifan.com. By using our site, you agree to these terms.",
+    "keywords": []
   },
   {
     "title": "Free Alternative to Photoshop 2026: 7 Tested Picks (No Watermark)",
     "url": "/free-alternative-to-photoshop",
     "description": "The best free alternatives to Photoshop in 2026 — Photopea, GIMP, Krita and more. Full layers, masks, RAW and PSD support. No subscription, no watermark. Tested and compared.",
-    "keywords": [
-      "free alternative to photoshop",
-      "photoshop free alternative no watermark",
-      "GIMP vs Photopea",
-      "free photo editor like photoshop",
-      "open source photoshop alternative"
-    ]
+    "keywords": []
+  },
+  {
+    "title": "Free Password Generator — Strong, Random Passwords (100% Local)",
+    "url": "/free-password-generator",
+    "description": "Generate strong, random passwords for free. Runs 100% in your browser via the Web Crypto API — nothing is ever sent to a server. Customize length, symbols, numbers and more.",
+    "keywords": []
   }
 ]

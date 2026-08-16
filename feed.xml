@@ -1,81 +1,185 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0">
   <channel>
-    <title>Qutaifan Software Reviews</title>
+    <title>THEHUB by Qutaifan — Free &amp; Open Source Software</title>
     <link>https://www.qutaifan.com/</link>
-    <description>Independent reviews of free, open-source, and real-free-tier software.</description>
+    <description>Independent reviews of genuinely free, open-source and freemium software.</description>
     <language>en-us</language>
-    <lastBuildDate>2026-08-02</lastBuildDate>
-    <atom:link href="https://www.qutaifan.com/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>2026-08-15</lastBuildDate>
     <item>
-      <title>Best Free AI Tools 2026: 100+ Free Picks</title>
-      <link>https://www.qutaifan.com/best-free-ai-tools-2026</link>
-      <guid>https://www.qutaifan.com/best-free-ai-tools-2026</guid>
-      <pubDate>2026-08-02</pubDate>
-      <description>Find the best free AI tools 2026: 100+ chatbots, image, video, code and local AI picks. Compare no-cost options and start building today.</description>
+      <title>Proton Pass Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/proton-pass</link>
+      <guid>https://www.qutaifan.com/reviews/proton-pass</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of Proton Pass: Privacy-focused free tier with unlimited logins and hide-my-email aliases.</description>
     </item>
     <item>
-      <title>Best Free AI Writing Tools 2026 — Tested &amp; Compared</title>
-      <link>https://www.qutaifan.com/best-free-ai-writing-tools-2026</link>
-      <guid>https://www.qutaifan.com/best-free-ai-writing-tools-2026</guid>
-      <pubDate>2026-08-02</pubDate>
-      <description>Compare the best free AI writing tools in 2026: ChatGPT, Claude, QuillBot, Grammarly, Hemingway Editor, and DeepL Write. Genuinely free options compared.</description>
+      <title>KeePassXC Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/keepassxc</link>
+      <guid>https://www.qutaifan.com/reviews/keepassxc</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of KeePassXC: Fully local, encrypted vault file — no account, no cloud, no subscription.</description>
     </item>
     <item>
-      <title>Best Free Games 2026: Fair No-Cost Picks</title>
-      <link>https://www.qutaifan.com/best-free-games-2026</link>
-      <guid>https://www.qutaifan.com/best-free-games-2026</guid>
-      <pubDate>2026-08-02</pubDate>
-      <description>Best free games 2026: fair free-to-play, open-source, indie and browser games worth playing. No trials, no pay-to-win traps.</description>
+      <title>Google Password Manager Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/google-password-manager</link>
+      <guid>https://www.qutaifan.com/reviews/google-password-manager</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of Google Password Manager: Built into Chrome and Android — free, zero setup, passkey support.</description>
     </item>
     <item>
-      <title>Best Free Graphic Design Tools 2026: 8 Honest Picks</title>
-      <link>https://www.qutaifan.com/best-free-graphic-design-tools-2026</link>
-      <guid>https://www.qutaifan.com/best-free-graphic-design-tools-2026</guid>
-      <pubDate>2026-08-02</pubDate>
-      <description>Compare eight verified free graphic design tools for photos, vectors, painting, UI, RAW files, and print—with honest limits and official links.</description>
+      <title>Bitwarden Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/bitwarden</link>
+      <guid>https://www.qutaifan.com/reviews/bitwarden</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of Bitwarden: Unlimited passwords and devices on the free plan, zero-knowledge encryption.</description>
     </item>
     <item>
-      <title>Best Free Password Manager 2026: Top Picks</title>
-      <link>https://www.qutaifan.com/best-free-password-managers-2026</link>
-      <guid>https://www.qutaifan.com/best-free-password-managers-2026</guid>
-      <pubDate>2026-08-02</pubDate>
-      <description>Compare the best free password manager 2026 picks: Bitwarden, KeePassXC, Proton Pass, Google Password Manager and Apple Passwords.</description>
+      <title>Apple Passwords Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/apple-passwords</link>
+      <guid>https://www.qutaifan.com/reviews/apple-passwords</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of Apple Passwords: Built into iPhone, iPad, and Mac — free, iCloud sync, passkey support.</description>
     </item>
     <item>
-      <title>Best Free Video Editing Software 2026: 8 Picks</title>
-      <link>https://www.qutaifan.com/best-free-video-editing-software-2026</link>
-      <guid>https://www.qutaifan.com/best-free-video-editing-software-2026</guid>
-      <pubDate>2026-08-02</pubDate>
-      <description>Compare eight verified free video editors for professional color, YouTube timelines, quick cuts, and Linux workflows—with honest limits and official links.</description>
+      <title>Claude vs ChatGPT 2026 — Code, Reasoning &amp; Free Limits</title>
+      <link>https://www.qutaifan.com/vs/claude-vs-chatgpt/</link>
+      <guid>https://www.qutaifan.com/vs/claude-vs-chatgpt/</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Claude 3.5 Sonnet and ChatGPT GPT-4o compared: reasoning, multi-file code, context limits, and what each free tier actually allows.</description>
     </item>
     <item>
-      <title>Best Linux Distro for Beginners 2026</title>
-      <link>https://www.qutaifan.com/best-linux-distros-beginners-2026</link>
-      <guid>https://www.qutaifan.com/best-linux-distros-beginners-2026</guid>
-      <pubDate>2026-08-02</pubDate>
-      <description>Best Linux distro for beginners 2026: stop paying for Windows/macOS you don</description>
+      <title>Bitwarden vs KeePassXC 2026 — Sync, Security &amp; Licence</title>
+      <link>https://www.qutaifan.com/vs/bitwarden-vs-keepassxc/</link>
+      <guid>https://www.qutaifan.com/vs/bitwarden-vs-keepassxc/</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Bitwarden and KeePassXC compared: cloud sync vs offline KDBX vaults, passkey support, encryption model, and licensing.</description>
     </item>
     <item>
-      <title>Open Source Alternative to Paid Software 2026</title>
-      <link>https://www.qutaifan.com/best-open-source-software-alternatives-2026</link>
-      <guid>https://www.qutaifan.com/best-open-source-software-alternatives-2026</guid>
-      <pubDate>2026-08-02</pubDate>
-      <description>Open source alternative to paid software: replace Office, Photoshop, Slack, Notion, Drive, Salesforce and more with free open-source tools.</description>
+      <title>Zorin OS Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/zorin-os</link>
+      <guid>https://www.qutaifan.com/reviews/zorin-os</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of Zorin OS: Windows refugees who care about polish and a low-anxiety first boot.</description>
     </item>
     <item>
-      <title>Free Alternative to Photoshop 2026: 7 Tested Picks (No Watermark)</title>
-      <link>https://www.qutaifan.com/free-alternative-to-photoshop</link>
-      <guid>https://www.qutaifan.com/free-alternative-to-photoshop</guid>
-      <pubDate>2026-08-02</pubDate>
-      <description>The best free alternatives to Photoshop in 2026 — Photopea, GIMP, Krita and more. Full layers, masks, RAW and PSD support. No subscription, no watermark. Tested and compared.</description>
+      <title>You.com Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/you-com</link>
+      <guid>https://www.qutaifan.com/reviews/you-com</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of You.com: AI search engine with free access to multiple models.</description>
     </item>
     <item>
-      <title>Free Password Generator — Strong, Random Passwords (100% Local)</title>
-      <link>https://www.qutaifan.com/free-password-generator</link>
-      <guid>https://www.qutaifan.com/free-password-generator</guid>
-      <pubDate>2026-08-02</pubDate>
-      <description>Generate strong, random passwords for free. Runs 100% in your browser via the Web Crypto API — nothing is ever sent to a server. Customize length, symbols, numbers and more.</description>
+      <title>Wordtune Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/wordtune</link>
+      <guid>https://www.qutaifan.com/reviews/wordtune</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of Wordtune: Rephrase, shorten, or expand any sentence in one click.</description>
+    </item>
+    <item>
+      <title>WordPress Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/wordpress</link>
+      <guid>https://www.qutaifan.com/reviews/wordpress</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of WordPress: Open-source CMS powering blogs, business sites, shops and publications.</description>
+    </item>
+    <item>
+      <title>Whisper Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/whisper</link>
+      <guid>https://www.qutaifan.com/reviews/whisper</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of Whisper: Open-source speech recognition that runs locally.</description>
+    </item>
+    <item>
+      <title>Warframe Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/warframe</link>
+      <guid>https://www.qutaifan.com/reviews/warframe</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of Warframe: Fast co-op space-ninja action with years of free content.</description>
+    </item>
+    <item>
+      <title>Veloren Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/veloren</link>
+      <guid>https://www.qutaifan.com/reviews/veloren</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of Veloren: Open-source voxel RPG with exploration and co-op promise.</description>
+    </item>
+    <item>
+      <title>Udio Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/udio</link>
+      <guid>https://www.qutaifan.com/reviews/udio</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of Udio: Suno&#x27;s main rival.</description>
+    </item>
+    <item>
+      <title>Ubuntu Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/ubuntu</link>
+      <guid>https://www.qutaifan.com/reviews/ubuntu</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of Ubuntu: Beginners who want the most tutorials, vendor support and predictable releases.</description>
+    </item>
+    <item>
+      <title>Townscaper Demo / Web Toy Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/townscaper-demo-web-toy</link>
+      <guid>https://www.qutaifan.com/reviews/townscaper-demo-web-toy</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of Townscaper Demo / Web Toy: A tiny creative city-building toy in the browser.</description>
+    </item>
+    <item>
+      <title>Together AI Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/together-ai</link>
+      <guid>https://www.qutaifan.com/reviews/together-ai</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of Together AI: Free API access to 50+ open-source models including Llama 3, Mixtral, DBRX.</description>
+    </item>
+    <item>
+      <title>The Finals Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/the-finals</link>
+      <guid>https://www.qutaifan.com/reviews/the-finals</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of The Finals: Destructible-arena shooter with chaotic team objectives.</description>
+    </item>
+    <item>
+      <title>The Battle for Wesnoth Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/the-battle-for-wesnoth</link>
+      <guid>https://www.qutaifan.com/reviews/the-battle-for-wesnoth</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of The Battle for Wesnoth: A turn-based fantasy strategy classic with campaigns and multiplayer.</description>
+    </item>
+    <item>
+      <title>Team Fortress 2 Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/team-fortress-2</link>
+      <guid>https://www.qutaifan.com/reviews/team-fortress-2</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of Team Fortress 2: A classic class shooter with personality, chaos, and a long community tail.</description>
+    </item>
+    <item>
+      <title>Tabnine Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/tabnine</link>
+      <guid>https://www.qutaifan.com/reviews/tabnine</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of Tabnine: Privacy-first AI coding assistant.</description>
+    </item>
+    <item>
+      <title>SuperTuxKart Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/supertuxkart</link>
+      <guid>https://www.qutaifan.com/reviews/supertuxkart</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of SuperTuxKart: A free kart racer with local multiplayer and community charm.</description>
+    </item>
+    <item>
+      <title>Suno Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/suno</link>
+      <guid>https://www.qutaifan.com/reviews/suno</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of Suno: Generate full songs — vocals, instruments, lyrics — from a text prompt.</description>
+    </item>
+    <item>
+      <title>SuiteCRM Review (2026): Features, Limits &amp; Verdict | THEHUB</title>
+      <link>https://www.qutaifan.com/reviews/suitecrm</link>
+      <guid>https://www.qutaifan.com/reviews/suitecrm</guid>
+      <pubDate>2026-08-15</pubDate>
+      <description>Independent evaluation of SuiteCRM: Feature-rich open-source CRM for sales, marketing and service teams.</description>
     </item>
   </channel>
 </rss>
