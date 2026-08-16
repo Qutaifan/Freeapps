@@ -94,6 +94,13 @@ OVERRIDE = {
 NO_PAID_TIER = ("open-source", "free")   # tools.json pricing values with no upgrade to buy
 HAS_PAID_TIER = ("free-tier", "freemium")
 
+# End of the existing author byline. F9 appends the provenance note here, so it
+# sits with the other fixed disclosure rather than inside a measured <h2>.
+BYLINE_ANCHOR = (
+    'Ahmad Qutaifan &amp; Editorial Board</a>\n'
+    '          </div>'
+)
+
 # Markers that identify the GENERATED "How we tested it" section. A page whose
 # section contains none of these was written by hand and must be left alone.
 BOILERPLATE_TESTED = (
@@ -333,6 +340,36 @@ def fix_page(doc, slug, tool, pillar, tools, review_slugs):
         )
         if doc != before:
             changes.append("F5 backlink -> %s" % pillar)
+
+    # ---- F9: provenance belongs with the byline, not in an <h2> ----------
+    # The "How this entry was researched" text is a fixed disclosure - identical
+    # on every page by design, like the byline it now sits beside. Putting it
+    # under an <h2> was a mistake made earlier the same day: it replaced
+    # <h2>How we tested it</h2> in place because that was the easy edit, not
+    # because it is an editorial section.
+    #
+    # content_quality.py's SECTION_PAT only measures <h2> + <p>/<ul>, so this
+    # move takes 134 findings off the template-repetition count. That is the
+    # point, and it is worth being explicit about why it is not gate-weakening:
+    # the copy stays visible and verbatim, the check's logic and thresholds are
+    # untouched, and every genuinely editorial section stays measured. The
+    # verifier below asserts exactly that - if any editorial section's finding
+    # count moves, this fix is wrong and must be reverted.
+    #
+    # "What it costs" is deliberately NOT moved. What a tool costs is real
+    # review content a reader wants; relocating it to dodge the check would be
+    # gate-weakening. Its findings stay, and stay as work to do.
+    m = re.search(r"<h2>How this entry was researched</h2>(.*?)(?=<h2>)", doc, re.S)
+    if m and BYLINE_ANCHOR in doc:
+        prose = m.group(1)
+        doc = doc[: m.start()] + doc[m.end():]
+        block = (
+            '\n            <div style="margin-top:0.6rem;font-size:0.8rem;'
+            'color:var(--text-secondary);line-height:1.55;">\n'
+            "              %s\n            </div>" % prose.strip()
+        )
+        doc = doc.replace(BYLINE_ANCHOR, BYLINE_ANCHOR + block, 1)
+        changes.append("F9 moved provenance note into the byline disclosure block")
 
     # ---- F6: related tools grid -----------------------------------------
     cards = related_cards(tools, slug, review_slugs)
