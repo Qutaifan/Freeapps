@@ -1017,7 +1017,7 @@
   {
     "name": "Bitwarden",
     "slug": "bitwarden",
-    "by": "Open Source",
+    "by": "Bitwarden, Inc.",
     "blurb": "Unlimited passwords and devices on the free plan, zero-knowledge encryption.",
     "category": "security",
     "tags": [
@@ -1035,7 +1035,7 @@
   {
     "name": "KeePassXC",
     "slug": "keepassxc",
-    "by": "Open Source",
+    "by": "KeePassXC Team",
     "blurb": "Fully local, encrypted vault file — no account, no cloud, no subscription.",
     "category": "security",
     "tags": [
@@ -1803,38 +1803,6 @@
     ],
     "url": "https://logseq.com/",
     "review": "/reviews/logseq",
-    "added": "2026-07-01"
-  },
-  {
-    "name": "Bitwarden",
-    "slug": "bitwarden-foss",
-    "by": "Bitwarden",
-    "blurb": "Open-source password manager with a strong free cloud-synced plan.",
-    "category": "opensource",
-    "tags": [],
-    "pricing": "open-source",
-    "badges": [
-      "Open Source",
-      "Security"
-    ],
-    "url": "https://bitwarden.com/",
-    "review": "/reviews/bitwarden-foss",
-    "added": "2026-07-01"
-  },
-  {
-    "name": "KeePassXC",
-    "slug": "keepassxc-vault",
-    "by": "KeePassXC Team",
-    "blurb": "Local encrypted password vault with no account and no subscription.",
-    "category": "opensource",
-    "tags": [],
-    "pricing": "open-source",
-    "badges": [
-      "Open Source",
-      "Security"
-    ],
-    "url": "https://keepassxc.org/",
-    "review": "/reviews/keepassxc-vault",
     "added": "2026-07-01"
   },
   {
