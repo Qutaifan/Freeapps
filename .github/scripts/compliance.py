@@ -22,11 +22,17 @@ adds seven more, each independently real and runnable:
                               which asks whether exposure matches computed
                               content quality; this asks whether a page's own
                               technical signals are self-consistent)
+  - ad placement integrity (every <ins class="adsbygoogle"> has a matching
+                              push() call, min-height reservation, at most 2
+                              units per page, >=400 visible words between
+                              units on two-unit pages, and no placeholder
+                              slot IDs anywhere in the deployable repo)
 
 Any finding from any check fails the job (exit 1) — compliance is binary,
 not tiered like content quality's lifecycle warnings.
 """
 from __future__ import annotations
+import html
 import re
 import sys
 from pathlib import Path
@@ -40,6 +46,13 @@ ADSENSE_SCRIPT_PAT = re.compile(
 )
 ROBOTS_META_PAT = re.compile(r'<meta\s+name="robots"\s+content="([^"]*)"', re.I)
 AFFILIATE_QUERY_PAT = re.compile(r'[?&](ref|aff|affiliate|tag)=', re.I)
+INS_PAT = re.compile(r'<ins\b[^>]*class=["\']adsbygoogle["\'][^>]*>', re.I)
+PUSH_PAT = re.compile(r'\(\s*adsbygoogle\s*=\s*window\.adsbygoogle\s*\|\|\s*\[\]\s*\)\s*\.push\s*\(\s*\{\s*\}\s*\)')
+SLOT_PAT = re.compile(r'data-ad-slot\s*=\s*["\']([^"\']+)["\']', re.I)
+MIN_HEIGHT_PAT = re.compile(r'min-height\s*:', re.I)
+PLACEHOLDER_SLOTS = {"1234567890", "0987654321", "auto", "your_real_slot_id"}
+MAX_UNITS_PER_PAGE = 2
+MIN_WORDS_BETWEEN_UNITS = 400
 
 
 def check_adsense_loader(html: str) -> list[str]:
@@ -181,6 +194,63 @@ def check_conflicting_indexability_directives(site_root: Path, domain: str = DOM
     return problems
 
 
+def _visible_words(html_fragment: str) -> int:
+    """Rendered visible word count for a fragment — same method the project's
+    hard-rule-4 counter uses (scripts/fix_review_truthfulness.py body_words),
+    so the 400-word spacing rule is measured the way the 2026-08-16 audit
+    measured it."""
+    s = re.sub(r"(?is)<script.*?</script>", " ", html_fragment)
+    s = re.sub(r"(?is)<style.*?</style>", " ", s)
+    s = re.sub(r"<[^>]+>", " ", s)
+    return len(html.unescape(s).split())
+
+
+def check_ad_placement_integrity(site_root: Path) -> list[str]:
+    """AdSense placement rules from PROJECT-BRIEF §6, now enforced by the gate:
+    every unit has a push() call and a min-height reservation, no page carries
+    more than two units, two-unit pages keep >=400 visible words between them,
+    and no placeholder slot ID appears anywhere in the deployable repo."""
+    problems: list[str] = []
+
+    # Placeholder slot IDs anywhere that can emit or carry a unit. Compiled
+    # chunks in _next/ are included on purpose: they deploy and would serve
+    # a dead unit just like a hand-edited page.
+    for p in sorted(site_root.rglob("*")):
+        if not p.is_file() or p.suffix.lower() not in (".html", ".js", ".py"):
+            continue
+        if "node_modules" in p.parts or "freeapps-components" in p.parts:
+            continue
+        text = p.read_text(errors="ignore")
+        for m in SLOT_PAT.finditer(text):
+            if m.group(1).strip().lower() in PLACEHOLDER_SLOTS:
+                problems.append(f"{p.relative_to(site_root)}: placeholder data-ad-slot={m.group(1)!r}")
+
+    for p in sorted(site_root.rglob("*.html")):
+        rel = p.relative_to(site_root)
+        if rel.as_posix() == "404.html" or "freeapps-components" in rel.parts:
+            continue
+        html_src = p.read_text(errors="ignore")
+        units = list(INS_PAT.finditer(html_src))
+        if not units:
+            continue
+        if len(units) > MAX_UNITS_PER_PAGE:
+            problems.append(f"{rel}: {len(units)} ad units, project maximum is {MAX_UNITS_PER_PAGE}")
+        for m in units:
+            if not MIN_HEIGHT_PAT.search(m.group(0)):
+                problems.append(f"{rel}: ad unit without min-height reservation (CLS guard)")
+        if not PUSH_PAT.search(html_src):
+            problems.append(f"{rel}: {len(units)} ad unit(s) but no adsbygoogle.push() call")
+        if len(units) == 2:
+            between = html_src[units[0].end():units[1].start()]
+            words = _visible_words(between)
+            if words < MIN_WORDS_BETWEEN_UNITS:
+                problems.append(
+                    f"{rel}: only {words} visible words between two ad units "
+                    f"(project minimum {MIN_WORDS_BETWEEN_UNITS})"
+                )
+    return problems
+
+
 CHECKS = [
     ("ads_txt", check_ads_txt),
     ("robots_directives", check_robots_directives),
@@ -189,6 +259,7 @@ CHECKS = [
     ("contact_page", check_contact_page),
     ("dormant_affiliate_state", check_dormant_affiliate_state),
     ("conflicting_indexability_directives", check_conflicting_indexability_directives),
+    ("ad_placement_integrity", check_ad_placement_integrity),
 ]
 
 
