@@ -2,5 +2,16 @@
 User-agent: *
 Allow: /
 
-# Sitemap Index Link
+# Repository / tooling files. These are served only because the deploy
+# publishes the repository root; they are not site content and should not
+# be indexed.
+Disallow: /AGENTS.md
+Disallow: /CLAUDE.md
+Disallow: /README.md
+Disallow: /MY-NOTES/
+Disallow: /freeapps-components/
+Disallow: /scripts/
+Disallow: /.vs/
+
+# Sitemap (single file, 156 URLs — not a sitemap index)
 Sitemap: https://www.qutaifan.com/sitemap.xml
