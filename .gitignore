@@ -12,6 +12,10 @@ Thumbs.db
 # Visual Studio local state
 .vs/
 
+# Deletion staging areas - tooling scratch, must never be deployed
+_to_delete/
+scripts/_to_delete/
+
 # Obsidian vault — project notes, not site content.
 # The repo root IS the deployed site, so anything committed here becomes a public URL.
 MY-NOTES/
