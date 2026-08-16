@@ -257,7 +257,7 @@ def run_gate(site_root: Path, reviews_subdir: str = "reviews", domain: str = "ht
     tools_by_slug = {t["slug"]: t for t in tools}
 
     review_dir = site_root / reviews_subdir
-    pages = {p.stem: p.read_text(errors="ignore") for p in sorted(review_dir.glob("*.html"))}
+    pages = {p.stem: p.read_text(errors="ignore") for p in sorted(review_dir.glob("*.html")) if p.name != "index.html"}  # the reviews hub, not a single-tool review page
 
     per_page_findings: dict[str, list[Finding]] = {}
     for slug, html in pages.items():
@@ -421,7 +421,7 @@ def run_lifecycle_gate(site_root: Path, reviews_subdir: str = "reviews", domain:
     tools_by_slug = {t["slug"]: t for t in tools}
 
     review_dir = site_root / reviews_subdir
-    pages = {p.stem: p.read_text(errors="ignore") for p in sorted(review_dir.glob("*.html"))}
+    pages = {p.stem: p.read_text(errors="ignore") for p in sorted(review_dir.glob("*.html")) if p.name != "index.html"}  # the reviews hub, not a single-tool review page
 
     per_page_findings: dict[str, list[Finding]] = {slug: [] for slug in pages}
     for slug, html in pages.items():
