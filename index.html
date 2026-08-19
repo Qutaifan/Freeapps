@@ -127,22 +127,31 @@
 
     .navbar-fixed {
       position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); width: calc(100% - 3rem); max-width: 1180px; z-index: 1000;
-      border-radius: var(--radius-pill); padding: 0.75rem 1.6rem; display: flex; align-items: center; justify-content: space-between;
-      background: rgba(17, 17, 19, 0.85); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill); padding: 0.55rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1.25rem;
+      background: rgba(17, 17, 19, 0.88); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--border-subtle);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(34, 211, 238, 0.05);
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
     .navbar-fixed:hover { border-color: rgba(34, 211, 238, 0.3); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(34, 211, 238, 0.12); }
 
     .nav-brand { font-family: var(--font-sans); font-weight: 900; font-size: 1.32rem; color: var(--text-primary); text-decoration: none; }
-    .nav-links-group { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links-group { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
     .nav-link { color: var(--text-primary); text-decoration: none; font-size: 0.88rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 6px; transition: all 150ms ease; }
     .nav-link:hover { color: var(--accent-cyan); text-shadow: 0 0 12px rgba(34, 211, 238, 0.6); background: rgba(34, 211, 238, 0.06); }
-    .nav-right-actions { display: flex; align-items: center; gap: 0.75rem; }
-    .search-trigger-btn { background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-subtle); color: var(--text-secondary); padding: 0.45rem 0.95rem; border-radius: var(--radius-pill); font-family: var(--font-mono); font-size: 0.78rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; transition: all 0.15s ease; }
-    .search-trigger-btn:hover { border-color: var(--accent-cyan); color: var(--text-primary); background: rgba(34, 211, 238, 0.08); }
-    .kbd-tag { background: rgba(255, 255, 255, 0.08); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.7rem; color: var(--accent-cyan); }
-    .btn-accent { background: var(--accent-cyan); color: #000; font-weight: 700; font-size: 0.85rem; padding: 0.5rem 1.1rem; border-radius: var(--radius-pill); border: none; cursor: pointer; text-decoration: none; transition: all 0.15s ease; display: inline-flex; align-items: center; justify-content: center; }
+    .nav-right-actions { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+    .search-trigger-btn {
+      flex: 1; max-width: 440px; margin: 0 1.5rem;
+      background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-secondary); padding: 0.55rem 1.1rem; border-radius: var(--radius-pill);
+      font-family: var(--font-sans); font-size: 0.85rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+      transition: all 0.2s ease;
+    }
+    .search-btn-left { display: flex; align-items: center; gap: 0.6rem; color: var(--text-secondary); }
+    .search-icon { color: var(--accent-cyan); flex-shrink: 0; }
+    .search-trigger-btn:hover { border-color: rgba(34, 211, 238, 0.55); color: var(--text-primary); background: rgba(34, 211, 238, 0.06); box-shadow: 0 0 20px rgba(34, 211, 238, 0.15); }
+    .kbd-tag { background: rgba(255, 255, 255, 0.08); padding: 0.15rem 0.45rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-cyan); border: 1px solid rgba(34, 211, 238, 0.2); }
+    .btn-accent { background: var(--accent-cyan); color: #000; font-weight: 700; font-size: 0.85rem; padding: 0.55rem 1.25rem; border-radius: var(--radius-pill); border: none; cursor: pointer; text-decoration: none; transition: all 0.15s ease; display: inline-flex; align-items: center; justify-content: center; }
     .btn-accent:hover { background: var(--accent-blue); box-shadow: 0 0 20px rgba(34, 211, 238, 0.4); transform: translateY(-1px); }
 
     .hero-container { padding: 8.5rem 0 2.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; }
@@ -341,13 +350,21 @@
 <!-- Navbar -->
 <header>
   <nav class="navbar-fixed">
-    <a href="/" class="nav-brand brand-lockup" title="THEHUB Homepage"><img class="brand-mark" src="/logo-transparent.png" alt="THEHUB emblem" width="42" height="42" loading="eager" decoding="async"><span class="brand-text">THE<span class="hub-highlight">HUB</span></span></a>
+    <a href="/" class="nav-brand brand-lockup" title="THEHUB Homepage"><img class="brand-mark" src="/logo-transparent.png" alt="THEHUB emblem" width="36" height="36" loading="eager" decoding="async"><span class="brand-text">THE<span class="hub-highlight">HUB</span></span></a>
+
+    <button class="search-trigger-btn" id="search-trigger" onclick="window.openTHEHUBSearch ? window.openTHEHUBSearch() : null" title="Press ⌘K or Ctrl+K to search">
+      <div class="search-btn-left">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>Search 142+ verified free tools...</span>
+      </div>
+      <span class="kbd-tag">⌘K</span>
+    </button>
 
     <div class="nav-right-actions">
-      <button class="search-trigger-btn" id="search-trigger" onclick="window.openTHEHUBSearch ? window.openTHEHUBSearch() : null">
-        <span>Search directory...</span>
-        <span class="kbd-tag">⌘K</span>
-      </button>
+      <a href="#categories" class="nav-link" style="font-family: var(--font-mono); font-size: 0.82rem;">Categories</a>
       <a href="#featured" class="btn-accent">Submit tool</a>
     </div>
   </nav>
