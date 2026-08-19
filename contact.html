@@ -18,6 +18,8 @@
   <meta name="description" content="Have a question, feedback, or a free software suggestion? Contact the Qutaifan team. We respond to all reader inquiries within 24-48 hours." />
   <link rel="canonical" href="https://www.qutaifan.com/contact" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="alternate icon" href="/favicon.ico" />
   <link rel="alternate" type="application/rss+xml" title="Qutaifan RSS Feed" href="https://www.qutaifan.com/feed.xml" />
 
   <meta property="og:title" content="Contact Qutaifan — Get in Touch & Software Suggestions" />
@@ -80,24 +82,11 @@
 
     footer{border-top:1px solid var(--line);padding:32px 0;margin-top:30px;color:var(--muted);font-size:.9rem}
     .footer-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}
-  </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "name": "Contact Qutaifan",
-    "url": "https://www.qutaifan.com/contact",
-    "description": "Get in touch with the Qutaifan editorial team for questions, feedback, or software suggestions.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Qutaifan",
-      "url": "https://www.qutaifan.com"
-    }
-  }
-  </script>
+  .brand-lockup{display:inline-flex!important;align-items:center;gap:10px;text-decoration:none}.brand-lockup .brand-mark{width:28px;height:28px;border-radius:8px;object-fit:cover;box-shadow:0 0 14px rgba(34,211,238,.34);flex:0 0 auto}.brand-lockup .brand-text{font-weight:900;letter-spacing:.08em;color:inherit}</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ContactPage","name":"Contact Qutaifan","url":"https://www.qutaifan.com/contact","description":"Get in touch with the Qutaifan editorial team for questions, feedback, or software suggestions.","publisher":{"@type":"Organization","name":"THEHUB","url":"https://www.qutaifan.com","logo":"https://www.qutaifan.com/logo.jpg"}}</script>
 </head>
 <body>
-<nav><div class="wrap nav-inner"><a class="brand" href="/">QUTAIFAN</a><div class="links"><a href="/best-free-ai-tools-2026">Free AI Tools</a><a href="/best-free-ai-writing-tools-2026">Free AI Writing</a><a href="/best-free-password-managers-2026">Password Managers</a><a href="/best-free-games-2026">Free Games</a><a href="/best-open-source-software-alternatives-2026">Open Source</a> · <a href="/best-linux-distros-beginners-2026">Linux</a><a href="/about">About</a><a href="/contact">Contact</a></div></div></nav>
+<nav><div class="wrap nav-inner"><a class="brand brand-lockup" href="/"><img class="brand-mark" src="/logo-transparent.png" alt="" width="28" height="28" loading="eager" decoding="async"><span class="brand-text">THEHUB</span></a><div class="links"><a href="/best-free-ai-tools-2026">Free AI Tools</a><a href="/best-free-ai-writing-tools-2026">Free AI Writing</a><a href="/best-free-password-managers-2026">Password Managers</a><a href="/best-free-games-2026">Free Games</a><a href="/best-open-source-software-alternatives-2026">Open Source</a> · <a href="/best-linux-distros-beginners-2026">Linux</a><a href="/about">About</a><a href="/contact">Contact</a></div></div></nav>
 <main class="wrap">
   <div class="breadcrumb"><a href="/">Home</a> › Contact</div>
   <section class="hero">
@@ -195,11 +184,16 @@
 <script>
 function handleContactSubmit(e) {
   e.preventDefault();
-  const status = document.getElementById('form-status');
+  var name = encodeURIComponent(document.getElementById('name').value);
+  var email = encodeURIComponent(document.getElementById('email').value);
+  var subject = encodeURIComponent(document.getElementById('subject').value);
+  var message = encodeURIComponent(document.getElementById('message').value);
+  var mailto = 'mailto:contact@qutaifan.com?subject=' + subject + '%20%E2%80%94%20' + name + '&body=Name:%20' + name + '%0AEmail:%20' + email + '%0A%0A' + message;
+  window.location.href = mailto;
+  var status = document.getElementById('form-status');
   status.className = 'form-status success';
-  status.textContent = 'Thank you for reaching out! Your message has been sent successfully. We will be in touch soon.';
+  status.textContent = 'Your email app should now open with the message pre-filled. If it did not, email us directly at contact@qutaifan.com.';
   status.style.display = 'block';
-  document.getElementById('contact-form').reset();
 }
 </script>
 <script src="/search.js"></script>
