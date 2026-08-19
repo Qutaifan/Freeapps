@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   
   <link rel="icon" type="image/jpeg" href="/logo.jpg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="alternate icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/logo.jpg" />
   
   <!-- Primary Meta Tags -->
@@ -45,66 +47,7 @@
   </script>
 
   <!-- Schema.org JSON-LD HowTo & FAQPage Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "HowTo",
-        "name": "How to Choose Safe and Genuinely Free Software in 2026",
-        "description": "A 5-step engineering framework to evaluate software safety, licensing, privacy, and zero hidden costs.",
-        "step": [
-          {
-            "@type": "HowToStep",
-            "name": "Audit Software Licensing & Source Transparency",
-            "text": "Verify whether the tool uses an OSI-approved open-source license (MIT, GPL, Apache 2.0) or a non-predatory freemium license."
-          },
-          {
-            "@type": "HowToStep",
-            "name": "Check Local RAM Execution & Data Sovereignty",
-            "text": "Ensure web utilities process files locally in browser RAM via WebAssembly rather than uploading raw data to cloud servers."
-          },
-          {
-            "@type": "HowToStep",
-            "name": "Inspect for Credit Card & Subscription Traps",
-            "text": "Confirm that access to core functionality does not require entering payment details or start auto-debit free trials."
-          },
-          {
-            "@type": "HowToStep",
-            "name": "Review Network Telemetry & Privacy Policy",
-            "text": "Audit network traffic using browser developer tools to verify no hidden tracking scripts or advertising SDKs exist."
-          },
-          {
-            "@type": "HowToStep",
-            "name": "Verify Active Community Development",
-            "text": "Check project release frequency and GitHub commit activity to ensure long-term maintenance and security patches."
-          }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is the difference between FOSS and Freemium software?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "FOSS (Free and Open Source Software) makes its underlying code publicly accessible and free forever under licenses like GPL or MIT. Freemium offers a free baseline feature set with optional paid upgrades."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Why is browser Local RAM processing safer for documents?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Local RAM processing uses technologies like WebAssembly to convert or edit files on your device hardware without uploading sensitive content over the internet to remote servers."
-            }
-          }
-        ]
-      }
-    ]
-  }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"HowTo","name":"How to Choose Safe and Genuinely Free Software in 2026","description":"A 5-step engineering framework to evaluate software safety, licensing, privacy, and zero hidden costs.","step":[{"@type":"HowToStep","name":"Audit Software Licensing & Source Transparency","text":"Verify whether the tool uses an OSI-approved open-source license (MIT, GPL, Apache 2.0) or a non-predatory freemium license."},{"@type":"HowToStep","name":"Check Local RAM Execution & Data Sovereignty","text":"Ensure web utilities process files locally in browser RAM via WebAssembly rather than uploading raw data to cloud servers."},{"@type":"HowToStep","name":"Inspect for Credit Card & Subscription Traps","text":"Confirm that access to core functionality does not require entering payment details or start auto-debit free trials."},{"@type":"HowToStep","name":"Review Network Telemetry & Privacy Policy","text":"Audit network traffic using browser developer tools to verify no hidden tracking scripts or advertising SDKs exist."},{"@type":"HowToStep","name":"Verify Active Community Development","text":"Check project release frequency and GitHub commit activity to ensure long-term maintenance and security patches."}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between FOSS and Freemium software?","acceptedAnswer":{"@type":"Answer","text":"FOSS (Free and Open Source Software) makes its underlying code publicly accessible and free forever under licenses like GPL or MIT. Freemium offers a free baseline feature set with optional paid upgrades."}},{"@type":"Question","name":"Why is browser Local RAM processing safer for documents?","acceptedAnswer":{"@type":"Answer","text":"Local RAM processing uses technologies like WebAssembly to convert or edit files on your device hardware without uploading sensitive content over the internet to remote servers."}}]}]}</script>
 
   <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -141,12 +84,12 @@
     .ad-slot-container { min-height: 250px; background: var(--surface-1); border: 1px dashed var(--border-subtle); border-radius: 14px; padding: 1.25rem; text-align: center; margin: 3rem 0; }
 
     footer { border-top: 1px solid var(--border-subtle); padding-top: 2.5rem; margin-top: 5rem; color: var(--text-muted); font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-  </style>
+  .brand-lockup{display:inline-flex!important;align-items:center;gap:10px;text-decoration:none}.brand-lockup .brand-mark{width:28px;height:28px;border-radius:8px;object-fit:cover;box-shadow:0 0 14px rgba(34,211,238,.34);flex:0 0 auto}.brand-lockup .brand-text{font-weight:900;letter-spacing:.08em;color:inherit}</style>
 </head>
 <body>
   <div class="max-w">
     <header class="nav-header">
-      <a href="/" class="nav-brand">THEHUB</a>
+      <a href="/" class="nav-brand brand-lockup"><img class="brand-mark" src="/logo-transparent.png" alt="" width="28" height="28" loading="eager" decoding="async"><span class="brand-text">THEHUB</span></a>
       <a href="/" class="btn-link" style="background:var(--surface-2);color:var(--text-primary);border:1px solid var(--border-subtle);">← Back to Directory</a>
     </header>
 
@@ -229,7 +172,7 @@
     </main>
 
     <footer>
-      <div>© 2026 THEHUB by Qutaifan (www.qutaifan.com)</div>
+      <div>© 2026 THEHUB (www.qutaifan.com)</div>
       <div><a href="/" style="color:var(--accent-cyan);text-decoration:none;">← Return to Main Directory</a></div>
     </footer>
   </div>

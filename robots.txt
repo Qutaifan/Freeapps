@@ -1,4 +1,8 @@
-# Google Search Engine Crawler Robots File for qutaifan.com
+# Google AdSense Crawler
+User-agent: Mediapartners-Google
+Allow: /
+
+# Google Search Engine Crawler
 User-agent: *
 Allow: /
 

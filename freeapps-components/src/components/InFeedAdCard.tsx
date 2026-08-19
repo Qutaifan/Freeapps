@@ -13,7 +13,7 @@ export function InFeedAdCard() {
   }, [])
 
   return (
-    <article className="bento-card bento-card-medium in-feed-ad-card">
+    <article className="bento-card showing-card bento-card-medium in-feed-ad-card">
       <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
         <span className="adsense-label">SPONSORED NATIVE AD</span>
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0.75rem 0' }}>

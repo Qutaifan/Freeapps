@@ -73,18 +73,11 @@ body {
   border: 1px solid var(--border-subtle);
 }
 
-/* Bento Surface Cards (NEVER Glassmorphism on main content cards) */
-.bento-card {
-  background-color: var(--surface-1);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-bento);
-  transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1), border-color 150ms ease;
-}
-
-.bento-card:hover {
-  transform: scale(1.02);
-  border-color: var(--border-subtle-hover);
-}
+/* Bento Surface Cards: base rule lives in App.css (`.bento-card`), which
+   loads after this file and is the single source of truth. The tool
+   directory grid layers `.showing-card` on top for the floating-glass
+   treatment (see App.css) — other `.bento-card` surfaces (modals, footer,
+   FAQ, sections) stay flat by design. */
 
 /* Code & CLI Typography */
 code, pre, .mono {

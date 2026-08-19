@@ -1,37 +1,26 @@
-/* QUTAIFAN site search — client-side only, no backend.
-   Injects a search box into <nav>, fetches /search-index.json once,
-   and filters by title/keywords/description as the user types. */
+/* QUTAIFAN site search & Spotlight Modal — client-side only, no backend.
+   Supports ⌘K / Ctrl+K shortcut overlay, keyboard navigation, and live search. */
 (function () {
-  var STYLE =
-    '.qf-search{position:relative;display:flex;align-items:center;margin-left:auto;margin-right:14px}' +
-    '.qf-search input{width:150px;max-width:36vw;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);' +
-    'border-radius:999px;color:#f4f4f5;font-size:.8rem;padding:7px 14px;font-family:inherit;transition:width .15s,border-color .15s}' +
-    '.qf-search input:focus{outline:none;border-color:#06b6d4;width:220px}' +
-    '.qf-search input::placeholder{color:#71717a}' +
-    '.qf-results{position:absolute;top:calc(100% + 8px);right:0;width:300px;max-width:85vw;background:#111114;' +
-    'border:1px solid rgba(255,255,255,.14);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.5);overflow:hidden;display:none;z-index:50}' +
-    '.qf-results.qf-open{display:block}' +
-    'a.qf-result{display:block;padding:12px 14px;color:#f4f4f5;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.08);font-size:.85rem}' +
-    '.qf-result:last-child{border-bottom:none}' +
-    '.qf-result:hover,.qf-result.qf-active{background:rgba(6,182,212,.14)}' +
-    '.qf-result .qf-desc{display:block;color:#a1a1aa;font-size:.76rem;margin-top:2px;font-weight:400}' +
-    '.qf-empty{padding:14px;color:#71717a;font-size:.82rem}' +
-    '.qf-visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}' +
-    '@media(max-width:720px){.qf-search{margin-right:8px}.qf-search input{width:100px}.qf-search input:focus{width:160px}}';
-
   var INDEX_URL = '/search-index.json';
   var indexPromise = null;
+  var searchModalOverlay = null;
+  var searchModalInput = null;
+  var searchModalResults = null;
+  var selectedIndex = -1;
+  var currentResults = [];
 
   function loadIndex() {
     if (!indexPromise) {
-      indexPromise = fetch(INDEX_URL).then(function (r) { return r.json(); }).catch(function () { return []; });
+      indexPromise = fetch(INDEX_URL)
+        .then(function (r) { return r.json(); })
+        .catch(function () { return []; });
     }
     return indexPromise;
   }
 
   function score(entry, q) {
     var s = 0;
-    var title = entry.title.toLowerCase();
+    var title = (entry.title || '').toLowerCase();
     var desc = (entry.description || '').toLowerCase();
     if (title.indexOf(q) !== -1) s += title.indexOf(q) === 0 ? 6 : 3;
     (entry.keywords || []).forEach(function (k) {
@@ -41,97 +30,158 @@
     return s;
   }
 
-  function render(results, root, q) {
-    if (!q) { root.classList.remove('qf-open'); root.innerHTML = ''; return; }
-    if (!results.length) {
-      root.innerHTML = '<div class="qf-empty">No guides match "' + escapeHtml(q) + '"</div>';
-      root.classList.add('qf-open');
-      return;
-    }
-    root.innerHTML = results.slice(0, 6).map(function (r, i) {
-      return '<a class="qf-result" role="option" data-idx="' + i + '" href="' + r.url + '">' +
-        escapeHtml(r.title) +
-        '<span class="qf-desc">' + escapeHtml(r.description || '') + '</span></a>';
-    }).join('');
-    root.classList.add('qf-open');
-  }
-
   function escapeHtml(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
 
-  function init() {
-    var nav = document.querySelector('nav .wrap') || document.querySelector('nav');
-    if (!nav || document.getElementById('qf-input')) return;
+  function openSpotlightModal() {
+    if (!searchModalOverlay) createSpotlightModal();
+    searchModalOverlay.classList.add('open');
+    searchModalOverlay.setAttribute('aria-hidden', 'false');
+    searchModalInput.value = '';
+    searchModalInput.focus();
+    renderModalResults([], '');
+  }
 
-    var styleTag = document.createElement('style');
-    styleTag.textContent = STYLE;
-    document.head.appendChild(styleTag);
+  function closeSpotlightModal() {
+    if (!searchModalOverlay) return;
+    searchModalOverlay.classList.remove('open');
+    searchModalOverlay.setAttribute('aria-hidden', 'true');
+  }
 
-    var wrap = document.createElement('div');
-    wrap.className = 'qf-search';
-    wrap.innerHTML =
-      '<label for="qf-input" class="qf-visually-hidden">Search guides</label>' +
-      '<input type="search" id="qf-input" placeholder="Search guides…" autocomplete="off" ' +
-      'aria-expanded="false" role="combobox" aria-controls="qf-results" aria-autocomplete="list">' +
-      '<div class="qf-results" id="qf-results" role="listbox"></div>';
-    nav.appendChild(wrap);
+  function createSpotlightModal() {
+    searchModalOverlay = document.createElement('div');
+    searchModalOverlay.id = 'search-modal-overlay';
+    searchModalOverlay.className = 'search-modal-overlay';
+    searchModalOverlay.setAttribute('aria-hidden', 'true');
 
-    var input = wrap.querySelector('#qf-input');
-    var results = wrap.querySelector('#qf-results');
-    var current = [];
-    var activeIdx = -1;
+    searchModalOverlay.innerHTML =
+      '<div class="search-modal-container" role="dialog" aria-modal="true" aria-label="Spotlight Search">' +
+        '<div class="search-modal-header">' +
+          '<span style="font-family:var(--font-mono);color:var(--accent-cyan);font-weight:700">🔍</span>' +
+          '<input type="text" id="search-modal-input" placeholder="Search 142+ free tools, open-source apps & guides..." autocomplete="off">' +
+          '<span class="search-modal-kbd">ESC</span>' +
+        '</div>' +
+        '<div class="search-modal-results" id="search-modal-results"></div>' +
+        '<div class="search-modal-footer">' +
+          '<span><kbd>↑</kbd> <kbd>↓</kbd> Navigate</span>' +
+          '<span><kbd>↵</kbd> Open Link</span>' +
+          '<span><kbd>ESC</kbd> Close</span>' +
+        '</div>' +
+      '</div>';
 
-    function setActive(idx) {
-      var links = results.querySelectorAll('.qf-result');
-      links.forEach(function (l) { l.classList.remove('qf-active'); });
-      if (idx >= 0 && links[idx]) {
-        links[idx].classList.add('qf-active');
-        links[idx].scrollIntoView({ block: 'nearest' });
+    document.body.appendChild(searchModalOverlay);
+
+    searchModalInput = searchModalOverlay.querySelector('#search-modal-input');
+    searchModalResults = searchModalOverlay.querySelector('#search-modal-results');
+
+    // Backdrop click to close
+    searchModalOverlay.addEventListener('click', function (e) {
+      if (e.target === searchModalOverlay) {
+        closeSpotlightModal();
       }
-      activeIdx = idx;
-    }
+    });
 
-    input.addEventListener('input', function () {
-      var q = input.value.trim().toLowerCase();
-      activeIdx = -1;
-      if (!q) { render([], results, ''); input.setAttribute('aria-expanded', 'false'); return; }
+    // Input typing listener
+    searchModalInput.addEventListener('input', function () {
+      var q = searchModalInput.value.trim().toLowerCase();
+      selectedIndex = -1;
+      if (!q) {
+        renderModalResults([], '');
+        return;
+      }
       loadIndex().then(function (all) {
-        current = all
+        currentResults = all
           .map(function (e) { return { entry: e, s: score(e, q) }; })
           .filter(function (x) { return x.s > 0; })
           .sort(function (a, b) { return b.s - a.s; })
           .map(function (x) { return x.entry; });
-        render(current, results, q);
-        input.setAttribute('aria-expanded', current.length ? 'true' : 'false');
+        renderModalResults(currentResults, q);
       });
     });
 
-    input.addEventListener('keydown', function (e) {
-      var links = results.querySelectorAll('.qf-result');
+    // Modal keyboard navigation
+    searchModalInput.addEventListener('keydown', function (e) {
+      var items = searchModalResults.querySelectorAll('.search-result-item');
       if (e.key === 'ArrowDown') {
         e.preventDefault();
-        if (links.length) setActive((activeIdx + 1) % links.length);
+        if (items.length) {
+          selectedIndex = (selectedIndex + 1) % items.length;
+          updateActiveResult(items);
+        }
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
-        if (links.length) setActive((activeIdx - 1 + links.length) % links.length);
+        if (items.length) {
+          selectedIndex = (selectedIndex - 1 + items.length) % items.length;
+          updateActiveResult(items);
+        }
       } else if (e.key === 'Enter') {
-        if (activeIdx >= 0 && links[activeIdx]) {
-          window.location.href = links[activeIdx].getAttribute('href');
-        } else if (links.length) {
-          window.location.href = links[0].getAttribute('href');
+        e.preventDefault();
+        if (selectedIndex >= 0 && items[selectedIndex]) {
+          window.location.href = items[selectedIndex].getAttribute('href');
+        } else if (items.length) {
+          window.location.href = items[0].getAttribute('href');
         }
       } else if (e.key === 'Escape') {
-        render([], results, '');
-        input.blur();
+        closeSpotlightModal();
+      }
+    });
+  }
+
+  function updateActiveResult(items) {
+    items.forEach(function (el) { el.classList.remove('active'); });
+    if (selectedIndex >= 0 && items[selectedIndex]) {
+      items[selectedIndex].classList.add('active');
+      items[selectedIndex].scrollIntoView({ block: 'nearest' });
+    }
+  }
+
+  function renderModalResults(results, q) {
+    if (!q) {
+      searchModalResults.innerHTML = '<div style="padding:20px;text-align:center;color:var(--text-muted);font-family:var(--font-mono);font-size:0.8rem">Type to search tools, guides, and categories...</div>';
+      return;
+    }
+    if (!results.length) {
+      searchModalResults.innerHTML = '<div style="padding:20px;text-align:center;color:var(--text-muted);font-size:0.88rem">No results match "' + escapeHtml(q) + '"</div>';
+      return;
+    }
+    searchModalResults.innerHTML = results.slice(0, 8).map(function (r, idx) {
+      var activeClass = idx === selectedIndex ? ' active' : '';
+      return '<a class="search-result-item' + activeClass + '" href="' + r.url + '">' +
+        '<div>' +
+          '<strong class="search-result-title">' + escapeHtml(r.title) + '</strong>' +
+          '<span class="search-result-desc">' + escapeHtml(r.description || '') + '</span>' +
+        '</div>' +
+        '<span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--accent-cyan);background:rgba(34,211,238,0.1);padding:2px 8px;border-radius:4px">View →</span>' +
+      '</a>';
+    }).join('');
+  }
+
+  function init() {
+    // Global ⌘K / Ctrl+K keyboard shortcut
+    document.addEventListener('keydown', function (e) {
+      if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) {
+        e.preventDefault();
+        if (searchModalOverlay && searchModalOverlay.classList.contains('open')) {
+          closeSpotlightModal();
+        } else {
+          openSpotlightModal();
+        }
+      } else if (e.key === 'Escape' && searchModalOverlay && searchModalOverlay.classList.contains('open')) {
+        closeSpotlightModal();
       }
     });
 
-    document.addEventListener('click', function (e) {
-      if (!wrap.contains(e.target)) render([], results, '');
-    });
+    // Attach trigger button handler if present
+    var searchTriggerBtn = document.getElementById('search-trigger');
+    if (searchTriggerBtn) {
+      searchTriggerBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openSpotlightModal();
+      });
+    }
   }
 
   if (document.readyState === 'loading') {
@@ -139,4 +189,7 @@
   } else {
     init();
   }
+
+  // Expose global helper
+  window.openTHEHUBSearch = openSpotlightModal;
 })();

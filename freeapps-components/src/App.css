@@ -171,18 +171,6 @@
   z-index: 0;
 }
 
-.bento-card {
-  position: relative;
-  overflow: hidden;
-  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), border-color 200ms ease, box-shadow 200ms ease;
-}
-
-.bento-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(34, 211, 238, 0.4);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 24px rgba(34, 211, 238, 0.08);
-}
-
 .hero-eyebrow {
   font-family: var(--font-mono);
   font-size: 0.75rem;
@@ -294,17 +282,143 @@
 .section-tag { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 0.08em; }
 .section-title { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em; margin-top: 0.25rem; }
 
-/* Bento Cards */
+/* Bento Cards (shared surface used by modals, footer, FAQ, sections, etc.) */
 .bento-card {
+  position: relative;
+  overflow: hidden;
   background-color: var(--surface-1);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-bento);
-  transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1), border-color 150ms ease;
+  transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1), border-color 150ms ease, box-shadow 150ms ease;
 }
 
 .bento-card:hover {
   transform: translateY(-2px);
   border-color: var(--border-subtle-hover);
+}
+
+/* ==========================================================================
+   Showing Cards — hyperreal floating glass
+   Scoped to `.showing-card` (layered on top of `.bento-card`) so the tool
+   directory grid gets the elevated treatment without touching the plain
+   `.bento-card` surfaces used by modals, footer, FAQ, and other sections.
+
+   Structure expected in markup:
+     <article class="bento-card showing-card ...">
+       <div class="showing-card-glare" />
+       <div class="showing-card-tilt">...content...</div>
+     </article>
+
+   Two independently-animated layers avoid fighting over `transform`:
+   the outer card owns the slow ambient float, the inner tilt wrapper
+   owns the fast cursor-reactive 3D tilt.
+   ========================================================================== */
+
+.showing-card {
+  --mx: 50%;
+  --my: 50%;
+  --float-delay: 0s;
+  --float-duration: 7s;
+
+  isolation: isolate;
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0) 45%),
+    linear-gradient(rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.03)),
+    rgba(20, 20, 24, 0.62);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.15),
+    0 10px 24px -8px rgba(0, 0, 0, 0.55),
+    0 24px 48px -16px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  animation: showing-card-float var(--float-duration) ease-in-out var(--float-delay) infinite;
+  transition: box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 400ms ease,
+              background 400ms ease;
+  will-change: transform;
+}
+
+/* Gradient edge — light catching the rim of the glass */
+.showing-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 32%, rgba(255, 255, 255, 0) 68%, rgba(34, 211, 238, 0.18));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.showing-card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 50%),
+    linear-gradient(rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04)),
+    rgba(24, 24, 28, 0.68);
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.18),
+    0 14px 28px -8px rgba(0, 0, 0, 0.6),
+    0 32px 64px -16px rgba(0, 0, 0, 0.5),
+    0 0 32px rgba(34, 211, 238, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  /* hand motion over to the cursor-driven tilt layer while engaged */
+  animation-play-state: paused;
+}
+
+.showing-card-tilt {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: perspective(900px) rotateX(0deg) rotateY(0deg);
+  transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Cursor-tracked glare / sheen */
+.showing-card-glare {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--mx) var(--my), rgba(255, 255, 255, 0.16), transparent 45%);
+  opacity: 0;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.showing-card:hover .showing-card-glare {
+  opacity: 1;
+}
+
+@keyframes showing-card-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@media (hover: none) {
+  .showing-card-glare { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showing-card {
+    animation: none;
+    transition: border-color 200ms ease, background 200ms ease;
+  }
+  .showing-card-tilt {
+    transition: none;
+    transform: none !important;
+  }
 }
 
 .bento-grid-featured {

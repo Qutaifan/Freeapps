@@ -1,56 +1,148 @@
 /**
- * Comprehensive Extensionless Sitemap Generator Script (Cloudflare Pages 308 Compatible)
+ * Safe & Compliant Sitemap Generator Script (Cloudflare Pages 200 Canonical Compatible)
  * THEHUB by QUTAIFAN.COM (https://www.qutaifan.com/)
  * 
- * Automatically generates sitemap.xml using 100% clean extensionless URLs (no .html suffixes)
+ * Contract (per AGENTS.md §7):
+ * - Dry-run by default (--check mode).
+ * - Writes only when --apply flag is provided.
+ * - Filters out noindex pages sitewide (matches lifecycle indexability sync).
+ * - Formats 200 canonical URLs correctly (directory index.html -> trailing slash, single .html -> extensionless).
+ * - Idempotent output with verification metrics.
  */
 
 const fs = require('fs');
 const path = require('path');
 
-const ROOT_DIR = path.join(__dirname, '..');
+const ROOT_DIR = path.resolve(__dirname, '..');
 const SITEMAP_PATH = path.join(ROOT_DIR, 'sitemap.xml');
-const TODAY = '2026-08-11';
+const DOMAIN = 'https://www.qutaifan.com';
 
-console.log('🤖 Generating Complete Extensionless XML Sitemap for THEHUB...');
+const IS_APPLY = process.argv.includes('--apply');
+const TODAY = new Date().toISOString().split('T')[0];
 
-const staticPages = [
-  { url: 'https://www.qutaifan.com/', priority: '1.0', changefreq: 'daily' },
-  { url: 'https://www.qutaifan.com/free-ai-prompt-generator', priority: '0.9', changefreq: 'daily' },
-  { url: 'https://www.qutaifan.com/best-free-ai-tools-2026', priority: '0.9', changefreq: 'weekly' },
-  { url: 'https://www.qutaifan.com/best-free-ai-writing-tools-2026', priority: '0.8', changefreq: 'weekly' },
-  { url: 'https://www.qutaifan.com/best-open-source-software-alternatives-2026', priority: '0.9', changefreq: 'weekly' },
-  { url: 'https://www.qutaifan.com/best-free-password-managers-2026', priority: '0.8', changefreq: 'monthly' },
-  { url: 'https://www.qutaifan.com/best-free-video-editing-software-2026', priority: '0.8', changefreq: 'monthly' },
-  { url: 'https://www.qutaifan.com/best-free-photo-graphic-design-tools-2026', priority: '0.8', changefreq: 'monthly' },
-  { url: 'https://www.qutaifan.com/author/qutaifan-editorial-board', priority: '0.8', changefreq: 'monthly' },
-  { url: 'https://www.qutaifan.com/how-to/how-to-choose-the-best-free-software-2026', priority: '0.9', changefreq: 'weekly' },
-  { url: 'https://www.qutaifan.com/vs/claude-vs-chatgpt', priority: '0.9', changefreq: 'weekly' },
-  { url: 'https://www.qutaifan.com/vs/bitwarden-vs-keepassxc', priority: '0.9', changefreq: 'weekly' },
-  { url: 'https://www.qutaifan.com/reviews', priority: '0.9', changefreq: 'daily' }
-];
-
-let xmlContent = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
-
-staticPages.forEach(p => {
-  xmlContent += `  <url>\n    <loc>${p.url}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>${p.changefreq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>\n`;
-});
-
-// Scan all review files and output clean extensionless URLs
-const REVIEWS_DIR = path.join(ROOT_DIR, 'reviews');
-if (fs.existsSync(REVIEWS_DIR)) {
-  const reviewFiles = fs.readdirSync(REVIEWS_DIR).filter(f => f.endsWith('.html') && f !== 'index.html');
-  console.log(`Adding ${reviewFiles.length} extensionless review pages to sitemap...`);
-
-  reviewFiles.forEach(file => {
-    const slug = file.replace('.html', '');
-    const url = `https://www.qutaifan.com/reviews/${slug}`;
-    xmlContent += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
-  });
+function isNoIndex(filePath) {
+  try {
+    const content = fs.readFileSync(filePath, 'utf8');
+    const headMatch = content.match(/<head[\s\S]*?<\/head>/i);
+    const head = headMatch ? headMatch[0] : content;
+    return /<meta\s+name=["']robots["']\s+content=["'][^"']*noindex/i.test(head);
+  } catch (err) {
+    return false;
+  }
 }
 
-xmlContent += `</urlset>\n`;
+function getCanonicalUrl(relPath) {
+  const posixPath = relPath.replace(/\\/g, '/');
 
-fs.writeFileSync(SITEMAP_PATH, xmlContent, 'utf8');
+  // Root homepage
+  if (posixPath === 'index.html') {
+    return `${DOMAIN}/`;
+  }
 
-console.log(`🎉 Extensionless sitemap.xml generated with ${staticPages.length + (fs.readdirSync(REVIEWS_DIR).filter(f => f.endsWith('.html') && f !== 'index.html').length)} 200-OK URLs!`);
+  // Directory index pages (e.g. reviews/index.html, vs/claude-vs-chatgpt/index.html) -> trailing slash
+  if (posixPath.endsWith('/index.html')) {
+    const dir = posixPath.slice(0, -10);
+    return `${DOMAIN}/${dir}/`;
+  }
+
+  // Single HTML files (e.g. best-free-ai-tools-2026.html, reviews/chatgpt.html) -> extensionless
+  if (posixPath.endsWith('.html')) {
+    const slug = posixPath.slice(0, -5);
+    return `${DOMAIN}/${slug}`;
+  }
+
+  return null;
+}
+
+function getPriorityAndFreq(url) {
+  if (url === `${DOMAIN}/`) {
+    return { priority: '1.0', changefreq: 'daily' };
+  }
+  if (url.includes('/free-ai-prompt-generator') || url.includes('/reviews/')) {
+    return { priority: url.endsWith('/reviews/') ? '0.9' : '0.7', changefreq: 'weekly' };
+  }
+  if (url.includes('/best-') || url.includes('/vs/')) {
+    return { priority: '0.8', changefreq: 'weekly' };
+  }
+  return { priority: '0.7', changefreq: 'monthly' };
+}
+
+function collectSiteUrls() {
+  const urls = [];
+  const EXEMPT_DIRS = new Set(['.git', '.github', '.agents', '.claude', '_next', 'freeapps-components', 'MY-NOTES', 'node_modules']);
+  const EXEMPT_FILES = new Set(['404.html', 'hero-circuit-demo.html']);
+
+  function scanDir(dir) {
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    for (const entry of entries) {
+      if (entry.isDirectory()) {
+        if (!EXEMPT_DIRS.has(entry.name)) {
+          scanDir(path.join(dir, entry.name));
+        }
+      } else if (entry.isFile() && entry.name.endsWith('.html')) {
+        const fullPath = path.join(dir, entry.name);
+        const relPath = path.relative(ROOT_DIR, fullPath);
+
+        if (EXEMPT_FILES.has(relPath.replace(/\\/g, '/'))) continue;
+        if (isNoIndex(fullPath)) continue;
+
+        const canonicalUrl = getCanonicalUrl(relPath);
+        if (canonicalUrl) {
+          const { priority, changefreq } = getPriorityAndFreq(canonicalUrl);
+          urls.push({ url: canonicalUrl, priority, changefreq });
+        }
+      }
+    }
+  }
+
+  scanDir(ROOT_DIR);
+
+  // Sort URLs deterministically: homepage first, then alphabetical
+  urls.sort((a, b) => {
+    if (a.url === `${DOMAIN}/`) return -1;
+    if (b.url === `${DOMAIN}/`) return 1;
+    return a.url.localeCompare(b.url);
+  });
+
+  return urls;
+}
+
+function buildSitemapXml(urls) {
+  let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+  for (const p of urls) {
+    xml += `  <url>\n    <loc>${p.url}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>${p.changefreq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>\n`;
+  }
+  xml += `</urlset>\n`;
+  return xml;
+}
+
+function main() {
+  console.log(`🤖 THEHUB Sitemap Generator [Mode: ${IS_APPLY ? 'APPLY' : 'CHECK (dry-run)'}]`);
+  
+  const siteUrls = collectSiteUrls();
+  const generatedXml = buildSitemapXml(siteUrls);
+  
+  let currentXml = '';
+  if (fs.existsSync(SITEMAP_PATH)) {
+    currentXml = fs.readFileSync(SITEMAP_PATH, 'utf8');
+  }
+
+  const reviewUrlsCount = siteUrls.filter(u => u.url.includes('/reviews/') && u.url !== `${DOMAIN}/reviews/`).length;
+  console.log(`Found ${siteUrls.length} indexable URLs sitewide (${reviewUrlsCount} review pages).`);
+
+  if (currentXml === generatedXml) {
+    console.log('✅ sitemap.xml is already 100% up-to-date and in sync.');
+    return;
+  }
+
+  if (!IS_APPLY) {
+    console.log('⚠️ Changes detected! Re-run with --apply to write to sitemap.xml.');
+    console.log(`Current size: ${currentXml.length} bytes -> Generated size: ${generatedXml.length} bytes`);
+    return;
+  }
+
+  fs.writeFileSync(SITEMAP_PATH, generatedXml, 'utf8');
+  console.log(`🎉 sitemap.xml successfully updated with ${siteUrls.length} URLs (${reviewUrlsCount} indexable reviews).`);
+}
+
+main();
