@@ -77,6 +77,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Expanded design tokens (motion, spacing, glass/depth). Extends the :root
+       block below — no --bg-base/--accent-* redeclarations, additive only. -->
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+
   <style>
     :root {
       --bg-base: #090D16;
@@ -344,8 +348,98 @@
       filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.5));
       margin-left: 1px;
     }
+
+    /* ---- Glassmorphic upgrade: bento cards + category chips ----
+       Visual-only. No markup, copy, or structure changes — same elements,
+       same content, new depth/blur/glow treatment + gradient border-glow
+       on hover using the cyan+violet combo from tokens.css. */
+    .bento-card,
+    .category-chip-card {
+      position: relative;
+      background-color: var(--glass-bg);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      border: 1px solid var(--glass-border);
+      transition:
+        transform var(--duration-medium) var(--ease-emphasized),
+        border-color var(--duration-medium) var(--ease-standard),
+        box-shadow var(--duration-medium) var(--ease-standard),
+        background-color var(--duration-medium) var(--ease-standard);
+      isolation: isolate;
+    }
+    /* Gradient border-glow ring, off by default, faded in on hover/focus so it
+       never costs a layer when idle. Uses a pseudo-element ring instead of an
+       actual border so it can carry a gradient without touching layout. */
+    .bento-card::before,
+    .category-chip-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet) 55%, var(--accent-magenta));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity var(--duration-medium) var(--ease-standard);
+      pointer-events: none;
+      z-index: -1;
+    }
+    .bento-card:hover,
+    .category-chip-card:hover,
+    .category-chip-card.active-pill {
+      background-color: var(--glass-bg-strong);
+      transform: translateY(-3px);
+      box-shadow: var(--glow-cyan-violet);
+    }
+    .bento-card:hover::before,
+    .category-chip-card:hover::before,
+    .category-chip-card.active-pill::before {
+      opacity: 1;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .bento-card, .category-chip-card { transition: none; }
+      .bento-card:hover, .category-chip-card:hover { transform: none; }
+    }
+
+    /* ---- "How We Research Tools" step-through ----
+       Same 4 steps, same real copy already in the markup — reskinned as a
+       scroll-reveal sequence with a GPU-glow numeral. Pure CSS reveal via
+       IntersectionObserver-toggled class (see gpu-hero.js / inline script). */
+    .research-step {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity var(--duration-slow) var(--ease-emphasized),
+                  transform var(--duration-slow) var(--ease-emphasized),
+                  box-shadow var(--duration-medium) var(--ease-standard),
+                  border-color var(--duration-medium) var(--ease-standard);
+      background-color: var(--glass-bg) !important;
+      backdrop-filter: blur(var(--glass-blur-sm));
+      -webkit-backdrop-filter: blur(var(--glass-blur-sm));
+    }
+    .research-step.step-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .research-step:hover {
+      border-color: var(--glass-border-hover) !important;
+      box-shadow: var(--glow-violet);
+    }
+    .research-step .step-num-glow {
+      display: inline-block;
+      text-shadow: 0 0 12px rgba(0, 240, 255, 0.7);
+      transition: text-shadow var(--duration-medium) var(--ease-standard);
+    }
+    .research-step:hover .step-num-glow {
+      text-shadow: 0 0 16px rgba(176, 38, 255, 0.85);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .research-step { opacity: 1; transform: none; transition: none; }
+    }
   </style>
   <script src="/search.js" defer></script>
+  <script src="/assets/js/gpu-renderer.js" defer></script>
   <script src="/assets/js/gpu-hero.js" defer></script>
 </head>
 <body>
@@ -733,26 +827,26 @@
     </p>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin: 1.5rem 0 2.5rem;">
-      <div style="background: var(--surface-2); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem;">
-        <span style="font-family: var(--font-mono); color: var(--accent-cyan); font-size: 0.8rem; font-weight: 700;">STEP 01</span>
+      <div class="research-step" style="background: var(--surface-2); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem;">
+        <span class="step-num-glow" style="font-family: var(--font-mono); color: var(--accent-cyan); font-size: 0.8rem; font-weight: 700;">STEP 01</span>
         <h4 style="font-size: 1.05rem; font-weight: 700; margin: 0.4rem 0 0.4rem;">Install or open the tool</h4>
         <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">A tool you can try without a credit card first is the starting bar for a listing. A trial that demands payment details does not qualify.</p>
       </div>
 
-      <div style="background: var(--surface-2); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem;">
-        <span style="font-family: var(--font-mono); color: var(--accent-cyan); font-size: 0.8rem; font-weight: 700;">STEP 02</span>
+      <div class="research-step" style="background: var(--surface-2); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem;">
+        <span class="step-num-glow" style="font-family: var(--font-mono); color: var(--accent-cyan); font-size: 0.8rem; font-weight: 700;">STEP 02</span>
         <h4 style="font-size: 1.05rem; font-weight: 700; margin: 0.4rem 0 0.4rem;">Check real pricing and free-tier limits</h4>
         <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Vendor pricing pages and documentation decide what the free tier actually includes — and the limit goes in the listing.</p>
       </div>
 
-      <div style="background: var(--surface-2); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem;">
-        <span style="font-family: var(--font-mono); color: var(--accent-cyan); font-size: 0.8rem; font-weight: 700;">STEP 03</span>
+      <div class="research-step" style="background: var(--surface-2); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem;">
+        <span class="step-num-glow" style="font-family: var(--font-mono); color: var(--accent-cyan); font-size: 0.8rem; font-weight: 700;">STEP 03</span>
         <h4 style="font-size: 1.05rem; font-weight: 700; margin: 0.4rem 0 0.4rem;">Compare privacy and export options</h4>
         <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Whether a tool runs locally, needs an account, or lets you leave with your files matters — listings say so.</p>
       </div>
 
-      <div style="background: var(--surface-2); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem;">
-        <span style="font-family: var(--font-mono); color: var(--accent-cyan); font-size: 0.8rem; font-weight: 700;">STEP 04</span>
+      <div class="research-step" style="background: var(--surface-2); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem;">
+        <span class="step-num-glow" style="font-family: var(--font-mono); color: var(--accent-cyan); font-size: 0.8rem; font-weight: 700;">STEP 04</span>
         <h4 style="font-size: 1.05rem; font-weight: 700; margin: 0.4rem 0 0.4rem;">Flag limitations, don't bury them</h4>
         <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Cons sections name the real limits, so you know who should not bother before installing anything.</p>
       </div>
@@ -950,6 +1044,29 @@
         btn.style.fontWeight = '700';
       }
     });
+
+    // Scroll-reveal for the "How We Research Tools" step cards.
+    // Visual-only: toggles a class that CSS transitions opacity/transform.
+    // No content change; degrades to fully-visible if IO is unsupported.
+    const steps = document.querySelectorAll('.research-step');
+    if (steps.length) {
+      if ('IntersectionObserver' in window) {
+        const stepObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('step-visible');
+              stepObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
+        steps.forEach((el, i) => {
+          el.style.transitionDelay = (i * 80) + 'ms';
+          stepObserver.observe(el);
+        });
+      } else {
+        steps.forEach(el => el.classList.add('step-visible'));
+      }
+    }
   });
 </script>
 </body>

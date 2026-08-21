@@ -1,8 +1,16 @@
 /*
- * gpu-hero.js — lightweight hero background particle field.
- * Vanilla JS, no dependencies. WebGL2 primary path, Canvas2D fallback.
+ * gpu-hero.js — tiered hero background renderer.
+ * Vanilla JS, no dependencies. Tier chain:
+ *   1. WebGPU   (assets/js/gpu-renderer.js, node/connection "discovery graph")
+ *   2. WebGL2   (this file, particle field — original implementation, kept
+ *                as-is as the fallback tier)
+ *   3. Canvas2D (this file, particle field — original implementation, kept
+ *                as-is as the final animated fallback)
+ *   4. no-op    (empty canvas, no errors)
  * Respects prefers-reduced-motion, pauses when offscreen/tab hidden,
  * caps particle count and frame rate for integrated-GPU friendliness.
+ * Every tier below WebGPU is unchanged from the original single-tier
+ * implementation; only the entry point now tries WebGPU first.
  */
 (function () {
   'use strict';
@@ -37,27 +45,48 @@
       canvas.height = Math.round(height * dpr);
     }
 
-    // --- Try WebGL2 first ---
-    var gl = null;
-    try {
-      gl = canvas.getContext('webgl2', { alpha: true, antialias: false, depth: false, stencil: false, powerPreference: 'low-power' });
-    } catch (e) {
-      gl = null;
+    function startFallbackChain() {
+      // --- Tier 2: WebGL2 ---
+      var gl = null;
+      try {
+        gl = canvas.getContext('webgl2', { alpha: true, antialias: false, depth: false, stencil: false, powerPreference: 'low-power' });
+      } catch (e) {
+        gl = null;
+      }
+
+      if (gl) {
+        runWebGL2(gl);
+      } else {
+        // --- Tier 3: Canvas2D ---
+        var ctx2d = null;
+        try {
+          ctx2d = canvas.getContext('2d', { alpha: true });
+        } catch (e) {
+          ctx2d = null;
+        }
+        if (ctx2d) {
+          runCanvas2D(ctx2d);
+        }
+        // --- Tier 4: no-op. If neither context is available, leave the
+        // canvas empty. No errors thrown. ---
+      }
     }
 
-    if (gl) {
-      runWebGL2(gl);
-    } else {
-      var ctx2d = null;
-      try {
-        ctx2d = canvas.getContext('2d', { alpha: true });
-      } catch (e) {
-        ctx2d = null;
+    // --- Tier 1: WebGPU, delegated to gpu-renderer.js. Any failure inside
+    // tryWebGPU resolves(false) rather than throwing, so this always falls
+    // through cleanly to the existing WebGL2/Canvas2D chain. ---
+    try {
+      if (window.THEHUBGPU && typeof window.THEHUBGPU.tryWebGPU === 'function') {
+        window.THEHUBGPU.tryWebGPU(canvas, { reduceMotion: reduceMotion }).then(function (ok) {
+          if (!ok) startFallbackChain();
+        }).catch(function () {
+          startFallbackChain();
+        });
+      } else {
+        startFallbackChain();
       }
-      if (ctx2d) {
-        runCanvas2D(ctx2d);
-      }
-      // If neither context is available, leave the canvas empty. No errors thrown.
+    } catch (e) {
+      startFallbackChain();
     }
 
     function setupVisibilityGuards(pauseFn, resumeFn) {
