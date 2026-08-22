@@ -5,6 +5,11 @@
   "official_url": "https://kimi.com",
   "fetch_log": [
     {
+      "url": "https://kimi.com",
+      "status": 200,
+      "bytes": 482960
+    },
+    {
       "url": "https://kimi.ai",
       "status": 200,
       "bytes": 483433
@@ -16,14 +21,12 @@
     }
   ],
   "license": {
-    "value": "Proprietary",
-    "source": "https://platform.moonshot.cn/docs",
-    "evidence": "https://api.moonshot.cn/v1"
+    "value": "UNKNOWN",
+    "source": null
   },
   "pricing_model": {
-    "value": "freemium AI assistant and paid developer API",
-    "source": "https://platform.moonshot.cn/docs",
-    "evidence": "https://api.moonshot.cn/v1/chat/completions"
+    "value": "UNKNOWN",
+    "source": null
   },
   "tiers": [
     {
@@ -36,17 +39,10 @@
       "evidence": "Kimi AI with K3 | Built for Agentic Coding &amp; Knowledge Work"
     }
   ],
-  "free_tier_limits": [
-    {
-      "limit": "Developer API access requires token billing with Moonshot API key",
-      "source": "https://platform.moonshot.cn/docs",
-      "evidence": "api_key  =  os.environ[  &quot;MOONSHOT_API_KEY&quot;  ]"
-    }
-  ],
+  "free_tier_limits": [],
   "account_required": {
-    "value": true,
-    "source": "https://platform.moonshot.cn/docs",
-    "evidence": "api_key  =  os.environ[  &quot;MOONSHOT_API_KEY&quot;  ]"
+    "value": "UNKNOWN",
+    "source": null
   },
   "telemetry": {
     "value": "UNKNOWN",
@@ -57,13 +53,12 @@
       "Web"
     ],
     "source": "https://kimi.ai",
-    "evidence": "Kimi AI with K3 | Built for Agentic Coding &amp; Knowledge Work"
+    "evidence": "New Chat     Ctrl    K                               Plugins"
   },
   "self_host": {
     "required": false,
-    "requirements": "Cloud-hosted AI model platform by Moonshot AI; self-hosting unavailable",
-    "source": "https://platform.moonshot.cn/docs",
-    "evidence": "https://api.moonshot.cn/v1"
+    "requirements": "UNKNOWN",
+    "source": null
   },
   "last_release": {
     "version": "UNKNOWN",
@@ -78,8 +73,8 @@
   },
   "status": {
     "value": "active",
-    "source": "https://platform.moonshot.cn/docs",
-    "evidence": "model:   &quot;kimi-k3&quot;"
+    "source": "https://kimi.ai",
+    "evidence": "Ask anything, or task an agent..."
   },
   "conflict": false,
   "notes_for_writer": [

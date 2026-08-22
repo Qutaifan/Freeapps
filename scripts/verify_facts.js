@@ -50,6 +50,9 @@ const CLAIM_PATHS_NEEDING_PRODUCT_SOURCE = /^(tiers|free_tier_limits|pricing_mod
 const JUNK_EVIDENCE = [
   { re: /content\s*=\s*["']/i, why: 'HTML meta-tag attribute, not page content' },
   { re: /href\s*=\s*["']/i, why: 'HTML link attribute, not page content' },
+  { re: /class\s*=\s*["']?[a-z0-9_\-]/i, why: 'HTML class attribute markup, not page content' },
+  { re: /^\s*https?:\/\/[^\s"']+\s*$/i, why: 'bare URL — does not establish facts about a tool' },
+  { re: /^\s*(api_key\s*=|const\s+|let\s+|var\s+|import\s+|export\s+|def\s+|class\s+|function\s+|curl\s+-\w|\w+\s*=\s*os\.environ|\w+\s*=\s*process\.env)|\bos\.environ\b|\bprocess\.env\b/i, why: 'code snippet, not editorial or factual prose' },
   { re: /^\s*GET\s+\//i, why: 'the API query itself — circular, not page content' },
   { re: /^\s*<[a-z]/i, why: 'raw HTML tag' },
   { re: /^[\w.\- ]+\s[-|]\s[\w.\- ]+$/i, why: 'looks like a page <title>, which supports no specific claim' },
