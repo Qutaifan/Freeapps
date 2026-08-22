@@ -38,87 +38,72 @@
   },
   "tiers": [
     {
-      "name": "Desktop (Individual)",
-      "price": "Free ($0)",
+      "name": "Desktop App",
+      "price": "$0",
       "gates": [
-        "Full desktop access on Windows, macOS, Linux",
-        "Unlimited vaults and client-side encryption included",
-        "Community support"
+        "Client-side zero-knowledge encryption for cloud storage",
+        "Unlimited vaults and file encryption without subscription"
       ],
-      "source": "https://cryptomator.org/pricing/",
-      "evidence": "Cryptomator is free and open-source software"
+      "source": "https://cryptomator.org/pricing",
+      "evidence": "All functional and encryption features are absolutely free to use on the desktop."
     },
     {
-      "name": "Desktop Supporter Certificate",
+      "name": "Android App",
+      "price": "from €29.99",
+      "gates": [
+        "Mobile vault write access via one-time in-app purchase or APK/F-Droid license key"
+      ],
+      "source": "https://cryptomator.org/pricing",
+      "evidence": "from €29.99\n                \n            \n            \n                Full access on Android"
+    },
+    {
+      "name": "iOS App",
       "price": "€29.99",
       "gates": [
-        "Unlocks Dark Mode theme in Desktop app",
-        "Voluntary contribution to open-source development"
+        "iOS Files app integration and cloud vault syncing with one-time in-app purchase for write access"
       ],
-      "source": "https://cryptomator.org/pricing/",
-      "evidence": "class=font-bold>from €29.99</span>"
+      "source": "https://cryptomator.org/pricing",
+      "evidence": "€29.99\n                \n            \n            \n                Full access on iOS"
     },
     {
-      "name": "Mobile Full Access (Android)",
-      "price": "€29.99 one-time",
+      "name": "Hub Community",
+      "price": "$0",
       "gates": [
-        "Full read and write vault access on Android",
-        "Separate purchase per platform"
+        "Self-hosted zero-knowledge key management and team access control for up to 5 seats"
       ],
-      "source": "https://cryptomator.org/pricing/",
+      "source": "https://cryptomator.org/pricing",
       "evidence": "Includes 5 seats"
     },
     {
-      "name": "Mobile Full Access (iOS)",
-      "price": "€29.99",
+      "name": "Hub Standard",
+      "price": "per seat, per month",
       "gates": [
-        "Full read and write vault access on iOS",
-        "Separate purchase per platform"
+        "Scalable team file encryption with managed or self-hosted key infrastructure and dedicated support"
       ],
-      "source": "https://cryptomator.org/pricing/",
-      "evidence": "class=font-bold>€29.99</span>"
-    },
-    {
-      "name": "Cryptomator Hub Community",
-      "price": "Free ($0)",
-      "gates": [
-        "Includes 5 seats",
-        "Self-hosted only"
-      ],
-      "source": "https://cryptomator.org/pricing/",
-      "evidence": "Includes 5 seats"
-    },
-    {
-      "name": "Cryptomator Hub Standard / Enterprise",
-      "price": "Paid per seat/month",
-      "gates": [
-        "Priority email support",
-        "Centralized team access and audit logging"
-      ],
-      "source": "https://cryptomator.org/pricing/",
-      "evidence": "Priority email support"
+      "source": "https://cryptomator.org/pricing",
+      "evidence": "per seat, per month  Start Free 30-Day Trial"
     }
   ],
   "free_tier_limits": [
     {
-      "limit": "Separate one-time purchases required for mobile apps",
-      "source": "https://cryptomator.org/pricing/",
-      "evidence": "Separate one-time purchases per platform"
+      "limit": "Free mobile apps on iOS and Android operate in read-only mode without write access",
+      "source": "https://cryptomator.org/pricing",
+      "evidence": "However, the free versions on iOS and Android are read-only."
     },
     {
-      "limit": "Platform licenses are not cross-valid; no bundle license exists across Android and iOS",
-      "source": "https://cryptomator.org/pricing/",
-      "evidence": "Separate one-time purchases per platform. Prices may vary"
+      "limit": "Mobile full write access requires a separate one-time license purchase from €29.99 per platform",
+      "source": "https://cryptomator.org/pricing",
+      "evidence": "from €29.99\n                \n            \n            \n                Full access on Android"
     },
     {
-      "limit": "Desktop dark mode requires supporter certificate donation",
-      "source": "https://cryptomator.org/pricing/",
-      "evidence": "Do I need a supporter certificate to use Cryptomator?"
+      "limit": "Desktop dark mode is locked behind an optional supporter certificate donation",
+      "source": "https://cryptomator.org/pricing",
+      "evidence": "By obtaining a supporter certificate, you can unlock the dark mode on desktop apps"
     },
     {
-      "limit": "Self-hosted server deployment without managed cloud hosting",
-      "source": "https://cryptomator.org/pricing/",
-      "evidence": "Self-hosted only"
+      "limit": "Free self-hosted Cryptomator Hub Community edition is strictly capped at 5 seats for team key management",
+      "source": "https://cryptomator.org/pricing",
+      "evidence": "Includes 5 seats"
     }
   ],
   "account_required": {
