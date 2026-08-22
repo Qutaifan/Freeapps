@@ -142,7 +142,7 @@ def check_dormant_affiliate_state(site_root: Path) -> list[str]:
     exists but is not run against this site today — this check fails loudly
     if that ever changes without an explicit policy update."""
     problems = []
-    for p in sorted(site_root.rglob("*.html")):
+    for p in iter_site_files(site_root):
         html = p.read_text(errors="ignore")
         for m in re.finditer(r'(?:href|src)=["\']([^"\']+)["\']', html):
             url = m.group(1)
@@ -150,6 +150,28 @@ def check_dormant_affiliate_state(site_root: Path) -> list[str]:
                 problems.append(f"{p.relative_to(site_root)}: affiliate-shaped link — {url}")
     return problems
 
+
+# Directories present in the working tree but absent from the deployed site.
+#
+#   MY-NOTES/   -- the Obsidian vault. It is gitignored, so it is not in the
+#                  actions/checkout that `wrangler pages deploy .` publishes.
+#                  Verified: https://www.qutaifan.com/MY-NOTES/ returns 404.
+#                  Without this exclusion a half-finished draft in the vault
+#                  fails CI on a completely unrelated pull request.
+#   node_modules/, .git/ -- never deployed, and expensive to walk.
+#
+# Deliberately NOT excluded: _next/ and .github/scripts/. Compiled chunks and
+# tooling do ship, and check_ad_placement_integrity scans them on purpose for
+# placeholder slot IDs.
+NON_DEPLOYED_DIRS = {"MY-NOTES", "node_modules", ".git"}
+
+
+def iter_site_files(site_root: Path, pattern: str = "*.html"):
+    """Every file matching `pattern` that is actually part of the deployed site."""
+    for path in sorted(site_root.rglob(pattern)):
+        if set(path.relative_to(site_root).parts) & NON_DEPLOYED_DIRS:
+            continue
+        yield path
 
 def _parse_sitemap_urls(site_root: Path) -> set[str]:
     sitemap = site_root / "sitemap.xml"
@@ -171,7 +193,7 @@ def check_conflicting_indexability_directives(site_root: Path, domain: str = DOM
     problems = []
     sitemap_urls = _parse_sitemap_urls(site_root)
 
-    for p in sorted(site_root.rglob("*.html")):
+    for p in iter_site_files(site_root):
         html = p.read_text(errors="ignore")
         tags = ROBOTS_META_PAT.findall(html)
         rel = p.relative_to(site_root)
@@ -215,7 +237,7 @@ def check_ad_placement_integrity(site_root: Path) -> list[str]:
     # Placeholder slot IDs anywhere that can emit or carry a unit. Compiled
     # chunks in _next/ are included on purpose: they deploy and would serve
     # a dead unit just like a hand-edited page.
-    for p in sorted(site_root.rglob("*")):
+    for p in iter_site_files(site_root, "*"):
         if not p.is_file() or p.suffix.lower() not in (".html", ".js", ".py"):
             continue
         if "node_modules" in p.parts or "freeapps-components" in p.parts:
@@ -225,7 +247,7 @@ def check_ad_placement_integrity(site_root: Path) -> list[str]:
             if m.group(1).strip().lower() in PLACEHOLDER_SLOTS:
                 problems.append(f"{p.relative_to(site_root)}: placeholder data-ad-slot={m.group(1)!r}")
 
-    for p in sorted(site_root.rglob("*.html")):
+    for p in iter_site_files(site_root):
         rel = p.relative_to(site_root)
         if rel.as_posix() == "404.html" or "freeapps-components" in rel.parts:
             continue
@@ -287,7 +309,7 @@ def main() -> int:
             set(rel.parts) & ADSENSE_EXEMPT_DIRS
         )
 
-    all_pages = sorted(site_root.rglob("*.html"))
+    all_pages = list(iter_site_files(site_root))
     for p in all_pages:
         rel = p.relative_to(site_root)
         if _adsense_exempt(rel):
