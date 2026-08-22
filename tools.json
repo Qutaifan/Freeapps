@@ -2574,66 +2574,6 @@
     "added": "2026-08-07"
   },
   {
-    "name": "Suno AI",
-    "slug": "suno-ai",
-    "by": "Suno",
-    "blurb": "State-of-the-art AI music generator creating full songs from text prompts.",
-    "category": "ai",
-    "tags": [
-      "Audio",
-      "Music",
-      "Generative"
-    ],
-    "pricing": "freemium",
-    "badges": [
-      "Freemium",
-      "Top Pick"
-    ],
-    "url": "https://suno.com",
-    "review": "/reviews/suno-ai",
-    "added": "2026-08-07"
-  },
-  {
-    "name": "Flux 1.1 Pro",
-    "slug": "flux-1-1-pro",
-    "by": "Black Forest Labs",
-    "blurb": "State-of-the-art open-weights photorealistic image generation model.",
-    "category": "ai",
-    "tags": [
-      "Image",
-      "Open Weights",
-      "Diffusion"
-    ],
-    "pricing": "freemium",
-    "badges": [
-      "Freemium",
-      "Open Weights"
-    ],
-    "url": "https://blackforestlabs.ai",
-    "review": "/reviews/flux-1-1-pro",
-    "added": "2026-08-07"
-  },
-  {
-    "name": "Pika Labs",
-    "slug": "pika-labs",
-    "by": "Pika",
-    "blurb": "Idea-to-video AI platform for 3D animation, cinematic motion, and video effects.",
-    "category": "ai",
-    "tags": [
-      "Video",
-      "Animation",
-      "3D"
-    ],
-    "pricing": "freemium",
-    "badges": [
-      "Freemium",
-      "Web"
-    ],
-    "url": "https://pika.art",
-    "review": "/reviews/pika-labs",
-    "added": "2026-08-07"
-  },
-  {
     "name": "IT-Tools",
     "slug": "it-tools",
     "by": "CorentinTh",
