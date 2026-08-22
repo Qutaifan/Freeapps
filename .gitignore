@@ -19,3 +19,7 @@ scripts/_to_delete/
 # Obsidian vault — project notes, not site content.
 # The repo root IS the deployed site, so anything committed here becomes a public URL.
 MY-NOTES/
+
+# Python cache
+__pycache__/
+*.pyc
