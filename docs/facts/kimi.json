@@ -1,0 +1,85 @@
+{
+  "slug": "kimi",
+  "name": "Kimi AI",
+  "verified_at": "2026-08-22",
+  "official_url": "https://kimi.com",
+  "fetch_log": [
+    {
+      "url": "https://kimi.com",
+      "status": 200,
+      "bytes": 482960
+    },
+    {
+      "url": "https://kimi.ai",
+      "status": 200,
+      "bytes": 483433
+    },
+    {
+      "url": "https://platform.moonshot.cn/docs",
+      "status": 200,
+      "bytes": 396605
+    }
+  ],
+  "license": {
+    "value": "UNKNOWN",
+    "source": null
+  },
+  "pricing_model": {
+    "value": "UNKNOWN",
+    "source": null
+  },
+  "tiers": [
+    {
+      "name": "Free Web",
+      "price": "$0",
+      "gates": [
+        "Interactive web chat and agentic knowledge work assistant"
+      ],
+      "source": "https://kimi.ai",
+      "evidence": "Kimi AI with K3 | Built for Agentic Coding &amp; Knowledge Work"
+    }
+  ],
+  "free_tier_limits": [],
+  "account_required": {
+    "value": "UNKNOWN",
+    "source": null
+  },
+  "telemetry": {
+    "value": "UNKNOWN",
+    "source": null
+  },
+  "platforms": {
+    "value": [
+      "Web"
+    ],
+    "source": "https://kimi.ai",
+    "evidence": "New Chat     Ctrl    K                               Plugins"
+  },
+  "self_host": {
+    "required": false,
+    "requirements": "UNKNOWN",
+    "source": null
+  },
+  "last_release": {
+    "version": "UNKNOWN",
+    "date": "UNKNOWN",
+    "source": null
+  },
+  "activity": {
+    "commits_last_90d": "UNKNOWN",
+    "query": "Proprietary cloud AI platform by Moonshot AI; commits not publicly tracked",
+    "capped": false,
+    "source": null
+  },
+  "status": {
+    "value": "active",
+    "source": "https://kimi.ai",
+    "evidence": "Ask anything, or task an agent..."
+  },
+  "conflict": false,
+  "notes_for_writer": [
+    "Built by Moonshot AI featuring long-context reasoning models (Kimi K3)",
+    "Offers web assistant interface and developer API compatible with OpenAI SDK",
+    "Card on homepage links directly to kimi.com"
+  ]
+}

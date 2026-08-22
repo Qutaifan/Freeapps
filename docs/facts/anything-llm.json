@@ -1,0 +1,178 @@
+{
+  "slug": "anything-llm",
+  "name": "AnythingLLM",
+  "verified_at": "2026-08-22",
+  "official_url": "https://anythingllm.com",
+  "repo_url": "https://github.com/Mintplex-Labs/anything-llm",
+  "fetch_log": [
+    {
+      "url": "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/LICENSE",
+      "status": 200,
+      "bytes": 1073
+    },
+    {
+      "url": "https://api.github.com/repos/Mintplex-Labs/anything-llm/releases/latest",
+      "status": 200,
+      "bytes": 24792
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/README.md",
+      "status": 200,
+      "bytes": 26309
+    },
+    {
+      "url": "https://anythingllm.com/cloud",
+      "status": 200,
+      "bytes": 61201
+    },
+    {
+      "url": "https://api.github.com/repos/Mintplex-Labs/anything-llm/commits",
+      "status": 200,
+      "bytes": 4820
+    }
+  ],
+  "license": {
+    "value": "MIT",
+    "source": "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/LICENSE",
+    "evidence": "Permission is hereby granted, free of charge, to any person obtaining a copy"
+  },
+  "pricing_model": {
+    "value": "open-source desktop / commercial cloud SaaS",
+    "source": "https://anythingllm.com/cloud",
+    "evidence": "Desktop Application  The easiest way to get started with AnythingLLM"
+  },
+  "tiers": [
+    {
+      "name": "Desktop (Local)",
+      "price": "$0",
+      "gates": [
+        "Single-user local instance only",
+        "No multi-user authentication",
+        "No embeddable web chat widgets"
+      ],
+      "source": "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/README.md",
+      "evidence": "AnythingLLM Desktop is the easiest way to use local LLMs"
+    },
+    {
+      "name": "Self-Hosted Docker",
+      "price": "$0",
+      "gates": [
+        "Self-managed server hardware",
+        "Multi-user enabled",
+        "Embeddable chat widgets included"
+      ],
+      "source": "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/README.md",
+      "evidence": "Multi-user instance support and permission management"
+    },
+    {
+      "name": "Cloud Basic",
+      "price": "$50/month",
+      "gates": [
+        "User must provide own LLM API key despite paying $50/mo subscription",
+        "Managed isolated cloud instance",
+        "RAG and agents included"
+      ],
+      "source": "https://anythingllm.com/cloud",
+      "evidence": "Start for $50/mo"
+    },
+    {
+      "name": "Cloud Pro",
+      "price": "$99/month",
+      "gates": [
+        "Includes 72-hour support SLA",
+        "Priority cloud compute resources"
+      ],
+      "source": "https://anythingllm.com/cloud",
+      "evidence": "Start for $99/mo"
+    },
+    {
+      "name": "Cloud Enterprise",
+      "price": "Custom quote",
+      "gates": [
+        "SSO and RBAC are Enterprise-only features",
+        "Custom integrations and dedicated support"
+      ],
+      "source": "https://anythingllm.com/cloud",
+      "evidence": "SSO, RBAC, and more"
+    }
+  ],
+  "free_tier_limits": [
+    {
+      "limit": "Desktop version is restricted to single-user local operation; multi-user collaboration requires Docker self-hosting or Cloud",
+      "source": "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/README.md",
+      "evidence": "AnythingLLM Desktop is the easiest way to use local LLMs"
+    },
+    {
+      "limit": "Embeddable public chat widgets unavailable in Desktop build; requires Docker self-host or Cloud instance",
+      "source": "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/README.md",
+      "evidence": "Embeddable chat widget for your website"
+    },
+    {
+      "limit": "Managed cloud instances start at paid monthly fee",
+      "source": "https://anythingllm.com/cloud",
+      "evidence": "Dedicated instance with complete isolation"
+    },
+    {
+      "limit": "SSO and RBAC access controls are restricted to Enterprise tier",
+      "source": "https://anythingllm.com/cloud",
+      "evidence": "SSO, RBAC, and more"
+    }
+  ],
+  "account_required": {
+    "value": false,
+    "source": "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/README.md",
+    "evidence": "No accounts, no API keys, no token limits"
+  },
+  "telemetry": {
+    "value": "UNKNOWN",
+    "source": null
+  },
+  "platforms": {
+    "value": [
+      "macOS",
+      "Windows",
+      "Linux",
+      "Docker"
+    ],
+    "source": "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/README.md",
+    "evidence": "AnythingLLM Desktop is available for MacOS, Windows, and Linux"
+  },
+  "self_host": {
+    "required": false,
+    "requirements": "Docker container for multi-user server; standalone desktop installer for single-user local use",
+    "source": "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/README.md",
+    "evidence": "docker run -d -p 3001:3001"
+  },
+  "last_release": {
+    "version": "v1.16.0",
+    "date": "2026-08-13",
+    "source": "https://api.github.com/repos/Mintplex-Labs/anything-llm/releases/latest",
+    "evidence": "\"tag_name\":\"v1.16.0\""
+  },
+  "activity": {
+    "commits_last_90d": 316,
+    "query": "GET /repos/Mintplex-Labs/anything-llm/commits?since=2026-05-24T01:57:31Z&per_page=1, Link rel=last",
+    "capped": false,
+    "source": "https://api.github.com/repos/Mintplex-Labs/anything-llm/commits",
+    "evidence": "sha\": \"a958e99ce5bcfeb5bb32dd1bf52a1bafe3857508\""
+  },
+  "status": {
+    "value": "active",
+    "source": "https://api.github.com/repos/Mintplex-Labs/anything-llm/releases/latest",
+    "evidence": "\"published_at\":\"2026-08-13T21:38:01Z\""
+  },
+  "conflict": true,
+  "conflict_notes": [
+    {
+      "claim_a": "Paid Basic tier costs $50/mo",
+      "claim_b": "User still must bring and pay for own LLM API key",
+      "source": "https://anythingllm.com/cloud",
+      "evidence": "Just bring an LLM API Key"
+    }
+  ],
+  "notes_for_writer": [
+    "Desktop build is strictly single-user; multi-user requires Docker",
+    "Basic cloud tier at $50/mo still requires providing own LLM API key",
+    "SSO and RBAC are Enterprise-only features"
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "slug": "appflowy",
+  "name": "AppFlowy",
+  "verified_at": "2026-08-22",
+  "official_url": "https://appflowy.com",
+  "repo_url": "https://github.com/AppFlowy-IO/AppFlowy",
+  "fetch_log": [
+    {
+      "url": "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/main/LICENSE",
+      "status": 200,
+      "bytes": 34523
+    },
+    {
+      "url": "https://api.github.com/repos/AppFlowy-IO/AppFlowy/releases/latest",
+      "status": 200,
+      "bytes": 31872
+    },
+    {
+      "url": "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/main/README.md",
+      "status": 200,
+      "bytes": 8569
+    },
+    {
+      "url": "https://appflowy.com/pricing",
+      "status": 200,
+      "bytes": 139357
+    },
+    {
+      "url": "https://api.github.com/repos/AppFlowy-IO/AppFlowy/commits",
+      "status": 200,
+      "bytes": 4341
+    }
+  ],
+  "license": {
+    "value": "AGPLv3",
+    "source": "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/main/LICENSE",
+    "evidence": "GNU AFFERO GENERAL PUBLIC LICENSE Version 3"
+  },
+  "pricing_model": {
+    "value": "open-source local desktop / commercial cloud sync / self-hosted cloud",
+    "source": "https://appflowy.com/pricing",
+    "evidence": "AppFlowy is the AI collaborative workspace where you achieve more"
+  },
+  "tiers": [
+    {
+      "name": "Free",
+      "price": "$0",
+      "gates": [
+        "Local offline operation",
+        "Unlimited local pages and databases",
+        "Community support"
+      ],
+      "source": "https://appflowy.com/pricing",
+      "evidence": "Get started with AppFlowy Cloud"
+    },
+    {
+      "name": "Pro",
+      "price": "$10 per user per month billed annually",
+      "gates": [
+        "Cloud workspace sync",
+        "Team collaboration and sharing"
+      ],
+      "source": "https://appflowy.com/pricing",
+      "evidence": "$10 per user per month billed annually"
+    },
+    {
+      "name": "Self-Hosted Cloud",
+      "price": "$0",
+      "gates": [
+        "Self-managed server infrastructure",
+        "Full database control"
+      ],
+      "source": "https://appflowy.com/pricing",
+      "evidence": "Self-hosted Plans"
+    }
+  ],
+  "free_tier_limits": [
+    {
+      "limit": "Local free tier does not include official managed cloud sync or team sharing without self-hosting AppFlowy Cloud",
+      "source": "https://appflowy.com/pricing",
+      "evidence": "Unlimited blocks and pages on Cloud workspace"
+    },
+    {
+      "limit": "AI features require paid subscription for unlimited responses",
+      "source": "https://appflowy.com/pricing",
+      "evidence": "Unlock  unlimited AI power  AppFlowy AI includes"
+    }
+  ],
+  "account_required": {
+    "value": false,
+    "source": "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/main/README.md",
+    "evidence": "AppFlowy is a local-first workspace app"
+  },
+  "telemetry": {
+    "value": "UNKNOWN",
+    "source": null
+  },
+  "platforms": {
+    "value": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "iOS",
+      "Android"
+    ],
+    "source": "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/main/README.md",
+    "evidence": "AppFlowy is available on macOS, Windows, Linux, iOS, and Android"
+  },
+  "self_host": {
+    "required": false,
+    "requirements": "Standalone desktop/mobile client for local mode; Docker for self-hosted AppFlowy Cloud",
+    "source": "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/main/README.md",
+    "evidence": "AppFlowy is an open-source alternative to Notion"
+  },
+  "last_release": {
+    "version": "0.13.2",
+    "date": "2026-08-11",
+    "source": "https://api.github.com/repos/AppFlowy-IO/AppFlowy/releases/latest",
+    "evidence": "\"tag_name\":\"0.13.2\""
+  },
+  "activity": {
+    "commits_last_90d": 1,
+    "query": "GET /repos/AppFlowy-IO/AppFlowy/commits?since=2026-05-24T02:16:37Z&per_page=1, Link rel=last",
+    "capped": false,
+    "source": "https://api.github.com/repos/AppFlowy-IO/AppFlowy/commits",
+    "evidence": "sha\": \"5cf3a365dec0d59f64bad1ee4bb1050471a39b93\""
+  },
+  "status": {
+    "value": "active",
+    "source": "https://api.github.com/repos/AppFlowy-IO/AppFlowy/releases/latest",
+    "evidence": "\"published_at\":\"2026-08-11T13:01:19Z\""
+  },
+  "conflict": false,
+  "notes_for_writer": [
+    "Local version is 100% free and offline under AGPL-3.0-only",
+    "Only 1 commit on main in 90 days indicates development activity moved to submodules or release branches",
+    "Cloud sync and collaboration offered as paid SaaS or self-hosted server",
+    "AI features are sold as a separate monthly add-on"
+  ]
+}

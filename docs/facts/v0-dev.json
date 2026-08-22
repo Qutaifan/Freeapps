@@ -1,0 +1,90 @@
+{
+  "slug": "v0-dev",
+  "name": "v0 by Vercel",
+  "verified_at": "2026-08-22",
+  "official_url": "https://v0.dev",
+  "fetch_log": [
+    {
+      "url": "https://v0.dev/pricing",
+      "status": 200,
+      "bytes": 237809
+    },
+    {
+      "url": "https://v0.dev/faq",
+      "status": 200,
+      "bytes": 395491
+    }
+  ],
+  "license": {
+    "value": "Proprietary",
+    "source": "https://v0.dev/faq",
+    "evidence": "For the full experience (environment variables, deployments, previews), your GitHub repo should be connected to a Vercel project."
+  },
+  "pricing_model": {
+    "value": "freemium cloud SaaS",
+    "source": "https://v0.dev/pricing",
+    "evidence": "What can I build with v0?"
+  },
+  "tiers": [
+    {
+      "name": "Free",
+      "price": "$0/month",
+      "gates": [
+        "7 message/day limit"
+      ],
+      "source": "https://v0.dev/pricing",
+      "evidence": "7 message/day limit"
+    }
+  ],
+  "free_tier_limits": [
+    {
+      "limit": "Capped at 7 messages per day on the free tier",
+      "source": "https://v0.dev/pricing",
+      "evidence": "7 message/day limit"
+    }
+  ],
+  "account_required": {
+    "value": true,
+    "source": "https://v0.dev/faq",
+    "evidence": "The new features are available in your account."
+  },
+  "telemetry": {
+    "value": "UNKNOWN",
+    "source": null
+  },
+  "platforms": {
+    "value": [
+      "Web"
+    ],
+    "source": "https://v0.dev/faq",
+    "evidence": "A complete VS Code-style editor is built into v0."
+  },
+  "self_host": {
+    "required": false,
+    "requirements": "Cloud-only proprietary SaaS by Vercel; self-hosting unavailable",
+    "source": "https://v0.dev/faq",
+    "evidence": "Under the hood, v0 uses  Vercel Sandbox ?a lightweight virtual machine that runs your app in an isolated environment."
+  },
+  "last_release": {
+    "version": "UNKNOWN",
+    "date": "UNKNOWN",
+    "source": null
+  },
+  "activity": {
+    "commits_last_90d": "UNKNOWN",
+    "query": "Closed-source SaaS; no public repository commits",
+    "capped": false,
+    "source": null
+  },
+  "status": {
+    "value": "active",
+    "source": "https://v0.dev/faq",
+    "evidence": "Common questions about what v0 is, how it works, and how to build with it."
+  },
+  "conflict": false,
+  "notes_for_writer": [
+    "Vercel generative UI frontend builder with React/Tailwind generation",
+    "Free tier includes 7 messages/day",
+    "Paid plans available for higher message quotas"
+  ]
+}

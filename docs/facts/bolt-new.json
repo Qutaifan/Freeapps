@@ -1,0 +1,92 @@
+{
+  "slug": "bolt-new",
+  "name": "Bolt.new",
+  "verified_at": "2026-08-22",
+  "official_url": "https://bolt.new",
+  "repo_url": "https://github.com/stackblitz/bolt.new",
+  "fetch_log": [
+    {
+      "url": "https://raw.githubusercontent.com/stackblitz/bolt.new/main/LICENSE",
+      "status": 200,
+      "bytes": 1073
+    },
+    {
+      "url": "https://raw.githubusercontent.com/stackblitz/bolt.new/main/README.md",
+      "status": 200,
+      "bytes": 4089
+    }
+  ],
+  "license": {
+    "value": "MIT",
+    "source": "https://raw.githubusercontent.com/stackblitz/bolt.new/main/LICENSE",
+    "evidence": "MIT License  Copyright (c) 2024 StackBlitz, Inc."
+  },
+  "pricing_model": {
+    "value": "freemium in-browser full-stack development agent",
+    "source": "https://raw.githubusercontent.com/stackblitz/bolt.new/main/README.md",
+    "evidence": "Bolt.new is free to get started."
+  },
+  "tiers": [
+    {
+      "name": "Community / Free Web",
+      "price": "$0",
+      "gates": [
+        "In-browser full-stack WebContainer development",
+        "Free daily token allowance"
+      ],
+      "source": "https://raw.githubusercontent.com/stackblitz/bolt.new/main/README.md",
+      "evidence": "Bolt.new is free to get started."
+    }
+  ],
+  "free_tier_limits": [
+    {
+      "limit": "Daily token quota pauses AI interactions until next day or plan upgrade",
+      "source": "https://raw.githubusercontent.com/stackblitz/bolt.new/main/README.md",
+      "evidence": "Once your free daily token limit is reached, AI interactions are paused until the next day"
+    }
+  ],
+  "account_required": {
+    "value": false,
+    "source": "https://raw.githubusercontent.com/stackblitz/bolt.new/main/README.md",
+    "evidence": "For developers interested in building their own AI-powered development tools with WebContainers, check out the open-source Bolt codebase in this repo!"
+  },
+  "telemetry": {
+    "value": "UNKNOWN",
+    "source": null
+  },
+  "platforms": {
+    "value": [
+      "Web"
+    ],
+    "source": "https://raw.githubusercontent.com/stackblitz/bolt.new/main/README.md",
+    "evidence": "Unlike traditional dev environments where the AI can only assist in code generation, Bolt.new gives AI models complete control over the entire  environment"
+  },
+  "self_host": {
+    "required": false,
+    "requirements": "Available online at bolt.new or locally runnable open source template",
+    "source": "https://raw.githubusercontent.com/stackblitz/bolt.new/main/README.md",
+    "evidence": "For developers interested in building their own AI-powered development tools with WebContainers, check out the open-source Bolt codebase in this repo!"
+  },
+  "last_release": {
+    "version": "UNKNOWN",
+    "date": "UNKNOWN",
+    "source": null
+  },
+  "activity": {
+    "commits_last_90d": "UNKNOWN",
+    "query": "Commercial cloud web container SaaS; active product maintained privately by StackBlitz",
+    "capped": false,
+    "source": null
+  },
+  "status": {
+    "value": "active",
+    "source": "https://raw.githubusercontent.com/stackblitz/bolt.new/main/README.md",
+    "evidence": "Yes, Bolt.new is in beta, and we are actively improving it based on feedback."
+  },
+  "conflict": false,
+  "notes_for_writer": [
+    "0 commits on open-source main branch in 90 days as StackBlitz maintains hosted cloud service",
+    "Runs full Node.js stack entirely inside the browser using WebContainers",
+    "Free token quota provided; additional compute requires subscription"
+  ]
+}

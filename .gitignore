@@ -23,3 +23,6 @@ MY-NOTES/
 # Python cache
 __pycache__/
 *.pyc
+# Raw cached HTTP responses from fact-gathering. Third-party page content -
+# never commit to a public repo. Evidence substrings live in the .json sheets.
+docs/facts/_fetches/
