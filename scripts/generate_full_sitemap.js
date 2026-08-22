@@ -41,7 +41,7 @@ function getCanonicalUrl(relPath) {
 
   // Directory index pages (e.g. reviews/index.html, vs/claude-vs-chatgpt/index.html) -> trailing slash
   if (posixPath.endsWith('/index.html')) {
-    const dir = posixPath.slice(0, -10);
+    const dir = posixPath.slice(0, -'/index.html'.length);
     return `${DOMAIN}/${dir}/`;
   }
 
