@@ -1,0 +1,101 @@
+{
+  "slug": "windsurf-ai",
+  "name": "Windsurf AI (Devin Desktop)",
+  "verified_at": "2026-08-22",
+  "official_url": "https://windsurf.com",
+  "fetch_log": [
+    {
+      "url": "https://windsurf.com",
+      "status": 200,
+      "bytes": 736495
+    },
+    {
+      "url": "https://codeium.com/pricing",
+      "status": 200,
+      "bytes": 339503
+    }
+  ],
+  "license": {
+    "value": "Proprietary",
+    "source": "https://windsurf.com",
+    "evidence": "Devin Desktop is the new name for Windsurf. We?re building on the IDE foundation of Windsurf"
+  },
+  "pricing_model": {
+    "value": "freemium AI code editor",
+    "source": "https://windsurf.com",
+    "evidence": "PRICING OVERVIEW   Learn about our plans"
+  },
+  "tiers": [
+    {
+      "name": "Free",
+      "price": "$0",
+      "gates": [
+        "Free tier download with core IDE features and access to SWE-1.7"
+      ],
+      "source": "https://windsurf.com",
+      "evidence": "Free    $0    Download"
+    },
+    {
+      "name": "Pro",
+      "price": "$20 per month",
+      "gates": [
+        "Expanded agent allowance and priority access"
+      ],
+      "source": "https://windsurf.com",
+      "evidence": "Pro  POPULAR    $20  per month"
+    }
+  ],
+  "free_tier_limits": [
+    {
+      "limit": "Includes access to SWE-1.7 coding model on free tier",
+      "source": "https://windsurf.com",
+      "evidence": "Unlimited access to SWE-1.7, the fastest coding model in the world."
+    }
+  ],
+  "account_required": {
+    "value": true,
+    "source": "https://windsurf.com",
+    "evidence": "Visit on desktop to download    Sign up"
+  },
+  "telemetry": {
+    "value": "UNKNOWN",
+    "source": null
+  },
+  "platforms": {
+    "value": [
+      "macOS",
+      "Windows",
+      "Linux"
+    ],
+    "source": "https://windsurf.com",
+    "evidence": "Windsurf for JetBrains (IntelliJ IDEA, PyCharm, WebStorm, and more) continues to be available for download."
+  },
+  "self_host": {
+    "required": false,
+    "requirements": "Standalone desktop IDE binary for local execution",
+    "source": "https://windsurf.com",
+    "evidence": "The IDE, your extensions, workflows, settings, and in-progress work will all remain intact"
+  },
+  "last_release": {
+    "version": "UNKNOWN",
+    "date": "UNKNOWN",
+    "source": null
+  },
+  "activity": {
+    "commits_last_90d": "UNKNOWN",
+    "query": "Proprietary IDE distribution; commits not publicly tracked",
+    "capped": false,
+    "source": null
+  },
+  "status": {
+    "value": "active",
+    "source": "https://windsurf.com",
+    "evidence": "Devin Desktop arrives as a standard over-the-air update"
+  },
+  "conflict": false,
+  "notes_for_writer": [
+    "AI IDE built by Codeium (Cognition Devin Desktop)",
+    "Features Cascade agent for autonomous multi-file edits and terminal tasks",
+    "Free individual tier available with credit limits"
+  ]
+}

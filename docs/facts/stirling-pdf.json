@@ -1,0 +1,134 @@
+{
+  "slug": "stirling-pdf",
+  "name": "Stirling-PDF",
+  "verified_at": "2026-08-22",
+  "official_url": "https://stirlingpdf.com",
+  "repo_url": "https://github.com/Stirling-Tools/Stirling-PDF",
+  "fetch_log": [
+    {
+      "url": "https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/LICENSE",
+      "status": 200,
+      "bytes": 3201
+    },
+    {
+      "url": "https://api.github.com/repos/Stirling-Tools/Stirling-PDF/releases/latest",
+      "status": 200,
+      "bytes": 27504
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/README.md",
+      "status": 200,
+      "bytes": 3163
+    },
+    {
+      "url": "https://stirlingpdf.com",
+      "status": 200,
+      "bytes": 673876
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/app/proprietary/LICENSE",
+      "status": 200,
+      "bytes": 2680
+    },
+    {
+      "url": "https://api.github.com/repos/Stirling-Tools/Stirling-PDF/commits",
+      "status": 200,
+      "bytes": 4120
+    }
+  ],
+  "license": {
+    "value": "MIT (core codebase; designated subdirectories proprietary under app/proprietary/LICENSE)",
+    "source": "https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/LICENSE",
+    "evidence": "GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007"
+  },
+  "pricing_model": {
+    "value": "open-core / proprietary enterprise user license",
+    "source": "https://stirlingpdf.com",
+    "evidence": "Stirling is a free, private PDF editor. Scale with your own servers"
+  },
+  "tiers": [
+    {
+      "name": "Community (Open Source)",
+      "price": "$0",
+      "gates": [
+        "Core PDF manipulation tools",
+        "Local Docker or JVM execution"
+      ],
+      "source": "https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/README.md",
+      "evidence": "Stirling-PDF is a robust, locally hosted web application"
+    },
+    {
+      "name": "Enterprise / Proprietary",
+      "price": "Subscription required for production use at scale",
+      "gates": [
+        "Production deployment of software in app/proprietary requires paid active subscription"
+      ],
+      "source": "https://stirlingpdf.com",
+      "evidence": "Stirling is a free, private PDF editor. Scale with your own servers"
+    }
+  ],
+  "free_tier_limits": [
+    {
+      "limit": "Self-hosted deployment required (Docker or Java jar); no official free hosted service bundled",
+      "source": "https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/README.md",
+      "evidence": "locally hosted web application that allows you to perform various operations on PDF files"
+    }
+  ],
+  "account_required": {
+    "value": false,
+    "source": "https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/README.md",
+    "evidence": "locally hosted web application"
+  },
+  "telemetry": {
+    "value": "UNKNOWN",
+    "source": null
+  },
+  "platforms": {
+    "value": [
+      "Docker",
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "source": "https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/README.md",
+    "evidence": "docker run -d -p 8080:8080"
+  },
+  "self_host": {
+    "required": true,
+    "requirements": "Docker container runtime or Java 17+ / Gradle runtime environment",
+    "source": "https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/README.md",
+    "evidence": "Docker or Kubernetes deployment"
+  },
+  "last_release": {
+    "version": "v2.14.3",
+    "date": "2026-08-06",
+    "source": "https://api.github.com/repos/Stirling-Tools/Stirling-PDF/releases/latest",
+    "evidence": "\"tag_name\":\"v2.14.3\""
+  },
+  "activity": {
+    "commits_last_90d": 728,
+    "query": "GET /repos/Stirling-Tools/Stirling-PDF/commits?since=2026-05-24T01:57:33Z&per_page=1, Link rel=last",
+    "capped": false,
+    "source": "https://api.github.com/repos/Stirling-Tools/Stirling-PDF/commits",
+    "evidence": "sha\": \"d463d1421f5db666141a0e101f37e408ecbb9ea9\""
+  },
+  "status": {
+    "value": "active",
+    "source": "https://api.github.com/repos/Stirling-Tools/Stirling-PDF/releases/latest",
+    "evidence": "\"published_at\":\"2026-08-06T18:48:12Z\""
+  },
+  "conflict": true,
+  "conflict_notes": [
+    {
+      "claim_a": "Repository headline advertises MIT License",
+      "claim_b": "LICENSE file specifies 10 subdirectories governed by separate proprietary licenses requiring paid subscription in production",
+      "source": "https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/LICENSE",
+      "evidence": "All content that resides under the \"app/proprietary/\" directory of this repository"
+    }
+  ],
+  "notes_for_writer": [
+    "Open-core license: MIT core with proprietary app/proprietary modules",
+    "Production use of proprietary modules requires paid subscription",
+    "Operates locally with zero external PDF data transmission"
+  ]
+}

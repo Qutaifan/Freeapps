@@ -1,0 +1,121 @@
+{
+  "slug": "draw-io",
+  "name": "Draw.io",
+  "verified_at": "2026-08-22",
+  "official_url": "https://www.drawio.com",
+  "repo_url": "https://github.com/jgraph/drawio-desktop",
+  "fetch_log": [
+    {
+      "url": "https://raw.githubusercontent.com/jgraph/drawio-desktop/master/LICENSE",
+      "status": 200,
+      "bytes": 11357
+    },
+    {
+      "url": "https://api.github.com/repos/jgraph/drawio-desktop/releases/latest",
+      "status": 200,
+      "bytes": 61533
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jgraph/drawio-desktop/master/README.md",
+      "status": 200,
+      "bytes": 5491
+    },
+    {
+      "url": "https://www.drawio.com",
+      "status": 200,
+      "bytes": 21913
+    },
+    {
+      "url": "https://api.github.com/repos/jgraph/drawio-desktop/commits",
+      "status": 200,
+      "bytes": 3358
+    }
+  ],
+  "license": {
+    "value": "Apache-2.0",
+    "source": "https://raw.githubusercontent.com/jgraph/drawio-desktop/master/LICENSE",
+    "evidence": "Apache License, Version 2.0"
+  },
+  "pricing_model": {
+    "value": "free web & desktop / commercial Atlassian marketplace apps",
+    "source": "https://www.drawio.com",
+    "evidence": "draw.io is a configurable diagramming web application"
+  },
+  "tiers": [
+    {
+      "name": "Free Web & Desktop",
+      "price": "$0",
+      "gates": [
+        "Full diagramming functionality on web and desktop",
+        "No account required"
+      ],
+      "source": "https://www.drawio.com",
+      "evidence": "Open Source diagramming application"
+    },
+    {
+      "name": "Atlassian Integration (Confluence/Jira)",
+      "price": "Paid per user (via Atlassian Marketplace)",
+      "gates": [
+        "Native Confluence and Jira Cloud/Data Center integration"
+      ],
+      "source": "https://www.drawio.com",
+      "evidence": "draw.io for Confluence and Jira"
+    }
+  ],
+  "free_tier_limits": [
+    {
+      "limit": "No hosted cloud storage server provided by draw.io; saves diagrams locally or to user cloud accounts",
+      "source": "https://raw.githubusercontent.com/jgraph/drawio-desktop/master/README.md",
+      "evidence": "draw.io Desktop is an Electron build of draw.io"
+    }
+  ],
+  "account_required": {
+    "value": false,
+    "source": "https://raw.githubusercontent.com/jgraph/drawio-desktop/master/README.md",
+    "evidence": "No registration or login required to create diagrams"
+  },
+  "telemetry": {
+    "value": "UNKNOWN",
+    "source": null
+  },
+  "platforms": {
+    "value": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Web"
+    ],
+    "source": "https://raw.githubusercontent.com/jgraph/drawio-desktop/master/README.md",
+    "evidence": "draw.io Desktop is an Electron build of draw.io"
+  },
+  "self_host": {
+    "required": false,
+    "requirements": "Standalone desktop binary or web browser; optional self-hosted Docker container",
+    "source": "https://raw.githubusercontent.com/jgraph/drawio-desktop/master/README.md",
+    "evidence": "run your own docker instance of draw.io"
+  },
+  "last_release": {
+    "version": "v31.3.1",
+    "date": "2026-08-21",
+    "source": "https://api.github.com/repos/jgraph/drawio-desktop/releases/latest",
+    "evidence": "\"tag_name\":\"v31.3.1\""
+  },
+  "activity": {
+    "commits_last_90d": 85,
+    "query": "GET /repos/jgraph/drawio-desktop/commits?since=2026-05-24T02:16:39Z&per_page=1, Link rel=last",
+    "capped": false,
+    "source": "https://api.github.com/repos/jgraph/drawio-desktop/commits",
+    "evidence": "sha\": \"a958e99ce5bcfeb5bb32dd1bf52a1bafe3857508\""
+  },
+  "status": {
+    "value": "active",
+    "source": "https://api.github.com/repos/jgraph/drawio-desktop/releases/latest",
+    "evidence": "\"published_at\":\"2026-08-21T07:49:15Z\""
+  },
+  "conflict": false,
+  "notes_for_writer": [
+    "Web and desktop versions are completely free with zero feature gating",
+    "Commercial licensing applies only to native Atlassian Confluence/Jira plug-ins",
+    "No diagram storage provided; user saves files locally or to third-party cloud"
+  ]
+}

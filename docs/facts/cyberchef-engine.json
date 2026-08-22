@@ -1,0 +1,110 @@
+{
+  "slug": "cyberchef-engine",
+  "name": "CyberChef",
+  "verified_at": "2026-08-22",
+  "official_url": "https://gchq.github.io/CyberChef/",
+  "repo_url": "https://github.com/gchq/CyberChef",
+  "fetch_log": [
+    {
+      "url": "https://raw.githubusercontent.com/gchq/CyberChef/master/LICENSE",
+      "status": 200,
+      "bytes": 11357
+    },
+    {
+      "url": "https://gchq.github.io/CyberChef/",
+      "status": 200,
+      "bytes": 78466
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gchq/CyberChef/master/README.md",
+      "status": 200,
+      "bytes": 15229
+    },
+    {
+      "url": "https://api.github.com/repos/gchq/CyberChef/releases/latest",
+      "status": 200,
+      "bytes": 4526
+    },
+    {
+      "url": "https://api.github.com/repos/gchq/CyberChef/commits",
+      "status": 200,
+      "bytes": 4381
+    }
+  ],
+  "license": {
+    "value": "Apache-2.0",
+    "source": "https://raw.githubusercontent.com/gchq/CyberChef/master/LICENSE",
+    "evidence": "Apache License Version 2.0, January 2004"
+  },
+  "pricing_model": {
+    "value": "open-source client-side web utility",
+    "source": "https://gchq.github.io/CyberChef/",
+    "evidence": "CyberChef is a simple, intuitive web app for carrying out all manner of \"cyber\" operations"
+  },
+  "tiers": [
+    {
+      "name": "Open Source Web",
+      "price": "$0",
+      "gates": [
+        "Full client-side cryptographic, encoding, and data transformation recipe pipeline",
+        "Zero account, server, or subscription requirements"
+      ],
+      "source": "https://gchq.github.io/CyberChef/",
+      "evidence": "CyberChef is a simple, intuitive web app for carrying out all manner of \"cyber\" operations"
+    }
+  ],
+  "free_tier_limits": [
+    {
+      "limit": "Client-side processing memory limit",
+      "source": "https://raw.githubusercontent.com/gchq/CyberChef/master/README.md",
+      "evidence": "The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis"
+    }
+  ],
+  "account_required": {
+    "value": false,
+    "source": "https://raw.githubusercontent.com/gchq/CyberChef/master/README.md",
+    "evidence": "There is no need to install anything, just open index.html in a web browser."
+  },
+  "telemetry": {
+    "value": "UNKNOWN",
+    "source": null
+  },
+  "platforms": {
+    "value": [
+      "Web",
+      "Node.js"
+    ],
+    "source": "https://raw.githubusercontent.com/gchq/CyberChef/master/README.md",
+    "evidence": "runs in a web browser, or command line using Node.js"
+  },
+  "self_host": {
+    "required": false,
+    "requirements": "Standalone static HTML/JS web page or local Node.js server",
+    "source": "https://raw.githubusercontent.com/gchq/CyberChef/master/README.md",
+    "evidence": "There is no need to install anything, just open index.html in a web browser."
+  },
+  "last_release": {
+    "version": "v10.19.4",
+    "date": "2024-05-18",
+    "source": "https://api.github.com/repos/gchq/CyberChef/releases/latest",
+    "evidence": "\"tag_name\": \"v10.19.4\""
+  },
+  "activity": {
+    "commits_last_90d": 140,
+    "query": "GET /repos/gchq/CyberChef/commits?since=2026-05-24T02:24:41Z&per_page=1, Link rel=last",
+    "capped": false,
+    "source": "https://api.github.com/repos/gchq/CyberChef/commits",
+    "evidence": "sha\": \"47228833e7cebbd4484920259b15b49704e6cbe5\""
+  },
+  "status": {
+    "value": "active",
+    "source": "https://api.github.com/repos/gchq/CyberChef/releases/latest",
+    "evidence": "\"published_at\": \"2024-05-18T16:26:41Z\""
+  },
+  "conflict": false,
+  "notes_for_writer": [
+    "Created by GCHQ as open-source cyber Swiss Army knife under Apache-2.0",
+    "Runs 100% locally in browser without sending payload data to any server",
+    "Last release v10.19.4 is over 2 years old (2024-05-18) while commits continue actively on master"
+  ]
+}

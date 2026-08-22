@@ -1,0 +1,91 @@
+{
+  "slug": "lovable-dev",
+  "name": "Lovable",
+  "verified_at": "2026-08-22",
+  "official_url": "https://docs.lovable.dev",
+  "fetch_log": [
+    {
+      "url": "https://lovable.dev/terms",
+      "status": 200,
+      "bytes": 178272
+    },
+    {
+      "url": "https://lovable.dev/pricing",
+      "status": 200,
+      "bytes": 156060
+    }
+  ],
+  "license": {
+    "value": "Proprietary",
+    "source": "https://lovable.dev/terms",
+    "evidence": "we grant you a limited, non-exclusive, non-transferable, worldwide, revocable license to access and use the Services"
+  },
+  "pricing_model": {
+    "value": "freemium cloud SaaS",
+    "source": "https://lovable.dev/terms",
+    "evidence": "You can use the Platform under a free or paid plan, as described on our  Pricing Page ."
+  },
+  "tiers": [
+    {
+      "name": "Free",
+      "price": "$0",
+      "gates": [
+        "Free plan with limited credits to continue building"
+      ],
+      "source": "https://lovable.dev/pricing",
+      "evidence": "your plan switches to Free and you only have a limited amount of credits to continue building"
+    }
+  ],
+  "free_tier_limits": [
+    {
+      "limit": "Monthly credit quota restricts generation after free credits are consumed",
+      "source": "https://lovable.dev/pricing",
+      "evidence": "your plan switches to Free and you only have a limited amount of credits to continue building"
+    }
+  ],
+  "account_required": {
+    "value": true,
+    "source": "https://lovable.dev/terms",
+    "evidence": "To use the Services, you may need to create an account and provide certain information"
+  },
+  "telemetry": {
+    "value": "Usage Data collected for telemetry, logs, and performance metrics",
+    "source": "https://lovable.dev/terms",
+    "evidence": "Usage Data  means telemetry, logs, performance data, usage metrics, and other technical data"
+  },
+  "platforms": {
+    "value": [
+      "Web"
+    ],
+    "source": "https://lovable.dev/terms",
+    "evidence": "deploy applications or websites on subdomains under lovable.app"
+  },
+  "self_host": {
+    "required": false,
+    "requirements": "Cloud-hosted web application; self-hosting unavailable",
+    "source": "https://lovable.dev/terms",
+    "evidence": "Lovable Cloud  means our optional cloud hosting and back-end environment"
+  },
+  "last_release": {
+    "version": "UNKNOWN",
+    "date": "UNKNOWN",
+    "source": null
+  },
+  "activity": {
+    "commits_last_90d": "UNKNOWN",
+    "query": "Closed-source cloud product; no public repository commits",
+    "capped": false,
+    "source": null
+  },
+  "status": {
+    "value": "active",
+    "source": "https://lovable.dev/terms",
+    "evidence": "We may revise these Terms from time to time."
+  },
+  "conflict": false,
+  "notes_for_writer": [
+    "Full-stack AI web app generator producing React, Vite, and Supabase apps",
+    "Direct GitHub two-way synchronization for full code ownership",
+    "Freemium SaaS with monthly credit caps"
+  ]
+}

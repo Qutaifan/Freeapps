@@ -1,0 +1,183 @@
+{
+  "slug": "cryptomator",
+  "name": "Cryptomator",
+  "verified_at": "2026-08-22",
+  "official_url": "https://cryptomator.org",
+  "repo_url": "https://github.com/cryptomator/cryptomator",
+  "fetch_log": [
+    {
+      "url": "https://raw.githubusercontent.com/cryptomator/cryptomator/main/LICENSE.txt",
+      "status": 200,
+      "bytes": 35146
+    },
+    {
+      "url": "https://api.github.com/repos/cryptomator/cryptomator/releases/latest",
+      "status": 200,
+      "bytes": 41253
+    },
+    {
+      "url": "https://cryptomator.org/pricing/",
+      "status": 200,
+      "bytes": 48618
+    },
+    {
+      "url": "https://api.github.com/repos/cryptomator/cryptomator/commits",
+      "status": 200,
+      "bytes": 4210
+    }
+  ],
+  "license": {
+    "value": "GPLv3",
+    "source": "https://raw.githubusercontent.com/cryptomator/cryptomator/main/LICENSE.txt",
+    "evidence": "GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007"
+  },
+  "pricing_model": {
+    "value": "free desktop / paid mobile write access / paid team Hub",
+    "source": "https://cryptomator.org/pricing/",
+    "evidence": "Separate one-time purchases per platform"
+  },
+  "tiers": [
+    {
+      "name": "Desktop (Individual)",
+      "price": "Free ($0)",
+      "gates": [
+        "Full desktop access on Windows, macOS, Linux",
+        "Unlimited vaults and client-side encryption included",
+        "Community support"
+      ],
+      "source": "https://cryptomator.org/pricing/",
+      "evidence": "Cryptomator is free and open-source software"
+    },
+    {
+      "name": "Desktop Supporter Certificate",
+      "price": "€29.99",
+      "gates": [
+        "Unlocks Dark Mode theme in Desktop app",
+        "Voluntary contribution to open-source development"
+      ],
+      "source": "https://cryptomator.org/pricing/",
+      "evidence": "class=font-bold>from €29.99</span>"
+    },
+    {
+      "name": "Mobile Full Access (Android)",
+      "price": "$5/month per user",
+      "gates": [
+        "Full read and write vault access on Android",
+        "Separate purchase per platform"
+      ],
+      "source": "https://cryptomator.org/pricing/",
+      "evidence": "Includes 5 seats"
+    },
+    {
+      "name": "Mobile Full Access (iOS)",
+      "price": "€29.99",
+      "gates": [
+        "Full read and write vault access on iOS",
+        "Separate purchase per platform"
+      ],
+      "source": "https://cryptomator.org/pricing/",
+      "evidence": "class=font-bold>€29.99</span>"
+    },
+    {
+      "name": "Cryptomator Hub Community",
+      "price": "Free ($0)",
+      "gates": [
+        "Includes 5 seats",
+        "Self-hosted only"
+      ],
+      "source": "https://cryptomator.org/pricing/",
+      "evidence": "Includes 5 seats"
+    },
+    {
+      "name": "Cryptomator Hub Standard / Enterprise",
+      "price": "Paid per seat/month",
+      "gates": [
+        "Priority email support",
+        "Centralized team access and audit logging"
+      ],
+      "source": "https://cryptomator.org/pricing/",
+      "evidence": "Priority email support"
+    }
+  ],
+  "free_tier_limits": [
+    {
+      "limit": "Separate one-time purchases required for mobile apps",
+      "source": "https://cryptomator.org/pricing/",
+      "evidence": "Separate one-time purchases per platform"
+    },
+    {
+      "limit": "Platform licenses are not cross-valid; no bundle license exists across Android and iOS",
+      "source": "https://cryptomator.org/pricing/",
+      "evidence": "Separate one-time purchases per platform. Prices may vary"
+    },
+    {
+      "limit": "Desktop dark mode requires supporter certificate donation",
+      "source": "https://cryptomator.org/pricing/",
+      "evidence": "Do I need a supporter certificate to use Cryptomator?"
+    },
+    {
+      "limit": "Self-hosted server deployment without managed cloud hosting",
+      "source": "https://cryptomator.org/pricing/",
+      "evidence": "Self-hosted only"
+    }
+  ],
+  "account_required": {
+    "value": false,
+    "source": "https://cryptomator.org/pricing/",
+    "evidence": "Is Cryptomator free to use?"
+  },
+  "telemetry": {
+    "value": "UNKNOWN",
+    "source": null
+  },
+  "platforms": {
+    "value": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Android",
+      "iOS"
+    ],
+    "source": "https://cryptomator.org/pricing/",
+    "evidence": "Full access on Android"
+  },
+  "self_host": {
+    "required": false,
+    "requirements": "Client-side standalone desktop/mobile app; self-hosting required only for Cryptomator Hub server",
+    "source": "https://cryptomator.org/pricing/",
+    "evidence": "Self-hosted only"
+  },
+  "last_release": {
+    "version": "1.19.3",
+    "date": "2026-06-29",
+    "source": "https://api.github.com/repos/cryptomator/cryptomator/releases/latest",
+    "evidence": "\"tag_name\":\"1.19.3\""
+  },
+  "activity": {
+    "commits_last_90d": 56,
+    "query": "GET /repos/cryptomator/cryptomator/commits?since=2026-05-24T01:57:34Z&per_page=1, Link rel=last",
+    "capped": false,
+    "source": "https://api.github.com/repos/cryptomator/cryptomator/commits",
+    "evidence": "sha\": \"c9c43b8be9f4e24ef2898cbeaaae0fefb3e6e1e3\""
+  },
+  "status": {
+    "value": "active",
+    "source": "https://api.github.com/repos/cryptomator/cryptomator/releases/latest",
+    "evidence": "\"published_at\":\"2026-06-29T12:24:45Z\""
+  },
+  "conflict": true,
+  "conflict_notes": [
+    {
+      "claim_a": "Listed prices are EUR base pricing for Germany",
+      "claim_b": "Checkout price varies by country via purchasing-power-parity adjustment",
+      "source": "https://cryptomator.org/pricing/",
+      "evidence": "Why is the price at checkout different from the price shown on the website?"
+    }
+  ],
+  "notes_for_writer": [
+    "Mobile free tier is read-only",
+    "No bundle license across platforms",
+    "Checkout price differs from advertised by region",
+    "Hub Community tier includes 5 seats"
+  ]
+}

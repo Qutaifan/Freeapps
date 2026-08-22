@@ -1,0 +1,136 @@
+{
+  "slug": "open-webui",
+  "name": "Open-WebUI",
+  "verified_at": "2026-08-22",
+  "official_url": "https://openwebui.com",
+  "repo_url": "https://github.com/open-webui/open-webui",
+  "fetch_log": [
+    {
+      "url": "https://raw.githubusercontent.com/open-webui/open-webui/main/LICENSE",
+      "status": 200,
+      "bytes": 2819
+    },
+    {
+      "url": "https://api.github.com/repos/open-webui/open-webui/releases/latest",
+      "status": 200,
+      "bytes": 118786
+    },
+    {
+      "url": "https://raw.githubusercontent.com/open-webui/open-webui/main/README.md",
+      "status": 200,
+      "bytes": 17885
+    },
+    {
+      "url": "https://openwebui.com",
+      "status": 200,
+      "bytes": 39795
+    },
+    {
+      "url": "https://api.github.com/repos/open-webui/open-webui/commits",
+      "status": 200,
+      "bytes": 4512
+    }
+  ],
+  "license": {
+    "value": "Custom with redistribution restrictions",
+    "source": "https://raw.githubusercontent.com/open-webui/open-webui/main/LICENSE",
+    "evidence": "strictly prohibited from altering, removing, obscuring"
+  },
+  "pricing_model": {
+    "value": "open-source / custom enterprise",
+    "source": "https://openwebui.com",
+    "evidence": "Open WebUI is primarily a self-hosted, open-source AI platform"
+  },
+  "tiers": [
+    {
+      "name": "Community / Self-Hosted",
+      "price": "$0",
+      "gates": [
+        "Self-hosted infrastructure required",
+        "Bring your own LLM API keys or local Ollama engine"
+      ],
+      "source": "https://raw.githubusercontent.com/open-webui/open-webui/main/README.md",
+      "evidence": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI interface"
+    },
+    {
+      "name": "Enterprise",
+      "price": "Custom quote",
+      "gates": [
+        "White-label branding removal rights",
+        "Enterprise support agreement"
+      ],
+      "source": "https://openwebui.com",
+      "evidence": "Enterprise Plan: Open WebUI offers an enterprise-level agreement"
+    }
+  ],
+  "free_tier_limits": [
+    {
+      "limit": "No hosted cloud tier; self-hosting required",
+      "source": "https://raw.githubusercontent.com/open-webui/open-webui/main/README.md",
+      "evidence": "Installation with Default Configuration"
+    },
+    {
+      "limit": "Model inference not included; user must provide external API keys or local inference server",
+      "source": "https://raw.githubusercontent.com/open-webui/open-webui/main/README.md",
+      "evidence": "Ollama is an advanced AI engine that provides a robust backend"
+    }
+  ],
+  "account_required": {
+    "value": false,
+    "source": "https://raw.githubusercontent.com/open-webui/open-webui/main/README.md",
+    "evidence": "Open WebUI is now accessible at http://localhost:3000"
+  },
+  "telemetry": {
+    "value": "UNKNOWN",
+    "source": null
+  },
+  "platforms": {
+    "value": [
+      "Docker",
+      "Kubernetes",
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "source": "https://raw.githubusercontent.com/open-webui/open-webui/main/README.md",
+    "evidence": "Run the following command to start Open WebUI using Docker"
+  },
+  "self_host": {
+    "required": true,
+    "requirements": "Docker container runtime or Python 3.11+ environment",
+    "source": "https://raw.githubusercontent.com/open-webui/open-webui/main/README.md",
+    "evidence": "docker run -d -p 3000:8080"
+  },
+  "last_release": {
+    "version": "v0.11.0",
+    "date": "2026-07-27",
+    "source": "https://api.github.com/repos/open-webui/open-webui/releases/latest",
+    "evidence": "\"tag_name\":\"v0.11.0\""
+  },
+  "activity": {
+    "commits_last_90d": 1131,
+    "query": "GET /repos/open-webui/open-webui/commits?since=2026-05-24T01:57:30Z&per_page=1, Link rel=last",
+    "capped": false,
+    "source": "https://api.github.com/repos/open-webui/open-webui/commits",
+    "evidence": "sha\": \"443da1f7df2b6ca0ee515e01c5f3484fcf1fef0a\""
+  },
+  "status": {
+    "value": "active",
+    "source": "https://api.github.com/repos/open-webui/open-webui/releases/latest",
+    "evidence": "\"published_at\":\"2026-07-27T09:30:15Z\""
+  },
+  "conflict": true,
+  "conflict_notes": [
+    {
+      "claim_a": "Promoted as self-hosted open-source AI platform",
+      "claim_b": "License contains Clause 4 restricting branding removal for deployments over 50 users/30d",
+      "source": "https://raw.githubusercontent.com/open-webui/open-webui/main/LICENSE",
+      "evidence": "strictly prohibited from altering, removing, obscuring, or replacing any \"Open WebUI\" branding"
+    }
+  ],
+  "notes_for_writer": [
+    "BSD-3-Clause modified with strict Clause 4 branding clause on 50+ users",
+    "No built-in LLM models bundled; requires external Ollama or API keys",
+    "1131 commits in last 90 days indicates high activity pace"
+  ]
+}

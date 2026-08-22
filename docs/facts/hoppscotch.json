@@ -1,0 +1,123 @@
+{
+  "slug": "hoppscotch",
+  "name": "Hoppscotch",
+  "verified_at": "2026-08-22",
+  "official_url": "https://hoppscotch.com",
+  "repo_url": "https://github.com/hoppscotch/hoppscotch",
+  "fetch_log": [
+    {
+      "url": "https://raw.githubusercontent.com/hoppscotch/hoppscotch/main/LICENSE",
+      "status": 200,
+      "bytes": 1056
+    },
+    {
+      "url": "https://hoppscotch.com/pricing",
+      "status": 200,
+      "bytes": 24712
+    },
+    {
+      "url": "https://raw.githubusercontent.com/hoppscotch/hoppscotch/main/README.md",
+      "status": 200,
+      "bytes": 11653
+    },
+    {
+      "url": "https://api.github.com/repos/hoppscotch/hoppscotch/releases/latest",
+      "status": 200,
+      "bytes": 4427
+    },
+    {
+      "url": "https://api.github.com/repos/hoppscotch/hoppscotch/commits",
+      "status": 200,
+      "bytes": 3493
+    }
+  ],
+  "license": {
+    "value": "MIT",
+    "source": "https://raw.githubusercontent.com/hoppscotch/hoppscotch/main/LICENSE",
+    "evidence": "MIT License  Copyright (c) 2022"
+  },
+  "pricing_model": {
+    "value": "open-source self-hosted / commercial cloud workspace",
+    "source": "https://hoppscotch.com/pricing",
+    "evidence": "Hoppscotch is free to use for everyone. We also offer paid"
+  },
+  "tiers": [
+    {
+      "name": "Community / Free",
+      "price": "$0",
+      "gates": [
+        "Individual and small team API testing",
+        "Community support"
+      ],
+      "source": "https://hoppscotch.com/pricing",
+      "evidence": "Perfect for individuals and small teams"
+    },
+    {
+      "name": "Cloud / Team",
+      "price": "$6 per user/month",
+      "gates": [
+        "Crafted for teams and organizations",
+        "Shared workspaces and collaboration"
+      ],
+      "source": "https://hoppscotch.com/pricing",
+      "evidence": "$6 per user/month, billed annually"
+    }
+  ],
+  "free_tier_limits": [
+    {
+      "limit": "Community tier relies on community support channels without dedicated enterprise SLA",
+      "source": "https://hoppscotch.com/pricing",
+      "evidence": "Community support"
+    }
+  ],
+  "account_required": {
+    "value": false,
+    "source": "https://raw.githubusercontent.com/hoppscotch/hoppscotch/main/README.md",
+    "evidence": "Open Source API Development Ecosystem"
+  },
+  "telemetry": {
+    "value": "UNKNOWN",
+    "source": null
+  },
+  "platforms": {
+    "value": [
+      "Web",
+      "Windows",
+      "macOS",
+      "Linux",
+      "Docker"
+    ],
+    "source": "https://raw.githubusercontent.com/hoppscotch/hoppscotch/main/README.md",
+    "evidence": "Open Source API Development Ecosystem"
+  },
+  "self_host": {
+    "required": false,
+    "requirements": "Available as hosted web app or self-hosted Docker container",
+    "source": "https://raw.githubusercontent.com/hoppscotch/hoppscotch/main/README.md",
+    "evidence": "self-hosting documentation"
+  },
+  "last_release": {
+    "version": "2026.7.0",
+    "date": "2026-07-30",
+    "source": "https://api.github.com/repos/hoppscotch/hoppscotch/releases/latest",
+    "evidence": "\"tag_name\": \"2026.7.0\""
+  },
+  "activity": {
+    "commits_last_90d": 53,
+    "query": "GET /repos/hoppscotch/hoppscotch/commits?since=2026-05-24T02:24:31Z&per_page=1, Link rel=last",
+    "capped": false,
+    "source": "https://api.github.com/repos/hoppscotch/hoppscotch/commits",
+    "evidence": "sha\": \"1acb8a3a7581e4db32ba0d529170c4669a2e1053\""
+  },
+  "status": {
+    "value": "active",
+    "source": "https://api.github.com/repos/hoppscotch/hoppscotch/releases/latest",
+    "evidence": "\"published_at\": \"2026-07-30T11:58:56Z\""
+  },
+  "conflict": false,
+  "notes_for_writer": [
+    "Full Postman alternative with REST, GraphQL, WebSocket support",
+    "Free web version requires no login for local requests",
+    "Cloud collaboration starts at $6/user/month"
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "slug": "duckdb",
+  "name": "DuckDB",
+  "verified_at": "2026-08-22",
+  "official_url": "https://duckdb.org",
+  "repo_url": "https://github.com/duckdb/duckdb",
+  "fetch_log": [
+    {
+      "url": "https://raw.githubusercontent.com/duckdb/duckdb/main/LICENSE",
+      "status": 200,
+      "bytes": 1072
+    },
+    {
+      "url": "https://api.github.com/repos/duckdb/duckdb/releases/latest",
+      "status": 200,
+      "bytes": 62509
+    },
+    {
+      "url": "https://raw.githubusercontent.com/duckdb/duckdb/main/README.md",
+      "status": 200,
+      "bytes": 3480
+    },
+    {
+      "url": "https://duckdb.org/why_duckdb",
+      "status": 200,
+      "bytes": 276667
+    },
+    {
+      "url": "https://api.github.com/repos/duckdb/duckdb/commits",
+      "status": 200,
+      "bytes": 4650
+    }
+  ],
+  "license": {
+    "value": "MIT",
+    "source": "https://raw.githubusercontent.com/duckdb/duckdb/main/LICENSE",
+    "evidence": "Copyright 2018-2024 Stichting DuckDB Foundation"
+  },
+  "pricing_model": {
+    "value": "open-source (embedded in-process engine)",
+    "source": "https://duckdb.org/why_duckdb",
+    "evidence": "DuckDB is an in-process SQL OLAP database management system"
+  },
+  "tiers": [
+    {
+      "name": "Open Source Engine",
+      "price": "$0",
+      "gates": [
+        "Full in-process columnar analytical query engine",
+        "Runs embedded in client application process without separate server",
+        "Includes native SQL parser, vectorized execution engine, and disk storage"
+      ],
+      "source": "https://duckdb.org/why_duckdb",
+      "evidence": "DuckDB is an in-process SQL OLAP database management system"
+    }
+  ],
+  "free_tier_limits": [
+    {
+      "limit": "In-process single-process architecture; optimized for analytical OLAP rather than high-concurrency transactional OLTP",
+      "source": "https://duckdb.org/why_duckdb",
+      "evidence": "DuckDB is designed to support analytical query workloads"
+    },
+    {
+      "limit": "No server daemon or cloud infrastructure bundled; operates locally within host application memory",
+      "source": "https://duckdb.org/why_duckdb",
+      "evidence": "There is no separate server process to start, stop, or manage"
+    }
+  ],
+  "account_required": {
+    "value": false,
+    "source": "https://duckdb.org/why_duckdb",
+    "evidence": "There is no separate server process to start, stop"
+  },
+  "telemetry": {
+    "value": "UNKNOWN",
+    "source": null
+  },
+  "platforms": {
+    "value": [
+      "Linux",
+      "macOS",
+      "Windows",
+      "WebAssembly",
+      "Python",
+      "R",
+      "Java",
+      "Node.js",
+      "C/C++"
+    ],
+    "source": "https://duckdb.org/why_duckdb",
+    "evidence": "DuckDB has no external dependencies, neither for compilation nor during run-time"
+  },
+  "self_host": {
+    "required": false,
+    "requirements": "Embedded in-process binary or library link; no external database server daemon required",
+    "source": "https://duckdb.org/why_duckdb",
+    "evidence": "There is no separate server process to start, stop"
+  },
+  "last_release": {
+    "version": "v1.5.5",
+    "date": "2026-07-22",
+    "source": "https://api.github.com/repos/duckdb/duckdb/releases/latest",
+    "evidence": "\"tag_name\":\"v1.5.5\""
+  },
+  "activity": {
+    "commits_last_90d": 5831,
+    "query": "GET /repos/duckdb/duckdb/commits?since=2026-05-24T01:57:37Z&per_page=1, Link rel=last",
+    "capped": false,
+    "source": "https://api.github.com/repos/duckdb/duckdb/commits",
+    "evidence": "sha\": \"2e106da62828b4c2b95b879ec8bc59e89d81d2f7\""
+  },
+  "status": {
+    "value": "active",
+    "source": "https://api.github.com/repos/duckdb/duckdb/releases/latest",
+    "evidence": "\"published_at\":\"2026-07-22T10:51:50Z\""
+  },
+  "conflict": false,
+  "notes_for_writer": [
+    "Runs embedded in-process like SQLite for OLAP workloads",
+    "No server daemon required; operates in host memory",
+    "5831 commits in last 90 days reflects exceptionally high development velocity"
+  ]
+}

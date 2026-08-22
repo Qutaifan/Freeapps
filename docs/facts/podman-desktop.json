@@ -1,0 +1,106 @@
+{
+  "slug": "podman-desktop",
+  "name": "Podman Desktop",
+  "verified_at": "2026-08-22",
+  "official_url": "https://podman-desktop.io",
+  "repo_url": "https://github.com/containers/podman-desktop",
+  "fetch_log": [
+    {
+      "url": "https://raw.githubusercontent.com/containers/podman-desktop/main/LICENSE",
+      "status": 200,
+      "bytes": 11358
+    },
+    {
+      "url": "https://podman-desktop.io",
+      "status": 200,
+      "bytes": 37144
+    },
+    {
+      "url": "https://api.github.com/repos/containers/podman-desktop/releases/latest",
+      "status": 200,
+      "bytes": 93559
+    },
+    {
+      "url": "https://api.github.com/repos/containers/podman-desktop/commits",
+      "status": 200,
+      "bytes": 5590
+    }
+  ],
+  "license": {
+    "value": "Apache-2.0",
+    "source": "https://raw.githubusercontent.com/containers/podman-desktop/main/LICENSE",
+    "evidence": "Apache License Version 2.0, January 2004"
+  },
+  "pricing_model": {
+    "value": "open-source container management tool",
+    "source": "https://podman-desktop.io",
+    "evidence": "The best free and open source tool for developers"
+  },
+  "tiers": [
+    {
+      "name": "Open Source",
+      "price": "$0",
+      "gates": [
+        "Full container, image, pod, and Kubernetes management",
+        "No commercial licensing restrictions"
+      ],
+      "source": "https://podman-desktop.io",
+      "evidence": "The best free and open source tool for developers"
+    }
+  ],
+  "free_tier_limits": [
+    {
+      "limit": "Local container engine GUI; relies on local Podman, Docker, or Lima engine for execution",
+      "source": "https://podman-desktop.io",
+      "evidence": "Podman Desktop let you easily manage containers and Kubernetes"
+    }
+  ],
+  "account_required": {
+    "value": false,
+    "source": "https://podman-desktop.io",
+    "evidence": "Podman Desktop let you easily manage containers and Kubernetes"
+  },
+  "telemetry": {
+    "value": "UNKNOWN",
+    "source": null
+  },
+  "platforms": {
+    "value": [
+      "Windows",
+      "macOS",
+      "Linux"
+    ],
+    "source": "https://podman-desktop.io",
+    "evidence": "Available on Linux®, macOS, and Windows"
+  },
+  "self_host": {
+    "required": false,
+    "requirements": "Standalone desktop binary for macOS, Windows, or Linux",
+    "source": "https://podman-desktop.io",
+    "evidence": "Available on Linux®, macOS, and Windows"
+  },
+  "last_release": {
+    "version": "v1.29.1",
+    "date": "2026-07-31",
+    "source": "https://api.github.com/repos/containers/podman-desktop/releases/latest",
+    "evidence": "\"tag_name\": \"v1.29.1\""
+  },
+  "activity": {
+    "commits_last_90d": 749,
+    "query": "GET /repos/containers/podman-desktop/commits?since=2026-05-24T02:24:36Z&per_page=1, Link rel=last",
+    "capped": false,
+    "source": "https://api.github.com/repos/containers/podman-desktop/commits",
+    "evidence": "sha\": \"225a7fdf7a7bee9e133d21a001c690b06ef68a02\""
+  },
+  "status": {
+    "value": "active",
+    "source": "https://api.github.com/repos/containers/podman-desktop/releases/latest",
+    "evidence": "\"published_at\": \"2026-07-31T13:13:28Z\""
+  },
+  "conflict": false,
+  "notes_for_writer": [
+    "Direct drop-in open-source alternative to Docker Desktop",
+    "Free for enterprise and commercial use with zero license fees",
+    "749 commits in last 90 days indicates very active development"
+  ]
+}
