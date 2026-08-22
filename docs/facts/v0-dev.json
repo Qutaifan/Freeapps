@@ -38,7 +38,7 @@
   ],
   "free_tier_limits": [
     {
-      "limit": "Free tier is capped at daily message threshold",
+      "limit": "Capped at 7 messages per day on the free tier",
       "source": "https://v0.dev/pricing",
       "evidence": "7 message/day limit"
     }

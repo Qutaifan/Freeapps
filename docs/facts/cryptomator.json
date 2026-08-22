@@ -60,7 +60,7 @@
     },
     {
       "name": "Mobile Full Access (Android)",
-      "price": "$5/month per user",
+      "price": "€29.99 one-time",
       "gates": [
         "Full read and write vault access on Android",
         "Separate purchase per platform"

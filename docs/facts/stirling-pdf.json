@@ -68,7 +68,13 @@
     }
   ],
   "free_tier_limits": [
+    
     {
+      "limit": "Production use of app/proprietary modules requires an active paid subscription",
+      "source": "https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/app/proprietary/LICENSE",
+      "evidence": "requires an active paid subscription"
+    },
+{
       "limit": "Self-hosted deployment required (Docker or Java jar); no official free hosted service bundled",
       "source": "https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/README.md",
       "evidence": "locally hosted web application that allows you to perform various operations on PDF files"

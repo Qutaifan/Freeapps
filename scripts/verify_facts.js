@@ -37,7 +37,13 @@ const MIN_EVIDENCE_CHARS = 12;
 const LOW_ACTIVITY_THRESHOLD = 20;
 const MAX_EVIDENCE_REUSE = 2;
 
+// An OSI licence file governs redistribution, not price or quotas - citing one for
+// pricing was a real defect ("zero watermarks or export caps" sourced to Apache-2.0).
+// But a COMMERCIAL licence is different: for open-core projects the proprietary
+// licence text IS where the limit lives ("production use requires an active paid
+// subscription", Stirling-PDF app/proprietary/LICENSE). Exempt those paths only.
 const LEGAL_TEXT_PATTERN = /\/(LICENSE|COPYING)(\.txt|\.md)?$/i;
+const COMMERCIAL_LICENCE_PATTERN = /(proprietary|commercial|enterprise|eula)/i;
 const CLAIM_PATHS_NEEDING_PRODUCT_SOURCE = /^(tiers|free_tier_limits|pricing_model|account_required|platforms)/;
 
 /** Evidence that is markup, boilerplate, or the query itself — not page content. */
@@ -165,14 +171,18 @@ function checkFile(file) {
       for (const v of vals) {
         for (const n of significantNumbers(v)) {
           if (!ev.includes(n)) {
-            fail(slug, `value at ${p} claims "${n}" but its evidence does not contain it — "${ev.slice(0, 50)}"`);
+            // WARN, not FAIL. As a hard failure this rule can be satisfied by
+            // deleting the number from the claim - which is exactly what happened:
+            // "capped at 7 messages per day" became "capped at a daily message
+            // threshold" and the finding was lost. Surface it; never force the fix.
+            warn(slug, `value at ${p} claims "${n}" but its evidence does not contain it - re-source it, do NOT delete the number - "${ev.slice(0, 50)}"`);
           }
         }
       }
       evidenceUse.set(ev, (evidenceUse.get(ev) || 0) + 1);
     }
 
-    if (CLAIM_PATHS_NEEDING_PRODUCT_SOURCE.test(p) && LEGAL_TEXT_PATTERN.test(norm)) {
+    if (CLAIM_PATHS_NEEDING_PRODUCT_SOURCE.test(p) && LEGAL_TEXT_PATTERN.test(norm) && !COMMERCIAL_LICENCE_PATTERN.test(norm)) {
       fail(slug, `${p} cites a licence file — licence text cannot establish pricing, limits, accounts or platforms`);
     }
   }
@@ -192,6 +202,19 @@ function checkFile(file) {
     const words = v.trim().split(/\s+/).length;
     if (words > MAX_WORDS_PER_VALUE && !p.startsWith('license') && !/^https?:/.test(v)) {
       warn(slug, `value reads like prose (${words} words) at ${p}`);
+    }
+  }
+
+  // A free_tier_limit with no number and no concrete restriction word is the
+  // residue of a stripped finding: "capped at daily message threshold" in place
+  // of "capped at 7 messages per day". Flag it so the vagueness stays visible.
+  // Only flag limits that are BOTH short AND carry no number. That is the shape
+  // a stripped finding leaves behind ("capped at daily message threshold"). Long
+  // qualitative limits ("SSO and RBAC restricted to Enterprise tier") are fine.
+  for (const lim of (Array.isArray(data.free_tier_limits) ? data.free_tier_limits : [])) {
+    const words = typeof lim?.limit === "string" ? lim.limit.trim().split(/\s+/).length : 99;
+    if (typeof lim?.limit === "string" && words <= 7 && !/\d/.test(lim.limit)) {
+      warn(slug, `free_tier_limit is non-specific - "${lim.limit.slice(0, 60)}"`);
     }
   }
 
