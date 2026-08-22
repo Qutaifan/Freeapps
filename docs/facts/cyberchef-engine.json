@@ -55,9 +55,9 @@
   ],
   "free_tier_limits": [
     {
-      "limit": "Client-side processing memory limit",
+      "limit": "Browser processing capability is limited to files up to around 2GB depending on available system RAM and browser memory limits",
       "source": "https://raw.githubusercontent.com/gchq/CyberChef/master/README.md",
-      "evidence": "The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis"
+      "evidence": "Files up to around 2GB are supported (depending on your browser)"
     }
   ],
   "account_required": {

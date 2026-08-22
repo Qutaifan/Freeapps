@@ -65,14 +65,14 @@
   ],
   "free_tier_limits": [
     {
-      "limit": "No hosted cloud tier; self-hosting required",
+      "limit": "Open WebUI provides no managed cloud hosting for end users; requires local or self-hosted backend such as Ollama or external API keys",
       "source": "https://raw.githubusercontent.com/open-webui/open-webui/main/README.md",
-      "evidence": "Installation with Default Configuration"
+      "evidence": "Open WebUI is an extensible, self-hosted AI interface"
     },
     {
-      "limit": "Model inference not included; user must provide external API keys or local inference server",
+      "limit": "Local model execution speed and context size are bounded by available host GPU and RAM hardware",
       "source": "https://raw.githubusercontent.com/open-webui/open-webui/main/README.md",
-      "evidence": "Ollama is an advanced AI engine that provides a robust backend"
+      "evidence": "Ensure you have the necessary hardware for local models"
     }
   ],
   "account_required": {

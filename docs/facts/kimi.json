@@ -1,0 +1,90 @@
+{
+  "slug": "kimi",
+  "name": "Kimi AI",
+  "verified_at": "2026-08-22",
+  "official_url": "https://kimi.com",
+  "fetch_log": [
+    {
+      "url": "https://kimi.ai",
+      "status": 200,
+      "bytes": 483433
+    },
+    {
+      "url": "https://platform.moonshot.cn/docs",
+      "status": 200,
+      "bytes": 396605
+    }
+  ],
+  "license": {
+    "value": "Proprietary",
+    "source": "https://platform.moonshot.cn/docs",
+    "evidence": "https://api.moonshot.cn/v1"
+  },
+  "pricing_model": {
+    "value": "freemium AI assistant and paid developer API",
+    "source": "https://platform.moonshot.cn/docs",
+    "evidence": "https://api.moonshot.cn/v1/chat/completions"
+  },
+  "tiers": [
+    {
+      "name": "Free Web",
+      "price": "$0",
+      "gates": [
+        "Interactive web chat and agentic knowledge work assistant"
+      ],
+      "source": "https://kimi.ai",
+      "evidence": "Kimi AI with K3 | Built for Agentic Coding &amp; Knowledge Work"
+    }
+  ],
+  "free_tier_limits": [
+    {
+      "limit": "Developer API access requires token billing with Moonshot API key",
+      "source": "https://platform.moonshot.cn/docs",
+      "evidence": "api_key  =  os.environ[  &quot;MOONSHOT_API_KEY&quot;  ]"
+    }
+  ],
+  "account_required": {
+    "value": true,
+    "source": "https://platform.moonshot.cn/docs",
+    "evidence": "api_key  =  os.environ[  &quot;MOONSHOT_API_KEY&quot;  ]"
+  },
+  "telemetry": {
+    "value": "UNKNOWN",
+    "source": null
+  },
+  "platforms": {
+    "value": [
+      "Web"
+    ],
+    "source": "https://kimi.ai",
+    "evidence": "Kimi AI with K3 | Built for Agentic Coding &amp; Knowledge Work"
+  },
+  "self_host": {
+    "required": false,
+    "requirements": "Cloud-hosted AI model platform by Moonshot AI; self-hosting unavailable",
+    "source": "https://platform.moonshot.cn/docs",
+    "evidence": "https://api.moonshot.cn/v1"
+  },
+  "last_release": {
+    "version": "UNKNOWN",
+    "date": "UNKNOWN",
+    "source": null
+  },
+  "activity": {
+    "commits_last_90d": "UNKNOWN",
+    "query": "Proprietary cloud AI platform by Moonshot AI; commits not publicly tracked",
+    "capped": false,
+    "source": null
+  },
+  "status": {
+    "value": "active",
+    "source": "https://platform.moonshot.cn/docs",
+    "evidence": "model:   &quot;kimi-k3&quot;"
+  },
+  "conflict": false,
+  "notes_for_writer": [
+    "Built by Moonshot AI featuring long-context reasoning models (Kimi K3)",
+    "Offers web assistant interface and developer API compatible with OpenAI SDK",
+    "Card on homepage links directly to kimi.com"
+  ]
+}
