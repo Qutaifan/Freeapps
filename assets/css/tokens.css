@@ -1,0 +1,50 @@
+/*
+ * assets/css/tokens.css — THEHUB expanded design-token system.
+ *
+ * ADDITIVE ONLY. This file is linked in <head> BEFORE the existing inline
+ * <style> block in index.html, so every token here is available to (and can
+ * be overridden by) the inline styles that already exist.
+ *
+ * Do NOT redeclare --bg-base, --surface-*, --accent-cyan, --accent-blue,
+ * --accent-green, --border-subtle*, --text-*, --radius-*, --font-* here —
+ * those already live in index.html's inline :root block and stay the single
+ * source of truth for them. This file only adds tokens that did not exist
+ * before: motion easing/durations, a spacing scale, glass/depth tokens, and
+ * one new sparingly-used accent (violet) for the neon glass look.
+ */
+:root {
+  /* ---- Motion ---- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-medium: 300ms;
+  --duration-slow: 600ms;
+
+  /* ---- Spacing scale (additive; existing rem values elsewhere are untouched) ---- */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+
+  /* ---- New accent: ultraviolet ----
+     Additional accent only, used sparingly in glows/gradients alongside the
+     existing cyan/blue/green tokens — it does not replace their meaning. */
+  --accent-violet: #B026FF;
+  --accent-magenta: #FF2FD4;
+
+  /* ---- Glass / depth tokens ---- */
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-bg-strong: rgba(255, 255, 255, 0.07);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(176, 38, 255, 0.35);
+  --glass-blur: 20px;
+  --glass-blur-sm: 10px;
+
+  --glow-cyan: 0 0 24px rgba(0, 240, 255, 0.35);
+  --glow-violet: 0 0 28px rgba(176, 38, 255, 0.35);
+  --glow-cyan-violet: 0 8px 30px rgba(0, 0, 0, 0.45), 0 0 22px rgba(0, 240, 255, 0.18), 0 0 32px rgba(176, 38, 255, 0.14);
+}
