@@ -130,7 +130,12 @@ function main() {
   const reviewUrlsCount = siteUrls.filter(u => u.url.includes('/reviews/') && u.url !== `${DOMAIN}/reviews/`).length;
   console.log(`Found ${siteUrls.length} indexable URLs sitewide (${reviewUrlsCount} review pages).`);
 
-  if (currentXml === generatedXml) {
+  // Normalise line endings before comparing. This file is written with LF, but
+  // core.autocrlf checks it out as CRLF on Windows, so a raw byte compare would
+  // always report "changes detected" (one byte per line) even when in sync.
+  const normalizeEol = (s) => s.replace(/\r\n/g, '\n');
+
+  if (normalizeEol(currentXml) === normalizeEol(generatedXml)) {
     console.log('✅ sitemap.xml is already 100% up-to-date and in sync.');
     return;
   }
