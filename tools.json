@@ -2266,7 +2266,7 @@
     ],
     "pricing": "open-source",
     "badges": [
-      "MIT",
+      "Custom licence",
       "Local RAM"
     ],
     "url": "https://openwebui.com",
@@ -2466,7 +2466,7 @@
     ],
     "pricing": "open-source",
     "badges": [
-      "GPL-3.0",
+      "MIT",
       "Local RAM"
     ],
     "url": "https://github.com/Stirling-Tools/Stirling-PDF",
