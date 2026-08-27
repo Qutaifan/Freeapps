@@ -8,10 +8,17 @@
  * - Filters out noindex pages sitewide (matches lifecycle indexability sync).
  * - Formats 200 canonical URLs correctly (directory index.html -> trailing slash, single .html -> extensionless).
  * - Idempotent output with verification metrics.
+ *
+ * lastmod is the file's real last-commit date, from git - NOT today's date.
+ * Stamping TODAY on every URL made this script report drift every single day, and
+ * an --apply would have told Google all 84 pages changed today when they had not.
+ * A sitemap that inflates freshness is a spam signal, and Google discounts lastmod
+ * it cannot trust. Do not reintroduce a global date constant here.
  */
 
 const fs = require('fs');
 const path = require('path');
+const { execFileSync } = require('child_process');
 
 const ROOT_DIR = path.resolve(__dirname, '..');
 const SITEMAP_PATH = path.join(ROOT_DIR, 'sitemap.xml');
@@ -19,6 +26,25 @@ const DOMAIN = 'https://www.qutaifan.com';
 
 const IS_APPLY = process.argv.includes('--apply');
 const TODAY = new Date().toISOString().split('T')[0];
+
+// Real last-modified date per file, from git. Cached: one git call per file, and
+// the same file is never resolved twice. Falls back to TODAY only for a file git
+// does not know about (a brand-new page not yet committed).
+const lastModCache = new Map();
+function getLastMod(relPath) {
+  const key = relPath.split(path.sep).join('/');
+  if (lastModCache.has(key)) return lastModCache.get(key);
+  let date = TODAY;
+  try {
+    const out = execFileSync('git', ['log', '-1', '--format=%cs', '--', key],
+      { cwd: ROOT_DIR, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+    if (/^\d{4}-\d{2}-\d{2}$/.test(out)) date = out;
+  } catch (err) {
+    // git unavailable or file untracked - keep TODAY
+  }
+  lastModCache.set(key, date);
+  return date;
+}
 
 function isNoIndex(filePath) {
   try {
@@ -89,7 +115,7 @@ function collectSiteUrls() {
         const canonicalUrl = getCanonicalUrl(relPath);
         if (canonicalUrl) {
           const { priority, changefreq } = getPriorityAndFreq(canonicalUrl);
-          urls.push({ url: canonicalUrl, priority, changefreq });
+          urls.push({ url: canonicalUrl, priority, changefreq, lastmod: getLastMod(relPath) });
         }
       }
     }
@@ -110,7 +136,7 @@ function collectSiteUrls() {
 function buildSitemapXml(urls) {
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
   for (const p of urls) {
-    xml += `  <url>\n    <loc>${p.url}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>${p.changefreq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>\n`;
+    xml += `  <url>\n    <loc>${p.url}</loc>\n    <lastmod>${p.lastmod}</lastmod>\n    <changefreq>${p.changefreq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>\n`;
   }
   xml += `</urlset>\n`;
   return xml;
@@ -142,7 +168,7 @@ function main() {
 
   if (!IS_APPLY) {
     console.log('⚠️ Changes detected! Re-run with --apply to write to sitemap.xml.');
-    console.log(`Current size: ${currentXml.length} bytes -> Generated size: ${generatedXml.length} bytes`);
+    console.log(`Current: ${normalizeEol(currentXml).length} bytes -> Generated: ${normalizeEol(generatedXml).length} bytes (line endings normalised, so this is a real content difference)`);
     return;
   }
 
