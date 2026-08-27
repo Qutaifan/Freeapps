@@ -51,7 +51,7 @@ BANNER_CSS_LINE_PAT = re.compile(r"^[ \t]*#cookie-banner[^\n]*$", re.M)
 
 def body_words(text: str) -> int:
     """Rendered visible word count - same method as the project's hard-rule-4
-    counter (scripts/fix_review_truthfulness.py)."""
+    counter (scripts/archive/fix_review_truthfulness.py)."""
     s = re.sub(r"(?is)<script.*?</script>", " ", text)
     s = re.sub(r"(?is)<style.*?</style>", " ", s)
     s = re.sub(r"(?is)<head.*?</head>", " ", s)

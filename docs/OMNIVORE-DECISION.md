@@ -2,7 +2,7 @@
 
 **Date:** 2026-08-22  
 **Status:** Awaiting Editorial & Product Decision  
-**Spec Reference:** `MASTER-REMEDIATION-SPEC-V2.md` §5 (T2 & T3)
+**Spec Reference:** `archive/MASTER-REMEDIATION-SPEC-V2.md` §5 (T2 & T3)
 
 ---
 

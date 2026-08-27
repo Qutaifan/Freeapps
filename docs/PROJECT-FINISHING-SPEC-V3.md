@@ -209,7 +209,7 @@ Gate must exit 0. One PR.
 
 ### T4 — Remaining broken-route tools
 
-`docs/BROKEN-ROUTES-TRIAGE.md` triaged 22 routes: **16 WRITE-REVIEW, 4 REMOVE-ROUTE,
+`docs/archive/BROKEN-ROUTES-TRIAGE.md` triaged 22 routes: **16 WRITE-REVIEW, 4 REMOVE-ROUTE,
 2 NEEDS-HUMAN-DECISION** (16+4+2 = 22).
 
 Three REMOVE-ROUTE entries are handled by PR #25. The fourth is `omnivore` — part of T1.
