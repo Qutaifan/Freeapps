@@ -188,3 +188,38 @@ git push -u origin fix/short-description
 | Quality gates | `.github/scripts/` |
 | Workflows | `.github/workflows/` |
 | Full project context | `MY-NOTES/THEHUB/` *(vault, not committed)* |
+
+---
+
+## 10. Directory map
+
+<!-- Generated: 2026-08-27 | Updated: 2026-08-27 -->
+
+Each directory below carries its own `AGENTS.md` with local rules. Read the one for
+the directory you are about to touch — the hard rules above still apply everywhere.
+
+| Directory | Purpose |
+|---|---|
+| `.agents/` | Mirror of `.claude/skills/` for non-Claude agent runners (see `.agents/AGENTS.md`) |
+| `.claude/` | Claude Code project config and installed skills (see `.claude/AGENTS.md`) |
+| `.github/` | CI: quality gates and workflows (see `.github/AGENTS.md`) |
+| `_next/` | Abandoned Next.js static payload — generated, do not edit (see `_next/AGENTS.md`) |
+| `author/` | E-E-A-T editorial-board page (see `author/AGENTS.md`) |
+| `docs/` | Remediation specs, agent reports, fact sheets (see `docs/AGENTS.md`) |
+| `fonts/` | Self-hosted Inter variable font (see `fonts/AGENTS.md`) |
+| `freeapps-components/` | **Dead weight.** Never deployed (see `freeapps-components/AGENTS.md`) |
+| `how-to/` | How-to guide pages (see `how-to/AGENTS.md`) |
+| `reviews/` | 139 tool review pages + hub index (see `reviews/AGENTS.md`) |
+| `scripts/` | Maintenance and generator scripts (see `scripts/AGENTS.md`) |
+| `vs/` | Head-to-head comparison pages (see `vs/AGENTS.md`) |
+| `MY-NOTES/` | Obsidian vault — **separate git repo, gitignored, no `AGENTS.md` written here.** See §0 |
+
+Single-page route directories (`best-free-photo-graphic-design-tools-2026/`,
+`free-ai-prompt-generator/`) hold one `index.html` each and have no `AGENTS.md`;
+they follow the pillar-page rules in §3 and §5.
+
+**These `AGENTS.md` files deploy.** `robots.txt` disallows `/*/AGENTS.md` so they are
+not indexed. If you add a new one in a directory that is served, confirm the disallow
+still covers it.
+
+<!-- MANUAL: notes added below this line are preserved on regeneration -->

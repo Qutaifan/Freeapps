@@ -218,7 +218,7 @@ def check_conflicting_indexability_directives(site_root: Path, domain: str = DOM
 
 def _visible_words(html_fragment: str) -> int:
     """Rendered visible word count for a fragment — same method the project's
-    hard-rule-4 counter uses (scripts/fix_review_truthfulness.py body_words),
+    hard-rule-4 counter uses (scripts/archive/fix_review_truthfulness.py body_words),
     so the 400-word spacing rule is measured the way the 2026-08-16 audit
     measured it."""
     s = re.sub(r"(?is)<script.*?</script>", " ", html_fragment)

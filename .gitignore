@@ -26,3 +26,6 @@ __pycache__/
 # Raw cached HTTP responses from fact-gathering. Third-party page content -
 # never commit to a public repo. Evidence substrings live in the .json sheets.
 docs/facts/_fetches/
+
+# OMC session state - local tooling scratch, never site content
+.omc/
