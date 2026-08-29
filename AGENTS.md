@@ -137,7 +137,7 @@ Branch protection on `main`: PR required, bypass disabled, **Compliance** and **
 
 ## 7. Environment and commands
 
-- Windows, PowerShell. Working directory `Q:\world\Projects\Freeapps`.
+- Windows, PowerShell. Working directory `Q:\world\Projects\thehub` (the folder is `thehub`; the GitHub repository is `Qutaifan/Freeapps`).
 - **Use `python`, not `python3`** — the latter hits a Microsoft Store shim on this machine. CI runs Ubuntu where `python3` is correct; do not "fix" the workflows to match local.
 - Maintenance scripts live in `scripts/`. Quality gates live in `.github/scripts/` — the workflows hardcode that path.
 - `.gitattributes` sets `*.html text eol=lf`. CRLF warnings on other file types are harmless.
@@ -193,7 +193,7 @@ git push -u origin fix/short-description
 
 ## 10. Directory map
 
-<!-- Generated: 2026-08-27 | Updated: 2026-08-27 -->
+<!-- Generated: 2026-08-27 | Updated: 2026-08-29 -->
 
 Each directory below carries its own `AGENTS.md` with local rules. Read the one for
 the directory you are about to touch — the hard rules above still apply everywhere.
@@ -205,11 +205,13 @@ the directory you are about to touch — the hard rules above still apply everyw
 | `.github/` | CI: quality gates and workflows (see `.github/AGENTS.md`) |
 | `_next/` | Abandoned Next.js static payload — generated, do not edit (see `_next/AGENTS.md`) |
 | `author/` | E-E-A-T editorial-board page (see `author/AGENTS.md`) |
+| `css/` | Sitewide stylesheets — `site.css` + `motion.css` (see `css/AGENTS.md`) |
 | `docs/` | Remediation specs, agent reports, fact sheets (see `docs/AGENTS.md`) |
 | `fonts/` | Self-hosted Inter variable font (see `fonts/AGENTS.md`) |
 | `freeapps-components/` | **Dead weight.** Never deployed (see `freeapps-components/AGENTS.md`) |
 | `how-to/` | How-to guide pages (see `how-to/AGENTS.md`) |
-| `reviews/` | 139 tool review pages + hub index (see `reviews/AGENTS.md`) |
+| `js/` | `motion.js` — the sitewide progressive-enhancement layer (see `js/AGENTS.md`) |
+| `reviews/` | 138 tool review pages + hub index (see `reviews/AGENTS.md`) |
 | `scripts/` | Maintenance and generator scripts (see `scripts/AGENTS.md`) |
 | `vs/` | Head-to-head comparison pages (see `vs/AGENTS.md`) |
 | `MY-NOTES/` | Obsidian vault — **separate git repo, gitignored, no `AGENTS.md` written here.** See §0 |
