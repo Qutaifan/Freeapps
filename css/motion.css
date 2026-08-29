@@ -1,0 +1,1019 @@
+/* ==========================================================================
+   THEHUB — motion.css
+   The immersive layer: ambient field, floating cards, kinetic type, reveals.
+
+   Paired with /js/motion.js, which injects the ambient markup and drives the
+   pointer-reactive custom properties. Everything here is progressive
+   enhancement:
+
+     - the page is complete and readable with this file and its JS removed
+     - nothing animates before <html class="js"> is set, so a failed script
+       never leaves content hidden
+     - every effect is transform/opacity only, so nothing here can shift
+       layout or cost CLS
+     - the whole layer collapses under prefers-reduced-motion
+
+   Custom properties written by JS:
+     --mx / --my    pointer position within an element, 0–100%
+     --rx / --ry    tilt rotation, deg
+     --px / --py    pointer position within the viewport, 0–100%
+     --scroll       document scroll progress, 0–1
+     --i            stagger index on a revealed child
+   ========================================================================== */
+
+
+/* 01  AMBIENT FIELD ======================================================
+   A fixed, non-interactive backdrop sitting behind all content. Injected
+   into every page by motion.js as .fx-field.
+   ======================================================================== */
+
+.fx-field {
+  position: fixed; inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  contain: strict;
+}
+
+/* Perspective grid — the floor of the space, drifting slowly toward the
+   viewer. Two layers at different scales give it depth. */
+.fx-grid {
+  position: absolute; inset: -50%;
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.055) 1px, transparent 1px);
+  background-size: 64px 64px;
+  transform: perspective(620px) rotateX(62deg) translateY(calc(var(--scroll, 0) * -160px));
+  transform-origin: 50% 100%;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 42%, #000 20%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 42%, #000 20%, transparent 78%);
+  opacity: 0.55;
+  animation: fxGridDrift 24s linear infinite;
+}
+.fx-grid.fx-grid-fine {
+  background-size: 16px 16px;
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.035) 1px, transparent 1px);
+  opacity: 0.4;
+  animation-duration: 38s;
+  animation-direction: reverse;
+}
+@keyframes fxGridDrift {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 0 64px, 64px 0; }
+}
+
+/* Aurora — slow, wide colour masses. These carry most of the "depth" and
+   cost nothing but a couple of composited layers. */
+.fx-aurora {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.5;
+  will-change: transform;
+}
+.fx-aurora-1 {
+  width: 46vw; height: 46vw; min-width: 380px; min-height: 380px;
+  top: -14vw; left: 8vw;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.28), transparent 68%);
+  animation: fxDrift1 28s ease-in-out infinite;
+}
+.fx-aurora-2 {
+  width: 40vw; height: 40vw; min-width: 320px; min-height: 320px;
+  top: 26vh; right: 2vw;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.20), transparent 68%);
+  animation: fxDrift2 34s ease-in-out infinite;
+}
+.fx-aurora-3 {
+  width: 34vw; height: 34vw; min-width: 280px; min-height: 280px;
+  bottom: -10vw; left: 32vw;
+  background: radial-gradient(circle, rgba(14, 116, 144, 0.30), transparent 68%);
+  animation: fxDrift3 42s ease-in-out infinite;
+}
+@keyframes fxDrift1 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(6vw, 5vh, 0) scale(1.14); }
+}
+@keyframes fxDrift2 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1.08); }
+  50%      { transform: translate3d(-7vw, -4vh, 0) scale(0.92); }
+}
+@keyframes fxDrift3 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(0.96); }
+  50%      { transform: translate3d(4vw, -6vh, 0) scale(1.16); }
+}
+
+/* A single horizontal sweep, slow enough to read as a scanning instrument
+   rather than a loading bar. */
+.fx-scan {
+  position: absolute; left: 0; right: 0; height: 42vh;
+  background: linear-gradient(to bottom,
+    transparent,
+    rgba(34, 211, 238, 0.035) 42%,
+    rgba(34, 211, 238, 0.06) 50%,
+    rgba(34, 211, 238, 0.035) 58%,
+    transparent);
+  animation: fxScan 13s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+}
+@keyframes fxScan {
+  0%       { transform: translateY(-45vh); opacity: 0; }
+  12%, 88% { opacity: 1; }
+  100%     { transform: translateY(145vh); opacity: 0; }
+}
+
+/* Pointer halo — the field lights up faintly around the cursor. */
+.fx-halo {
+  position: absolute; inset: 0;
+  background: radial-gradient(560px circle at var(--px, 50%) var(--py, 40%),
+    rgba(34, 211, 238, 0.075), transparent 62%);
+  transition: opacity 0.4s ease;
+}
+
+.fx-vignette {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 100% 80% at 50% 40%, transparent 42%, rgba(0, 0, 0, 0.55));
+}
+
+
+/* 02  SCROLL PROGRESS ==================================================== */
+
+.fx-progress {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 2px; z-index: 2000;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent-cyan) 55%, var(--accent-blue));
+  transform: scaleX(var(--scroll, 0));
+  transform-origin: 0 50%;
+  box-shadow: 0 0 14px rgba(34, 211, 238, 0.65);
+}
+
+
+/* 03  FLOATING CARDS =====================================================
+   Applied by motion.js to every card on the site. The card tilts toward the
+   pointer, a sheen tracks it across the surface, and the border lights on the
+   side the pointer is nearest.
+   ======================================================================== */
+
+.fx-card {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.5s var(--ease), border-color 0.3s ease, box-shadow 0.4s ease;
+}
+.fx-card.is-tilting {
+  transition: border-color 0.3s ease, box-shadow 0.4s ease;
+  transform:
+    perspective(900px)
+    rotateX(var(--rx, 0deg))
+    rotateY(var(--ry, 0deg))
+    translate3d(0, -3px, 0);
+}
+.fx-card.is-tilting {
+  border-color: rgba(34, 211, 238, 0.45);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.55),
+    0 0 32px rgba(34, 211, 238, 0.14);
+}
+
+/* Sheen — a soft light that follows the pointer across the card face. */
+.fx-sheen {
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(34, 211, 238, 0.14), transparent 60%);
+}
+.fx-card.is-tilting .fx-sheen { opacity: 1; }
+
+/* Edge — a hairline that brightens where the pointer is. */
+.fx-edge {
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  padding: 1px;
+  background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(103, 232, 249, 0.75), rgba(34, 211, 238, 0.12) 45%, transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+.fx-card.is-tilting .fx-edge { opacity: 1; }
+
+/* Anything marked as lifting inside a tilting card rides above the surface. */
+.fx-card .fx-lift { transform: translateZ(28px); }
+
+
+/* 03b  CARD INSTRUMENT CHROME ============================================
+   Cards read as instrument panels rather than boxes: a HUD bracket at each
+   corner, a scanline that passes once on approach, and tags that light in
+   sequence.
+
+   All of it hangs off .fx-sheen, which motion.js injects and nothing else
+   styles — so these pseudo-elements cannot collide with the per-page CSS that
+   still uses ::before/::after on .card and .bento-card.
+
+   Every rule below is duplicated for :focus-within so a keyboard user gets
+   the same treatment as a mouse user, not a dead card.
+   ======================================================================== */
+
+/* Corner brackets, drawn as eight hairline gradients — no extra DOM. */
+.fx-sheen::before {
+  content: '';
+  position: absolute; inset: 9px;
+  border-radius: 6px;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--accent-cyan) 0 0) left  top   / 11px 1px no-repeat,
+    linear-gradient(var(--accent-cyan) 0 0) left  top   / 1px 11px no-repeat,
+    linear-gradient(var(--accent-cyan) 0 0) right top   / 11px 1px no-repeat,
+    linear-gradient(var(--accent-cyan) 0 0) right top   / 1px 11px no-repeat,
+    linear-gradient(var(--accent-cyan) 0 0) left  bottom/ 11px 1px no-repeat,
+    linear-gradient(var(--accent-cyan) 0 0) left  bottom/ 1px 11px no-repeat,
+    linear-gradient(var(--accent-cyan) 0 0) right bottom/ 11px 1px no-repeat,
+    linear-gradient(var(--accent-cyan) 0 0) right bottom/ 1px 11px no-repeat;
+  opacity: 0;
+  transform: scale(0.965);
+  transition: opacity 0.3s var(--ease), transform 0.45s var(--ease);
+}
+.fx-card:hover .fx-sheen::before,
+.fx-card:focus-within .fx-sheen::before { opacity: 0.9; transform: scale(1); }
+
+/* A single scan pass on approach. */
+.fx-sheen::after {
+  content: '';
+  position: absolute; left: 0; right: 0; top: 0;
+  height: 2px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.85), transparent);
+  box-shadow: 0 0 16px rgba(34, 211, 238, 0.55);
+  opacity: 0;
+}
+.fx-card:hover .fx-sheen::after,
+.fx-card:focus-within .fx-sheen::after { animation: fxScanCard 1.15s var(--ease); }
+@keyframes fxScanCard {
+  0%        { opacity: 0; top: 0%; }
+  14%       { opacity: 1; }
+  86%       { opacity: 1; }
+  100%      { opacity: 0; top: 100%; }
+}
+
+/* Tags light in sequence rather than all at once — it reads as a readout
+   coming up rather than a hover state flipping. */
+.fx-card .card-tag {
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+.fx-card:hover .card-tag,
+.fx-card:focus-within .card-tag {
+  color: var(--accent-cyan);
+  border-color: rgba(34, 211, 238, 0.32);
+  background: rgba(34, 211, 238, 0.07);
+}
+.fx-card:hover .card-tag:nth-child(1), .fx-card:focus-within .card-tag:nth-child(1) { transition-delay: 0.02s; }
+.fx-card:hover .card-tag:nth-child(2), .fx-card:focus-within .card-tag:nth-child(2) { transition-delay: 0.07s; }
+.fx-card:hover .card-tag:nth-child(3), .fx-card:focus-within .card-tag:nth-child(3) { transition-delay: 0.12s; }
+.fx-card:hover .card-tag:nth-child(4), .fx-card:focus-within .card-tag:nth-child(4) { transition-delay: 0.17s; }
+
+/* The card's primary action answers to the whole card, not just to itself. */
+.fx-card:hover .btn-try-tool,
+.fx-card:focus-within .btn-try-tool {
+  border-color: rgba(34, 211, 238, 0.55);
+  color: var(--accent-cyan);
+  background: var(--accent-wash);
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.12);
+}
+
+/* Licence chip stops reading as muted furniture while the card is live. */
+.fx-card:hover .card-license-badge,
+.fx-card:focus-within .card-license-badge {
+  color: var(--text-secondary);
+  border-color: rgba(34, 211, 238, 0.28);
+}
+
+
+/* 03c  SAVE CONTROL ======================================================
+   Wired to the bookmark store that already existed in the page but had never
+   been attached to anything. Class-based, never inline styles: an inline
+   style here would outrank the tilt transform the same way the category
+   filter's did.
+   ======================================================================== */
+
+.btn-save {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem; font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s var(--ease);
+}
+.btn-save:hover { color: var(--accent-cyan); border-color: rgba(34, 211, 238, 0.45); background: var(--accent-wash); }
+.btn-save:active { transform: scale(0.94); }
+.btn-save .btn-save-star { transition: transform 0.35s var(--ease); }
+.btn-save:hover .btn-save-star { transform: rotate(72deg) scale(1.18); }
+
+.btn-save.is-saved {
+  color: var(--accent-cyan);
+  border-color: rgba(34, 211, 238, 0.55);
+  background: var(--accent-wash-2);
+}
+.btn-save.is-saved .btn-save-star { transform: rotate(144deg); }
+
+/* The action bar now carries two controls plus the star count. */
+.card-action-bar .card-actions { display: inline-flex; align-items: center; gap: 0.5rem; }
+
+
+/* 04  MAGNETIC CONTROLS ==================================================
+   Buttons drift a few pixels toward the pointer as it approaches.
+   ======================================================================== */
+
+.fx-magnetic {
+  position: relative;
+  transition: transform 0.45s var(--ease), box-shadow 0.3s ease;
+  will-change: transform;
+}
+.fx-magnetic.is-pulled {
+  transition: transform 0.12s linear, box-shadow 0.3s ease;
+  transform: translate3d(var(--dx, 0px), var(--dy, 0px), 0) scale(1.04);
+}
+
+
+/* 05  SCROLL REVEAL ======================================================
+   Only armed once <html class="js"> is set, so content is never hidden on a
+   page whose JS failed to run.
+   ======================================================================== */
+
+.js .fx-reveal {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  filter: blur(6px);
+  transition:
+    opacity 0.7s var(--ease),
+    transform 0.7s var(--ease),
+    filter 0.7s var(--ease);
+  transition-delay: calc(var(--i, 0) * 65ms);
+}
+.js .fx-reveal.is-in {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+
+/* 06  KINETIC HEADLINE ===================================================
+   motion.js splits the headline into word spans, each inside a clipping mask,
+   and they rise into place from below the line.
+
+   The words never drop below opacity 1. A headline is usually the LCP element
+   on these pages, and fading it in would push Largest Contentful Paint out by
+   the length of the animation. Clipping instead of fading keeps the paint
+   immediate and the motion intact.
+   ======================================================================== */
+
+.fx-kinetic { display: inline; }
+.fx-word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.06em;   /* room for descenders inside the clip */
+  margin-bottom: -0.06em;
+}
+.fx-kinetic .fx-word {
+  display: inline-block;
+  white-space: pre;
+}
+.js .fx-kinetic .fx-word {
+  transform: translate3d(0, 105%, 0);
+  transition: transform 0.85s var(--ease);
+  transition-delay: calc(var(--i, 0) * 55ms);
+}
+.js .fx-kinetic.is-in .fx-word { transform: none; }
+
+/* The accent run inside a headline gets a slow light sweep. */
+.fx-shimmer {
+  background: linear-gradient(100deg,
+    var(--accent-cyan) 0%,
+    var(--accent-blue) 28%,
+    #E0F7FF 46%,
+    var(--accent-blue) 64%,
+    var(--accent-cyan) 100%);
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fxShimmer 7s ease-in-out infinite;
+}
+@keyframes fxShimmer {
+  0%, 100% { background-position: 100% 50%; }
+  50%      { background-position: 0% 50%; }
+}
+
+
+/* 07  COUNTERS AND TERMINAL ============================================== */
+
+.fx-count { font-variant-numeric: tabular-nums; }
+
+.fx-caret::after {
+  content: '';
+  display: inline-block;
+  width: 0.6ch; height: 1.05em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.8);
+  animation: fxBlink 1.05s steps(2, start) infinite;
+}
+@keyframes fxBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+
+/* 08  LIVE STATUS DOT ==================================================== */
+
+.fx-pulse-dot {
+  position: relative;
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--pos);
+  box-shadow: 0 0 10px var(--pos);
+  flex: 0 0 auto;
+}
+.fx-pulse-dot::after {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  background: var(--pos);
+  animation: fxPing 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes fxPing {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  80%  { transform: scale(3.2); opacity: 0; }
+  100% { transform: scale(3.2); opacity: 0; }
+}
+
+
+/* 09  TICKER ============================================================= */
+
+/* Breaks an element out of its container to the full viewport width. Used for
+   the ticker, which reads as an instrument rail rather than page content.
+
+   --vw is written by motion.js from documentElement.clientWidth. The obvious
+   `100vw` is wrong here: on any platform with a classic overlay-free
+   scrollbar, 100vw includes the scrollbar's width, so a full-bleed element
+   ends up wider than the content box and gives the page a few pixels of
+   horizontal scroll. Measured at 8px on a 390px viewport before this fix.
+   100vw remains the fallback for a page where the script has not run. */
+.fx-bleed {
+  width: var(--vw, 100vw);
+  margin-left: calc(50% - var(--vw, 100vw) / 2);
+  margin-right: calc(50% - var(--vw, 100vw) / 2);
+}
+
+.fx-ticker {
+  position: relative;
+  overflow: hidden;
+  border-block: 1px solid var(--border-subtle);
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.035), transparent);
+  padding: 0.7rem 0;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.fx-ticker-track {
+  display: flex;
+  gap: 2.5rem;
+  width: max-content;
+  animation: fxMarquee 46s linear infinite;
+}
+.fx-ticker:hover .fx-ticker-track { animation-play-state: paused; }
+.fx-ticker-item {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.fx-ticker-item b { color: var(--text-secondary); font-weight: 600; }
+.fx-ticker-item::before {
+  content: '';
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 8px rgba(34, 211, 238, 0.9);
+}
+@keyframes fxMarquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+
+/* 02a  LANDING SEQUENCE ==================================================
+   The homepage boots in four beats: the logo ignites, the headline lands, the
+   field bursts outward and rushes in to fill the screen, then the rest of the
+   page settles in.
+
+   Two rules make this safe to ship on a page that earns money:
+
+   1. NOTHING HAS A HIDDEN BASE STATE. Every element's normal CSS leaves it
+      visible. The sequence works purely through `animation: … both` scoped to
+      `html.is-intro`, and every keyframe track ENDS at the element's natural
+      appearance. So a script that dies mid-sequence, a stalled frame, or a
+      browser that ignores the class all leave a complete page — the animation
+      simply finishes on its own and the fill mode holds the final state.
+      Removing `.is-intro` at any moment also snaps everything to normal.
+
+   2. IT GETS OUT OF THE WAY. motion.js drops `.is-intro` on the first scroll,
+      pointer or key event, so a reader who wants to move is never held in an
+      animation. It is also never armed under prefers-reduced-motion.
+
+   Cost: the headline is usually the LCP element, and gating it behind the
+   logo pushes its paint out by ~0.4s. That is the deliberate price of the
+   sequence — the delays below are kept tight for exactly this reason.
+   ======================================================================== */
+
+/* --- beat 1: the logo ignites ------------------------------------------- */
+
+.is-intro .brand-lockup {
+  animation: introLockup 0.62s var(--ease) 0.04s both;
+}
+@keyframes introLockup {
+  0%   { opacity: 0; transform: scale(0.82); filter: blur(6px); }
+  55%  { opacity: 1; }
+  100% { opacity: 1; transform: none; filter: none; }
+}
+
+/* The mark itself spins up out of nothing. Applied to the slot so it works
+   whether the SVG has been injected yet or the fallback <img> is still there. */
+.is-intro .brand-mark-slot,
+.is-intro .brand-mark {
+  animation: introMark 0.78s cubic-bezier(0.2, 1.1, 0.3, 1) 0.06s both;
+}
+@keyframes introMark {
+  0%   { opacity: 0; transform: scale(0.3) rotate(-160deg); }
+  60%  { opacity: 1; }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+/* The wordmark wipes in just behind the mark. */
+.is-intro .brand-text {
+  animation: introWord 0.5s var(--ease) 0.3s both;
+}
+@keyframes introWord {
+  0%   { opacity: 0; transform: translateX(-10px); letter-spacing: 0.14em; }
+  100% { opacity: 1; transform: none; letter-spacing: -0.02em; }
+}
+
+/* --- beat 2: the headline lands ---------------------------------------- */
+
+/* Rides the existing kinetic word split — only the timing changes, so the
+   mechanism and its clipping masks stay exactly as they are. Tightened from
+   the resting 0.85s/55ms so the line finishes landing (~1.4s) before the field
+   bursts, instead of the two beats running over each other.
+
+   Qualified with `html` on purpose. The resting rule further down this file,
+   `.js .fx-kinetic .fx-word`, has the SAME specificity (0,3,0) and comes
+   LATER in source order, so an unqualified `.is-intro …` selector loses and
+   the headline lands immediately with no delay at all. `html.is-intro` is
+   (0,3,1) and wins regardless of order. */
+html.is-intro .fx-kinetic .fx-word {
+  transition-duration: 0.62s;
+  transition-delay: calc(0.55s + var(--i, 0) * 45ms);
+}
+
+/* --- beat 4: everything else settles in --------------------------------
+   Beat 3 is the field burst, which is canvas work and lives in motion.js
+   (delay 1.00s, duration 1.05s). These begin at 1.50s — after the headline has
+   landed and while the field is rushing in — so the page assembles onto a
+   background that is already arriving, rather than competing with it. */
+
+.is-intro .hero-status      { animation: introRise 0.5s var(--ease) 1.50s both; }
+.is-intro .hero-subtext     { animation: introRise 0.5s var(--ease) 1.56s both; }
+.is-intro .hero-command     { animation: introRise 0.5s var(--ease) 1.62s both; }
+.is-intro .hero-cta-group   { animation: introRise 0.5s var(--ease) 1.68s both; }
+.is-intro .hero-stats-strip { animation: introRise 0.5s var(--ease) 1.74s both; }
+.is-intro .hero-cue         { animation: introRise 0.5s var(--ease) 1.88s both; }
+.is-intro .hero-hud         { animation: introFade 0.7s  var(--ease) 1.55s both; }
+
+.is-intro .navbar-fixed .search-trigger-btn { animation: introRise 0.45s var(--ease) 1.55s both; }
+.is-intro .navbar-fixed .nav-right-actions  { animation: introRise 0.45s var(--ease) 1.62s both; }
+
+@keyframes introRise {
+  0%   { opacity: 0; transform: translate3d(0, 14px, 0); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes introFade {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* The navbar shell itself arrives before its contents. */
+.is-intro .navbar-fixed {
+  animation: introBar 0.6s var(--ease) both;
+}
+@keyframes introBar {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(-14px); }
+  100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Under reduced motion the sequence is never armed at all — see motion.js,
+   which strips .is-intro before first frame. This is belt and braces. */
+@media (prefers-reduced-motion: reduce) {
+  .is-intro .brand-lockup, .is-intro .brand-mark-slot, .is-intro .brand-mark,
+  .is-intro .brand-text, .is-intro .hero-status, .is-intro .hero-subtext,
+  .is-intro .hero-command, .is-intro .hero-cta-group, .is-intro .hero-stats-strip,
+  .is-intro .hero-cue, .is-intro .hero-hud, .is-intro .navbar-fixed,
+  .is-intro .navbar-fixed .search-trigger-btn,
+  .is-intro .navbar-fixed .nav-right-actions {
+    animation: none !important;
+  }
+  .is-intro .fx-kinetic .fx-word { transition-delay: 0s !important; }
+}
+
+
+/* 02b  BRAND MARK ========================================================
+   The mark motion.js injects: a core with satellites on spokes inside two
+   counter-rotating scan rings.
+
+   Idle motion is slow and continuous — the rings turn, the core breathes, the
+   satellites twinkle out of phase. It should read as something running, not
+   something demanding attention. Hover is where it comes alive: the rings
+   accelerate and reverse their balance, the spokes light outward in sequence,
+   and the core flares.
+
+   SVG needs `transform-box: fill-box` for transform-origin to mean the shape's
+   own box rather than the SVG viewport origin — without it every rotation
+   swings the geometry off-canvas.
+   ======================================================================== */
+
+.brand-mark-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 34px; height: 34px;
+}
+.brand-mark-svg {
+  width: 100%; height: 100%;
+  overflow: visible;   /* the glow and the ring's hover scale spill past the box */
+  display: block;
+}
+
+/* Matches the <img> mark's own small-screen size in site.css. It has to live
+   here: motion.css loads after site.css, so the unconditional rule above would
+   otherwise beat a media query written over there. */
+@media (max-width: 640px) {
+  .brand-mark-slot { width: 26px; height: 26px; }
+}
+
+.brand-mark-svg .hub-ring,
+.brand-mark-svg .hub-core,
+.brand-mark-svg .hub-core-halo,
+.brand-mark-svg .hub-glow,
+.brand-mark-svg .hub-node,
+.brand-mark-svg .hub-spoke {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Rings turn at different rates and opposite directions — the counter-motion
+   is what stops it reading as a spinner. */
+.brand-mark-svg .hub-ring-outer { animation: hubSpin 22s linear infinite; }
+.brand-mark-svg .hub-ring-mid   { animation: hubSpin 15s linear infinite reverse; }
+@keyframes hubSpin { to { transform: rotate(360deg); } }
+
+/* The core breathes. */
+.brand-mark-svg .hub-core { animation: hubCoreBeat 3.6s ease-in-out infinite; }
+@keyframes hubCoreBeat {
+  0%, 100% { transform: scale(1);    opacity: 0.92; }
+  50%      { transform: scale(1.14); opacity: 1; }
+}
+.brand-mark-svg .hub-core-halo { animation: hubHalo 3.6s ease-in-out infinite; }
+@keyframes hubHalo {
+  0%, 100% { transform: scale(0.94); opacity: 0.35; }
+  50%      { transform: scale(1.08); opacity: 0.7; }
+}
+.brand-mark-svg .hub-glow { animation: hubGlow 5.5s ease-in-out infinite; }
+@keyframes hubGlow {
+  0%, 100% { opacity: 0.5; transform: scale(0.92); }
+  50%      { opacity: 1;   transform: scale(1.06); }
+}
+
+/* Satellites twinkle out of phase so the ring never pulses as one unit. */
+.brand-mark-svg .hub-node { animation: hubTwinkle 4.2s ease-in-out infinite; }
+.brand-mark-svg .hub-node:nth-of-type(1) { animation-delay: 0s; }
+.brand-mark-svg .hub-node:nth-of-type(2) { animation-delay: 0.7s; }
+.brand-mark-svg .hub-node:nth-of-type(3) { animation-delay: 1.4s; }
+.brand-mark-svg .hub-node:nth-of-type(4) { animation-delay: 2.1s; }
+.brand-mark-svg .hub-node:nth-of-type(5) { animation-delay: 2.8s; }
+.brand-mark-svg .hub-node:nth-of-type(6) { animation-delay: 3.5s; }
+@keyframes hubTwinkle {
+  0%, 100% { opacity: 0.45; transform: scale(0.82); }
+  50%      { opacity: 1;    transform: scale(1.22); }
+}
+
+.brand-mark-svg .hub-spoke {
+  opacity: 0.34;
+  transition: opacity 0.3s var(--ease), stroke-width 0.3s var(--ease);
+}
+
+/* --- hover: the mark spins up ------------------------------------------ */
+
+.brand-lockup:hover .brand-mark-svg .hub-ring-outer { animation-duration: 5s; }
+.brand-lockup:hover .brand-mark-svg .hub-ring-mid   { animation-duration: 3.2s; }
+.brand-lockup:hover .brand-mark-svg .hub-core       { animation-duration: 1.1s; }
+.brand-lockup:hover .brand-mark-svg .hub-core-halo  { animation-duration: 1.1s; }
+.brand-lockup:hover .brand-mark-svg .hub-node       { animation-duration: 1.4s; }
+.brand-lockup:hover .brand-mark-svg .hub-glow       { animation-duration: 1.8s; }
+
+/* Spokes light outward in sequence rather than all at once. */
+.brand-lockup:hover .brand-mark-svg .hub-spoke { opacity: 1; stroke-width: 1.5; }
+.brand-lockup:hover .brand-mark-svg .hub-spoke:nth-of-type(1) { transition-delay: 0.00s; }
+.brand-lockup:hover .brand-mark-svg .hub-spoke:nth-of-type(2) { transition-delay: 0.05s; }
+.brand-lockup:hover .brand-mark-svg .hub-spoke:nth-of-type(3) { transition-delay: 0.10s; }
+.brand-lockup:hover .brand-mark-svg .hub-spoke:nth-of-type(4) { transition-delay: 0.15s; }
+.brand-lockup:hover .brand-mark-svg .hub-spoke:nth-of-type(5) { transition-delay: 0.20s; }
+.brand-lockup:hover .brand-mark-svg .hub-spoke:nth-of-type(6) { transition-delay: 0.25s; }
+
+/* No overflow clipping on the lockup: the mark's glow and the ring scale
+   deliberately spill past the SVG box. Only the wordmark clips, for its sweep. */
+.brand-lockup.has-svg-mark .brand-mark-slot {
+  transition: transform 0.5s var(--ease);
+}
+.brand-lockup.has-svg-mark:hover .brand-mark-slot { transform: scale(1.07); }
+
+/* The light sweeps THROUGH the wordmark rather than over it.
+
+   An overlay sweep would need overflow:hidden on .brand-text to clip it, and
+   that also clips the drop-shadow glow on .hub-highlight — which showed up as
+   a hard rectangular edge around the wordmark where the glow was cut off.
+   Driving the existing background-clip:text gradient instead needs no
+   clipping at all, and the hover simply speeds the same animation up, the way
+   the rings do. */
+.brand-lockup.has-svg-mark .brand-text .hub-highlight {
+  background-size: 220% 100%;
+  animation: fxShimmer 9s ease-in-out infinite;
+}
+.brand-lockup.has-svg-mark:hover .brand-text .hub-highlight {
+  animation-duration: 1.5s;
+}
+
+
+/* 09b  HERO SCROLL DESCENT ==============================================
+   A short scroll-driven opening: the hero holds still while the field it
+   sits in travels toward the reader, then hands off to the page.
+
+   Two rules govern everything here, both learned the hard way:
+
+   1. Scroll drives DEPTH AND MOTION, never REVEAL. Every element of the hero
+      is fully visible at every scroll position within the stage. A stage that
+      only makes sense at one exact progress value reads as broken at all the
+      others, and cannot be scrolled to fix.
+   2. Pinning is CONDITIONAL. `is-pinned` is added by motion.js only after it
+      measures that the composition actually fits the viewport. On a short
+      window — a 2530x500 desktop, a 393x610 in-app phone browser — a sticky
+      stage taller than the viewport clips content with no way to reach it, so
+      there the hero simply stays in normal flow and keeps the ambient motion.
+
+   --hero is the 0..1 progress through the track, written by motion.js.
+   --hero-exit is the last stretch of it, used only to hand off to the page.
+   ======================================================================== */
+
+.hero-scroll-track { position: relative; }
+
+.js .hero-scroll-track.is-pinned { height: 230vh; }
+.js .hero-scroll-track.is-pinned > .hero-immersive {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5.5rem;   /* clearance for the floating navbar */
+  padding-bottom: 2rem;
+}
+
+/* Parallax layers. Small offsets on purpose — the depth comes from the field
+   behind, not from throwing the type around. */
+.js .is-pinned .hero-status       { transform: translate3d(0, calc(var(--hero, 0) * -22px), 0); }
+.js .is-pinned .hero-kinetic-headline {
+  transform: translate3d(0, calc(var(--hero, 0) * -46px), 0)
+             scale(calc(1 - var(--hero, 0) * 0.045));
+}
+.js .is-pinned .hero-subtext      { transform: translate3d(0, calc(var(--hero, 0) * -62px), 0); }
+.js .is-pinned .hero-command      { transform: translate3d(0, calc(var(--hero, 0) * -78px), 0); }
+.js .is-pinned .hero-cta-group    { transform: translate3d(0, calc(var(--hero, 0) * -92px), 0); }
+.js .is-pinned .hero-stats-strip  { transform: translate3d(0, calc(var(--hero, 0) * -108px), 0); }
+
+/* The handoff: only the final stretch of the track dims the stage, and only
+   once the reader is already leaving it. */
+.js .is-pinned > .hero-immersive { opacity: calc(1 - var(--hero-exit, 0) * 0.85); }
+
+/* HUD frame — an instrument bezel around the stage that opens as you scroll. */
+.hero-hud {
+  position: absolute;
+  inset: 4.5rem 0.5rem 1rem;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-hud span {
+  position: absolute;
+  width: 26px; height: 26px;
+  border: 1px solid rgba(34, 211, 238, 0.45);
+  opacity: 0.75;
+  transition: opacity 0.4s ease;
+}
+.hero-hud span:nth-child(1) { top: 0;    left: 0;  border-right: 0; border-bottom: 0; border-radius: 5px 0 0 0; }
+.hero-hud span:nth-child(2) { top: 0;    right: 0; border-left: 0;  border-bottom: 0; border-radius: 0 5px 0 0; }
+.hero-hud span:nth-child(3) { bottom: 0; left: 0;  border-right: 0; border-top: 0;    border-radius: 0 0 0 5px; }
+.hero-hud span:nth-child(4) { bottom: 0; right: 0; border-left: 0;  border-top: 0;    border-radius: 0 0 5px 0; }
+/* The bezel widens slightly as the field travels — a lens opening. */
+.js .is-pinned .hero-hud span { transform: translate3d(calc(var(--hud, 0) * var(--hx, 0px)), calc(var(--hud, 0) * var(--hy, 0px)), 0); }
+.js .is-pinned .hero-hud span:nth-child(1) { --hx: -10px; --hy: -8px; }
+.js .is-pinned .hero-hud span:nth-child(2) { --hx:  10px; --hy: -8px; }
+.js .is-pinned .hero-hud span:nth-child(3) { --hx: -10px; --hy:  8px; }
+.js .is-pinned .hero-hud span:nth-child(4) { --hx:  10px; --hy:  8px; }
+
+/* Scroll cue — present only while there is travel left, and it never hides
+   anything: it sits below the composition in its own space. */
+/* The stage is pinned for a full viewport of travel, so this is the only
+   thing telling the reader there is more below. It has to be legible. */
+.hero-cue {
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  margin-top: 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text-secondary);
+  opacity: calc(1 - var(--hero, 0) * 2.6);
+  pointer-events: none;
+}
+.hero-cue i {
+  display: block;
+  width: 2px; height: 30px;
+  border-radius: 1px;
+  background: linear-gradient(to bottom, transparent, var(--accent-cyan));
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+  animation: fxCue 2.1s ease-in-out infinite;
+}
+@keyframes fxCue {
+  0%, 100% { transform: scaleY(0.4); opacity: 0.3; transform-origin: 50% 0; }
+  50%      { transform: scaleY(1);   opacity: 1;   transform-origin: 50% 0; }
+}
+/* Not pinned means no travel to cue. */
+.hero-scroll-track:not(.is-pinned) .hero-cue { display: none; }
+
+
+/* 10  FILTERED GRID ======================================================
+   State for the homepage category filter. Deliberately class-based: setting
+   an inline `transform` here would outrank the tilt rule in .fx-card and
+   permanently kill the effect on any card that had been filtered.
+   ======================================================================== */
+
+.fx-filter-out {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0) scale(0.97);
+  pointer-events: none;
+}
+.fx-filter-hidden { display: none !important; }
+.fx-filter-in {
+  transition:
+    opacity 0.45s var(--ease),
+    transform 0.45s var(--ease);
+  transition-delay: calc(var(--i, 0) * 40ms);
+}
+
+
+/* 11  CONSTELLATION CANVAS ==============================================
+   Homepage hero only. Sized by JS; kept behind hero content.
+   ======================================================================== */
+
+/* The canvas is authored inside the hero so a page opts in by including it,
+   but motion.js relocates it into .fx-field on boot. .fx-field is fixed and
+   inset:0, so the field becomes genuinely full-viewport instead of being
+   boxed into the hero's 1320px column, and it keeps travelling behind the
+   whole page rather than ending where the hero ends.
+
+   It dims as the descent completes: full strength behind the hero, quiet
+   behind the content below, so cards and body copy stay readable. --field is
+   written by motion.js in both the pinned and unpinned cases. */
+.fx-canvas {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  opacity: calc(0.9 - var(--field, 0) * 0.62);
+}
+
+
+/* 11  MISC FLOURISHES ==================================================== */
+
+/* Corner brackets — a light instrument frame around a panel. */
+.fx-brackets { position: relative; }
+.fx-brackets::before,
+.fx-brackets::after {
+  content: '';
+  position: absolute;
+  width: 16px; height: 16px;
+  border: 1px solid rgba(34, 211, 238, 0.55);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.fx-brackets::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; border-radius: 4px 0 0 0; }
+.fx-brackets::after  { bottom: -1px; right: -1px; border-left: 0; border-top: 0; border-radius: 0 0 4px 0; }
+
+/* A hairline that draws itself in on reveal. */
+.fx-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+  transform: scaleX(0);
+  transform-origin: 50% 50%;
+  transition: transform 0.9s var(--ease);
+}
+.fx-rule.is-in { transform: scaleX(1); }
+
+/* Links that wipe an underline in rather than switching one on. */
+.fx-underline {
+  background-image: linear-gradient(var(--accent-cyan), var(--accent-cyan));
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s var(--ease);
+  text-decoration: none !important;
+}
+.fx-underline:hover { background-size: 100% 1px; }
+
+
+/* 12  REDUCED MOTION =====================================================
+   Everything above is decoration. Under prefers-reduced-motion the ambient
+   field stops moving, cards stop tilting, and revealed content is simply
+   present.
+   ======================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-grid, .fx-grid-fine, .fx-aurora, .fx-scan,
+  .fx-ticker-track, .fx-shimmer, .fx-pulse-dot::after, .fx-caret::after,
+  .fx-sheen::after, .hero-cue i {
+    animation: none !important;
+  }
+  /* Corner brackets stay, they just appear rather than scale in. */
+  .fx-sheen::before { transition: none !important; transform: none !important; }
+  .fx-card .card-tag { transition: none !important; }
+  .fx-card:hover .card-tag, .fx-card:focus-within .card-tag { transition-delay: 0s !important; }
+  .btn-save, .btn-save .btn-save-star { transition: none !important; }
+  .fx-scan { display: none; }
+  .fx-card, .fx-card.is-tilting { transform: none !important; }
+  .fx-magnetic, .fx-magnetic.is-pulled { transform: none !important; }
+  .js .fx-reveal,
+  .js .fx-kinetic .fx-word {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  .fx-rule { transform: scaleX(1); }
+  .fx-canvas { display: none; }
+
+  /* The mark keeps its geometry and stops moving. Spokes are shown at full
+     strength so it does not read as a half-drawn logo. */
+  .brand-mark-svg .hub-ring-outer, .brand-mark-svg .hub-ring-mid,
+  .brand-mark-svg .hub-core, .brand-mark-svg .hub-core-halo,
+  .brand-mark-svg .hub-glow, .brand-mark-svg .hub-node,
+  .brand-lockup.has-svg-mark .brand-text .hub-highlight,
+  .brand-lockup.has-svg-mark .brand-text::after {
+    animation: none !important;
+  }
+  .brand-mark-svg .hub-node { opacity: 0.9; }
+  .brand-mark-svg .hub-spoke { opacity: 0.75; transition: none !important; }
+  .brand-lockup.has-svg-mark .brand-mark-slot { transition: none !important; transform: none !important; }
+
+  /* No pinned descent, no parallax. The hero is an ordinary section. */
+  .js .hero-scroll-track.is-pinned { height: auto !important; }
+  .js .hero-scroll-track.is-pinned > .hero-immersive {
+    position: static !important;
+    min-height: 0 !important;
+    opacity: 1 !important;
+  }
+  .js .is-pinned .hero-status,
+  .js .is-pinned .hero-kinetic-headline,
+  .js .is-pinned .hero-subtext,
+  .js .is-pinned .hero-command,
+  .js .is-pinned .hero-cta-group,
+  .js .is-pinned .hero-stats-strip,
+  .js .is-pinned .hero-hud span { transform: none !important; }
+  .hero-cue { display: none !important; }
+  .hero-cue i { animation: none !important; }
+}
+
+/* Coarse pointers get no tilt, no magnetism and no pointer halo — there is no
+   hover state to drive them and they cost battery for nothing. */
+@media (hover: none), (pointer: coarse) {
+  .fx-card, .fx-card.is-tilting { transform: none !important; }
+  .fx-sheen, .fx-edge, .fx-halo { display: none; }
+  .fx-magnetic, .fx-magnetic.is-pulled { transform: none !important; }
+}
